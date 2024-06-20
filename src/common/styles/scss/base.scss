@@ -21,7 +21,12 @@
 @font-face {
   font-family: "Kangwon";
   font-weight: 400;
-  src: url("@/fonts/강원교육모두 Light.ttf") format("kangwon");
+  src: url("@/fonts/강원교육모두 Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "BMHANNAPro";
+  font-weight: 700;
+  src: ulr("@/fonts/BMHANNAPro.ttf") format("truetype")
 }
 //css 초기화
 html,
