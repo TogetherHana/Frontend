@@ -1,5 +1,5 @@
 import Footer from "@/layouts/Footer";
-import RootLayout from "@/layouts/RootLayout";
+import NonFooter from "@/layouts/NonFooter";
 import Home from "@/pages/Home";
 import Main from "@/pages/Main";
 import Mileage from "@/pages/Mileage";
@@ -37,12 +37,12 @@ const router = createBrowserRouter([
       },  
     ]
   },  
-  // {
-  //   path: "/",
-  //   element: <RootLayout />,
+  {
+    path: "/main",
+    element: <NonFooter />,
 
-  //   children: [{ index: true, element: <Main/> }]
-  // },  
+    children: [{ index: true, element: <Main/> }]
+  },  
 ]);
 
 export default router;

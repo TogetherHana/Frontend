@@ -1,22 +1,23 @@
 {
-    "compilerOptions": {
-      "baseUrl": ".", // 현재 디렉토리를 기준으로
-      "moduleResolution": "node",
-      "checkJs": true,
-      "jsx": "react",
-      "target": "es6",
-      "module": "es2015",
-      "paths": {
-        "@/*": ["./src/*", "./dist/*", ""],
-        "pages/*": ["src/pages/*"],
-        "components/*": ["src/components/*"],
-        "types/*": ["src/@types/*"],
-        "public/*": ["public/*"]
-      }
-    },
-    "include": ["src"],
-    "exclude": ["node_modules"]
-  }
+  "compilerOptions": {
+    "baseUrl": ".",
+    "moduleResolution": "node",
+    "checkJs": true,
+    "jsx": "react",
+    "target": "es6",
+    "module": "es2015",
+    "paths": {
+      "@/*": ["./src/*", "./dist/*", ""],
+      "pages/*": ["src/pages/*"],
+      "components/*": ["src/components/*"],
+      "types/*": ["src/@types/*"],
+      "public/*": ["public/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
+
 
 //   {
 //     "compilerOptions": {
