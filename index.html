@@ -1,13 +1,36 @@
-<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+    <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="application-name" content="&nbsp;" />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="/icons/mstile-144x144.png" />
+    <meta
+      name="msapplication-square70x70logo"
+      content="/icons/mstile-70x70.png"
+    />
+    <meta
+      name="msapplication-square150x150logo"
+      content="/icons/mstile-150x150.png"
+    />
+    <meta
+      name="msapplication-wide310x150logo"
+      content="/icons/mstile-310x150.png"
+    />
+    <meta
+      name="msapplication-square310x310logo"
+      content=" /icons/mstile-310x310.png"
+    />
+    <!-- 웹앱 매니페스트의 색상 테마를 지원하지 않는 브라우저에도 색상 테마 지원하기 위해 추가 -->
+    <meta name="theme-color" content="#7C61FF" />
+    <!-- iOS 상단바 스타일 지정 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <title>Vite + React</title>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="src/main.jsx"></script>
   </body>
 </html>
