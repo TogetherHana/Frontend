@@ -1,5 +1,7 @@
 import Footer from "@/layouts/Footer";
 import NonFooter from "@/layouts/NonFooter";
+import Cheering from "@/pages/Cheering";
+import Baseball from "@/pages/Cheering/baseball_index";
 import Home from "@/pages/Home";
 import Main from "@/pages/Main";
 import Mileage from "@/pages/Mileage";
@@ -17,31 +19,36 @@ const router = createBrowserRouter([
       {
         path: "/",
         children: [
-          { index: true, element: <Home /> },
-          { path: ":testId", element: <Main /> }
+          { index: true, element: <Home /> },         
         ]
       },  
       {
         path: "mileage",
         children: [
-          { index: true, element: <Mileage /> },
-          { path: ":testId", element: <Main /> }
+          { index: true, element: <Mileage /> },         
         ]
       },      
       {
         path: "event",
         children: [
-          { index: true, element: <SystemEvent /> },
-          { path: ":testId", element: <Main /> }
+          { index: true, element: <SystemEvent /> },          
         ]
       },  
     ]
   },  
   {
-    path: "/main",
+    path: "/",
     element: <NonFooter />,
 
-    children: [{ index: true, element: <Main/> }]
+    children: [
+      {
+        path: "/choice/team",
+        children: [
+          { index: true, element: <Cheering /> },      
+          { path: ":baseball", element: <Baseball />}    
+        ]
+      },  
+    ]
   },  
 ]);
 
