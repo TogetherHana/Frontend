@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import "../RootLayout/style.scss";
+import "../NonFooter/style.scss";
 
 const Footer = () => {
   const locationNow = useLocation();
