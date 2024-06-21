@@ -10,7 +10,7 @@ function NonFooter() {
         <main className="main-content">
           <Outlet />
         </main>
-      </div>      
+      </div>
     </div>
   );
 }

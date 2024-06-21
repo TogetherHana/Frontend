@@ -30,8 +30,8 @@ export default defineConfig({
         additionalData: `@use "@/common/styles/scss/_var.scss" as *;`
       }
     }
-  }
-  ,server:{
-    host:"0.0.0.0",
+  },
+  server: {
+    host: "0.0.0.0"
   }
 });

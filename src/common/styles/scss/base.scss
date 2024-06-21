@@ -23,6 +23,16 @@
   font-weight: 400;
   src: url("@/fonts/강원교육모두 Light.ttf") format("kangwon");
 }
+@font-face {
+  font-family: "BMHanna";
+  font-weight: 400;
+  src: url("@/fonts/BMHANNA_11yrs_ttf.ttf") format("truetype");
+}
+@font-face {
+  font-family: "NotoSans";
+  font-weight: 400;
+  src: url("@/fonts/NotoSansKR-Regular.ttf") format("truetype");
+}
 //css 초기화
 html,
 body,

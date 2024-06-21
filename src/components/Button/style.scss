@@ -1,59 +1,59 @@
 // styles/button.scss
 .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem 1rem;
-    border: none;
-    cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
 
-    font-family: "NanumSquareRoundB";
-    font-weight: 700;
+  font-family: "NanumSquareRoundB";
+  font-weight: 700;
 
-    border-radius: 10px;
+  border-radius: 25px;
 
-    transition:
-      background-color 0.3s,
-      border-color 0.3s,
-      color 0.3s;
-  
-    &.btn-default {
-      background-color: transparent;
-      color: #333;
-      border-radius: 0;
-    }
-  
-    &.btn-primary {
-      background-color: $color-primary1;
-      color: #fff;
-    }
-  
-    &.btn-large {
-      height: 50px;
-      width: 361px;
-    }
-  
+  transition:
+    background-color 0.3s,
+    border-color 0.3s,
+    color 0.3s;
+
+  &.btn-default {
+    background-color: transparent;
+    color: #333;
+    border-radius: 0;
+  }
+
+  &.btn-primary {
+    background-color: $color-primary1;
+    color: #fff;
+  }
+
+  &.btn-large {
+    height: 50px;
+    width: 361px;
+  }
+
   //   &.btn-capsule {
   //     border-radius: 999px;
   //   }
-  
+
   //   &.btn-none {
   //     border-radius: 0px;
   //   }
   //   &.btn-rect {
   //     border-radius: 5px;
   //   }
-  
+
   //   &.btn-loading {
   //     pointer-events: none;
   //     opacity: 0.6;
   //   }
-  
+
   //   &:disabled {
   //     pointer-events: none;
   //     opacity: 0.65;
   //   }
-  
+
   //   .spinner {
   //     margin-right: 0.5rem;
   //     width: 1rem;
@@ -63,14 +63,14 @@
   //     border-radius: 50%;
   //     animation: spin 0.75s linear infinite;
   //   }
-  
+
   //   .icon {
   //     margin-right: 0.5rem;
   //     display: inline-flex;
   //     align-items: center;
   //   }
   // }
-  
+
   // @keyframes spin {
   //   0% {
   //     transform: rotate(0deg);
@@ -78,5 +78,4 @@
   //   100% {
   //     transform: rotate(360deg);
   //   }
-  }
-  
+}

@@ -1,0 +1,150 @@
+// register
+.registerMain {
+  @apply grid place-items-center overflow-y-scroll;
+  height: 100vh;
+}
+
+// id-verification
+.idVerification {
+  font-family: "BMHanna";
+  font-size: 30px;
+  @apply my-5 grid place-items-center;
+
+  &.detail {
+    font-family: "NotoSans";
+    font-size: 20px;
+    color: #616161;
+    opacity: 0.62;
+  }
+
+  &.btn {
+    margin: 0;
+    font-family: "NanumSquareRoundR";
+    font-size: 20px;
+  }
+
+  &.below {
+    margin: 0.5rem;
+    font-family: "NotoSans";
+    font-size: 15px;
+    color: rgba(97, 97, 97, 0.72);
+  }
+
+  &.main {
+    position: fixed;
+    top: 129px;
+    left: 50px;
+  }
+
+  &.img {
+    position: fixed;
+    top: 369px;
+    left: 26px;
+  }
+}
+
+// userinfo
+.userInfoDiv {
+  position: fixed;
+  top: 163px;
+  left: 53px;
+}
+
+.userInfo {
+  font-family: "BMHanna";
+  font-size: 30px;
+  @apply m-5;
+}
+
+.userInfoInput {
+  border: none;
+  border-bottom: 1px solid #c6c6c6;
+  background-color: #f2f2f2;
+  font-family: "NotoSans";
+  font-size: 20px;
+  padding-left: 1rem;
+  width: 8rem;
+
+  &.address {
+    width: 16rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.userInfoInputText {
+  font-family: "NotoSans";
+  font-size: 15px;
+  @apply my-5;
+}
+
+.userinfobtnLocation {
+  position: fixed;
+  top: 770px;
+  left: 34px;
+}
+
+// select stock
+.selectStockMain {
+  position: fixed;
+  top: 151px;
+  left: 60px;
+}
+
+.selectStockInfo {
+  font-family: "BMHanna";
+  font-size: 30px;
+}
+
+.selectStockDiv {
+  position: fixed;
+  top: 273px;
+  left: 39px;
+}
+
+.stockDiv {
+  // @apply shadow-sm;
+  width: 353px;
+  height: 92px;
+  display: flex;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin-bottom: 48px;
+}
+
+.stockImg {
+  margin-left: 21px;
+}
+
+.stockName {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  font-family: "BMHanna";
+  font-size: 30px;
+}
+
+.termsInfo1 {
+  position: fixed;
+  top: 113px;
+  left: 42px;
+  font-family: "BMHanna";
+  font-size: 25px;
+}
+
+.termsInfo2 {
+  position: fixed;
+  top: 151px;
+  left: 42px;
+  font-family: "BMHanna";
+  font-size: 30px;
+}
+
+.termsInfo3 {
+  position: fixed;
+  top: 197px;
+  left: 42px;
+  font-family: "NotoSans";
+  font-size: 15px;
+  color: rgba(97, 97, 97, 0.72);
+}

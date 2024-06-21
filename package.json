@@ -21,6 +21,7 @@
     "@react-pdf-viewer/toolbar": "^3.12.0",
     "@tanstack/react-query": "^5.37.1",
     "@tanstack/react-query-devtools": "^5.36.0",
+    "autoprefixer": "^10.4.19",
     "axios": "^1.6.8",
     "browser-image-compression": "^2.0.2",
     "chart.js": "^4.4.3",
@@ -33,6 +34,7 @@
     "highcharts-react-official": "^3.2.1",
     "jotai": "^2.8.1",
     "msw": "^2.3.0",
+    "postcss": "^8.4.38",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
@@ -44,6 +46,8 @@
     "react-slick": "^0.30.2",
     "redis": "^4.6.14",
     "slick-carousel": "^1.8.1",
+    "tailwindcss": "^3.4.4",
+    "tailwindcss-safe-area": "^0.5.1",
     "ws": "^8.17.0"
   },
   "devDependencies": {
