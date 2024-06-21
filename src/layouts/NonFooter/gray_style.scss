@@ -1,4 +1,4 @@
-.root-layout {
+.gray-layout {
   display: flex;
   flex-direction: column;
 
@@ -33,7 +33,7 @@
 
 .main-content {
   flex-grow: 1;
-  padding: 20px;
+  // padding: 20px;
   overflow-y: auto;
 }
 

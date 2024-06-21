@@ -1,10 +1,10 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import "./style.scss";
+import "./gray_style.scss";
 
-function NonFooter() {
+function GrayNonFooter() {
   return (
-    <div className="root-layout">
+    <div className="gray-layout">
       <div className="root-content">
         <header></header>
         <main className="main-content">
@@ -15,4 +15,4 @@ function NonFooter() {
   );
 }
 
-export default NonFooter;
+export default GrayNonFooter;

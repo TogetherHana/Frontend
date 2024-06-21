@@ -6,9 +6,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    
+    padding: 20px;
 
     font-family: "NanumSquareRoundB";
     font-weight: 700;
+    font-size: 20px;
 
     .back {
       width: 10%;
@@ -30,14 +33,13 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
-      width: 76px;
-      height: 76px;
-      opacity: 0.3; /* Adjust the opacity to make the logo less intrusive */
+      width: 200px;
+      height: 200px;
+      opacity: 0.1; /* Adjust the opacity to make the logo less intrusive */
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: -1; /* Ensure the logo is behind the text */
+      transform: translate(-50%, -50%);      
     }
 
     .text-overlay {
