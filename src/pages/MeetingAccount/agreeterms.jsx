@@ -16,6 +16,7 @@ function AgreeTerms() {
           모임 통장 개설을 위해 약관에 동의해주세요
         </div>
         {/* 약관 동의 화면 */}
+        <div className="termsDiv">개인정보 이용 동의</div>
       </div>
       {/* 약관 동의하기 버튼 */}
       <VerificationBtn params={termsParams} />

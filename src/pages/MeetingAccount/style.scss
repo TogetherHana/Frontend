@@ -21,6 +21,7 @@
     margin: 0;
     font-family: "NanumSquareRoundR";
     font-size: 20px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
 
   &.below {
@@ -124,6 +125,7 @@
   font-size: 30px;
 }
 
+// agree terms
 .termsInfo1 {
   position: fixed;
   top: 113px;
@@ -147,4 +149,15 @@
   font-family: "NotoSans";
   font-size: 15px;
   color: rgba(97, 97, 97, 0.72);
+}
+
+.termsDiv {
+  position: fixed;
+  top: 245px;
+  left: 37px;
+  width: 353px;
+  height: 471px;
+  background-color: white;
+  border-radius: 25px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
