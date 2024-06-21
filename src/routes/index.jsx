@@ -1,11 +1,17 @@
-import Footer from "@/layouts/Footer";
-import NonFooter from "@/layouts/NonFooter";
+import GrayFooter from "@/layouts/Footer/gray_footer";
+import GrayNonFooter from "@/layouts/NonFooter/gray_nonfooter";
+import GreenNonFooter from "@/layouts/NonFooter/green_nonfooter";
+import Cheering from "@/pages/Cheering";
+import Baseball from "@/pages/Cheering/baseball_index";
+import FeeCollect from "@/pages/CollectingFee/fee_collect";
+import FeeInput from "@/pages/CollectingFee/fee_input";
 import Home from "@/pages/Home";
 import Main from "@/pages/Main";
 import IdVerification from "@/pages/MeetingAccount/idverification";
 import Register from "@/pages/MeetingAccount/register";
 import Mileage from "@/pages/Mileage";
 import SystemEvent from "@/pages/SystemEvent";
+import Test from "@/pages/TestTest";
 import UserInfo from "@/pages/MeetingAccount/userinfo";
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
@@ -15,37 +21,35 @@ import AgreeTerms from "@/pages/MeetingAccount/agreeterms";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Footer />,
+    element: <GrayFooter />,
 
     children: [
       {
         path: "/",
-        children: [
-          { index: true, element: <Home /> },
-          { path: ":testId", element: <Main /> }
-        ]
+        children: [{ index: true, element: <Home /> }]
       },
       {
         path: "mileage",
-        children: [
-          { index: true, element: <Mileage /> },
-          { path: ":testId", element: <Main /> }
-        ]
+        children: [{ index: true, element: <Mileage /> }]
       },
       {
         path: "event",
-        children: [
-          { index: true, element: <SystemEvent /> },
-          { path: ":testId", element: <Main /> }
-        ]
+        children: [{ index: true, element: <SystemEvent /> }]
       }
     ]
   },
   {
     path: "/",
-    element: <NonFooter />,
+    element: <GrayNonFooter />,
 
     children: [
+      {
+        path: "choice/team",
+        children: [
+          { index: true, element: <Cheering /> },
+          { path: ":baseball", element: <Baseball /> }
+        ]
+      },
       {
         path: "maccount/register",
         children: [
@@ -79,6 +83,20 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <AgreeTerms /> },
           { path: ":testId", element: <Main /> }
+        ]
+      }
+    ]
+  },
+  {
+    path: "/",
+    element: <GreenNonFooter />,
+
+    children: [
+      {
+        path: "fee",
+        children: [
+          { index: true, element: <FeeInput /> },
+          { path: ":collect", element: <FeeCollect /> }
         ]
       }
     ]

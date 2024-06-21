@@ -1,0 +1,93 @@
+.collect-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding: 20px;
+
+    font-family: "NanumSquareRoundB";
+    font-weight: 700;
+    font-size: 20px;
+
+    .back {
+      width: 10%;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    .title {
+      font-family: "BMHANNAPro";
+      font-weight: 900;
+      font-size: 30px;
+      width: 250px;
+    }
+
+    .character {      
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      position: relative;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+
+      &.Hanwha_second {
+        background-image: url(@/assets/images/characters/Hanwha_together.svg);
+      }
+      &.Kia_second {
+        background-image: url(@/assets/images/characters/Kia_together.svg);
+      }
+      &.Kiwoom_second {
+        background-image: url(@/assets/images/characters/Kiwoom_together.svg);
+      }
+      &.KT_second {
+        background-image: url(@/assets/images/characters/KT_together.svg);
+      }
+      &.LG_second {
+        background-image: url(@/assets/images/characters/LG_alone2.svg);
+      }
+      &.Lions_second {
+        background-image: url(@/assets/images/characters/Lions_alone2.svg);
+      }
+      &.Lotte_second {
+        background-image: url(@/assets/images/characters/Lotte_alone2.svg);
+      }
+      &.Nc_second {
+        background-image: url(@/assets/images/characters/nc_alone2.svg);
+      }
+      &.Ssg_second {
+        background-image: url(@/assets/images/characters/ssg_alone.svg);
+      }
+      &.Doosan_second {
+        background-image: url(@/assets/images/characters/ssg_alone.svg);
+      }
+    }
+  }
+
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .row-dummy {
+    width: 10%;
+  }
+
+  .col-dummy {
+    height: 100px;
+  }
+}
