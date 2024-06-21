@@ -1,7 +1,10 @@
-import Footer from "@/layouts/Footer";
-import NonFooter from "@/layouts/NonFooter";
+import GrayFooter from "@/layouts/Footer/gray_footer";
+import GrayNonFooter from "@/layouts/NonFooter/gray_nonfooter";
+import GreenNonFooter from "@/layouts/NonFooter/green_nonfooter";
 import Cheering from "@/pages/Cheering";
 import Baseball from "@/pages/Cheering/baseball_index";
+import FeeCollect from "@/pages/CollectingFee/fee_collect";
+import FeeInput from "@/pages/CollectingFee/fee_input";
 import Home from "@/pages/Home";
 import Main from "@/pages/Main";
 import Mileage from "@/pages/Mileage";
@@ -13,7 +16,7 @@ import { createBrowserRouter } from "react-router-dom";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Footer />,
+    element: <GrayFooter />,
 
     children: [
       {
@@ -38,14 +41,28 @@ const router = createBrowserRouter([
   },  
   {
     path: "/",
-    element: <NonFooter />,
+    element: <GrayNonFooter />,
 
     children: [
       {
-        path: "/choice/team",
+        path: "choice/team",
         children: [
           { index: true, element: <Cheering /> },      
           { path: ":baseball", element: <Baseball />}    
+        ]
+      },        
+    ]
+  },  
+  {
+    path: "/",
+    element: <GreenNonFooter />,
+
+    children: [      
+      {
+        path: "fee",
+        children: [
+          { index: true, element: <FeeInput /> },      
+          { path: ":collect", element: <FeeCollect />}    
         ]
       },  
     ]

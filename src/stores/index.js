@@ -1,4 +1,3 @@
-
 import { atom } from "jotai";
 
 
@@ -18,3 +17,9 @@ export const passwordRequestlModalAtom = atom(initialModalState);
 //메시지 모달
 export const messageModalAtom = atom(initialModalState);
 
+
+
+// 모임통장 회비걷기->수금요청 화면에서 캐릭터값1 전달하기
+
+// 모임통장 회비걷기->수금요청 화면에서 금액값 전달하기
+export const amountAtom = atom('');

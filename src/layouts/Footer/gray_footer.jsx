@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import "../NonFooter/style.scss";
+import "../NonFooter/gray_style.scss";
 
-const Footer = () => {
+const GrayFooter = () => {
   const locationNow = useLocation();
 
   return (
-    <div className="root-layout">
+    <div className="gray-layout">
       <main className="main-content">
         <Outlet />
       </main>
@@ -48,4 +48,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default GrayFooter;
