@@ -6,7 +6,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import "@/common/styles/scss/base.scss";
 import { Provider } from "jotai";
 import router from "./routes";
-import GlobalModal from "./components/Modal/indes";
+import GlobalModal from "./components/Modal";
 
 function App() {
   const queryClient = new QueryClient();
