@@ -9,6 +9,7 @@ import Home from "@/pages/Home";
 import Main from "@/pages/Main";
 import Mileage from "@/pages/Mileage";
 import SystemEvent from "@/pages/SystemEvent";
+import Test from "@/pages/TestTest";
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 

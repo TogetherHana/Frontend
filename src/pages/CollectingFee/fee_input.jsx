@@ -3,22 +3,29 @@ import "./fee_input.scss";
 import Button from "@/components/Button";
 import { useNavigate } from "react-router-dom";
 import { useAtom } from "jotai";
-import { amountAtom } from "@/stores";
+import { amountAtom, characterAtom } from "@/stores";
 
 const images = {
-  Hanwha: ["/images/characters/Hanwha_alone.svg", "/images/characters/Hanwha_together.svg"],
-  Kia: ["/images/characters/Kia_yellow.svg", "/images/characters/Kia_together.svg"],
-  Kiwoom: ["/images/characters/Kiwoom_alone.svg", "/images/characters/Kiwoom_together.svg"],
-  KT: ["/images/characters/KT_alone.svg", "/images/characters/KT_together.svg"],
-  LG: ["/images/characters/LG_alone1.svg", "/images/characters/LG_alone2.svg"],
-  Lions: ["/images/characters/Lions_alone1.svg", "/images/characters/Lions_alone2.svg"],
-  Lotte: ["/images/characters/Lotte_alone1.svg", "/images/characters/Lotte_alone2.svg"],
-  nc: ["/images/characters/nc_alone1.svg", "/images/characters/nc_alone2.svg"],
-  ssg: ["/images/characters/ssg_alone.svg", "/images/characters/ssg_alone.svg"],
-  Doosan: ["/images/characters/ssg_alone.svg", "/images/characters/ssg_alone.svg"],
+  Hanwha: ["Hanwha_first"],
+  Kia: ["Kia_first"],
+  Kiwoom: ["Kiwoom_first"],
+  KT: ["KT_first"],
+  LG: ["LG_first"],
+  Lions: ["Lions_first"],
+  Lotte: ["Lotte_first"],
+  nc: ["Nc_first"],
+  ssg: ["Ssg_first"],
+  Doosan: ["Ssg_first"]
 };
 
-const getRandomKey = () => (Math.random() < 0.5 ? "a" : "b");
+const getRandomKey = () => {
+  const keys = Object.keys(images);
+  return keys[Math.floor(Math.random() * keys.length)];
+};
+
+const getRandomImage = (key) => {
+  return images[key];
+};
 
 function FeeInput() {
   const navigate = useNavigate();
@@ -26,7 +33,7 @@ function FeeInput() {
   // 숫자입력
   const [inputValue, setInputValue] = useAtom(amountAtom);
   const BtnClick = (number) => {
-    setInputValue((prevValue) => {      
+    setInputValue((prevValue) => {
       const newValue = prevValue.replace(/,/g, "") + number; // Remove commas before adding new number
       return formatNumber(newValue);
     });
@@ -38,27 +45,48 @@ function FeeInput() {
     });
   };
   const resetClick = () => {
-    setInputValue('');
-  }  
+    setInputValue("");
+  };
+  const add5000 = () => {
+    setInputValue((prevValue) => {
+      const numericValue = parseInt(prevValue.replace(/,/g, ''), 10) || 0;
+      const newValue = numericValue + 5000;
+      return formatNumber(newValue.toString());
+    });
+  };
+  const add10000 = () => {
+    setInputValue((prevValue) => {
+      const numericValue = parseInt(prevValue.replace(/,/g, ''), 10) || 0;
+      const newValue = numericValue + 10000;
+      return formatNumber(newValue.toString());
+    });
+  };
+  const add50000 = () => {
+    setInputValue((prevValue) => {
+      const numericValue = parseInt(prevValue.replace(/,/g, ''), 10) || 0;
+      const newValue = numericValue + 50000;
+      return formatNumber(newValue.toString());
+    });
+  };
   const formatNumber = (value) => {
     return value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
-
   // 캐릭터 출력
-  const [key, setKey] = useState(getRandomKey());
-  const [index, setIndex] = useState(0);
+  const [randomImage, setRandomImage] = useState("");
+  const [randomImageKey, setRandomImageKey] = useAtom(characterAtom);
 
   useEffect(() => {
-    // 화면이 켜질 때마다 key와 index 초기화
-    const newKey = getRandomKey();
-    setKey(newKey);
-    setIndex(0);
+    const key = getRandomKey();
+    setRandomImageKey(key);
+    setRandomImage(getRandomImage(key));
   }, []);
 
-  const nextImage = () => {
-    setIndex((prevIndex) => (prevIndex + 1) % images[key].length);
-  };
+  useEffect(() => {
+    if (randomImageKey) {
+      setRandomImage(getRandomImage(randomImageKey));
+    }
+  }, [randomImageKey]);
 
   return (
     <>
@@ -70,12 +98,8 @@ function FeeInput() {
         </div>
 
         <div className="input-container">
-          <div className="character1">
-            {/* <div
-              className="image-container"
-              style={{ backgroundImage: `url(${images[key][index]})` }}
-            ></div>
-            <button onClick={nextImage}>Next Image</button> */}
+          <div className={`character ${randomImage}`}>
+            {/* <div className=""></div> */}
           </div>
           <div className="content">
             <div className="title">총 얼마 걷을래요?</div>
@@ -87,7 +111,13 @@ function FeeInput() {
               placeholder="걷을금액"
             />
           </div>
-        </div>       
+        </div>
+
+        <div className="btns">
+          <button className="btn" onClick={add5000}>+ 5천</button>
+          <button className="btn" onClick={add10000}>+ 1만</button>
+          <button className="btn" onClick={add50000}>+ 5만</button>
+        </div>
 
         <div className="num-container">
           <div className="num-line">
@@ -136,6 +166,7 @@ function FeeInput() {
           </div>
           <Button
             onClick={() => navigate("/fee/collect")}
+            disabled={!inputValue}
             style={{
               marginBottom: "15px",
               borderRadius: "20px"
