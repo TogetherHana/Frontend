@@ -1,5 +1,7 @@
 import React from "react";
+// @ts-ignore
 import advertisement1 from "@/assets/images/advertisement1.svg";
+// @ts-ignore
 import bankbook from "@/assets/images/bankbook.svg";
 import VerificationBtn from "@/components/MeetingAccount/IdVerification/verificationbtn";
 
