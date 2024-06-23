@@ -1,0 +1,272 @@
+.BeforeVote-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-image: url(@/assets/images/boatBackground.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding: 20px;
+    background-color: white;
+
+    font-family: "NanumSquareRoundB";
+    font-weight: 700;
+    font-size: 20px;
+
+    .back {
+      width: 10%;
+    }
+  }
+
+  .title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+    font-family: "BMHANNAPro";
+    font-weight: 900;
+    font-size: 40px;
+
+    padding: 20px;
+  }
+
+  .content-container {
+    // width: 100%;
+    // height: 100%;
+    // position: relative;
+    // background-image: url(@/assets/images/boatBackground.svg);
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // background-position: center center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    .ship-container {
+      padding-bottom: 80px;
+
+      width: 100%; /* 부모 컨테이너의 너비를 100%로 설정 */
+      display: flex;
+      justify-content: center; /* 중앙 정렬 */
+    }
+
+    .choose-info {
+      display: flex;
+      flex-direction: column;
+
+      width: 80%; /* 부모 컨테이너의 80% 너비 사용 */
+      box-sizing: border-box;
+
+      font-family: "BMHANNAPro";
+      font-weight: 900;
+
+      .choose {
+        display: flex;
+
+        font-size: 20px;
+
+
+
+        
+
+        // .radio_box {
+        //   display: inline-block;
+        //   *display: inline;
+        //   *zoom: 1;
+        //   position: relative;
+        //   padding-left: 25px;
+        //   margin-right: 10px;
+        //   cursor: pointer;
+        //   font-size: 14px;
+        //   -webkit-user-select: none;
+        //   -moz-user-select: none;
+        //   -ms-user-select: none;
+        //   user-select: none;
+        // }
+        // /* 기본 라디오 버튼 숨기기 */
+        // .radio_box input[type="radio"] {
+        //   display: none;
+        // }
+        // /* 선택되지 않은 라디오 버튼 스타일 꾸미기 */
+        // .on {
+        //   width: 20px;
+        //   height: 20px;
+        //   background: #ddd;
+        //   border-radius: 50%;
+        //   position: absolute;
+        //   top: 0;
+        //   left: 0;
+        // }
+        // /* 선택된 라디오 버튼 스타일 꾸미기 */
+        // .radio_box input[type="radio"]:checked + .on {
+        //   background: #f86480;
+        // }
+        // .on:after {
+        //   content: "";
+        //   position: absolute;
+        //   display: none;
+        // }
+        // .radio_box input[type="radio"]:checked + .on:after {
+        //   display: block;
+        // }
+        // .on:after {
+        //   width: 10px;
+        //   height: 10px;
+        //   background: #fff;
+        //   border-radius: 50%;
+        //   position: absolute;
+        //   left: 5px;
+        //   top: 5px;
+        // }
+
+
+
+
+        // input[type="radio"] {
+        //   display: none;
+        // }
+        // input[type="radio"]::before {
+        //   width: 20px;
+        //   height: 20px;
+        //   background: #ddd;
+        //   border-radius: 50%;
+        //   position: absolute;
+        //   top: 0;
+        //   left: 0;
+        // }
+        // /* 선택된 상태 */
+        // input[type="radio"]:checked {
+        //   background-color: $color-primary1; /* 선택된 상태의 배경색 (초록색) */
+        //   border-color: $color-primary1;
+        // }
+      }
+
+      .choose-container {
+        display: flex;
+        flex-direction: row;
+
+        .user-names {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          .user-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+
+            border: 2px solid black;
+            border-radius: 20px;
+            background-color: $color-background;
+            padding: 20px;
+            margin: 10px;
+            width: 120px;
+            height: 60px;
+
+            .user-profile {
+              width: 30px;
+              height: 30px;
+              position: relative;
+              background-image: url(@/assets/images/profile.svg);
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: center center;
+            }
+            .user-name {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+
+    .ship-container.odd .choose {
+      justify-content: flex-start;
+    }
+
+    .ship-container.odd .ship-img {
+      order: 1;
+
+      width: 170px;
+      height: 170px;
+      position: relative;
+      background-image: url(@/assets/images/boat1.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+
+      margin-right: 20px;
+      padding-right: 20px;
+    }
+
+    .ship-container.odd .user-names {
+      order: 2;
+
+      margin-left: 20px;
+      padding-left: 20px;
+    }
+
+    .ship-container.even .choose {
+      justify-content: flex-end;
+    }
+
+    .ship-container.even .ship-img {
+      order: 2;
+
+      width: 170px;
+      height: 170px;
+      position: relative;
+      background-image: url(@/assets/images/boat2.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+
+      margin-left: 20px;
+      padding-left: 20px;
+    }
+
+    .ship-container.even .user-names {
+      order: 1;
+
+      margin-right: 20px;
+      padding-right: 20px;
+    }
+
+    .btn {
+      position: fixed;
+      bottom: 30px;
+    }
+  }
+
+  .row-dummy {
+    width: 10%;
+  }
+
+  .radio-row-dummy {
+    width: 10px;
+  }
+
+  .col-dummy {
+    height: 40px;
+  }
+}

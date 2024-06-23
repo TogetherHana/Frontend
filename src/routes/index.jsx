@@ -1,6 +1,9 @@
 import GrayFooter from "@/layouts/Footer/gray_footer";
 import GrayNonFooter from "@/layouts/NonFooter/gray_nonfooter";
 import GreenNonFooter from "@/layouts/NonFooter/green_nonfooter";
+import Bigmatch from "@/pages/BigMatch";
+import Finish from "@/pages/BigMatch/finish";
+import Voted from "@/pages/BigMatch/voted";
 import Cheering from "@/pages/Cheering";
 import Baseball from "@/pages/Cheering/baseball_index";
 import FeeCollect from "@/pages/CollectingFee/fee_collect";
@@ -52,6 +55,14 @@ const router = createBrowserRouter([
           { path: ":baseball", element: <Baseball />}    
         ]
       },        
+      {
+        path: "match",
+        children: [
+          { index: true, element: <Bigmatch /> },      
+          { path: ":complete", element: <Voted />},
+          { path: ":finish", element: <Finish />}    
+        ]
+      },     
     ]
   },  
   {
