@@ -10,7 +10,7 @@ function GrayNonFooter() {
         <main className="main-content">
           <Outlet />
         </main>
-      </div>      
+      </div>
     </div>
   );
 }
