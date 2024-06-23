@@ -1,4 +1,5 @@
 import React from "react";
+// @ts-ignore
 import idtotal from "@/assets/images/ocr/idtotal.svg";
 import "./style.scss";
 import Button from "@/components/Button";

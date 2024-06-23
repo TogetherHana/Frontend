@@ -17,6 +17,10 @@ import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import SelectStock from "@/pages/MeetingAccount/selectstock";
 import AgreeTerms from "@/pages/MeetingAccount/agreeterms";
+import SetAccountName from "@/pages/MeetingAccount/setaccountname";
+import SetAccountPW from "@/pages/MeetingAccount/setaccountpw";
+import CreatedInfo from "@/pages/MeetingAccount/createdinfo";
+import MAccountComplete from "@/pages/MeetingAccount/maccountcomplete";
 
 const router = createBrowserRouter([
   {
@@ -82,6 +86,53 @@ const router = createBrowserRouter([
         path: "maccount/agreeterms",
         children: [
           { index: true, element: <AgreeTerms /> },
+          { path: ":testId", element: <Main /> }
+        ]
+      },
+      {
+        path: "maccount/setaccountname",
+        children: [
+          { index: true, element: <SetAccountName /> },
+          { path: ":testId", element: <Main /> }
+        ]
+      },
+      {
+        path: "maccount/setaccountpw",
+        children: [
+          {
+            index: true,
+            element: <SetAccountPW title={"계좌 비밀번호 설정"} />
+          },
+          { path: ":testId", element: <Main /> }
+        ]
+      },
+      {
+        path: "maccount/setaccountpw/check",
+        children: [
+          {
+            index: true,
+            element: <SetAccountPW title={"계좌 비밀번호 확인"} />
+          },
+          { path: ":testId", element: <Main /> }
+        ]
+      },
+      {
+        path: "maccount/createdinfo",
+        children: [
+          {
+            index: true,
+            element: <CreatedInfo />
+          },
+          { path: ":testId", element: <Main /> }
+        ]
+      },
+      {
+        path: "maccount/complete",
+        children: [
+          {
+            index: true,
+            element: <MAccountComplete />
+          },
           { path: ":testId", element: <Main /> }
         ]
       }
