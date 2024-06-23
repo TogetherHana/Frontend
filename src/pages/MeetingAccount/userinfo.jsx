@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "@/components/Button";
 import { useNavigate } from "react-router-dom";
 import VerificationBtn from "@/components/MeetingAccount/IdVerification/verificationbtn";
 

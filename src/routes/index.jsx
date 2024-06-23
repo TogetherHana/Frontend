@@ -1,109 +1,74 @@
-import GrayFooter from "@/layouts/Footer/gray_footer";
-import GrayNonFooter from "@/layouts/NonFooter/gray_nonfooter";
-import GreenNonFooter from "@/layouts/NonFooter/green_nonfooter";
-import Cheering from "@/pages/Cheering";
-import Baseball from "@/pages/Cheering/baseball_index";
-import FeeCollect from "@/pages/CollectingFee/fee_collect";
-import FeeInput from "@/pages/CollectingFee/fee_input";
-import Home from "@/pages/Home";
-import Main from "@/pages/Main";
-import IdVerification from "@/pages/MeetingAccount/idverification";
-import Register from "@/pages/MeetingAccount/register";
-import Mileage from "@/pages/Mileage";
-import SystemEvent from "@/pages/SystemEvent";
-import Test from "@/pages/TestTest";
-import UserInfo from "@/pages/MeetingAccount/userinfo";
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
-import SelectStock from "@/pages/MeetingAccount/selectstock";
-import AgreeTerms from "@/pages/MeetingAccount/agreeterms";
-import SetAccountName from "@/pages/MeetingAccount/setaccountname";
-import SetAccountPW from "@/pages/MeetingAccount/setaccountpw";
-import CreatedInfo from "@/pages/MeetingAccount/createdinfo";
-import MAccountComplete from "@/pages/MeetingAccount/maccountcomplete";
+import * as Layouts from "@/layouts";
+import * as Pages from "@/pages";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <GrayFooter />,
+    element: <Layouts.GrayFooter />,
 
     children: [
       {
         path: "/",
-        children: [{ index: true, element: <Home /> }]
+        children: [{ index: true, element: <Pages.Home /> }]
       },
       {
         path: "mileage",
-        children: [{ index: true, element: <Mileage /> }]
+        children: [{ index: true, element: <Pages.Mileage /> }]
       },
       {
         path: "event",
-        children: [{ index: true, element: <SystemEvent /> }]
+        children: [{ index: true, element: <Pages.SystemEvent /> }]
       }
     ]
   },
   {
     path: "/",
-    element: <GrayNonFooter />,
+    element: <Layouts.GrayNonFooter />,
 
     children: [
       {
         path: "choice/team",
         children: [
-          { index: true, element: <Cheering /> },
-          { path: ":baseball", element: <Baseball /> }
+          { index: true, element: <Pages.Cheering /> },
+          { path: ":baseball", element: <Pages.Baseball /> }
         ]
       },
       {
         path: "maccount/register",
         children: [
-          { index: true, element: <Register /> },
-          { path: ":testId", element: <Main /> }
+          { index: true, element: <Pages.Register /> },
+          { path: ":testId", element: <Pages.Main /> }
         ]
       },
       {
         path: "maccount/idverification",
-        children: [
-          { index: true, element: <IdVerification /> },
-          { path: ":testId", element: <Main /> }
-        ]
+        children: [{ index: true, element: <Pages.IdVerification /> }]
       },
       {
         path: "maccount/userinfo",
-        children: [
-          { index: true, element: <UserInfo /> },
-          { path: ":testId", element: <Main /> }
-        ]
+        children: [{ index: true, element: <Pages.UserInfo /> }]
       },
       {
         path: "maccount/selectstock",
-        children: [
-          { index: true, element: <SelectStock /> },
-          { path: ":testId", element: <Main /> }
-        ]
+        children: [{ index: true, element: <Pages.SelectStock /> }]
       },
       {
         path: "maccount/agreeterms",
-        children: [
-          { index: true, element: <AgreeTerms /> },
-          { path: ":testId", element: <Main /> }
-        ]
+        children: [{ index: true, element: <Pages.AgreeTerms /> }]
       },
       {
         path: "maccount/setaccountname",
-        children: [
-          { index: true, element: <SetAccountName /> },
-          { path: ":testId", element: <Main /> }
-        ]
+        children: [{ index: true, element: <Pages.SetAccountName /> }]
       },
       {
         path: "maccount/setaccountpw",
         children: [
           {
             index: true,
-            element: <SetAccountPW title={"계좌 비밀번호 설정"} />
-          },
-          { path: ":testId", element: <Main /> }
+            element: <Pages.SetAccountPW title={"계좌 비밀번호 설정"} />
+          }
         ]
       },
       {
@@ -111,9 +76,8 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <SetAccountPW title={"계좌 비밀번호 확인"} />
-          },
-          { path: ":testId", element: <Main /> }
+            element: <Pages.SetAccountPW title={"계좌 비밀번호 확인"} />
+          }
         ]
       },
       {
@@ -121,9 +85,8 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <CreatedInfo />
-          },
-          { path: ":testId", element: <Main /> }
+            element: <Pages.CreatedInfo />
+          }
         ]
       },
       {
@@ -131,23 +94,31 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <MAccountComplete />
-          },
-          { path: ":testId", element: <Main /> }
+            element: <Pages.MAccountComplete />
+          }
+        ]
+      },
+      {
+        path: "platform/join/main",
+        children: [
+          {
+            index: true,
+            element: <Pages.JoinMain />
+          }
         ]
       }
     ]
   },
   {
     path: "/",
-    element: <GreenNonFooter />,
+    element: <Layouts.GreenNonFooter />,
 
     children: [
       {
         path: "fee",
         children: [
-          { index: true, element: <FeeInput /> },
-          { path: ":collect", element: <FeeCollect /> }
+          { index: true, element: <Pages.FeeInput /> },
+          { path: ":collect", element: <Pages.FeeCollect /> }
         ]
       }
     ]

@@ -8,11 +8,11 @@ import {
   // @ts-ignore
 } from "@/components/MeetingAccount/Register";
 // @ts-ignore
-import balls from "@/assets/images/intro/balls.svg";
+import balls from "@/assets/images/meetaccountinfo/balls.svg";
 // @ts-ignore
-import events from "@/assets/images/intro/events.svg";
+import events from "@/assets/images/meetaccountinfo/events.svg";
 // @ts-ignore
-import coins from "@/assets/images/intro/coins.svg";
+import coins from "@/assets/images/meetaccountinfo/coins.svg";
 
 function Register() {
   const register2Params = {

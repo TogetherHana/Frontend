@@ -1,0 +1,48 @@
+.dialog1Detail {
+  position: absolute;
+  top: 35px;
+  left: 57px;
+  font-family: "BMHanna";
+  font-size: 30px;
+  color: white;
+}
+
+.dialog2Detail {
+  position: absolute;
+  top: 35px;
+  left: 53px;
+  font-family: "BMHanna";
+  font-size: 30px;
+  color: #777575;
+}
+
+.dialogFirst {
+  position: absolute;
+  top: 131px;
+  left: 22px;
+}
+
+.dialogSecond {
+  position: absolute;
+  top: 330px;
+  left: 161px;
+}
+
+.dialogThird {
+  position: absolute;
+  top: 540px;
+  left: 45px;
+}
+
+.joinMainTitle {
+  font-family: "NanumSquareRoundB";
+  font-size: 30px;
+  position: absolute;
+  top: 750px;
+  left: 80px;
+
+  &.detail {
+    top: 812px;
+    left: 119px;
+  }
+}

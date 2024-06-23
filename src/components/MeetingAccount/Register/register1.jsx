@@ -1,6 +1,6 @@
 import React from "react";
 // @ts-ignore
-import bank from "@/assets/images/intro/bank.svg";
+import bank from "@/assets/images/meetaccountinfo/bank.svg";
 import "./register.scss";
 
 function Register1() {
