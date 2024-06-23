@@ -1,0 +1,35 @@
+.registerIntro {
+  font-family: "NanumSqureRoundB";
+  color: #44bd91;
+  font-size: 20px;
+}
+
+.registerBasic {
+  font-family: "NanumSquareRoundR";
+  font-size: 30px;
+}
+
+.registerDiv {
+  @apply my-48 grid place-items-center;
+}
+
+.registerImgDiv {
+  @apply my-20;
+}
+
+.registerq {
+  font-family: "NanumSquareRoundB";
+  font-size: 20px;
+}
+
+.registerqa {
+  font-family: "NanumSquareRoundR";
+  font-size: 15px;
+  color: #8e8f91;
+  @apply my-5;
+
+  &.info {
+    margin-top: 1.75rem;
+    margin-bottom: 1.75rem;
+  }
+}
