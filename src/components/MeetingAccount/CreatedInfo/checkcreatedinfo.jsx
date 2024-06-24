@@ -1,7 +1,7 @@
 import React from "react";
 import VerificationBtn from "../IdVerification/verificationbtn";
 // @ts-ignore
-import person2 from "@/assets/images/person2.svg";
+import person2 from "@/assets/images/meetaccountinfo/person2.svg";
 
 function CreatedInfoCheck() {
   const checkTermsProp = {

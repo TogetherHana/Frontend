@@ -70,6 +70,61 @@
     width: 16rem;
     margin-bottom: 1.5rem;
   }
+  &.tel1 {
+    width: 5rem;
+  }
+  &.tel2 {
+    width: 7rem;
+  }
+  &.vnm {
+    width: 12rem;
+    margin-bottom: 1.5rem;
+  }
+  &.acnm {
+    padding-left: 0;
+    width: 20rem;
+    position: fixed;
+    top: 416px;
+    left: 50px;
+    // margin-bottom: 1.5rem;
+    ::placeholder {
+      font-size: 17px;
+    }
+  }
+  &.acnm2 {
+    padding-left: 0;
+    width: 20rem;
+    position: fixed;
+    top: 470px;
+    left: 50px;
+    // margin-bottom: 1.5rem;
+    ::placeholder {
+      font-size: 17px;
+    }
+  }
+  &.acnm3 {
+    padding-left: 0;
+    width: 20rem;
+    position: fixed;
+    top: 414px;
+    left: 60px;
+    // margin-bottom: 1.5rem;
+    ::placeholder {
+      font-size: 17px;
+    }
+  }
+  &.bs {
+    // bankselect
+    padding-left: 0;
+    position: fixed;
+    top: 348px;
+    left: 50px;
+    width: 5rem;
+
+    ::placeholder {
+      font-size: 17px;
+    }
+  }
 }
 
 .userInfoInputText {

@@ -1,11 +1,11 @@
 import React from "react";
 // @ts-ignore
-import advertisement1 from "@/assets/images/advertisement1.svg";
+import advertisement1 from "@/assets/images/meetaccountinfo/advertisement1.svg";
 // @ts-ignore
-import bankbook from "@/assets/images/bankbook.svg";
+import bankbook from "@/assets/images/meetaccountinfo/bankbook.svg";
 import VerificationBtn from "@/components/MeetingAccount/IdVerification/verificationbtn";
 
-function MAccountComplete() {
+function MacComplete() {
   const completeParams = {
     btnText: "메인화면으로",
     btnBelowText: "만든 계좌 바로 확인하러 가기"
@@ -23,4 +23,4 @@ function MAccountComplete() {
   );
 }
 
-export default MAccountComplete;
+export default MacComplete;
