@@ -5,17 +5,23 @@ export { default as Baseball } from "./Cheering/baseball_index";
 export { default as FeeCollect } from "./CollectingFee/fee_collect";
 export { default as FeeInput } from "./CollectingFee/fee_input";
 // Meeting Account - 모임통장
-export { default as AgreeTerms } from "./MeetingAccount/agreeterms";
-export { default as CreatedInfo } from "./MeetingAccount/createdinfo";
-export { default as IdVerification } from "./MeetingAccount/idverification";
-export { default as MAccountComplete } from "./MeetingAccount/maccountcomplete";
-export { default as Register } from "./MeetingAccount/register";
-export { default as SelectStock } from "./MeetingAccount/selectstock";
-export { default as SetAccountName } from "./MeetingAccount/setaccountname";
-export { default as SetAccountPW } from "./MeetingAccount/setaccountpw";
-export { default as UserInfo } from "./MeetingAccount/userinfo";
+export { default as MacAgreeTerms } from "./MeetingAccount/macagreeterms";
+export { default as MacCreatedInfo } from "./MeetingAccount/maccreatedinfo";
+export { default as MacIdVerification } from "./MeetingAccount/macidverification";
+export { default as MacComplete } from "./MeetingAccount/maccomplete";
+export { default as MacRegister } from "./MeetingAccount/macregister";
+export { default as MacSelectStock } from "./MeetingAccount/macselectstock";
+export { default as MacSetAccountName } from "./MeetingAccount/macsetaccountname";
+export { default as MacSetAccountPW } from "./MeetingAccount/macsetaccountpw";
+export { default as MacUserInfo } from "./MeetingAccount/macuserinfo";
 // Join Platform - 회원가입
 export { default as JoinMain } from "./JoinPlatform/joinmain";
+export { default as JoinIntro } from "./JoinPlatform/joinintro";
+export { default as JoinIdVerification } from "./JoinPlatform/joinidverification";
+export { default as JoinAccountLink } from "./JoinPlatform/joinaccountlink";
+export { default as JoinAuthenticationCheck } from "./JoinPlatform/joinauthenticationcheck";
+export { default as JoinSetNickName } from "./JoinPlatform/joinsetnickname";
+export { default as JoinComplete } from "./JoinPlatform/joincomplete";
 // Etc
 export { default as Home } from "./Home";
 export { default as Main } from "./Main";

@@ -2,7 +2,7 @@ import MaskingPwArea from "@/components/MeetingAccount/SetAccountInfo/maskingpwa
 import NumberKeyPad from "@/components/MeetingAccount/SetAccountInfo/numberkeypad";
 import React from "react";
 
-function SetAccountPW({ title }) {
+function MacSetAccountPW({ title }) {
   return (
     <>
       <div className="setAccountNameMain">
@@ -21,4 +21,4 @@ function SetAccountPW({ title }) {
   );
 }
 
-export default SetAccountPW;
+export default MacSetAccountPW;

@@ -38,36 +38,36 @@ const router = createBrowserRouter([
       {
         path: "maccount/register",
         children: [
-          { index: true, element: <Pages.Register /> },
+          { index: true, element: <Pages.MacRegister /> },
           { path: ":testId", element: <Pages.Main /> }
         ]
       },
       {
         path: "maccount/idverification",
-        children: [{ index: true, element: <Pages.IdVerification /> }]
+        children: [{ index: true, element: <Pages.MacIdVerification /> }]
       },
       {
         path: "maccount/userinfo",
-        children: [{ index: true, element: <Pages.UserInfo /> }]
+        children: [{ index: true, element: <Pages.MacUserInfo /> }]
       },
       {
         path: "maccount/selectstock",
-        children: [{ index: true, element: <Pages.SelectStock /> }]
+        children: [{ index: true, element: <Pages.MacSelectStock /> }]
       },
       {
         path: "maccount/agreeterms",
-        children: [{ index: true, element: <Pages.AgreeTerms /> }]
+        children: [{ index: true, element: <Pages.MacAgreeTerms /> }]
       },
       {
         path: "maccount/setaccountname",
-        children: [{ index: true, element: <Pages.SetAccountName /> }]
+        children: [{ index: true, element: <Pages.MacSetAccountName /> }]
       },
       {
         path: "maccount/setaccountpw",
         children: [
           {
             index: true,
-            element: <Pages.SetAccountPW title={"계좌 비밀번호 설정"} />
+            element: <Pages.MacSetAccountPW title={"계좌 비밀번호 설정"} />
           }
         ]
       },
@@ -76,7 +76,7 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Pages.SetAccountPW title={"계좌 비밀번호 확인"} />
+            element: <Pages.MacSetAccountPW title={"계좌 비밀번호 확인"} />
           }
         ]
       },
@@ -85,7 +85,7 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Pages.CreatedInfo />
+            element: <Pages.MacCreatedInfo />
           }
         ]
       },
@@ -94,18 +94,30 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Pages.MAccountComplete />
+            element: <Pages.MacComplete />
           }
         ]
       },
       {
-        path: "platform/join/main",
+        path: "platform/join/idverification",
         children: [
           {
             index: true,
-            element: <Pages.JoinMain />
+            element: <Pages.JoinIdVerification />
           }
         ]
+      },
+      {
+        path: "platform/join/accountlink",
+        children: [{ index: true, element: <Pages.JoinAccountLink /> }]
+      },
+      {
+        path: "platform/join/authentication/check",
+        children: [{ index: true, element: <Pages.JoinAuthenticationCheck /> }]
+      },
+      {
+        path: "platform/join/setnickname",
+        children: [{ index: true, element: <Pages.JoinSetNickName /> }]
       }
     ]
   },
@@ -120,6 +132,24 @@ const router = createBrowserRouter([
           { index: true, element: <Pages.FeeInput /> },
           { path: ":collect", element: <Pages.FeeCollect /> }
         ]
+      }
+    ]
+  },
+  {
+    path: "/",
+    element: <Layouts.WhiteNonFooter />,
+    children: [
+      {
+        path: "platform/join/main",
+        children: [{ index: true, element: <Pages.JoinMain /> }]
+      },
+      {
+        path: "platform/join/intro",
+        children: [{ index: true, element: <Pages.JoinIntro /> }]
+      },
+      {
+        path: "platform/join/complete",
+        children: [{ index: true, element: <Pages.JoinComplete /> }]
       }
     ]
   }

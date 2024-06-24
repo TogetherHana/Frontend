@@ -14,7 +14,7 @@ import events from "@/assets/images/meetaccountinfo/events.svg";
 // @ts-ignore
 import coins from "@/assets/images/meetaccountinfo/coins.svg";
 
-function Register() {
+function MacRegister() {
   const register2Params = {
     title1: "함께 모아 함께 쓰는",
     title2: "스포츠 모임통장",
@@ -48,4 +48,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default MacRegister;

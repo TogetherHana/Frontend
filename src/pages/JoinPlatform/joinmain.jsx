@@ -1,6 +1,7 @@
 import Dialog1 from "@/components/JoinPlatform/dialog1";
 import Dialog2 from "@/components/JoinPlatform/dialog2";
 import React from "react";
+import "./styles.scss";
 
 function JoinMain() {
   const dialog1Txt = `스포츠,, <br/> 좋아하세요?`;

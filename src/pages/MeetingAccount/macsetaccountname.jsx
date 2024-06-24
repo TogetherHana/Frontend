@@ -4,7 +4,7 @@ import chatbot from "@/assets/images/chatbot.svg";
 import ChatbotMsg from "@/components/MeetingAccount/SetAccountInfo/chatbotmsg";
 import InfoHalfBtn from "@/components/MeetingAccount/SetAccountInfo/infohalfbtn";
 
-function SetAccountName() {
+function MacSetAccountName() {
   const msg1 = "계좌 이름에 많이 사용되는 키워드는?";
   const msg2 = "야구와 관련된 계좌 이름 추천해줘";
   return (
@@ -31,4 +31,4 @@ function SetAccountName() {
   );
 }
 
-export default SetAccountName;
+export default MacSetAccountName;

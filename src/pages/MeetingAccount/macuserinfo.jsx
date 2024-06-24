@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import VerificationBtn from "@/components/MeetingAccount/IdVerification/verificationbtn";
 
-function UserInfo() {
+function MacUserInfo() {
   const navigate = useNavigate();
 
   const btnParams = {
@@ -43,4 +43,4 @@ function UserInfo() {
   );
 }
 
-export default UserInfo;
+export default MacUserInfo;

@@ -46,3 +46,23 @@
     left: 119px;
   }
 }
+
+.joinBankListTitle {
+  font-family: "NanumSquareRoundR";
+  font-size: 25px;
+  position: absolute;
+  top: 65px;
+  left: 169px;
+}
+
+.joinBankListDetail {
+  display: flex;
+  font-family: "NanumSquareRoundR";
+  font-size: 20px;
+  @apply place-items-center m-10;
+}
+
+.joinBankListDetailDiv {
+  position: absolute;
+  top: 100px;
+}

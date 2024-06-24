@@ -4,7 +4,7 @@ import idtotal from "@/assets/images/ocr/idtotal.svg";
 import "./style.scss";
 import VerificationBtn from "@/components/MeetingAccount/IdVerification/verificationbtn";
 
-function IdVerification() {
+function MacIdVerification() {
   const btnParams = {
     btnText: "신분증 촬영하기",
     btnBelowText: "신분증 촬영이 안돼요 😂"
@@ -26,4 +26,4 @@ function IdVerification() {
   );
 }
 
-export default IdVerification;
+export default MacIdVerification;

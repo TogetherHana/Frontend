@@ -5,7 +5,7 @@ import person1 from "@/assets/images/meetaccountinfo/person1.svg";
 import React, { useState } from "react";
 import BottomPopupInfo from "@/components/MeetingAccount/AgreeTerms/bottompopupinfo";
 
-function AgreeTerms() {
+function MacAgreeTerms() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const termsParams = {
@@ -49,4 +49,4 @@ function AgreeTerms() {
   );
 }
 
-export default AgreeTerms;
+export default MacAgreeTerms;
