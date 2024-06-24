@@ -24,6 +24,7 @@ import SetAccountName from "@/pages/MeetingAccount/setaccountname";
 import SetAccountPW from "@/pages/MeetingAccount/setaccountpw";
 import CreatedInfo from "@/pages/MeetingAccount/createdinfo";
 import MAccountComplete from "@/pages/MeetingAccount/maccountcomplete";
+import CreateMatch from "@/pages/BigMatch/create";
 
 const router = createBrowserRouter([
   {
@@ -58,11 +59,17 @@ const router = createBrowserRouter([
         ]
       },        
       {
-        path: "bigmatch",
+        path: "create/match",
         children: [
-          { index: true, element: <Bigmatch /> },      
-          { path: ":complete", element: <Voted />},
-          { path: ":finish", element: <Finish />}    
+          { index: true, element: <CreateMatch /> }              
+        ]
+      }, 
+      {
+        path: "match",
+        children: [
+          { index: true, element: <Bigmatch /> }, 
+          { path: ":finish", element: <Finish />},       
+          { path: ":complete", element: <Voted />}            
         ]
       },           
       {

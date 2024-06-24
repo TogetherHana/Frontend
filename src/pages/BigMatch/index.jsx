@@ -1,11 +1,12 @@
 import React from "react";
 import "./style.scss";
 import Button from "@/components/Button";
+import { useNavigate } from "react-router-dom";
 
 const ships = [
   {
     id: 1,
-    company: "두산",
+    company: "두산", 
     users: ["젼", "쥬", "찬", "민", "곤"]
   },
   { id: 2, company: "롯데", users: ["찬", "민", "곤"] },
@@ -17,6 +18,8 @@ const ships = [
 ];
 
 function Bigmatch() {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="BeforeVote-container">
@@ -27,8 +30,7 @@ function Bigmatch() {
         </div>
 
         <div className="title-container">
-          <div>두산 VS 롯데</div>
-          <div>오늘의 승자는?</div>
+          <div>두산 VS 롯데<br/>오늘의 승자는?</div>          
           <div
             style={{
               width: "100%",
@@ -47,36 +49,16 @@ function Bigmatch() {
             >
               <div className="choose-info">
                 <div className="choose">
-                  {/* <label for="agree1" class="radio_box">
+                  <label htmlFor={`ship-${ship.id}`} className="radio-box">
                     <input
                       type="radio"
-                      id="agree1"
-                      name="agree"
-                      value="동의"
-                      checked="checked"
+                      id={`ship-${ship.id}`}
+                      name="ship"
+                      value={ship.company}
                     />
-                    <span class="on"></span>
-                    동의
+                    <span className="on"></span>
+                    {ship.company}
                   </label>
-                  <label for="agree2" class="radio_box">
-                    <input
-                      type="radio"
-                      id="agree2"
-                      name="agree"
-                      value="미동의"
-                    />
-                    <span class="on"></span>
-                    미동의
-                  </label> */}
-                  
-                  <input
-                    type="radio"
-                    id={`ship-${ship.id}`}
-                    name="ship"
-                    value={ship.company}
-                  />
-                  <div className="radio-row-dummy" />
-                  <label htmlFor={`ship-${ship.id}`}>{ship.company}</label>
                 </div>
                 <div className="choose-container">
                   <div className="ship-img" />
@@ -94,7 +76,7 @@ function Bigmatch() {
               </div>
             </div>
           ))}
-          <Button className="btn" onClick={() => {}}>
+          <Button className="btn" onClick={() => navigate("/match/finish")}>
             한배타기
           </Button>
         </div>
