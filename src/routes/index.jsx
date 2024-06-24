@@ -10,16 +10,22 @@ const router = createBrowserRouter([
 
     children: [
       {
-        path: "/",
-        children: [{ index: true, element: <Pages.Home /> }]
-      },
-      {
         path: "mileage",
         children: [{ index: true, element: <Pages.Mileage /> }]
       },
       {
         path: "event",
         children: [{ index: true, element: <Pages.SystemEvent /> }]
+      }
+    ]
+  },
+  {
+    path: "/",
+    element: <Layouts.WhiteFooter />,
+    children: [
+      {
+        path: "/",
+        children: [{ index: true, element: <Pages.Home /> }]
       }
     ]
   },
@@ -139,6 +145,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layouts.WhiteNonFooter />,
     children: [
+      {
+        path: "/",
+        children: [{ index: true, element: <Pages.Home /> }]
+      },
       {
         path: "platform/join/main",
         children: [{ index: true, element: <Pages.JoinMain /> }]
