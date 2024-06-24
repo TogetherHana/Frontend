@@ -1,108 +1,108 @@
 .green-layout {
-    display: flex;
-    flex-direction: column;
-  
-    max-width: 431px;
-    max-height: 932px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: $color-primary2;
-    min-height: $vh-100;
-  }
-  
-  .root-content {
-    display: flex;
-    flex-grow: 1;
-    .sidebar {
-      .side-button {
-        background: transparent;
-        height: 60px;
-        width: inherit;
-        color: $color-background;
-        &:hover {
-          background-color: $color-primary1;
-          color: #fff;
-        }
-        &.selected {
-          background-color: $color-primary2;
-          color: #fff;
-        }
+  display: flex;
+  flex-direction: column;
+
+  max-width: 431px;
+  max-height: 932px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: $color-primary2;
+  min-height: $vh-100;
+}
+
+.root-content {
+  display: flex;
+  flex-grow: 1;
+  .sidebar {
+    .side-button {
+      background: transparent;
+      height: 60px;
+      width: inherit;
+      color: $color-background;
+      &:hover {
+        background-color: $color-primary1;
+        color: #fff;
+      }
+      &.selected {
+        background-color: $color-primary2;
+        color: #fff;
       }
     }
   }
-  
-  .main-content {
-    flex-grow: 1;
-    // padding: 20px;
-    overflow-y: auto;
-  }
-  
-  .footer {
+}
+
+.main-content {
+  flex-grow: 1;
+  // padding: 20px;
+  overflow-y: auto;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  position: fixed;
+
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 83px;
+  padding: 1px 0px;
+  width: 431px;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: white;
+  text-align: center;
+  margin-top: auto;
+  align-items: center;
+
+  .nav-item {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    position: fixed;
-  
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 6vh;
-    padding: 1px 0px;
-    width: 431px;
-    margin-left: auto;
-    margin-right: auto;
-  
-    background-color: white;
-    text-align: center;
-    margin-top: auto;
+    flex-direction: column;
+    // justify-content: center;
+    margin-top: 1.5rem;
     align-items: center;
-  
-    .nav-item {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      width: 100%;
-    }
-    .mileage {
-      height: 20px;
-      width: 20px;
-      // margin: 20px;
-      background-image: url(@/assets/images/footerIcons/mileage.svg);
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
-    }
-    .home {
-      height: 20px;
-      width: 20px;
-      // margin: 20px;
-      background-image: url(@/assets/images/footerIcons/home.svg);
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
-    }
-    .event {
-      height: 20px;
-      width: 20px;
-      // margin: 20px;
-      background-image: url(@/assets/images/footerIcons/event.svg);
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
-    }
-    .nav-text {
-      font-family: "NanumSquareR";
-      font-weight: 400;
-      font-size: 12px;
-      color: $color-text1;
-    }
-    .active-nav-text {
-      font-family: "NanumSquareB";
-      font-weight: 700;
-      font-size: 12px;
-      color: black;
-    }
+    height: 100%;
+    width: 100%;
   }
-  
+  .mileage {
+    height: 20px;
+    width: 20px;
+    // margin: 20px;
+    background-image: url(@/assets/images/footerIcons/mileage.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .home {
+    height: 20px;
+    width: 20px;
+    // margin: 20px;
+    background-image: url(@/assets/images/footerIcons/home.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .event {
+    height: 20px;
+    width: 20px;
+    // margin: 20px;
+    background-image: url(@/assets/images/footerIcons/event.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .nav-text {
+    font-family: "NanumSquareR";
+    font-weight: 400;
+    font-size: 12px;
+    color: $color-text1;
+  }
+  .active-nav-text {
+    font-family: "NanumSquareB";
+    font-weight: 700;
+    font-size: 12px;
+    color: black;
+  }
+}

@@ -2,7 +2,7 @@ import React from "react";
 
 function Registerq() {
   return (
-    <div className="my-5">
+    <div className="m-8">
       <div className="registerq">
         Q. 모임통장 돈을 출금하거나 <br /> 모임카드를 만들려면 어떻게 하나요?
       </div>

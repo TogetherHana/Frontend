@@ -5,9 +5,9 @@ import BottomPopupInfo from "@/components/MeetingAccount/AgreeTerms/bottompopupi
 // @ts-ignore
 import sinhantransparent from "@/assets/images/systemEvent/main/sinhantransparent.svg";
 // @ts-ignore
-import person2 from "@/assets/images/person2.svg";
+import person2 from "@/assets/images/meetaccountinfo/person2.svg";
 
-function CreatedInfo() {
+function MacCreatedInfo() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const accountName = "럭키비키 다이노스";
@@ -64,4 +64,4 @@ function CreatedInfo() {
   );
 }
 
-export default CreatedInfo;
+export default MacCreatedInfo;

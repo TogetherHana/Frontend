@@ -7,7 +7,7 @@ import baseballG from "@/assets/images/sportsType/baseball_glove_green.svg";
 // @ts-ignore
 import esportsG from "@/assets/images/sportsType/esports_green.svg";
 
-function SelectStock() {
+function MacSelectStock() {
   const footballParams = {
     svg: footballG,
     name: "축구"
@@ -37,4 +37,4 @@ function SelectStock() {
   );
 }
 
-export default SelectStock;
+export default MacSelectStock;
