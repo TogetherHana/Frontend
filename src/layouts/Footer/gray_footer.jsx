@@ -20,7 +20,7 @@ const GrayFooter = () => {
                 : "nav-text"
             }
           >
-            마일리지
+            굿즈샵
           </div>
         </Link>
         <Link to="/" className="nav-item">

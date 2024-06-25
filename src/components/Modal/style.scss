@@ -1,3 +1,4 @@
+@import "../../common/styles/scss/base.scss";
 .globalModal {
   //   top: 50%;
   //   left: 50%;
@@ -13,6 +14,41 @@
     //overlay 수정
     height: $vh-100;
     width: 100vw;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.2);
+    .ReactModal__Content {
+      //content 수정
+      background-color: red;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .left {
+        align-self: flex-start;
+      }
+      .center {
+        align-self: center;
+      }
+      .right {
+        align-self: flex-end;
+      }
+      .global-modal-button {
+        width: calc(100%);
+        height: 50px;
+      }
+    }
+  }
+}
+
+.invite-link-modal-overlay {
+  &.ReactModal__Overlay--after-open {
+    //overlay 수정
+    height: $vh-100;
+    width: 100vw;
+    // @include responsive-position-height(175px);
+    // @include responsive-position-width(375px);
     position: absolute;
     bottom: 0;
     right: 0;

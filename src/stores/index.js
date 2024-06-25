@@ -1,7 +1,5 @@
 import { atom } from "jotai";
 
-
-
 // 모달 초기 상태 정의
 export const initialModalState = {
   isOpen: false,
@@ -16,11 +14,11 @@ export const globalModalAtom = atom(initialModalState);
 export const passwordRequestlModalAtom = atom(initialModalState);
 //메시지 모달
 export const messageModalAtom = atom(initialModalState);
-
-
+// 초대링크 모달
+export const inviteLinkAtom = atom(initialModalState);
 
 // 모임통장 회비걷기->수금요청 화면에서 캐릭터이미지key값 전달하기
-export const characterAtom = atom('');
+export const characterAtom = atom("");
 
 // 모임통장 회비걷기->수금요청 화면에서 금액값 전달하기
-export const amountAtom = atom('');
+export const amountAtom = atom("");

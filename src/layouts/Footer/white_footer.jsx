@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import "../NonFooter/green_style.scss";
+import "../NonFooter/white_style.scss";
 
 const GreenFooter = () => {
   const locationNow = useLocation();
@@ -20,7 +20,7 @@ const GreenFooter = () => {
                 : "nav-text"
             }
           >
-            마일리지
+            굿즈샵
           </div>
         </Link>
         <Link to="/" className="nav-item">
