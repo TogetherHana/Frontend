@@ -44,18 +44,43 @@
   }
 }
 
+.mainAccountLinkContent {
+  @apply grid place-items-center;
+}
+
 .mainAccountLinkTxt {
-  @include responsive-position-width(120px);
+  @include responsive-position-width(110px);
   @include responsive-position-height(28px);
   position: absolute;
   font-family: "NanumSquareRoundB";
   font-size: 17px;
 
   &.sub {
-    @include responsive-position-width(56px);
+    @include responsive-position-width(45px);
     @include responsive-position-height(72px);
     font-size: 13px;
     font-family: "NanumSquareRoundR";
     color: #757575;
   }
+
+  &.link {
+    @include responsive-position-width(40px);
+    @include responsive-position-height(130px);
+    @include responsive-width(300px);
+    // @apply grid place-items-center;
+    position: absolute;
+    border-bottom: 1px solid #c6c6c6;
+    background-color: white;
+
+    ::placeholder {
+      font-family: "NotoSans";
+      font-size: 13px;
+    }
+  }
+}
+
+.accountLinkCopy {
+  @include responsive-position-width(325px);
+  @include responsive-position-height(130px);
+  position: absolute;
 }

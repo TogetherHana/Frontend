@@ -3,8 +3,8 @@ import { useAtom } from "jotai";
 import React, { useEffect } from "react";
 import Modal from "react-modal";
 import Button from "../Button";
-import parse from "html-react-parser";
 import "./style.scss";
+import "../../common/styles/scss/base.scss";
 const customStyles = {
   content: {
     position: "absolute",
@@ -28,17 +28,17 @@ export const closeModal = (setInviteModalData) => {
 function InviteLinkModal() {
   const [inviteModalData, setInviteModalData] = useAtom(inviteLinkAtom);
 
-  const onClickConfirmButton = () => {
-    if (inviteModalData.onClickConfirm) inviteModalData.onClickConfirm();
-    else closeModal(setInviteModalData);
-  };
+  // const onClickConfirmButton = () => {
+  //   if (inviteModalData.onClickConfirm) inviteModalData.onClickConfirm();
+  //   else closeModal(setInviteModalData);
+  // };
   return (
     <Modal
       isOpen={inviteModalData.isOpen}
       // onAfterOpen={afterOpenModal}
       onRequestClose={() => closeModal(setInviteModalData)}
       // @ts-ignore
-      style={customStyles}
+      // style={customStyles}
       overlayClassName={"invite-link-modal-overlay"}
     >
       {/* <Button
