@@ -1,5 +1,6 @@
 // @ts-nocheck
-import React, { useState, forwardRef } from "react";
+import React, { useState, forwardRef, useEffect } from "react";
+import axios from 'axios';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./create.scss";
@@ -11,13 +12,105 @@ const DateInput = forwardRef(({ value, onClick }, ref) => (
   </button>
 ));
 
+const combineDateAndTime = (date, time) => {
+  // const combined = new Date(date);
+  // combined.setHours(time.getHours());
+  // combined.setMinutes(time.getMinutes());
+  // combined.setSeconds(time.getSeconds());
+  // combined.setMilliseconds(time.getMilliseconds());
+
+  // // Convert to ISO string and remove milliseconds
+  // const isoString = combined.toISOString();
+  // return isoString.split('.')[0] + 'Z';  
+
+
+  const combined = new Date(date);
+  combined.setHours(time.getHours());
+  combined.setMinutes(time.getMinutes());
+  combined.setSeconds(time.getSeconds());
+  combined.setMilliseconds(time.getMilliseconds());
+
+  // 로컬 시간대를 유지한 ISO 문자열 생성
+  const year = combined.getFullYear();
+  const month = String(combined.getMonth() + 1).padStart(2, '0');
+  const day = String(combined.getDate()).padStart(2, '0');
+  const hours = String(combined.getHours()).padStart(2, '0');
+  const minutes = String(combined.getMinutes()).padStart(2, '0');
+  const seconds = String(combined.getSeconds()).padStart(2, '0');
+
+  return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
+};
+
 function CreateMatch() {
-  const [inputs, setInputs] = useState([""]); // 초기 상태에 하나의 입력 필드 포함
+  const [gameTitle, setGameTitle] = useState("");
+  const [gameOptions, setGameOptions] = useState([{ optionTitle: "" }]); // 초기 상태에 하나의 입력 필드 포함
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [endTime, setEndTime] = useState(new Date());
+  const [deadLine, setDeadLine] = useState("");
+  const [fine, setFine] = useState(0);
+  const sharingAccountIdx = 1; // 모임통장 인덱스 값
 
   const addInput = () => {
-    setInputs([...inputs, ""]); // 새로운 입력 필드 추가
+    setGameOptions([...gameOptions, { optionTitle: "" }]); // 새로운 입력 필드 추가
+  };
+
+  const gameTitleChange = (e) => {
+    setGameTitle(e.target.value);
+  };
+
+  const fineChange = (e) => {
+    setFine(e.target.value);
+  };
+
+  useEffect(() => {
+    const combinedDate = combineDateAndTime(selectedDate, endTime);
+    console.log("------날짜 시간 잘 합쳐졌나?------");
+    console.log(combinedDate);
+    setDeadLine(combinedDate);
+  }, [selectedDate, endTime]);
+
+  const createBigmatch = async (e) => {
+    e.preventDefault();
+
+    const bigmatchFormData = {
+      gameTitle,
+      deadLine,
+      fine,
+      gameOptions
+    };
+
+    try {
+      const response = await axios.post(
+        `http://127.0.0.1:8080/game/${sharingAccountIdx}`,
+        bigmatchFormData,
+        {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+      );
+
+      console.log("--------------------------------------");
+      console.log(response.data);
+
+      // if (response.data.result == "success") {
+      // } else {
+      //   // Handle authentication failure
+      //   console.error("Authentication failed:", response.data.message);
+      // }
+    } catch (error) {
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        console.error("Response error:", error.response.data);
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.error("No response error:", error.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.error("Axios error:", error.message);
+      }
+    }
   };
 
   return (
@@ -39,6 +132,8 @@ function CreateMatch() {
             type="text"
             className="num-input"
             placeholder="오늘의 내기는?"
+            value={gameTitle}
+            onChange={gameTitleChange}
           />
           <div className="col-dummy2" />
           <div className="hint">#두산VS롯데 오늘의 승자는?</div>
@@ -56,17 +151,17 @@ function CreateMatch() {
           <div className="col-dummy" />
           <div className="title">선택지는?</div>
           <div className="col-dummy" />
-          {inputs.map((input, index) => (
+          {gameOptions.map((input, index) => (
             <div key={index} className="input-container">
               <input
                 type="text"
                 className="num-input"
                 placeholder="선택지를 입력하세요"
-                value={input}
+                value={input.optionTitle}
                 onChange={(e) => {
-                  const newInputs = [...inputs];
-                  newInputs[index] = e.target.value;
-                  setInputs(newInputs);
+                  const addGameOptions = [...gameOptions];
+                  addGameOptions[index] = e.target.value;
+                  setGameOptions(addGameOptions);
                 }}
               />
             </div>
@@ -114,7 +209,13 @@ function CreateMatch() {
           <div className="right-chat">벌금 당첨!</div>
           <div className="fine-title">벌금은 얼마?</div>
           <div className="fine-input">
-            <input type="text" className="num-input" placeholder="벌금 입력" />
+            <input
+              type="text"
+              className="num-input"
+              placeholder="벌금 입력"
+              value={fine}
+              onChange={fineChange}
+            />
             <div className="won">원</div>
           </div>
           <div className="content">
@@ -128,7 +229,7 @@ function CreateMatch() {
               position: "absolute",
               bottom: "10px"
             }}
-            onClick={() => {}}
+            onClick={createBigmatch}
           >
             빅매치 만들기!
           </Button>

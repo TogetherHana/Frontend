@@ -38,6 +38,7 @@
     "highcharts": "^11.4.3",
     "highcharts-react-official": "^3.2.1",
     "html-react-parser": "^5.1.10",
+    "http-proxy-middleware": "^3.0.0",
     "jotai": "^2.8.1",
     "msw": "^2.3.0",
     "postcss": "^8.4.38",
