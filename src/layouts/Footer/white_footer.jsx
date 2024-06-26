@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import "../NonFooter/gray_style.scss";
+import "../NonFooter/white_style.scss";
 
-const GrayFooter = () => {
+const GreenFooter = () => {
   const locationNow = useLocation();
 
   return (
-    <div className="gray-layout">
+    <div className="white-layout">
       <main className="main-content">
         <Outlet />
       </main>
@@ -48,4 +48,4 @@ const GrayFooter = () => {
   );
 };
 
-export default GrayFooter;
+export default GreenFooter;
