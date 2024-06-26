@@ -1,0 +1,133 @@
+@import "../../common/styles/scss/base.scss";
+.homeTitle {
+  @apply flex place-items-center;
+  @include responsive-position-height(82px);
+  @include responsive-position-width(95px);
+  font-family: "NanumSquareRoundB";
+  font-size: 30px;
+  position: absolute;
+}
+
+.homeTitleTxt {
+  @apply m-5;
+}
+
+.homeDiv {
+  @include responsive-width(400px);
+  @include responsive-height(275px);
+  @include responsive-position-height(177px);
+  @include responsive-position-width(13px);
+  background-color: #f8f8f8;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-family: "NanumSquareRoundB";
+  position: absolute;
+
+  &.small {
+    @apply grid place-items-center text-center;
+    // height: 80px;
+    // top: 743px;
+    @include responsive-height(80px);
+    @include responsive-position-height(743px);
+    font-family: "NanumSquareRoundB";
+    font-size: 17px;
+  }
+
+  &.middle {
+    @include responsive-position-height(477px);
+    @include responsive-height(240px);
+    // top: 477px;
+    // height: 240px;
+    font-family: "BMHanna";
+  }
+
+  &.middle2 {
+    @include responsive-width(375px);
+    @include responsive-height(145px);
+    @include responsive-position-width(14px);
+    @include responsive-position-height(70px);
+    border-radius: 7px;
+    background-color: #e3f6fa;
+    font-family: "NanumSquareRoundR";
+  }
+}
+
+.homeDivTitle {
+  @apply text-center;
+  @include responsive-margin-top(24px);
+  font-size: 25px;
+}
+
+.homeMileageTitle {
+  @apply flex place-items-center;
+  @include responsive-margin-top(32px);
+  @include responsive-margin-left(40px);
+}
+
+.homeMileageSubBtn {
+  @apply grid place-items-center;
+  @include responsive-position-width(33px);
+  @include responsive-position-height(160px);
+  position: absolute;
+  display: flex;
+  // width: 155px;
+  // height: 60px;
+  @include responsive-height(60px);
+  @include responsive-width(155px);
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  &.btn2 {
+    @include responsive-position-width(214px);
+  }
+
+  img {
+    position: absolute;
+    @include responsive-position-width(23px);
+    @include responsive-position-height(10px);
+  }
+}
+
+.homeMileageSubBtnTxt {
+  @include responsive-position-width(82px);
+  @include responsive-position-height(22px);
+  position: absolute;
+  font-family: "BMHanna";
+  font-size: 20px;
+}
+
+.homeMileageRight {
+  position: absolute;
+
+  &.txt1 {
+    @include responsive-position-width(230px);
+    @include responsive-position-height(30px);
+  }
+
+  &.txt2 {
+    @include responsive-position-width(175px);
+    @include responsive-position-height(60px);
+    font-family: "Sansation";
+    font-size: 45px;
+  }
+
+  &.txt3 {
+    @include responsive-position-width(228px);
+    @include responsive-position-height(125px);
+  }
+}
+
+.homeMileageChargeBelow {
+  @include responsive-position-width(65px);
+  @include responsive-position-height(220px);
+  @include responsive-width(132px);
+  @include responsive-height(38px);
+  position: absolute;
+
+  &.txt {
+    @include responsive-position-width(16px);
+    @include responsive-position-height(16px);
+    color: white;
+    font-size: 13px;
+  }
+}

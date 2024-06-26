@@ -1,3 +1,4 @@
+@import "../../common/styles/scss/base.scss";
 .green-layout {
   display: flex;
   flex-direction: column;
@@ -46,9 +47,9 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 83px;
   padding: 1px 0px;
-  width: 431px;
+  @include responsive-width(431px);
+  @include responsive-height(83px);
   margin-left: auto;
   margin-right: auto;
 
