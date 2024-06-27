@@ -16,7 +16,7 @@ function SystemEvent() {
   const halfpriceParams = [{ content: "# 직관 티켓", cnm: "first" }];
 
   return (
-    <div>
+    <>
       <div className="systemEventMainTitle">이벤트</div>
       <div className="systemEventMainEvent first">
         <SystemEventDiv
@@ -36,7 +36,7 @@ function SystemEvent() {
           link={"/"}
         />
       </div>
-    </div>
+    </>
   );
 }
 

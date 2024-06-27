@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import Modal from "react-modal";
 import registerServiceWorker from "./register-sw.jsx";
-import "./firebase-messaging-sw.js";
+// import "./firebase-messaging-sw.js";
 
 Modal.setAppElement("#root");
 

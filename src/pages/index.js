@@ -25,6 +25,7 @@ export { default as JoinComplete } from "./JoinPlatform/joincomplete";
 // System Event
 export { default as SystemEvent } from "./SystemEvent";
 export { default as SystemEventSelectWin } from "./SystemEvent/systemeventselectwin";
+export { default as SystemEventSelectWinB } from "./SystemEvent/systemeventselectwinb";
 // Etc
 export { default as Home } from "./Home";
 export { default as Main } from "./Main";

@@ -15,19 +15,22 @@ function SystemEventSelectWin() {
       img: hanalogo,
       title: "하나은행 K리그1 2024",
       slogun: "ALL in the Pitch",
-      cnm: "first"
+      cnm: "first",
+      url: "football"
     },
     {
       img: sinhanlogo,
       title: "2024 신한 SOL BANK KBO 리그",
       slogun: "Sliding to your life",
-      cnm: "second"
+      cnm: "second",
+      url: "baseball"
     },
     {
       img: lcklogo,
       title: "2024 LOL Champs Summer",
       slogun: "House of legends",
-      cnm: "third"
+      cnm: "third",
+      url: "esports"
     }
   ];
   return (
@@ -41,6 +44,7 @@ function SystemEventSelectWin() {
             slogun={item.slogun}
             logo={item.img}
             cnm={item.cnm}
+            url={item.url}
           />
         ))}
       </div>

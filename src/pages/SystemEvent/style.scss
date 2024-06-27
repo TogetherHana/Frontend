@@ -140,3 +140,118 @@
     @include responsive-position-width(105px);
   }
 }
+
+.systemEventSelectWinBT {
+  @include responsive-height(525px);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.24);
+  // color: #777575;
+}
+.systemEventSelectWinBB {
+  @include responsive-height(407px);
+  // background-color: #f4f5f7;
+}
+
+.systemEventSelectWinTitle {
+  @include responsive-font-size(20px);
+  @include responsive-position-height(65px);
+  @include responsive-width(431px);
+  @apply flex;
+  position: absolute;
+  font-family: "NanumSquareRoundB";
+  // border: 1px solid black;
+
+  .left {
+    @include responsive-position-width(18px);
+    position: absolute;
+  }
+  .right {
+    @include responsive-position-width(130px);
+    position: absolute;
+  }
+}
+
+.systemEventSelectWinLogo {
+  @include responsive-height(400px);
+  @include responsive-width(431px);
+  @include responsive-position-height(85px);
+  @include responsive-font-size(35px);
+  position: absolute;
+  font-family: "NanumSquareRoundB";
+
+  // border: 1px solid black;
+  .top {
+    @include responsive-position-height(70px);
+    @include responsive-position-width(130px);
+    @include responsive-font-size(20px);
+    position: absolute;
+  }
+  .bottom {
+    .txt {
+      @include responsive-position-height(300px);
+      @include responsive-position-width(50px);
+      @apply text-center;
+      position: absolute;
+    }
+    img {
+      @include responsive-position-height(80px);
+      @include responsive-position-width(60px);
+      position: absolute;
+    }
+  }
+}
+
+.systemEventSelectWinBelow {
+  @include responsive-position-height(490px);
+  @include responsive-position-width(100px);
+  @include responsive-font-size(15px);
+  @apply flex;
+  position: absolute;
+  font-family: "NanumSquareRoundB";
+  color: #868686;
+  .date {
+    @apply mr-3;
+  }
+  .reward {
+    @apply flex;
+    .price {
+      @apply ml-2;
+    }
+  }
+}
+
+.systemEventSelectWinMatchDiv {
+  @include responsive-width(375px);
+  @include responsive-height(147px);
+  @apply mt-5 mx-7;
+  // @include responsive-position-height(543px);
+  // @include responsive-position-width(28px);
+  // position: absolute;
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.systemEventSelectWinMatchDivInfo {
+  @include responsive-font-size(15px);
+  @apply flex m-4;
+  font-family: "NanumSquareRoundB";
+}
+
+.systemEventSelectWinMatchDivTeamInfo {
+  @include responsive-font-size(15px);
+  @apply grid place-items-center;
+  font-family: "NanumSquareRoundB";
+  line-height: 1.5;
+
+  .detail {
+    @include responsive-font-size(13px);
+  }
+}
+
+.systemEventSelectWinMatchDivTeamImg {
+  @include responsive-width(90px);
+  @include responsive-height(90px);
+  @apply grid place-items-center mx-3;
+  background-color: white;
+  border-radius: 7px;
+}

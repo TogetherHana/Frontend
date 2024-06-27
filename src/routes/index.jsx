@@ -19,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "mileage",
         children: [{ index: true, element: <Pages.Mileage /> }]
+      },
+      {
+        path: "event/selectwin/baseball",
+        children: [{ index: true, element: <Pages.SystemEventSelectWinB /> }]
       }
     ]
   },

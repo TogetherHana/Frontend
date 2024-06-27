@@ -8,7 +8,7 @@
   margin-left: auto;
   margin-right: auto;
   background-color: white;
-  // min-height: $vh-100;
+  min-height: $vh-100;
 }
 
 .root-content {
@@ -37,6 +37,8 @@
   flex-grow: 1;
   // padding: 20px;
   overflow-y: auto;
+  // padding: env(safe-area-inset-top) env(safe-area-inset-right)
+  //   env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 .footer {
@@ -48,9 +50,8 @@
   bottom: 0;
   left: 0;
   right: 0;
-  // height: 83px;
   padding: 1px 0px;
-  // width: 431px;
+
   @include responsive-width(431px);
   @include responsive-height(83px);
   margin-left: auto;

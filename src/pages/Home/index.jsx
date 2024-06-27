@@ -18,7 +18,7 @@ import "./style.scss";
 function Home() {
   const [isSetCheeringTeam, setIsSetCheeringTeam] = useState(false);
   return (
-    <div>
+    <>
       {/* top */}
       <div className="homeTitle">
         <img src={hana6060} alt="logo6060" />
@@ -55,7 +55,7 @@ function Home() {
       ) : (
         <div className="homeDiv small">MY 응원팀 설정하기</div>
       )}
-    </div>
+    </>
   );
 }
 
