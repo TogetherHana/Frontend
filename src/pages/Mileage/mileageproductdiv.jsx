@@ -11,7 +11,7 @@ function MileageProductDiv({ params }) {
       <div className="mileageProductDivTxt pnm">{pnm}</div>
       <div className="mileageProductDivTxt pmile">
         <img src={sports} alt="sports" width={20} height={20} />
-        {pmile}
+        <div className="ml-2">{pmile}</div>
       </div>
     </div>
   );

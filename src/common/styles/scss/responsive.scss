@@ -1,9 +1,9 @@
 // position 동적 지정
 @mixin responsive-position-height($base-px) {
-  top: calc($base-px / 932px) * 100vh;
+  top: calc($base-px / 932px) * 100vh !important;
 }
 @mixin responsive-position-width($base-px) {
-  left: calc($base-px/ 431px) * 100vw;
+  left: calc($base-px/ 431px) * 100vw !important;
 }
 // width, height동적 지정
 @mixin responsive-height($base-px) {

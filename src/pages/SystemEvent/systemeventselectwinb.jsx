@@ -15,17 +15,20 @@ function SystemEventSelectWinB() {
       img: baseball_daegu,
       match: {
         time: "18:30",
-        stadium: "대구삼성라이온즈파크"
+        stadium: "대구삼성라이온즈파크",
+        name: "삼성 라이온즈 vs SSG 랜더스"
       },
       home: {
         type: "홈",
         team: "삼성<br/> 라이온즈",
+        teamnm: "삼성 라이온즈",
         rank: "3위",
         img: baseball_samsung
       },
       away: {
         type: "원정",
         team: "SSG<br/> 랜더스",
+        teamnm: "SSG 랜더스",
         rank: "5위",
         img: baseball_ssg
       }
@@ -34,17 +37,20 @@ function SystemEventSelectWinB() {
       img: baseball_jamsil,
       match: {
         time: "18:30",
-        stadium: "잠실야구장"
+        stadium: "잠실야구장",
+        name: "두산 베어스 vs NC 다이노스"
       },
       home: {
         type: "홈",
         team: "두산<br/> 베어스",
+        teamnm: "두산 베어스",
         rank: "4위",
         img: baseball_doosan
       },
       away: {
         type: "원정",
         team: "NC<br/> 다이노스",
+        teamnm: "NC 다이노스",
         rank: "6위",
         img: baseball_nc
       }
@@ -66,7 +72,6 @@ function SystemEventSelectWinB() {
               2024 신한 SOL Bank
               <br />
               KBO리그
-              {/* 몇시에갈래? 3시 반 ㄱㄱ */}
             </div>
           </div>
         </div>

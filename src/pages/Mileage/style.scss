@@ -17,7 +17,7 @@
 
 .mileageProduct {
   @include responsive-position-width(30px);
-  @include responsive-position-height(312px);
+  @include responsive-position-height(325px);
   @apply flex;
   position: absolute;
 }
@@ -34,41 +34,41 @@
 
 .mileagePopularProduct {
   @include responsive-position-width(30px);
-  @include responsive-position-height(400px);
+  @include responsive-position-height(420px);
   @include responsive-width(386px);
-  @include responsive-font-size(25px);
-  @apply flex;
+  @include responsive-font-size(20px);
+
   position: absolute;
   font-family: "NanumSquareRoundB";
 
   .more {
     @include responsive-position-width(310px);
     @include responsive-position-height(10px);
-    @include responsive-font-size(15px);
+    @include responsive-font-size(13px);
     position: absolute;
     color: #868686;
   }
 
   .maincontent {
-    @include responsive-position-height(40px);
-    @include responsive-position-width(10px);
-    @apply flex;
-
-    position: absolute;
+    // @include responsive-position-height(40px);
+    // @include responsive-position-width(20px);
+    @apply flex mt-6;
+    width: 100%;
+    // position: absolute;
   }
 }
 
 .mileagePopularProductBelow {
   @include responsive-position-width(30px);
-  @include responsive-position-height(750px);
+  @include responsive-position-height(770px);
   @include responsive-width(386px);
-  @include responsive-font-size(25px);
+  @include responsive-font-size(20px);
   @apply flex;
   position: absolute;
   font-family: "NanumSquareRoundB";
 
   .more {
-    @include responsive-font-size(15px);
+    @include responsive-font-size(13px);
     @include responsive-position-width(260px);
     // @include responsive-position-width(28px);
     @include responsive-position-height(10px);
@@ -86,7 +86,7 @@
 }
 
 .mileagePopularProductMainContent {
-  @apply grid mr-6 place-items-center;
+  @apply grid w-full place-items-center;
 }
 
 .mileageProductDivTxt {
