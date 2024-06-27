@@ -6,26 +6,19 @@ import * as Pages from "@/pages";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layouts.GrayFooter />,
-
-    children: [
-      {
-        path: "mileage",
-        children: [{ index: true, element: <Pages.Mileage /> }]
-      },
-      {
-        path: "event",
-        children: [{ index: true, element: <Pages.SystemEvent /> }]
-      }
-    ]
-  },
-  {
-    path: "/",
     element: <Layouts.WhiteFooter />,
     children: [
       {
         path: "/",
         children: [{ index: true, element: <Pages.Home /> }]
+      },
+      {
+        path: "event",
+        children: [{ index: true, element: <Pages.SystemEvent /> }]
+      },
+      {
+        path: "mileage",
+        children: [{ index: true, element: <Pages.Mileage /> }]
       }
     ]
   },
@@ -160,6 +153,10 @@ const router = createBrowserRouter([
       {
         path: "platform/join/complete",
         children: [{ index: true, element: <Pages.JoinComplete /> }]
+      },
+      {
+        path: "event/selectwin",
+        children: [{ index: true, element: <Pages.SystemEventSelectWin /> }]
       }
     ]
   }

@@ -1,4 +1,4 @@
-@import "../../common/styles/scss/base.scss";
+@import "../../common/styles/scss/responsive.scss";
 .homeTitle {
   @apply flex place-items-center;
   @include responsive-position-height(82px);

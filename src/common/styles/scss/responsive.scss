@@ -1,0 +1,25 @@
+// position 동적 지정
+@mixin responsive-position-height($base-px) {
+  top: calc($base-px / 932px) * 100vh;
+}
+@mixin responsive-position-width($base-px) {
+  left: calc($base-px/ 431px) * 100vw;
+}
+// width, height동적 지정
+@mixin responsive-height($base-px) {
+  height: calc($base-px/932px) * 100vh;
+}
+@mixin responsive-width($base-px) {
+  width: calc($base-px/431px) * 100vw;
+}
+// margin
+@mixin responsive-margin-top($base-px) {
+  margin-top: calc($base-px/932px) * 100vh;
+}
+@mixin responsive-margin-left($base-px) {
+  margin-left: calc($base-px/431px) * 100vw;
+}
+// font
+@mixin responsive-font-size($base-px) {
+  font-size: calc($base-px/932px) * 100vh;
+}

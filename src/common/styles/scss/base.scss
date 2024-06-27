@@ -44,28 +44,6 @@
   src: url("@/fonts/Sansation_Regular.ttf") format("truetype");
 }
 
-// position 동적 지정
-@mixin responsive-position-height($base-px) {
-  top: calc($base-px / 932px) * 100vh;
-}
-@mixin responsive-position-width($base-px) {
-  left: calc($base-px/ 431px) * 100vw;
-}
-// width, height동적 지정
-@mixin responsive-height($base-px) {
-  height: calc($base-px/932px) * 100vh;
-}
-@mixin responsive-width($base-px) {
-  width: calc($base-px/431px) * 100vw;
-}
-// margin
-@mixin responsive-margin-top($base-px) {
-  margin-top: calc($base-px/932px) * 100vh;
-}
-@mixin responsive-margin-left($base-px) {
-  margin-left: calc($base-px/431px) * 100vw;
-}
-
 // @supports (padding-top: env(safe-area-inset-top)) {
 //   body {
 //     --safe-area-inset-top: env(safe-area-inset-top);
@@ -76,7 +54,7 @@
 @media (display-mode: standalone) {
   body {
     height: 100%;
-    min-height: calc(100% + env(safe-area-inset-top));
+    // min-height: calc(100% + env(safe-area-inset-top));
     padding: env(safe-area-inset-top) env(safe-area-inset-right)
       env(safe-area-inset-bottom) env(safe-area-inset-left);
   }

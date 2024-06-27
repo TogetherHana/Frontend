@@ -22,9 +22,11 @@ export { default as JoinAccountLink } from "./JoinPlatform/joinaccountlink";
 export { default as JoinAuthenticationCheck } from "./JoinPlatform/joinauthenticationcheck";
 export { default as JoinSetNickName } from "./JoinPlatform/joinsetnickname";
 export { default as JoinComplete } from "./JoinPlatform/joincomplete";
+// System Event
+export { default as SystemEvent } from "./SystemEvent";
+export { default as SystemEventSelectWin } from "./SystemEvent/systemeventselectwin";
 // Etc
 export { default as Home } from "./Home";
 export { default as Main } from "./Main";
 export { default as Mileage } from "./Mileage";
-export { default as SystemEvent } from "./SystemEvent";
 export { default as Test } from "./TestTest";
