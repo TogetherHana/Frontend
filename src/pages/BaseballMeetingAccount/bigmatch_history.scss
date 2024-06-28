@@ -1,0 +1,145 @@
+.bigmatchHistory-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow-y: auto;
+
+  font-family: "BMHanna";
+  font-weight: 400;
+
+  position: relative;
+
+  .leftTime {
+    color: #f51a1a;
+    position: absolute;
+    left: 22px;
+  }
+
+  .playingGame-container {
+    border: 1px solid $color-primary1;
+    background-color: $color-background;
+    width: 387px;
+    height: 131px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    position: relative;
+
+    .punch-img {
+      width: 80px;
+      height: 80px;
+      background-image: url(@/assets/images/punch.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    .playingGame-title {
+      width: 130px;
+      height: 40px;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .go-bigmatch {
+      color: $color-primary1;
+      font-size: 16px;
+
+      position: absolute;
+      bottom: 10px;
+      right: 30px;
+    }
+  }
+  .nonPlayingGame-container {
+    border: 1px solid $color-primary1;
+    background-color: $color-background;
+    width: 387px;
+    height: 131px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+
+    font-size: 16px;
+  }
+
+  .line {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 387px;
+    height: 1px;
+    background-color: $color-background2;
+  }
+
+  .history-container {
+    position: relative;
+    color: $color-text1;
+
+    .createTime {
+      position: absolute;
+      left: 0px;
+    }
+    .gameHistory-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      padding-left: 20px;
+
+      border: 1px solid $color-text1;
+      background-color: $color-background;
+      width: 387px;
+      height: 131px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+
+      font-size: 16px;
+
+      .winner-loser-container {
+        display: flex;
+        flex-direction: row;
+
+        .winners-losers {
+          display: flex;
+          flex-direction: row;
+          color: black;
+
+          .profile {
+            width: 15px;
+            height: 15px;
+            background-image: url(@/assets/images/sailor.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+            margin-right: 5px;
+          }
+        }
+      }
+
+      .loser-container {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+    .history-empty {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 50px;
+    }
+  }
+
+  .row-dummy {
+    width: 10px;
+  }
+  .col-dummy {
+    height: 10px;
+  }
+}
