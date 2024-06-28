@@ -1,14 +1,14 @@
-@import "../../common/styles/scss/base.scss";
+@import "../../common/styles/scss/responsive.scss";
 .green-layout {
   display: flex;
   flex-direction: column;
 
-  max-width: 431px;
-  max-height: 932px;
+  // max-width: 431px;
+  // max-height: 932px;
   margin-left: auto;
   margin-right: auto;
   background-color: $color-primary2;
-  min-height: $vh-100;
+  // min-height: $vh-100;
 }
 
 .root-content {
@@ -17,7 +17,8 @@
   .sidebar {
     .side-button {
       background: transparent;
-      height: 60px;
+      // height: 60px;
+      @include responsive-height(60px);
       width: inherit;
       color: $color-background;
       &:hover {
@@ -68,8 +69,8 @@
     width: 100%;
   }
   .mileage {
-    height: 20px;
-    width: 20px;
+    @include responsive-height(20px);
+    @include responsive-width(20px);
     // margin: 20px;
     background-image: url(@/assets/images/footerIcons/mileage.svg);
     background-size: cover;
@@ -77,8 +78,8 @@
     background-position: center center;
   }
   .home {
-    height: 20px;
-    width: 20px;
+    @include responsive-height(20px);
+    @include responsive-width(20px);
     // margin: 20px;
     background-image: url(@/assets/images/footerIcons/home.svg);
     background-size: cover;
@@ -86,8 +87,8 @@
     background-position: center center;
   }
   .event {
-    height: 20px;
-    width: 20px;
+    @include responsive-height(20px);
+    @include responsive-width(20px);
     // margin: 20px;
     background-image: url(@/assets/images/footerIcons/event.svg);
     background-size: cover;
