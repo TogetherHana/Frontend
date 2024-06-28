@@ -1,61 +1,94 @@
 import React, { useState } from "react";
-// @ts-ignore
-import hana6060 from "@/assets/images/hana6060.svg";
-// @ts-ignore
-import sports from "@/assets/images/mileage/sports.svg";
-// @ts-ignore
-import charging from "@/assets/images/mileage/charging.svg";
-// @ts-ignore
-import exchange from "@/assets/images/mileage/exchange.svg";
-// @ts-ignore
-import chargebelow from "@/assets/images/mileage/chargebelow.svg";
-// @ts-ignore
-import footballticket from "@/assets/images/ticket/football.svg";
-import HomeMileageSubBtn from "@/components/Button/homemileagesubbtn";
 import MainAccountDiv from "@/components/Main/mainaccountdiv";
+import MainMiddleBtn from "@/components/Main/mainmiddlebtn";
+import MainAccountLastDiv from "@/components/Main/mainaccountlastdiv";
+import pfimg from "@/assets/images/mainrenewal/pfimg.svg";
+import kiatogether from "@/assets/images/characters/Kia_together.svg";
+import hana4040 from "@/assets/images/hana4040.svg";
+import clover from "@/assets/images/mainrenewal/clover.svg";
+import event from "@/assets/images/mileage/event.svg";
+import goods from "@/assets/images/mileage/goods.svg";
+import MainMileageBtn from "@/components/Main/mainmileagebtn";
+import charging from "@/assets/images/mileage/charging.svg";
+import convert from "@/assets/images/mileage/convert.svg";
 import "./style.scss";
 
 function Home() {
   const [isSetCheeringTeam, setIsSetCheeringTeam] = useState(false);
+
+  const middleBtnParams = [
+    {
+      top: "이벤트",
+      below: `다양한 이벤트에 <br/> 참여해보세요!`,
+      img: event,
+      url: "event"
+    },
+    {
+      top: "마일리지샵",
+      below: `마일리지로 굿즈를 <br/> 구매해보세요!`,
+      img: goods,
+      url: "mileage"
+    }
+  ];
+
   return (
-    <div>
+    <>
       {/* top */}
-      <div className="homeTitle">
-        <img src={hana6060} alt="logo6060" />
-        <div className="homeTitleTxt">함께, 하나?</div>
+      <div className="renewalHomeTitle">
+        <div className="left">
+          <img src={hana4040} alt="hana4040" />
+          <div>함께, 하나</div>
+        </div>
+        <div className="right">
+          <div className="txt">이상민 님</div>
+          <img src={pfimg} alt="profileImg" />
+        </div>
       </div>
-      {/* 모임통장 */}
-      <div className="homeDiv">
-        <div className="homeDivTitle">내 모임통장</div>
-        {/* 나중에는 여러개 가져와서 carousel 형태로 바꿔야 함 */}
-        <MainAccountDiv img={footballticket} />
+      {/* middle1 title */}
+      <div className="renewalMiddleTitle">
+        <div className="top">함께 즐기고 싶다면</div>
+        <div className="bottom">스포츠 모임통장</div>
       </div>
-      {/* 마일리지 */}
-      <div className="homeDiv middle">
-        <div className="homeMileageTitle">
-          <img src={sports} alt="sports" width={100} height={90} />
-          <div>
-            <div className="homeMileageRight txt1">이상민 님</div>
-            <div className="homeMileageRight txt2">5,430 M</div>
-            <div className="homeMileageRight txt3">내역확인 &gt;</div>
+      {/* middle1 content */}
+      <div className="renewalMiddleContentDiv">
+        <MainAccountDiv img={kiatogether} />
+        <MainAccountLastDiv />
+      </div>
+      {/* sports mileage */}
+      <div className="renewalMiddleMileageDiv">
+        <div className="flex">
+          <div className="top">
+            <div>MY 스포츠 마일리지</div>
+            <div className="mile">
+              <div>5,430M</div>
+              <div className="milebtn">무료 마일리지 받기!</div>
+            </div>
           </div>
         </div>
-        <div className="homeMileageChargeBelow">
-          <img src={chargebelow} alt="chargebelow" />
-          <div className="homeMileageChargeBelow txt">무료 마일리지 받기!</div>
-        </div>
-        <div>
-          <HomeMileageSubBtn img={charging} content={"충전"} cnm={""} />
-          <HomeMileageSubBtn img={exchange} content={"환전"} cnm={"btn2"} />
+        <hr />
+        <div className="bottom">
+          <MainMileageBtn content={"충전하기"} img={charging} />
+          {/* <div className="v-line"></div> */}
+          <MainMileageBtn content={"환전하기"} img={convert} />
         </div>
       </div>
-      {/* 응원팀 설정 */}
-      {isSetCheeringTeam ? (
-        <div className="homeDiv small">응원팀 경기일정</div>
-      ) : (
-        <div className="homeDiv small">MY 응원팀 설정하기</div>
-      )}
-    </div>
+      {/* event & goods shop */}
+      <div className="renewalMiddleBtnDiv">
+        {middleBtnParams.map((item, index) => (
+          <MainMiddleBtn params={item} />
+        ))}
+      </div>
+      {/* cheering team */}
+      <div className="renewalCheeringTeam">
+        <div className="content">
+          <div className="top">
+            응원팀 설정하고 함께, 하나 더 재미있게 즐기기!
+          </div>
+          <div>MY 응원팀 설정하기</div>
+        </div>
+        <img src={clover} alt="clover" />
+      </div>
+    </>
   );
 }
 

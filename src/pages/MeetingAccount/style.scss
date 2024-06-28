@@ -1,3 +1,4 @@
+@import "../../common/styles/scss/responsive.scss";
 // register
 .registerMain {
   @apply grid place-items-center overflow-y-scroll;
@@ -6,28 +7,27 @@
 
 // id-verification
 .idVerification {
-  font-family: "BMHanna";
-  font-size: 30px;
+  @include responsive-font-size(30px);
   @apply my-5 grid place-items-center;
 
   &.detail {
+    @include responsive-font-size(20px);
     font-family: "NotoSans";
-    font-size: 20px;
     color: #616161;
     opacity: 0.62;
   }
 
   &.btn {
+    @include responsive-font-size(20px);
     margin: 0;
     font-family: "NanumSquareRoundR";
-    font-size: 20px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
 
   &.below {
+    @include responsive-font-size(15px);
     margin-top: 20px;
     font-family: "NotoSans";
-    font-size: 15px;
     color: rgba(97, 97, 97, 0.72);
   }
 
@@ -134,9 +134,9 @@
 }
 
 .userinfobtnLocation {
+  @include responsive-position-height(770px);
+  @include responsive-position-width(34px);
   position: fixed;
-  top: 770px;
-  left: 34px;
 }
 
 // select stock

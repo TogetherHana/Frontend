@@ -1,5 +1,8 @@
+@import "../../common/styles/scss/responsive.scss";
 // styles/button.scss
 .btn {
+  @include responsive-width(375px);
+  @include responsive-height(55px);
   display: inline-flex;
   align-items: center;
   justify-content: center;
