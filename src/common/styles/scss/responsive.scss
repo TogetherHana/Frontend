@@ -7,10 +7,10 @@
 }
 // width, height동적 지정
 @mixin responsive-height($base-px) {
-  height: calc($base-px/932px) * 100vh;
+  height: calc($base-px/932px) * 100vh !important;
 }
 @mixin responsive-width($base-px) {
-  width: calc($base-px/431px) * 100vw;
+  width: calc($base-px/431px) * 100vw !important;
 }
 // margin
 @mixin responsive-margin-top($base-px) {

@@ -2,9 +2,9 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import "./white_style.scss";
 
-function WhiteNonFooter() {
+function RenewalNonFooter() {
   return (
-    <div className="white-layout">
+    <div className="renewal-layout">
       <div className="root-content">
         <header></header>
         <main className="main-content">
@@ -15,4 +15,4 @@ function WhiteNonFooter() {
   );
 }
 
-export default WhiteNonFooter;
+export default RenewalNonFooter;

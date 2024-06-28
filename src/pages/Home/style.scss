@@ -131,3 +131,205 @@
     font-size: 13px;
   }
 }
+
+.renewalHomeTitle {
+  @apply flex;
+  @include responsive-font-size(25px);
+  @include responsive-position-height(77px);
+  width: 100%;
+  position: absolute;
+  font-family: "NanumSquareRoundB";
+
+  .left {
+    @apply ml-6 flex place-items-center;
+    div {
+      @apply ml-2;
+    }
+  }
+  .right {
+    @apply flex ml-28;
+    @include responsive-font-size(15px);
+
+    .txt {
+      @apply mr-2 mt-auto;
+    }
+  }
+}
+
+.renewalMiddleTitle {
+  @apply ml-6;
+  @include responsive-position-height(150px);
+  position: absolute;
+  font-family: "NanumSquareRoundB";
+  .top {
+    @apply mb-3;
+    @include responsive-font-size(20px);
+    // color: #366dfe;
+    color: #44bd91;
+  }
+  .bottom {
+    @include responsive-font-size(25px);
+  }
+}
+
+.renewalMiddleContentDiv {
+  @apply ml-3 flex overflow-x-scroll;
+  @include responsive-position-height(240px);
+  @include responsive-height(200px);
+  position: absolute;
+  width: 95%;
+
+  // max-width: 431px;
+}
+
+.renewalMiddleContent {
+  @apply mr-2;
+  @include responsive-width(370px);
+  @include responsive-height(180px);
+  flex: 0 0 auto;
+  border-radius: 15px;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.25);
+  font-family: "NanumSquareRoundB";
+  background-color: #fae055;
+
+  &.last {
+    @apply flex;
+    @include responsive-font-size(15px);
+    background-color: #746fa5;
+  }
+
+  ::webkit-scrollbar {
+    display: none;
+  }
+}
+
+.renewalMiddleLastContent {
+  @apply mx-auto text-center my-auto;
+  @include responsive-width(160px);
+  font-family: "NanumSquareRoundB";
+  // background-color:
+
+  img {
+    @apply mx-auto mb-5;
+  }
+}
+
+.renewalMiddleMileageDiv {
+  @apply mx-4;
+  @include responsive-width(400px);
+  @include responsive-height(170px);
+  @include responsive-position-height(445px);
+  position: absolute;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  .top {
+    @apply m-5;
+    @include responsive-font-size(17px);
+    font-family: "NanumSquareRoundB";
+    .mile {
+      @apply mt-3 flex;
+      @include responsive-font-size(25px);
+      font-family: "Sansation";
+      color: #44bd91;
+      .milebtn {
+        @apply grid place-items-center ml-28;
+        @include responsive-font-size(15px);
+        @include responsive-width(150px);
+        @include responsive-height(30px);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        background-color: #4c7d6b;
+        color: white;
+      }
+    }
+  }
+  .bottom {
+    @apply flex place-items-center;
+  }
+  // .milebtn {
+  //   @include responsive-font-size(13px);
+  //   font-family: "NanumSquareRoundR";
+  // }
+}
+
+.renewalMiddleBtnDiv {
+  @apply flex mx-4;
+  @include responsive-position-height(650px);
+  position: absolute;
+}
+
+.renewalMiddleBtn {
+  @apply flex mr-4;
+  @include responsive-width(190px);
+  @include responsive-height(80px);
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  .txt {
+    @apply my-auto ml-5;
+    @include responsive-font-size(17px);
+    font-family: "NanumSquareRoundB";
+    line-height: 1.5;
+    .small {
+      @include responsive-font-size(10px);
+      color: #666666;
+    }
+  }
+  img {
+    @apply ml-8;
+  }
+}
+
+.renewalCheeringTeam {
+  // @apply grid place-items-center;
+  @apply flex mx-4;
+  @include responsive-width(400px);
+  @include responsive-height(100px);
+  @include responsive-position-height(760px);
+  position: absolute;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  .content {
+    @apply text-center m-auto;
+    @include responsive-font-size(20px);
+    line-height: 1.5;
+    width: 80%;
+    font-family: "NanumSquareRoundB";
+
+    .top {
+      @include responsive-font-size(13px);
+      color: #666666;
+    }
+  }
+  img {
+    @apply m-auto;
+  }
+}
+
+.mainMileagebtn {
+  @apply flex place-items-center mx-auto mt-2;
+  @include responsive-font-size(17px);
+  @include responsive-width(130px);
+  @include responsive-height(40px);
+  border-radius: 5px;
+  // background-color: aliceblue;
+  font-family: "NanumSquareRoundB";
+
+  img {
+    @apply mx-auto;
+  }
+  div {
+    @apply mx-auto;
+  }
+}
+
+.v-line {
+  // border-left:
+  @include responsive-height(69px);
+  border-left: thick solid #32a1ce;
+}

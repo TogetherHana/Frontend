@@ -14,11 +14,17 @@ const rootElement = document.getElementById("root");
 
 function setFullHeight() {
   let vh = window.innerHeight * 0.01;
+  let vw = window.innerWidth * 0.01;
   document.documentElement.style.setProperty("--vh", `${vh}px`);
+  document.documentElement.style.setProperty("--vw", `${vw}px`);
   // mobile height setting
   document.documentElement.style.setProperty(
     "--app-height",
     `${window.innerHeight}px`
+  );
+  document.documentElement.style.setProperty(
+    "--app-width",
+    `${window.innerWidth}px`
   );
 }
 
