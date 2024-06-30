@@ -1,4 +1,4 @@
-import { selectBankAtom } from "@/pages/JoinPlatform/joinaccountlink";
+import { selectBankAtom } from "@/pages/JoinPlatform/join-account-link";
 import { useAtom, useSetAtom } from "jotai";
 import React, { useCallback } from "react";
 

@@ -4,6 +4,10 @@ export { default as Baseball } from "./Cheering/baseball_index";
 // Collecting Fee - 모임통장 돈 걷기
 export { default as FeeCollect } from "./CollectingFee/fee_collect";
 export { default as FeeInput } from "./CollectingFee/fee_input";
+// 빅매치
+export { default as Bigmatch } from "./BigMatch/index";
+export { default as Finish } from "./BigMatch/finish";
+export { default as Voted } from "./BigMatch/voted";
 // Meeting Account - 모임통장
 export { default as MacAgreeTerms } from "./MeetingAccount/macagreeterms";
 export { default as MacCreatedInfo } from "./MeetingAccount/maccreatedinfo";
@@ -19,10 +23,10 @@ export { default as MacIcAgreeTerms } from "./MeetingAccount/InviteCode/macicagr
 export { default as MacIcRegistering } from "./MeetingAccount/InviteCode/macicregistering";
 export { default as MacIcComplete } from "./MeetingAccount/InviteCode/maciccomplete";
 // Join Platform - 회원가입
-export { default as JoinMain } from "./JoinPlatform/joinmain";
-export { default as JoinIntro } from "./JoinPlatform/joinintro";
-export { default as JoinIdVerification } from "./JoinPlatform/joinidverification";
-export { default as JoinAccountLink } from "./JoinPlatform/joinaccountlink";
+export { default as JoinMain } from "./JoinPlatform/join-main";
+export { default as JoinIntro } from "./JoinPlatform/join-intro";
+export { default as JoinIdVerification } from "./JoinPlatform/join-id-verification";
+export { default as JoinAccountLink } from "./JoinPlatform/join-account-link";
 export { default as JoinAuthenticationCheck } from "./JoinPlatform/joinauthenticationcheck";
 export { default as JoinSetNickName } from "./JoinPlatform/joinsetnickname";
 export { default as JoinComplete } from "./JoinPlatform/joincomplete";
