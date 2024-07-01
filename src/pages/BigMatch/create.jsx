@@ -1,10 +1,11 @@
 // @ts-nocheck
 import React, { useState, forwardRef, useEffect } from "react";
-import axios from 'axios';
+import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./create.scss";
 import Button from "@/components/Button";
+import { useNavigate } from "react-router-dom";
 
 const DateInput = forwardRef(({ value, onClick }, ref) => (
   <button className="date-custom" onClick={onClick} ref={ref}>
@@ -13,17 +14,6 @@ const DateInput = forwardRef(({ value, onClick }, ref) => (
 ));
 
 const combineDateAndTime = (date, time) => {
-  // const combined = new Date(date);
-  // combined.setHours(time.getHours());
-  // combined.setMinutes(time.getMinutes());
-  // combined.setSeconds(time.getSeconds());
-  // combined.setMilliseconds(time.getMilliseconds());
-
-  // // Convert to ISO string and remove milliseconds
-  // const isoString = combined.toISOString();
-  // return isoString.split('.')[0] + 'Z';  
-
-
   const combined = new Date(date);
   combined.setHours(time.getHours());
   combined.setMinutes(time.getMinutes());
@@ -32,16 +22,18 @@ const combineDateAndTime = (date, time) => {
 
   // 로컬 시간대를 유지한 ISO 문자열 생성
   const year = combined.getFullYear();
-  const month = String(combined.getMonth() + 1).padStart(2, '0');
-  const day = String(combined.getDate()).padStart(2, '0');
-  const hours = String(combined.getHours()).padStart(2, '0');
-  const minutes = String(combined.getMinutes()).padStart(2, '0');
-  const seconds = String(combined.getSeconds()).padStart(2, '0');
+  const month = String(combined.getMonth() + 1).padStart(2, "0");
+  const day = String(combined.getDate()).padStart(2, "0");
+  const hours = String(combined.getHours()).padStart(2, "0");
+  const minutes = String(combined.getMinutes()).padStart(2, "0");
+  const seconds = String(combined.getSeconds()).padStart(2, "0");
 
   return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
 };
 
 function CreateMatch() {
+  const navigate = useNavigate();
+
   const [gameTitle, setGameTitle] = useState("");
   const [gameOptions, setGameOptions] = useState([{ optionTitle: "" }]); // 초기 상태에 하나의 입력 필드 포함
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -117,7 +109,9 @@ function CreateMatch() {
     <>
       <div className="create-container">
         <div className="header">
-          <div className="back">&lt;</div>
+          <div className="back" onClick={() => navigate(-1)}>
+            &lt;
+          </div>
           <div>빅매치 겨루기</div>
           <div className="row-dummy"></div>
         </div>

@@ -1,21 +1,5 @@
-import GrayFooter from "@/layouts/Footer/gray_footer";
-import GrayNonFooter from "@/layouts/NonFooter/gray_nonfooter";
-import GreenNonFooter from "@/layouts/NonFooter/green_nonfooter";
-import Bigmatch from "@/pages/BigMatch";
-import Finish from "@/pages/BigMatch/finish";
-import Voted from "@/pages/BigMatch/voted";
-import Cheering from "@/pages/Cheering";
-import Baseball from "@/pages/Cheering/baseball_index";
-import FeeCollect from "@/pages/CollectingFee/fee_collect";
-import FeeInput from "@/pages/CollectingFee/fee_input";
-import Home from "@/pages/Home";
-import Main from "@/pages/Main";
-import Mileage from "@/pages/Mileage";
-import SystemEvent from "@/pages/SystemEvent";
-import Test from "@/pages/TestTest";
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
-import CreateMatch from "@/pages/BigMatch/create";
 
 import * as Layouts from "@/layouts";
 import * as Pages from "@/pages";
@@ -46,6 +30,29 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
+    element: <Layouts.GreenFooter />,
+
+    children: [
+      {
+        path: "baseball/home",
+        children: [{ index: true, element: <Pages.BaseballHome /> }]
+      },
+      {
+        path: "history",
+        children: [{ index: true, element: <Pages.History /> }]
+      },
+      {
+        path: "friends",
+        children: [{ index: true, element: <Pages.Friends /> }]
+      },
+      {
+        path: "match/history",
+        children: [{ index: true, element: <Pages.BigmatchHistory /> }]
+      }
+    ]
+  },
+  {
+    path: "/",
     element: <Layouts.RenewalNonFooter />,
     children: [
       {
@@ -53,7 +60,7 @@ const router = createBrowserRouter([
         children: [{ index: true, element: <Pages.Home /> }]
       }
     ]
-  },
+  }, 
   {
     path: "/",
     element: <Layouts.GrayNonFooter />,
@@ -69,15 +76,14 @@ const router = createBrowserRouter([
       {
         path: "create/match",
         children: [
-          { index: true, element: <CreateMatch /> }              
+          { index: true, element: <Pages.CreateMatch /> }   
         ]
       }, 
       {
         path: "match",
         children: [
-          { index: true, element: <Bigmatch /> }, 
-          { path: ":finish", element: <Finish />},       
-          { path: ":complete", element: <Voted />}            
+          { index: true, element: <Pages.Bigmatch /> }, 
+          { path: ":finish", element: <Pages.Finish />}                    
         ]
       },
       {
