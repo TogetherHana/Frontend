@@ -15,7 +15,7 @@ function Main() {
           <span>Loading...</span>
         </div>
       </div> */}
-      <div id="page">
+      {/* <div id="page">
         <div id="container">
           <div id="ring"></div>
           <div id="ring"></div>
@@ -23,6 +23,9 @@ function Main() {
           <div id="ring"></div>
           <div id="h3">함께, 하나</div>
         </div>
+      </div> */}
+      <div className="loader">
+        <span className="loader-text">함께, 하나</span>
       </div>
     </>
   );
