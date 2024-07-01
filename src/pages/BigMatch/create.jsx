@@ -84,6 +84,7 @@ function CreateMatch() {
 
       console.log("--------------------------------------");
       console.log(response.data);
+      navigate("/baseball/home");
 
       // if (response.data.result == "success") {
       // } else {

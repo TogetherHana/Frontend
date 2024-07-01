@@ -4,9 +4,11 @@ import Button from "@/components/Button";
 import Friends from "./friends";
 import History from "./history";
 import BigmatchHistory from "./bigmatch_history";
+import { useNavigate } from "react-router-dom";
 
 function BaseballHome() {
-  const [selectedButton, setSelectedButton] = useState(null); // 어떤 버튼이 선택되었는지를 나타내는 상태
+  const navigate = useNavigate();
+  const [selectedButton, setSelectedButton] = useState("입출금"); // 어떤 버튼이 선택되었는지를 나타내는 상태
 
   const handleButtonClick = (button) => {
     setSelectedButton(button); // 클릭된 버튼의 이름을 상태로 설정
@@ -50,7 +52,7 @@ function BaseballHome() {
                 border: "1px solid #44BD91",
                 boxShadow: "none"
               }}
-              onClick={() => {}}
+              onClick={() => navigate("/fee")}
             >
               회비 걷기
             </Button>
@@ -61,7 +63,7 @@ function BaseballHome() {
                 marginLeft: "15px",
                 boxShadow: "none"
               }}
-              onClick={() => {}}
+              onClick={() => navigate("/send")}
             >
               보내기
             </Button>

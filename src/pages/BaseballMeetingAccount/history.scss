@@ -1,7 +1,60 @@
-.history-container {
+.transfer-history-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "NanumSquareRoundB";
+  font-weight: 900;
+  font-size: 17px;
+
+  .one-thing {
+    width: 386px;
+    height: 100px;
+
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
 
-    
+    padding-left: 50px;
+    padding-right: 50px;
+
+    .date-name {
+      display: flex;
+      flex-direction: column;     
+      justify-content: flex-start;
+
+      color: black;
+
+      .date {
+        font-size: 13px;
+        margin-bottom: 10px;        
+      }
+    }
+
+    .type-transfer-remain {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .type {
+        align-self: flex-end;
+        color: $color-primary1;
+        font-size: 13px;
+        margin-bottom: 5px;
+      }
+      .transfer {
+        align-self: flex-end;
+        color: #5866e5;
+        font-size: 17px;
+        margin-bottom: 7px;
+      }
+      .remain {
+        align-self: flex-end;
+        color: $color-text1;
+        font-size: 13px;
+      }
+    }
+  }
 }

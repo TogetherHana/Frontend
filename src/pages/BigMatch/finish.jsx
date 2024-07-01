@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./finish.scss";
 import Button from "@/components/Button";
 import { useNavigate } from "react-router-dom";
 
 function Finish() {
   const navigate = useNavigate();
+  const [losers, setLosers] = useState([]);
+
+  useEffect(() => {
+    // 로컬 스토리지에서 데이터를 가져와 상태에 저장
+    const storedLosers = JSON.parse(localStorage.getItem("losers")) || [];
+    setLosers(storedLosers);
+  }, []);
+
+  // Calculate height based on the number of losers
+  const prisonHeight = Math.max(200, 60 * losers.length); // Minimum height of 200px, increase by 60px for each loser
 
   return (
     <>
@@ -44,18 +54,27 @@ function Finish() {
           <div className="col-dummy" />
           <div className="col-dummy" />
           <div className="losers">
-            <div className="prison" />
+            <div className="prison" style={{ height: `${prisonHeight}px` }} />
             <div className="user-names">
-              <div className="user-container">
-                <div className="user-profile" />
-                <div className="user-name">젼</div>               
-              </div>
+              {losers.map((loser, index) => (
+                <div className="user-container" key={index}>
+                  <div className="user-profile" />
+                  <div className="user-name">{loser.nickname}</div>
+                </div>
+              ))}
             </div>
-          </div>
-          <Button className="btn" onClick={() => {}}>
+          </div>          
+        </div>
+        <div className="col-dummy" />
+        <div className="col-dummy" />
+        <Button
+            className="btn"
+            onClick={() => {
+              navigate("/baseball/home");
+            }}
+          >
             확인
           </Button>
-        </div>
       </div>
     </>
   );

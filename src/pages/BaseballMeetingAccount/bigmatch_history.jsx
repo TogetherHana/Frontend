@@ -10,6 +10,7 @@ function BigmatchHistory() {
   const sharingAccountIdx = 1; // 모임통장 인덱스 값
   const [data, setData] = useState(null);
   const [timeLeft, setTimeLeft] = useState("");
+  const [isDeadlinePassed, setIsDeadlinePassed] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,6 +26,9 @@ function BigmatchHistory() {
 
         console.log(response.data.data);
         setData(response.data.data);
+
+        console.log(data.playingGame.gameIdx);
+        localStorage.setItem("playingGameIdx", data.playingGame.gameIdx);
       } catch (error) {
         if (error.response) {
           console.error("Response error:", error.response.data);
@@ -48,7 +52,8 @@ function BigmatchHistory() {
       const diff = deadline.diff(now);
 
       if (diff <= 0) {
-        setTimeLeft("Time is up!");
+        setTimeLeft("투표마감시간이 지났습니다!");
+        setIsDeadlinePassed(true);
         return;
       }
 
@@ -60,6 +65,7 @@ function BigmatchHistory() {
       setTimeLeft(
         `${days}일 ${hours}시간 ${minutes}분 ${seconds}초 남았습니다!`
       );
+      setIsDeadlinePassed(false);
     };
 
     calculateTimeLeft();
@@ -84,6 +90,14 @@ function BigmatchHistory() {
 
   const { playingGame, gameHistory } = data;
 
+  const handleClick = () => {
+    if (isDeadlinePassed) {
+      navigate("/choose/loser");
+    } else {
+      navigate("/match");
+    }
+  };
+
   return (
     <>
       <div className="bigmatchHistory-container">
@@ -91,14 +105,17 @@ function BigmatchHistory() {
         <div className="col-dummy" />
         {playingGame ? (
           <>
-            <div className="playingGame-container" onClick={()=>{}}>
+            <div className="playingGame-container" onClick={handleClick}>
               <div className="punch-img" />
               <div className="playingGame-title">{playingGame.gameTitle}</div>
               <div className="go-bigmatch">판 흔들러 가기</div>
             </div>
           </>
         ) : (
-          <div className="nonPlayingGame-container" onClick={()=>navigate("/create/match")}>
+          <div
+            className="nonPlayingGame-container"
+            onClick={() => navigate("/create/match")}
+          >
             <div>지금 열린 빅매치가 없네요..😭</div>
             <div style={{ color: "#44BD91" }}>큰 판 한번 만들어 볼래요?</div>
           </div>
@@ -118,9 +135,9 @@ function BigmatchHistory() {
                   <div className="row-dummy" />
                   {game.winners.map((winner, idx) => (
                     <div className="winners-losers">
-                      <div className="profile" />                      
+                      <div className="profile" />
                       <div key={idx}>{winner.nickname}</div>
-                      <div className="row-dummy" />
+                      <div className="row-dummy2" />                    
                     </div>
                   ))}
                 </div>
@@ -129,7 +146,7 @@ function BigmatchHistory() {
                   <div className="row-dummy" />
                   {game.losers.map((loser, idx) => (
                     <div className="winners-losers">
-                      <div className="profile" />                      
+                      <div className="profile" />
                       <div key={idx}>{loser.nickname}</div>
                       <div className="row-dummy" />
                     </div>

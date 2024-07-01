@@ -4,7 +4,6 @@ import { createBrowserRouter } from "react-router-dom";
 import * as Layouts from "@/layouts";
 import * as Pages from "@/pages";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,7 +52,7 @@ const router = createBrowserRouter([
         children: [{ index: true, element: <Pages.Home /> }]
       }
     ]
-  }, 
+  },
   {
     path: "/",
     element: <Layouts.GrayNonFooter />,
@@ -65,20 +64,22 @@ const router = createBrowserRouter([
           { index: true, element: <Pages.Cheering /> },
           { path: ":baseball", element: <Pages.Baseball /> }
         ]
-      },        
+      },
       {
         path: "create/match",
-        children: [
-          { index: true, element: <Pages.CreateMatch /> }   
-        ]
-      }, 
+        children: [{ index: true, element: <Pages.CreateMatch /> }]
+      },
       {
         path: "match",
         children: [
-          { index: true, element: <Pages.Bigmatch /> }, 
-          { path: ":finish", element: <Pages.Finish />}                    
+          { index: true, element: <Pages.Bigmatch /> },
+          { path: ":finish", element: <Pages.Finish /> }
         ]
-      },           
+      },
+      {
+        path: "choose/loser",
+        children: [{ index: true, element: <Pages.Voted /> }]
+      },
       {
         path: "maccount/register",
         children: [
@@ -175,6 +176,13 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <Pages.FeeInput /> },
           { path: ":collect", element: <Pages.FeeCollect /> }
+        ]
+      },
+      {
+        path: "send",
+        children: [
+          { index: true, element: <Pages.FeeSend /> },
+          { path: ":amount", element: <Pages.SendFeeInput /> }
         ]
       }
     ]
