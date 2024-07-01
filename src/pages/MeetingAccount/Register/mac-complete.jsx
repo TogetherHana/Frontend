@@ -4,11 +4,15 @@ import advertisement1 from "@/assets/images/meetaccountinfo/advertisement1.svg";
 // @ts-ignore
 import bankbook from "@/assets/images/meetaccountinfo/bankbook.svg";
 import VerificationBtn from "@/components/MeetingAccount/IdVerification/verificationbtn";
+import { useNavigate } from "react-router-dom";
 
 function MacComplete() {
+  const navigate = useNavigate();
+
   const completeParams = {
     btnText: "메인화면으로",
-    btnBelowText: "만든 계좌 바로 확인하러 가기"
+    btnBelowText: "만든 계좌 바로 확인하러 가기",
+    onClick: () => navigate(`/`)
   };
 
   return (

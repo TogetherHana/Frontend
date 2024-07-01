@@ -1,10 +1,8 @@
 @import "../../common/styles/scss/responsive.scss";
 .systemEventMainTitle {
-  @include responsive-position-height(74px);
-  @include responsive-position-width(188px);
-  position: absolute;
+  @include responsive-position(74px, 188px);
+  @include responsive-font-size(20px);
   font-family: "NanumSquareRoundB";
-  font-size: 20px;
 }
 
 .systemEventMainEvent {
@@ -21,17 +19,15 @@
 }
 
 .systemEventDivImg {
-  @include responsive-height(180px);
-  @include responsive-width(375px);
-  //   width: 100vw;
+  @include responsive-hw(180px, 375px);
 }
 
 .systemEventHashTag {
+  @include responsive-position-height(195px);
+  @include responsive-font-size(13px);
   font-family: "NanumSquareRoundR";
-  font-size: 13px;
   color: #005a96;
   position: absolute;
-  @include responsive-position-height(195px);
 
   &.first {
     @include responsive-position-width(20px);
@@ -46,28 +42,22 @@
 }
 
 .systemEventDivTitle {
-  @include responsive-position-width(18px);
-  @include responsive-position-height(220px);
+  @include responsive-position(220px, 18px);
+  @include responsive-font-size(20px);
   font-family: "NanumSquareRoundB";
-  font-size: 20px;
-  position: absolute;
 }
 
 .systemEventDivDate {
-  @include responsive-position-width(20px);
-  @include responsive-position-height(255px);
-  position: absolute;
+  @include responsive-position(255px, 20px);
+  @include responsive-font-size(13px);
   color: #959595;
   font-family: "NanumSquareRoundR";
-  font-size: 13px;
 }
 
 .systemEventSelectWinMain {
-  @include responsive-position-width(120px);
-  @include responsive-position-height(60px);
-  position: absolute;
+  @include responsive-position(60px, 120px);
+  @include responsive-font-size(20px);
   font-family: "NanumSquareRoundB";
-  font-size: 20px;
 }
 
 .systemEventSelectWinMainImg {
@@ -76,17 +66,14 @@
 }
 
 .systemEventSelectWinMainBelow {
-  @include responsive-height(436px);
-  @include responsive-width(431px);
+  @include responsive-hw(436px, 431px);
   @include responsive-position-height(496px);
-
   position: absolute;
   background-color: #f4f5f7;
 }
 
 .systemEventSelectWinMainDiv {
-  @include responsive-width(375px);
-  @include responsive-height(100px);
+  @include responsive-hw(100px, 375px);
   @include responsive-position-width(27px);
   @include responsive-font-size(20px);
   @apply flex;
@@ -110,11 +97,8 @@
 }
 
 .systemEventSelectWinMainDivImg {
-  @include responsive-width(65px);
-  @include responsive-height(83px);
-  @include responsive-position-height(7px);
-  @include responsive-position-width(15px);
-  position: absolute;
+  @include responsive-hw(83px, 65px);
+  @include responsive-position(7px, 15px);
 }
 
 .systemEventSelectWinMainDivContent {
@@ -152,13 +136,12 @@
 }
 
 .systemEventSelectWinTitle {
+  @apply flex;
   @include responsive-font-size(20px);
   @include responsive-position-height(65px);
   @include responsive-width(431px);
-  @apply flex;
   position: absolute;
   font-family: "NanumSquareRoundB";
-  // border: 1px solid black;
 
   .left {
     @include responsive-position-width(18px);
@@ -171,41 +154,32 @@
 }
 
 .systemEventSelectWinLogo {
-  @include responsive-height(400px);
-  @include responsive-width(431px);
+  @include responsive-hw(400px, 431px);
   @include responsive-position-height(85px);
   @include responsive-font-size(35px);
   position: absolute;
+
   font-family: "NanumSquareRoundB";
 
-  // border: 1px solid black;
   .top {
-    @include responsive-position-height(70px);
-    @include responsive-position-width(130px);
+    @include responsive-position(70px, 130px);
     @include responsive-font-size(20px);
-    position: absolute;
   }
   .bottom {
     .txt {
-      @include responsive-position-height(300px);
-      @include responsive-position-width(50px);
       @apply text-center;
-      position: absolute;
+      @include responsive-position(300px, 50px);
     }
     img {
-      @include responsive-position-height(80px);
-      @include responsive-position-width(60px);
-      position: absolute;
+      @include responsive-position(80px, 60px);
     }
   }
 }
 
 .systemEventSelectWinBelow {
-  @include responsive-position-height(490px);
-  @include responsive-position-width(100px);
-  @include responsive-font-size(15px);
   @apply flex;
-  position: absolute;
+  @include responsive-font-size(15px);
+  @include responsive-position(490px, 100px);
   font-family: "NanumSquareRoundB";
   color: #868686;
   .date {
@@ -220,12 +194,8 @@
 }
 
 .systemEventSelectWinMatchDiv {
-  @include responsive-width(375px);
-  @include responsive-height(147px);
   @apply mt-5 mx-7;
-  // @include responsive-position-height(543px);
-  // @include responsive-position-width(28px);
-  // position: absolute;
+  @include responsive-hw(147px, 375px);
   background-color: white;
   border-radius: 7px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -249,9 +219,8 @@
 }
 
 .systemEventSelectWinMatchDivTeamImg {
-  @include responsive-width(90px);
-  @include responsive-height(90px);
   @apply grid place-items-center mx-3;
+  @include responsive-hw(90px, 90px);
   background-color: white;
   border-radius: 7px;
 }
@@ -267,16 +236,14 @@
   }
 
   .content {
-    @include responsive-height(170px);
-    @include responsive-width(250px);
     @apply mt-4;
+    @include responsive-hw(170px, 250px);
   }
 }
 
 .systemEventCheckBtn {
   @apply mr-3 grid place-items-center;
-  @include responsive-height(40px);
-  @include responsive-width(100px);
+  @include responsive-hw(40px, 100px);
   @include responsive-font-size(15px);
   border-radius: 7px;
   font-family: "NanumSquareRoundR";

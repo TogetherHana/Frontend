@@ -121,7 +121,12 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Pages.MacSetAccountPW title={"계좌 비밀번호 설정"} />
+            element: (
+              <Pages.MacSetAccountPW
+                title={"계좌 비밀번호 설정"}
+                config={"check"}
+              />
+            )
           }
         ]
       },
@@ -130,7 +135,12 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Pages.MacSetAccountPW title={"계좌 비밀번호 확인"} />
+            element: (
+              <Pages.MacSetAccountPW
+                title={"계좌 비밀번호 확인"}
+                config={"create"}
+              />
+            )
           }
         ]
       },

@@ -1,0 +1,70 @@
+@import "../../../common/styles/scss/responsive.scss";
+.infoHalfBtn {
+  @apply grid place-items-center;
+  @include responsive-hw(55px, 170px);
+  @include responsive-font-size(20px);
+  border: 1px solid #44bd91;
+  border-radius: 25px;
+  font-family: "NanumSquareRoundR";
+  color: #777575;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  &.idx2 {
+    @apply ml-5;
+    color: #f6f6f6;
+    background-color: #44bd91;
+    border: none;
+  }
+}
+
+// numberKeyPad
+.numberKeyPad {
+  @include responsive-hw(490px, 431px);
+  @include responsive-position(442px, 0px);
+  background-color: white;
+}
+
+.numberKeyPadRow {
+  @apply mb-10;
+  @include responsive-font-size(30px);
+  display: flex;
+  font-family: "NanumSquareRoundR";
+  align-items: center;
+  justify-content: space-between;
+
+  &.first {
+    @apply mt-11;
+  }
+
+  &.last {
+    @apply mb-0;
+  }
+
+  div {
+    @apply text-center;
+    flex: 1;
+  }
+}
+
+.numberKeyPadBtn {
+  @include responsive-position(384px, 35px);
+}
+
+// masking
+.maskingPwDiv {
+  @apply flex;
+  @include responsive-position(103px, 8px);
+}
+
+.maskingPwArea {
+  @apply mr-4;
+  @include responsive-hw(60px, 60px);
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.accountTypeLogo {
+  position: fixed;
+  top: 383px;
+  left: 61px;
+}

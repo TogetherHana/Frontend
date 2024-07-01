@@ -9,19 +9,19 @@ export { default as Bigmatch } from "./BigMatch/index";
 export { default as Finish } from "./BigMatch/finish";
 export { default as Voted } from "./BigMatch/voted";
 // Meeting Account - 모임통장
-export { default as MacAgreeTerms } from "./MeetingAccount/macagreeterms";
-export { default as MacCreatedInfo } from "./MeetingAccount/maccreatedinfo";
-export { default as MacIdVerification } from "./MeetingAccount/macidverification";
-export { default as MacComplete } from "./MeetingAccount/maccomplete";
-export { default as MacRegister } from "./MeetingAccount/macregister";
-export { default as MacSelectStock } from "./MeetingAccount/macselectstock";
-export { default as MacSetAccountName } from "./MeetingAccount/macsetaccountname";
-export { default as MacSetAccountPW } from "./MeetingAccount/macsetaccountpw";
-export { default as MacUserInfo } from "./MeetingAccount/macuserinfo";
-export { default as MacIcMain } from "./MeetingAccount/InviteCode/macicmain";
-export { default as MacIcAgreeTerms } from "./MeetingAccount/InviteCode/macicagreeterms";
-export { default as MacIcRegistering } from "./MeetingAccount/InviteCode/macicregistering";
-export { default as MacIcComplete } from "./MeetingAccount/InviteCode/maciccomplete";
+export { default as MacAgreeTerms } from "./MeetingAccount/Register/mac-agree-terms";
+export { default as MacCreatedInfo } from "./MeetingAccount/Register/mac-createdinfo";
+export { default as MacIdVerification } from "./MeetingAccount/Register/mac-id-verification";
+export { default as MacComplete } from "./MeetingAccount/Register/mac-complete";
+export { default as MacRegister } from "./MeetingAccount/Register/mac-register";
+export { default as MacSelectStock } from "./MeetingAccount/Register/mac-select-stock";
+export { default as MacSetAccountName } from "./MeetingAccount/Register/mac-set-account-name";
+export { default as MacSetAccountPW } from "./MeetingAccount/Register/mac-set-account-pw";
+export { default as MacUserInfo } from "./MeetingAccount/Register/mac-userinfo";
+export { default as MacIcMain } from "./MeetingAccount/InviteCode/mac-ic-main";
+export { default as MacIcAgreeTerms } from "./MeetingAccount/InviteCode/mac-ic-agree-terms";
+export { default as MacIcRegistering } from "./MeetingAccount/InviteCode/mac-ic-registering";
+export { default as MacIcComplete } from "./MeetingAccount/InviteCode/mac-ic-complete";
 // Join Platform - 회원가입
 export { default as JoinMain } from "./JoinPlatform/join-main";
 export { default as JoinIntro } from "./JoinPlatform/join-intro";
@@ -32,8 +32,8 @@ export { default as JoinSetNickName } from "./JoinPlatform/joinsetnickname";
 export { default as JoinComplete } from "./JoinPlatform/joincomplete";
 // System Event
 export { default as SystemEvent } from "./SystemEvent";
-export { default as SystemEventSelectWin } from "./SystemEvent/systemeventselectwin";
-export { default as SystemEventSelectWinB } from "./SystemEvent/systemeventselectwinb";
+export { default as SystemEventSelectWin } from "./SystemEvent/se-select-win";
+export { default as SystemEventSelectWinB } from "./SystemEvent/se-select-winb";
 // Etc
 export { default as Home } from "./Home";
 export { default as Main } from "./Main";
