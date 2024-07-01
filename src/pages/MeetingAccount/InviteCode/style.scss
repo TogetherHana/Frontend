@@ -1,0 +1,67 @@
+@import "../../../common/styles/scss/responsive.scss";
+.macIcMainTitle {
+  @apply text-center mt-56;
+  @include responsive-font-size(30px);
+  //   @include responsive-position-height(225px);
+  //   position: absolute;
+  font-family: "NanumSquareRoundB";
+}
+
+.macInviteCodeInputDiv {
+  @apply flex mx-28 my-8;
+  div {
+    @apply grid place-items-center;
+    @include responsive-width(45px);
+    @include responsive-height(20px);
+    @include responsive-font-size(10px);
+    background-color: #777575;
+    color: white;
+    border-radius: 25px;
+  }
+
+  input {
+    border-bottom: 1px solid #c6c6c6;
+  }
+
+  ::placeholder {
+    @include responsive-font-size(15px);
+  }
+}
+
+.macIcBottomUpInfoDiv {
+  .title {
+    @apply text-center;
+    @include responsive-font-size(25px);
+    font-family: "NanumSquareRoundR";
+  }
+}
+
+.macIcAgreeTermsDiv {
+  @apply ml-9 mt-28;
+  @include responsive-font-size(30px);
+  font-family: "NanumSquareRoundB";
+}
+
+.macIcAgreeTerms {
+  @apply ml-7 mt-8;
+  @include responsive-width(380px);
+  @include responsive-height(490px);
+  border-radius: 10px;
+  background-color: #d9d9d9;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.macIcRegistering {
+  img {
+    @apply mx-auto mt-60;
+  }
+  div {
+    @apply text-center mt-10;
+    @include responsive-font-size(25px);
+    font-family: "NanumSquareRoundR";
+    line-height: 1.5;
+  }
+}
+
+.macIcCompleteDiv {
+}

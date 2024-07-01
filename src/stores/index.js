@@ -16,6 +16,8 @@ export const passwordRequestlModalAtom = atom(initialModalState);
 export const messageModalAtom = atom(initialModalState);
 // 초대링크 모달
 export const inviteLinkAtom = atom(initialModalState);
+// 승리팀 이벤트 선택 모달
+export const selectWinTeamAtom = atom(initialModalState);
 
 // 모임통장 회비걷기->수금요청 화면에서 캐릭터이미지key값 전달하기
 export const characterAtom = atom("");

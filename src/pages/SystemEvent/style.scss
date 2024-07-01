@@ -1,0 +1,292 @@
+@import "../../common/styles/scss/responsive.scss";
+.systemEventMainTitle {
+  @include responsive-position-height(74px);
+  @include responsive-position-width(188px);
+  position: absolute;
+  font-family: "NanumSquareRoundB";
+  font-size: 20px;
+}
+
+.systemEventMainEvent {
+  @include responsive-position-width(30px);
+  position: absolute;
+
+  &.first {
+    @include responsive-position-height(125px);
+  }
+
+  &.second {
+    @include responsive-position-height(418px);
+  }
+}
+
+.systemEventDivImg {
+  @include responsive-height(180px);
+  @include responsive-width(375px);
+  //   width: 100vw;
+}
+
+.systemEventHashTag {
+  font-family: "NanumSquareRoundR";
+  font-size: 13px;
+  color: #005a96;
+  position: absolute;
+  @include responsive-position-height(195px);
+
+  &.first {
+    @include responsive-position-width(20px);
+  }
+
+  &.second {
+    @include responsive-position-width(65px);
+  }
+  &.third {
+    @include responsive-position-width(120px);
+  }
+}
+
+.systemEventDivTitle {
+  @include responsive-position-width(18px);
+  @include responsive-position-height(220px);
+  font-family: "NanumSquareRoundB";
+  font-size: 20px;
+  position: absolute;
+}
+
+.systemEventDivDate {
+  @include responsive-position-width(20px);
+  @include responsive-position-height(255px);
+  position: absolute;
+  color: #959595;
+  font-family: "NanumSquareRoundR";
+  font-size: 13px;
+}
+
+.systemEventSelectWinMain {
+  @include responsive-position-width(120px);
+  @include responsive-position-height(60px);
+  position: absolute;
+  font-family: "NanumSquareRoundB";
+  font-size: 20px;
+}
+
+.systemEventSelectWinMainImg {
+  @include responsive-position-height(100px);
+  position: absolute;
+}
+
+.systemEventSelectWinMainBelow {
+  @include responsive-height(436px);
+  @include responsive-width(431px);
+  @include responsive-position-height(496px);
+
+  position: absolute;
+  background-color: #f4f5f7;
+}
+
+.systemEventSelectWinMainDiv {
+  @include responsive-width(375px);
+  @include responsive-height(100px);
+  @include responsive-position-width(27px);
+  @include responsive-font-size(20px);
+  @apply flex;
+  position: absolute;
+  background-color: white;
+  border-radius: 7px;
+  font-family: "BMHanna";
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  &.first {
+    @include responsive-position-height(23px);
+  }
+
+  &.second {
+    @include responsive-position-height(158px);
+  }
+
+  &.third {
+    @include responsive-position-height(294px);
+  }
+}
+
+.systemEventSelectWinMainDivImg {
+  @include responsive-width(65px);
+  @include responsive-height(83px);
+  @include responsive-position-height(7px);
+  @include responsive-position-width(15px);
+  position: absolute;
+}
+
+.systemEventSelectWinMainDivContent {
+  @include responsive-position-height(30px);
+  position: absolute;
+  //   @apply grid place-items-center;
+
+  .slogun {
+    @include responsive-font-size(15px);
+    @apply grid place-items-center;
+    color: #868686;
+  }
+
+  &.first {
+    @include responsive-position-width(130px);
+  }
+
+  &.second {
+    @include responsive-position-width(90px);
+  }
+
+  &.third {
+    @include responsive-position-width(105px);
+  }
+}
+
+.systemEventSelectWinBT {
+  @include responsive-height(525px);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.24);
+  // color: #777575;
+}
+.systemEventSelectWinBB {
+  @include responsive-height(407px);
+  // background-color: #f4f5f7;
+}
+
+.systemEventSelectWinTitle {
+  @include responsive-font-size(20px);
+  @include responsive-position-height(65px);
+  @include responsive-width(431px);
+  @apply flex;
+  position: absolute;
+  font-family: "NanumSquareRoundB";
+  // border: 1px solid black;
+
+  .left {
+    @include responsive-position-width(18px);
+    position: absolute;
+  }
+  .right {
+    @include responsive-position-width(130px);
+    position: absolute;
+  }
+}
+
+.systemEventSelectWinLogo {
+  @include responsive-height(400px);
+  @include responsive-width(431px);
+  @include responsive-position-height(85px);
+  @include responsive-font-size(35px);
+  position: absolute;
+  font-family: "NanumSquareRoundB";
+
+  // border: 1px solid black;
+  .top {
+    @include responsive-position-height(70px);
+    @include responsive-position-width(130px);
+    @include responsive-font-size(20px);
+    position: absolute;
+  }
+  .bottom {
+    .txt {
+      @include responsive-position-height(300px);
+      @include responsive-position-width(50px);
+      @apply text-center;
+      position: absolute;
+    }
+    img {
+      @include responsive-position-height(80px);
+      @include responsive-position-width(60px);
+      position: absolute;
+    }
+  }
+}
+
+.systemEventSelectWinBelow {
+  @include responsive-position-height(490px);
+  @include responsive-position-width(100px);
+  @include responsive-font-size(15px);
+  @apply flex;
+  position: absolute;
+  font-family: "NanumSquareRoundB";
+  color: #868686;
+  .date {
+    @apply mr-3;
+  }
+  .reward {
+    @apply flex;
+    .price {
+      @apply ml-2;
+    }
+  }
+}
+
+.systemEventSelectWinMatchDiv {
+  @include responsive-width(375px);
+  @include responsive-height(147px);
+  @apply mt-5 mx-7;
+  // @include responsive-position-height(543px);
+  // @include responsive-position-width(28px);
+  // position: absolute;
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.systemEventSelectWinMatchDivInfo {
+  @include responsive-font-size(15px);
+  @apply flex m-4;
+  font-family: "NanumSquareRoundB";
+}
+
+.systemEventSelectWinMatchDivTeamInfo {
+  @include responsive-font-size(15px);
+  @apply grid place-items-center;
+  font-family: "NanumSquareRoundB";
+  line-height: 1.5;
+
+  .detail {
+    @include responsive-font-size(13px);
+  }
+}
+
+.systemEventSelectWinMatchDivTeamImg {
+  @include responsive-width(90px);
+  @include responsive-height(90px);
+  @apply grid place-items-center mx-3;
+  background-color: white;
+  border-radius: 7px;
+}
+
+.SystemEventSelectCheckDiv {
+  @include responsive-font-size(20px);
+  @apply grid text-center place-items-center;
+  line-height: 1.5;
+  font-family: "NanumSquareRoundB";
+
+  .btnDiv {
+    @apply flex place-items-center mt-4;
+  }
+
+  .content {
+    @include responsive-height(170px);
+    @include responsive-width(250px);
+    @apply mt-4;
+  }
+}
+
+.systemEventCheckBtn {
+  @apply mr-3 grid place-items-center;
+  @include responsive-height(40px);
+  @include responsive-width(100px);
+  @include responsive-font-size(15px);
+  border-radius: 7px;
+  font-family: "NanumSquareRoundR";
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  &.false {
+    border: 1px solid #44bd91;
+  }
+
+  &.true {
+    background-color: #44bd91;
+  }
+}
