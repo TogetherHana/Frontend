@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import Modal from "react-modal";
 import { requestForToken } from "./firebase.js";
-// import * as sw from "./sw.js";
+import * as serviceWorker from "./serviceWorker.js";
 // import registerServiceWorker from "./sw.js/index.js";
 // import "./firebase-messaging-sw.js";
 
@@ -11,7 +11,7 @@ Modal.setAppElement("#root");
 
 // 서비스워커
 // registerServiceWorker("../public/service-worker.js");
-// sw.register();
+// serviceWorker.register();
 
 // FCM
 requestForToken();
