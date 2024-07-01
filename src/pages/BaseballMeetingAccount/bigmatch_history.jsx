@@ -26,7 +26,7 @@ function BigmatchHistory() {
 
         console.log(response.data.data);
         setData(response.data.data);
-
+        
         console.log(data.playingGame.gameIdx);
         localStorage.setItem("playingGameIdx", data.playingGame.gameIdx);
       } catch (error) {
@@ -65,6 +65,7 @@ function BigmatchHistory() {
       setTimeLeft(
         `${days}일 ${hours}시간 ${minutes}분 ${seconds}초 남았습니다!`
       );
+
       setIsDeadlinePassed(false);
     };
 

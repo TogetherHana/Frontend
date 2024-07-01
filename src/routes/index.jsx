@@ -59,7 +59,7 @@ const router = createBrowserRouter([
         children: [{ index: true, element: <Pages.Home /> }]
       }
     ]
-  },
+  }, 
   {
     path: "/",
     element: <Layouts.GrayNonFooter />,

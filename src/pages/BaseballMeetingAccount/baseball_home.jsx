@@ -4,6 +4,7 @@ import Button from "@/components/Button";
 import Friends from "./friends";
 import History from "./history";
 import BigmatchHistory from "./bigmatch_history";
+
 import { useNavigate } from "react-router-dom";
 
 function BaseballHome() {
@@ -52,7 +53,9 @@ function BaseballHome() {
                 border: "1px solid #44BD91",
                 boxShadow: "none"
               }}
+
               onClick={() => navigate("/fee")}
+
             >
               회비 걷기
             </Button>
@@ -63,7 +66,9 @@ function BaseballHome() {
                 marginLeft: "15px",
                 boxShadow: "none"
               }}
+
               onClick={() => navigate("/send")}
+
             >
               보내기
             </Button>
