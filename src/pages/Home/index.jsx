@@ -12,9 +12,12 @@ import MainMileageBtn from "@/components/Main/mainmileagebtn";
 import charging from "@/assets/images/mileage/charging.svg";
 import convert from "@/assets/images/mileage/convert.svg";
 import "./style.scss";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [isSetCheeringTeam, setIsSetCheeringTeam] = useState(false);
+
+  const navigate = useNavigate();
 
   const middleBtnParams = [
     {
@@ -79,7 +82,10 @@ function Home() {
         ))}
       </div>
       {/* cheering team */}
-      <div className="renewalCheeringTeam">
+      <div
+        className="renewalCheeringTeam"
+        onClick={() => navigate(`/choice/team`)}
+      >
         <div className="content">
           <div className="top">
             응원팀 설정하고 함께, 하나 더 재미있게 즐기기!

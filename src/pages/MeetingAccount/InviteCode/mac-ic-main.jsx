@@ -3,7 +3,7 @@ import "./style.scss";
 import invitecodemain from "@/assets/images/meetaccountic/invitecodmain.svg";
 import ModalBottomUp from "@/components/MeetingAccount/modalbottomup";
 import footballticket from "@/assets/images/ticket/football.svg";
-import MacIcBottomUpInfo from "./macicbottompopupinfo";
+import MacIcBottomUpInfo from "./mac-ic-bottom-popupinfo";
 
 function MacIcMain() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);

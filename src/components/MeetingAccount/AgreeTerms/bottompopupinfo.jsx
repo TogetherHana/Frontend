@@ -1,6 +1,7 @@
 import React from "react";
 import VerificationBtn from "../IdVerification/verificationbtn";
 import parse from "html-react-parser";
+import "./style.scss";
 
 function BottomPopupInfo({ params }) {
   const { buttonProp, img, title, content } = params;

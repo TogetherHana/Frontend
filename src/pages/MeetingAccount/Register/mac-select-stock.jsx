@@ -23,7 +23,7 @@ function MacSelectStock() {
   return (
     <>
       <div className="selectStockMain">
-        <div className="selectStockInfo">
+        <div>
           어떤 스포츠를 위한 <br />
           모임통장 인가요?
         </div>

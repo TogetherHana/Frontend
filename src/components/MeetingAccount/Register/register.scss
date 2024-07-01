@@ -1,12 +1,17 @@
+@import "../../../common/styles/scss/responsive.scss";
+// Register
 .registerIntro {
+  @include responsive-font-size(20px);
   font-family: "NanumSqureRoundB";
   color: #44bd91;
-  font-size: 20px;
+  // font-size: 20px;
 }
 
 .registerBasic {
+  @apply text-center mt-4;
+  @include responsive-font-size(30px);
   font-family: "NanumSquareRoundR";
-  font-size: 30px;
+  // font-size: 30px;
 }
 
 .registerDiv {
@@ -18,15 +23,17 @@
 }
 
 .registerq {
+  @include responsive-font-size(20px);
   font-family: "NanumSquareRoundB";
-  font-size: 20px;
+  // font-size: 20px;
 }
 
 .registerqa {
-  font-family: "NanumSquareRoundR";
-  font-size: 15px;
-  color: #8e8f91;
   @apply my-5;
+  @include responsive-font-size(15px);
+  font-family: "NanumSquareRoundR";
+  // font-size: 15px;
+  color: #8e8f91;
 
   &.info {
     margin-top: 1.75rem;

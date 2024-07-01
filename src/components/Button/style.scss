@@ -10,9 +10,9 @@
   border: none;
   cursor: pointer;
 
+  @include responsive-font-size(20px);
   font-family: "NanumSquareRoundB";
   font-weight: 700;
-  font-size: 20px;
 
   border-radius: 20px;
 
@@ -35,8 +35,7 @@
   }
 
   &.btn-large {
-    height: 50px;
-    width: 361px;
+    @include responsive-hw(50px, 361px);
   }
 
   //   &.btn-capsule {

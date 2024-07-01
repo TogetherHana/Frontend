@@ -1,0 +1,259 @@
+// @import "../../../common/styles/scss/responsive.scss";
+@import "../../../common/styles//scss/responsive.scss";
+// register
+.registerMain {
+  @apply grid place-items-center overflow-y-scroll;
+  height: 100vh;
+}
+
+// id-verification
+.idVerification {
+  @include responsive-font-size(30px);
+  @apply my-5 grid place-items-center;
+
+  &.detail {
+    @include responsive-font-size(20px);
+    font-family: "NotoSans";
+    color: #616161;
+    opacity: 0.62;
+  }
+
+  &.btn {
+    @include responsive-font-size(20px);
+    margin: 0;
+    font-family: "NanumSquareRoundR";
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  &.below {
+    @apply mt-5;
+    @include responsive-font-size(15px);
+    font-family: "NotoSans";
+    color: rgba(97, 97, 97, 0.72);
+  }
+
+  &.main {
+    @include responsive-position(129px, 50px);
+  }
+
+  &.img {
+    @include responsive-hw(263px, 382px);
+    @include responsive-position(369px, 26px);
+  }
+}
+
+// userinfo
+.userInfoDiv {
+  @include responsive-position(163px, 53px);
+}
+
+.userInfo {
+  @apply m-5;
+  @include responsive-font-size(30px);
+  font-family: "BMHanna";
+}
+
+.userInfoInput {
+  @include responsive-font-size(20px);
+  border: none;
+  border-bottom: 1px solid #c6c6c6;
+  background-color: #f2f2f2;
+  font-family: "NotoSans";
+  padding-left: 1rem;
+  width: 8rem;
+
+  &.address {
+    width: 16rem;
+    margin-bottom: 1.5rem;
+  }
+  &.tel1 {
+    width: 5rem;
+  }
+  &.tel2 {
+    width: 7rem;
+  }
+  &.vnm {
+    width: 12rem;
+    margin-bottom: 1.5rem;
+  }
+  &.acnm {
+    padding-left: 0;
+    width: 20rem;
+    position: fixed;
+    top: 416px;
+    left: 50px;
+    // margin-bottom: 1.5rem;
+    ::placeholder {
+      font-size: 17px;
+    }
+  }
+  &.acnm2 {
+    padding-left: 0;
+    width: 20rem;
+    position: fixed;
+    top: 470px;
+    left: 50px;
+    // margin-bottom: 1.5rem;
+    ::placeholder {
+      font-size: 17px;
+    }
+  }
+  &.acnm3 {
+    padding-left: 0;
+    width: 20rem;
+    position: fixed;
+    top: 414px;
+    left: 60px;
+    // margin-bottom: 1.5rem;
+    ::placeholder {
+      font-size: 17px;
+    }
+  }
+  &.bs {
+    // bankselect
+    padding-left: 0;
+    position: fixed;
+    top: 348px;
+    left: 50px;
+    width: 5rem;
+
+    ::placeholder {
+      font-size: 17px;
+    }
+  }
+}
+
+.userInfoInputText {
+  @apply my-5;
+  @include responsive-font-size(15px);
+  font-family: "NotoSans";
+}
+
+.userinfobtnLocation {
+  @include responsive-position-height(770px);
+  @include responsive-position-width(34px);
+  position: fixed;
+}
+
+// select stock
+.selectStockMain {
+  @include responsive-position(151px, 60px);
+  @include responsive-font-size(30px);
+  font-family: "NanumSquareRoundB";
+  line-height: 1.5;
+}
+
+.selectStockDiv {
+  @include responsive-position(290px, 39px);
+}
+
+.stockDiv {
+  @apply mb-12;
+  @include responsive-hw(92px, 353px);
+  display: flex;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  img {
+    @apply ml-5;
+  }
+
+  div {
+    @apply grid place-items-center;
+    @include responsive-font-size(30px);
+    font-family: "NanumSquareRoundR";
+    width: 100%;
+  }
+}
+
+// agree terms
+.termsInfo {
+  @include responsive-position(113px, 42px);
+  font-family: "NanumSquareRoundB";
+  line-height: 1.4;
+
+  .title {
+    @include responsive-font-size(25px);
+  }
+
+  .titleSub {
+    @include responsive-font-size(30px);
+  }
+
+  .sub {
+    @include responsive-font-size(15px);
+    color: rgba(97, 97, 97, 0.72);
+    font-family: "NotoSans";
+  }
+}
+
+.termsDiv {
+  @apply mt-6;
+  @include responsive-hw(471px, 353px);
+  background-color: white;
+  border-radius: 25px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+// setaccountname
+.setAccountNameMain {
+  @include responsive-position(177px, 61px);
+  font-family: "NanumSquareRoundB";
+
+  .title {
+    @apply mb-24;
+    @include responsive-font-size(30px);
+  }
+}
+
+.setAccountNameTitle {
+  @apply mb-24;
+  @include responsive-font-size(30px);
+  font-family: "NanumSquareRoundB";
+
+  &.createdInfo {
+    margin-bottom: 78px;
+  }
+}
+
+.setAccountNameChatbot {
+  @include responsive-position(475px, 0px);
+}
+
+.setAccountNameBtn {
+  @apply flex;
+  @include responsive-position(770px, 35px);
+}
+
+.chatbotMsg {
+  @apply grid text-center place-items-center;
+  @include responsive-hw(35px, 260px);
+  @include responsive-font-size(13px);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  font-family: "NotoSans";
+
+  &.loc1 {
+    @include responsive-position(0px, 125px);
+  }
+
+  &.loc2 {
+    @include responsive-position(75px, 156px);
+  }
+
+  &.loc3 {
+    @include responsive-position(150px, 117px);
+  }
+}
+
+// complete
+.maccountCompleteTitle {
+  @include responsive-position(327px, 60px);
+  @include responsive-font-size(30px);
+  font-family: "NanumSquareRoundB";
+}
+
+.maccountCompleteImg {
+  @include responsive-position(425px, 115px);
+}

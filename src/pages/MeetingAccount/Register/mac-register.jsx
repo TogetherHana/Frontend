@@ -43,7 +43,7 @@ function MacRegister() {
       </div>
       <Registerq />
       <RegisterInfo />
-      <RegisterBtn />
+      <RegisterBtn url={"/maccount/register/idverification"} />
     </>
   );
 }
