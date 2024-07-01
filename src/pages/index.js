@@ -14,10 +14,6 @@ export { default as BigmatchHistory } from "./BaseballMeetingAccount/bigmatch_hi
 // Collecting Fee - 모임통장 돈 걷기
 export { default as FeeCollect } from "./CollectingFee/fee_collect";
 export { default as FeeInput } from "./CollectingFee/fee_input";
-// 빅매치
-export { default as Bigmatch } from "./BigMatch/index";
-export { default as Finish } from "./BigMatch/finish";
-export { default as Voted } from "./BigMatch/voted";
 // Send Fee - 모임통장 돈 보내기
 export { default as SendFeeInput } from "./SendingFee/fee_input";
 export { default as FeeSend } from "./SendingFee/fee_send";
