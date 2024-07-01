@@ -2,13 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import Modal from "react-modal";
-import registerServiceWorker from "./register-sw.jsx";
+import { requestForToken } from "./firebase.js";
+// import * as sw from "./sw.js";
+// import registerServiceWorker from "./sw.js/index.js";
 // import "./firebase-messaging-sw.js";
 
 Modal.setAppElement("#root");
 
 // 서비스워커
-registerServiceWorker(`./firebase-messaging-sw.js`);
+// registerServiceWorker("../public/service-worker.js");
+// sw.register();
+
+// FCM
+requestForToken();
 
 const rootElement = document.getElementById("root");
 
