@@ -107,7 +107,7 @@
         .on {          
           width: 20px;
           height: 20px;
-          background: $color-background;
+          background: $color-text1;
           border-radius: 50%;
           position: absolute;
           top: 5;
@@ -171,6 +171,18 @@
             .user-name {
               font-size: 24px;
             }
+          }
+
+          .non-user-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+
+            padding: 20px;
+            margin: 10px;
+            width: 150px;
+            height: 45px;
           }
         }
       }
