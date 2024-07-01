@@ -4,6 +4,10 @@
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between; 
+
+  background-color: $color-background;
+  overflow-y: auto;
 
   .header {
     display: flex;
@@ -37,9 +41,10 @@
   }
 
   .content-container {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 
     font-family: "BMHanna";
@@ -68,6 +73,7 @@
 
     .losers {
       display: flex;
+      flex-direction: column; 
       position: relative;
       text-align: center;
       align-items: center;
@@ -85,21 +91,21 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center center;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-
-        overflow-y: auto;
+        position: relative;  // Make prison the relative positioned parent        
       }
 
       .user-names {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: center;        
 
-        z-index: 1;
-        opacity: 0.6;
+        position: absolute;  // Position user-names absolutely within the relative prison
+        // top: 70%;  // Adjust top position as needed
+        // left: 50%; // Adjust left position as needed
+        // transform: translate(-50%, -50%);  // Center user-names within prison
+        top: 0; // Align to the top of the prison
+        left: 50%; // Center horizontally
+        transform: translateX(-50%); // Adjust to center
 
         .user-container {
           display: flex;
@@ -114,6 +120,9 @@
           margin: 10px;
           width: 150px;
           height: 45px;
+
+          z-index: 1;
+          opacity: 0.6;
 
           .user-profile {
             width: 32px;
@@ -140,8 +149,8 @@
     height: 30px;
   }
 
-  .btn {
-    position: fixed;
-    bottom: 30px;
+  .btn {  
+    align-self: center;
+    margin-bottom: 20px;
   }
 }

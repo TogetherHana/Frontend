@@ -4,7 +4,6 @@ import { createBrowserRouter } from "react-router-dom";
 import * as Layouts from "@/layouts";
 import * as Pages from "@/pages";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -52,7 +51,7 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: "/",
+    path: "/",    
     element: <Layouts.RenewalNonFooter />,
     children: [
       {
@@ -72,18 +71,83 @@ const router = createBrowserRouter([
           { index: true, element: <Pages.Cheering /> },
           { path: ":baseball", element: <Pages.Baseball /> }
         ]
-      },        
+      },
       {
         path: "create/match",
-        children: [
-          { index: true, element: <Pages.CreateMatch /> }   
-        ]
-      }, 
+        children: [{ index: true, element: <Pages.CreateMatch /> }]
+      },
       {
         path: "match",
         children: [
-          { index: true, element: <Pages.Bigmatch /> }, 
-          { path: ":finish", element: <Pages.Finish />}                    
+          { index: true, element: <Pages.Bigmatch /> },
+          { path: ":finish", element: <Pages.Finish /> }
+        ]
+      },
+      {
+        path: "choose/loser",
+        children: [{ index: true, element: <Pages.Voted /> }]
+      },
+      {
+        path: "maccount/register",
+        children: [
+          { index: true, element: <Pages.MacRegister /> },
+          { path: ":testId", element: <Pages.Main /> }
+        ]
+      },
+      {
+        path: "maccount/idverification",
+        children: [{ index: true, element: <Pages.MacIdVerification /> }]
+      },
+      {
+        path: "maccount/userinfo",
+        children: [{ index: true, element: <Pages.MacUserInfo /> }]
+      },
+      {
+        path: "maccount/selectstock",
+        children: [{ index: true, element: <Pages.MacSelectStock /> }]
+      },
+      {
+        path: "maccount/agreeterms",
+        children: [{ index: true, element: <Pages.MacAgreeTerms /> }]
+      },
+      {
+        path: "maccount/setaccountname",
+        children: [{ index: true, element: <Pages.MacSetAccountName /> }]
+      },
+      {
+        path: "maccount/setaccountpw",
+        children: [
+          {
+            index: true,
+            element: <Pages.MacSetAccountPW title={"계좌 비밀번호 설정"} />
+          }
+        ]
+      },
+      {
+        path: "maccount/setaccountpw/check",
+        children: [
+          {
+            index: true,
+            element: <Pages.MacSetAccountPW title={"계좌 비밀번호 확인"} />
+          }
+        ]
+      },
+      {
+        path: "maccount/createdinfo",
+        children: [
+          {
+            index: true,
+            element: <Pages.MacCreatedInfo />
+          }
+        ]
+      },
+      {
+        path: "maccount/complete",
+        children: [
+          {
+            index: true,
+            element: <Pages.MacComplete />
+          }
         ]
       },
       {
@@ -188,6 +252,13 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <Pages.FeeInput /> },
           { path: ":collect", element: <Pages.FeeCollect /> }
+        ]
+      },
+      {
+        path: "send",
+        children: [
+          { index: true, element: <Pages.FeeSend /> },
+          { path: ":amount", element: <Pages.SendFeeInput /> }
         ]
       }
     ]
