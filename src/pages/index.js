@@ -27,9 +27,9 @@ export { default as JoinMain } from "./JoinPlatform/join-main";
 export { default as JoinIntro } from "./JoinPlatform/join-intro";
 export { default as JoinIdVerification } from "./JoinPlatform/join-id-verification";
 export { default as JoinAccountLink } from "./JoinPlatform/join-account-link";
-export { default as JoinAuthenticationCheck } from "./JoinPlatform/joinauthenticationcheck";
-export { default as JoinSetNickName } from "./JoinPlatform/joinsetnickname";
-export { default as JoinComplete } from "./JoinPlatform/joincomplete";
+export { default as JoinAuthenticationCheck } from "./JoinPlatform/join-account-authentication-check";
+export { default as JoinSetNickName } from "./JoinPlatform/join-set-nickname";
+export { default as JoinComplete } from "./JoinPlatform/join-complete";
 // System Event
 export { default as SystemEvent } from "./SystemEvent";
 export { default as SystemEventSelectWin } from "./SystemEvent/systemeventselectwin";

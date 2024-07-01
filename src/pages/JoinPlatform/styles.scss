@@ -95,7 +95,7 @@
   }
 
   &.middle {
-    @include responsive-position(400px, 310px);
+    @include responsive-position(100px, 260px);
     @include responsive-hw(20px, 57px);
   }
 }
@@ -130,72 +130,64 @@
   line-height: 1.5;
 }
 
+// join - account authentication check
 .joinAuthenticationCheckTitle {
+  @include responsive-position(300px, 45px);
+  @include responsive-font-size(25px);
   font-family: "BMHanna";
-  font-size: 25px;
   line-height: 1;
-  position: absolute;
-  top: 300px;
-  left: 45px;
 }
 
 .joinAuthenticationCheckImg {
-  position: absolute;
-  top: 376px;
-  left: 39px;
+  @include responsive-position(376px, 39px);
 }
 
 .joinAuthenticationCheckBtn {
+  @apply grid place-items-center;
+  @include responsive-hw(20px, 45px);
+  @include responsive-font-size(10px);
   font-family: "NanumSquareRoundR";
-  font-size: 10px;
   border-radius: 25px;
   background-color: #777575;
-  width: 45px;
-  height: 20px;
   margin-left: 1rem;
   color: #f6f6f6;
-  @apply grid place-items-center;
 
   &.auth {
-    position: absolute;
-    top: 475px;
-    left: 310px;
+    @include responsive-position(475px, 310px);
   }
 }
 
-.joinSetNickNameTitle {
+// join - set nickname
+.joinSetNickNameDiv {
+  @include responsive-hw(0px, 330px);
+  @include responsive-position(300px, 51px);
+  @include responsive-font-size(30px);
   font-family: "BMHanna";
-  font-size: 30px;
-  position: absolute;
-  top: 308px;
-  left: 51px;
+
+  .sub {
+    @include responsive-position(58px, 0px);
+    @include responsive-font-size(17px);
+    font-family: "NotoSans";
+    color: #777575;
+  }
 }
 
-.joinSetNickNameSub {
-  font-family: "NotoSans";
-  font-size: 17px;
-  color: #777575;
-  position: absolute;
-  top: 358px;
-  left: 51px;
-}
-
-.joinCompleteTxt {
-  position: absolute;
+// join - complete
+.joinCompleteDiv {
+  @apply grid place-items-center;
+  @include responsive-font-size(30px);
   font-family: "BMHanna";
-  font-size: 30px;
 
-  &.first {
-    top: 144px;
-    left: 90px;
+  .first {
+    @apply mt-40;
   }
-  &.second {
-    top: 315px;
-    left: 177px;
+
+  .second {
+    @apply mt-28;
   }
-  &.third {
-    top: 395px;
-    left: 102px;
+
+  .third {
+    @apply mt-7;
   }
 }
 
