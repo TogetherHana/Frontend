@@ -3,7 +3,7 @@ import VerificationBtn from "@/components/MeetingAccount/IdVerification/verifica
 import ModalBottomUp from "@/components/MeetingAccount/modalbottomup";
 import { atom, useAtomValue } from "jotai";
 import React, { useEffect, useState } from "react";
-import JoinAuthentication from "./joinauthentication";
+import JoinAuthentication from "./join-account-authentication";
 
 export const selectBankAtom = atom(null);
 
@@ -14,9 +14,14 @@ function JoinAccountLink() {
   //   const [selectBank, setSelectBank] = useState();
   const selectBank = useAtomValue(selectBankAtom);
 
+  const accountParams = {
+    accountNumber: accountNumber,
+    name: "김철수"
+  };
+
   useEffect(() => {}, [selectBank, accountNumber]);
 
-  console.log(accountNumber);
+  // console.log(accountNumber);
 
   const joinAccountLinkParams = {
     btnText: "인증하기",
@@ -39,6 +44,7 @@ function JoinAccountLink() {
         placeholder="계좌번호 입력"
         onChange={(e) => setAccountNumber(e.target.value)}
       />
+      {/* BankList params -> 선택된 값들로 바뀌어야 함 */}
       <ModalBottomUp
         isPopupOpen={isPopupOpen}
         onClose={() => setIsPopupOpen(false)}
@@ -50,7 +56,7 @@ function JoinAccountLink() {
         isPopupOpen={isAuthPopupOpen}
         onClose={() => setIsAuthPopupOpen(false)}
         snapPoints={[500]}
-        content={<JoinAuthentication />}
+        content={<JoinAuthentication params={accountParams} />}
       />
     </div>
   );

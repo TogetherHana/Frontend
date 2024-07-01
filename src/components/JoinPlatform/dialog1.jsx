@@ -9,6 +9,7 @@ function Dialog1({ content, style }) {
     <div className={style}>
       <img src={dialog1} alt="dialog1" />
       <div className="dialog1Detail">{parse(content)}</div>
+      {/* {parse(content)} */}
     </div>
   );
 }

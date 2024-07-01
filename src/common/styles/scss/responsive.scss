@@ -5,12 +5,23 @@
 @mixin responsive-position-width($base-px) {
   left: calc($base-px/ 431px) * 100vw !important;
 }
+
+@mixin responsive-position($base-px1, $base-px2) {
+  position: absolute;
+  top: calc($base-px1 / 932px) * 100vh !important;
+  left: calc($base-px2/ 431px) * 100vw !important;
+}
 // width, height동적 지정
 @mixin responsive-height($base-px) {
   height: calc($base-px/932px) * 100vh !important;
 }
 @mixin responsive-width($base-px) {
   width: calc($base-px/431px) * 100vw !important;
+}
+
+@mixin responsive-hw($base-px1, $base-px2) {
+  height: calc($base-px1/932px) * 100vh !important;
+  width: calc($base-px2/431px) * 100vw !important;
 }
 // margin
 @mixin responsive-margin-top($base-px) {

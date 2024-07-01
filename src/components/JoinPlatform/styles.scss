@@ -1,68 +1,43 @@
+@import "../../common/styles/scss/responsive.scss";
+.joinMainDialogDiv {
+  .first {
+    @include responsive-position(130px, 22px);
+  }
+  .second {
+    @include responsive-position(330px, 160px);
+  }
+  .third {
+    @include responsive-position(540px, 44px);
+  }
+}
+
 .dialog1Detail {
-  position: absolute;
-  top: 35px;
-  left: 57px;
+  @include responsive-position(35px, 50px);
+  @include responsive-font-size(30px);
   font-family: "BMHanna";
-  font-size: 30px;
   color: white;
 }
 
 .dialog2Detail {
-  position: absolute;
-  top: 35px;
-  left: 53px;
+  @include responsive-position(35px, 53px);
+  @include responsive-font-size(30px);
   font-family: "BMHanna";
-  font-size: 30px;
   color: #777575;
 }
 
-.dialogFirst {
-  position: absolute;
-  top: 131px;
-  left: 22px;
-}
-
-.dialogSecond {
-  position: absolute;
-  top: 330px;
-  left: 161px;
-}
-
-.dialogThird {
-  position: absolute;
-  top: 540px;
-  left: 45px;
-}
-
-.joinMainTitle {
-  font-family: "NanumSquareRoundB";
-  font-size: 30px;
-  position: absolute;
-  top: 750px;
-  left: 80px;
-
-  &.detail {
-    top: 812px;
-    left: 119px;
-  }
-}
-
 .joinBankListTitle {
+  @include responsive-position(65px, 169px);
+  @include responsive-font-size(25px);
   font-family: "NanumSquareRoundR";
-  font-size: 25px;
-  position: absolute;
-  top: 65px;
-  left: 169px;
 }
 
 .joinBankListDetail {
+  @apply place-items-center m-10;
+  @include responsive-font-size(20px);
   display: flex;
   font-family: "NanumSquareRoundR";
-  font-size: 20px;
-  @apply place-items-center m-10;
 }
 
 .joinBankListDetailDiv {
-  position: absolute;
-  top: 100px;
+  @include responsive-position(100px, 0px);
 }

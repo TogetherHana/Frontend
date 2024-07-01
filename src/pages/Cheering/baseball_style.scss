@@ -1,17 +1,15 @@
+@import "../../common/styles/scss/responsive.scss";
 .baseballTeam-container {
   width: 100%;
   height: 100%;
 
   .header {
-    display: flex;
+    @apply p-5 flex mt-16 text-center;
+    @include responsive-font-size(20px);
     flex-direction: row;
     justify-content: space-between;
-    
-    padding: 20px;
-
     font-family: "NanumSquareRoundB";
     font-weight: 700;
-    font-size: 20px;
 
     .back {
       width: 10%;
@@ -19,27 +17,25 @@
   }
 
   .content {
+    @apply my-11;
+    @include responsive-font-size(30px);
     position: relative;
     text-align: center;
     align-items: center;
     width: 100%;
-
-    font-size: x-large;
     font-family: "BMHanna";
-    font-weight: 900;
 
     .background-logo {
+      @include responsive-hw(200px, 200px);
       background-image: url(@/assets/images/systemEvent/main/sinhanLogo.svg);
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
-      width: 200px;
-      height: 200px;
       opacity: 0.1; /* Adjust the opacity to make the logo less intrusive */
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);      
+      transform: translate(-50%, -50%);
     }
 
     .text-overlay {
@@ -48,28 +44,40 @@
     }
 
     .plus {
-      margin-top: 10px;
+      @apply mt-3;
+      @include responsive-font-size(15px);
+      font-family: "NotoSans";
       color: $color-text1;
-      font-weight: 400;
-      font-size: small;
     }
   }
 
   .logo-container {
-    display: flex;
+    @apply flex place-items-center;
+    // display: flex;
     flex-direction: column;
-    align-items: center;
+    // align-items: center;
     // justify-content: space-around;
-    height: auto;
+    height: 100vh;
 
     .logo-line {
-      display: flex;
+      @apply flex;
       flex-direction: row;
       justify-content: space-around;
 
+      img {
+        @apply m-1;
+        @include responsive-hw(100px, 100px);
+        // border: --border;
+      }
+      img:hover {
+        border-radius: 10px;
+        border: 2px solid black;
+      }
+
       .nc {
-        height: 100px;
-        width: 100px;
+        // height: 100px;
+        // width: 100px;
+        @include responsive-hw(100px, 100px);
         position: relative;
         background-image: url(@/assets/images/baseballTeams/nc.svg);
         background-size: contain;

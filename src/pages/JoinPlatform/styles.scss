@@ -1,8 +1,18 @@
+@import "../../common/styles/scss/responsive.scss";
+
+// join - main
+.joinMainTitle {
+  @apply grid place-items-center;
+  @include responsive-position(750px, 80px);
+  @include responsive-font-size(30px);
+  font-family: "NanumSquareRoundB";
+  line-height: 1.5;
+}
+
+// join - intro
 .joinIntroDiv {
-  position: absolute;
-  top: 127px;
-  left: 54px;
-  display: grid;
+  @apply grid;
+  @include responsive-position(127px, 54px);
   justify-content: space-between;
 
   div {
@@ -11,137 +21,113 @@
 }
 
 .joinIntroSquare {
+  @apply grid place-items-center;
+  @include responsive-hw(55px, 135px);
+  @include responsive-font-size(30px);
   border-radius: 10px;
   background-color: #44bd91;
-  width: 135px;
-  height: 55px;
   font-family: "BMHanna";
-  font-size: 30px;
   color: white;
-  @apply grid place-items-center;
 
   &.large {
-    width: 265px;
-    height: 135px;
-    font-size: 40px;
+    @include responsive-hw(135px, 265px);
+    @include responsive-font-size(40px);
   }
 }
 
 .joinIntroBasic {
-  font-family: "BMHanna";
-  font-size: 30px;
   @apply my-5;
+  @include responsive-font-size(30px);
+  font-family: "BMHanna";
 }
 
 .joinIntroSmile {
-  position: absolute;
-  top: 416px;
-  left: 67px;
+  @include responsive-position(416px, 60px);
 }
 
-.joinIntroNextText {
-  position: fixed;
-  top: 834px;
-  left: 280px;
-  font-family: "BMHanna";
-  font-size: 25px;
+.joinIntroNextDiv {
+  @include responsive-hw(30px, 130px);
+  @include responsive-position(707px, 226px);
+
+  div {
+    @include responsive-font-size(25px);
+    font-family: "BMHanna";
+  }
 }
 
-.joinIntroArrow {
-  position: absolute;
-  top: 735px;
-  left: 227px;
-}
+// join - idVerification
+.joinIdVerificationDiv {
+  @include responsive-position(258px, 51px);
+  .title {
+    @include responsive-font-size(30px);
+    font-family: "BMHanna";
+  }
 
-.joinIdVerificationTitle {
-  font-family: "BMHanna";
-  font-size: 30px;
-  position: absolute;
-  top: 258px;
-  left: 51px;
-}
-
-.joinIdVerificationContent {
-  position: absolute;
-  top: 342px;
-  left: 54px;
+  .content {
+    @include responsive-position(52px, 0px);
+  }
 }
 
 .joinIdVerificationNotify {
+  @include responsive-position(290px, 0px);
+  @include responsive-font-size(10px);
   font-family: "Noto sans";
-  font-size: 10px;
   color: rgba(97, 97, 97, 0.72);
-  position: absolute;
-  top: 290px;
 
   &.time {
-    position: fixed;
-    top: 605px;
-    left: 215px;
-    font-size: 15px;
+    @include responsive-font-size(15px);
+    @include responsive-position(260px, 165px);
   }
 }
 
 .joinNumberCheck {
+  @apply my-5 grid place-items-center ml-4;
+  @include responsive-hw(20px, 100px);
+  @include responsive-font-size(10px);
   font-family: "NanumSquareRoundR";
-  font-size: 10px;
-  width: 100px;
-  height: 20px;
   border-radius: 25px;
   background-color: #777575;
   color: #f6f6f6;
-  @apply my-5 grid place-items-center ml-4;
 
   &.small {
-    width: 45px;
-    height: 20px;
+    @include responsive-hw(20px, 45px);
     margin-left: 1rem;
   }
 
   &.middle {
-    width: 57px;
-    height: 20px;
-    position: absolute;
-    top: 400px;
-    left: 310px;
+    @include responsive-position(400px, 310px);
+    @include responsive-hw(20px, 57px);
   }
 }
 
+// join - account link
 .joinAccountLinkTitle {
+  @include responsive-position(250px, 50px);
+  @include responsive-font-size(30px);
   font-family: "BMHanna";
-  font-size: 30px;
-  position: absolute;
-  top: 250px;
-  left: 50px;
 }
 
 .joinAuthenticationImg {
-  position: Absolute;
-  top: 60px;
-  left: 175px;
+  @apply grid place-items-center w-full;
+  @include responsive-position(60px, 0px);
 
-  &.down {
-    top: 173px;
-    left: 201px;
+  .down {
+    @apply mt-10;
+  }
+
+  .top {
+    @include responsive-position(212px, 150px);
+    @include responsive-font-size(15px);
+    font-family: "NotoSans";
   }
 }
 
 .joinAuthenticationDetail {
-  @apply grid place-items-center text-center;
-  position: absolute;
+  @apply text-center;
+  @include responsive-position(267px, 127px);
+  @include responsive-font-size(20px);
   font-family: "BMHanna";
-  font-size: 20px;
-  top: 267px;
-  left: 127px;
   line-height: 1.5;
-
-  &.top {
-    font-family: "NotoSans";
-    font-size: 15px;
-
-    top: 212px;
-    left: 150px;
-  }
 }
 
 .joinAuthenticationCheckTitle {

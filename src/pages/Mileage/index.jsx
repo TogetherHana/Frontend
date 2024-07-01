@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.scss";
-import MileageProductCategory from "./mileageproductcategory";
+import MileageProductCategory from "../../components/Mileage/mileage-product-category";
 // @ts-ignore
 import carousel1 from "@/assets/images/mileage/carousel1.svg";
 // @ts-ignore
@@ -9,7 +9,7 @@ import harange from "@/assets/images/mileage/harange.svg";
 import oldschoolbolcap from "@/assets/images/mileage/oldschoolbolcap.svg";
 // @ts-ignore
 import jjangguuniform from "@/assets/images/mileage/jjangguuniform.svg";
-import MileageProductDiv from "./mileageproductdiv";
+import MileageProductDiv from "../../components/Mileage/mileage-product-div";
 
 function Mileage() {
   const categoryParams = [

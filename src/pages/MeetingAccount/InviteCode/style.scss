@@ -2,8 +2,6 @@
 .macIcMainTitle {
   @apply text-center mt-56;
   @include responsive-font-size(30px);
-  //   @include responsive-position-height(225px);
-  //   position: absolute;
   font-family: "NanumSquareRoundB";
 }
 
@@ -11,8 +9,7 @@
   @apply flex mx-28 my-8;
   div {
     @apply grid place-items-center;
-    @include responsive-width(45px);
-    @include responsive-height(20px);
+    @include responsive-hw(20px, 45px);
     @include responsive-font-size(10px);
     background-color: #777575;
     color: white;
@@ -44,8 +41,7 @@
 
 .macIcAgreeTerms {
   @apply ml-7 mt-8;
-  @include responsive-width(380px);
-  @include responsive-height(490px);
+  @include responsive-hw(490px, 380px);
   border-radius: 10px;
   background-color: #d9d9d9;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);

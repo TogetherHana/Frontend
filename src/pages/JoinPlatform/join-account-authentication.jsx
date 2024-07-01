@@ -4,14 +4,14 @@ import coin from "@/assets/images/coin.svg";
 // @ts-ignore
 import hana2 from "@/assets/images/hana2.svg";
 
-function JoinAuthentication() {
+function JoinAuthentication({ params }) {
   return (
-    <div>
-      <img src={coin} alt="coin" className="joinAuthenticationImg" />
-      <img src={hana2} alt="hana" className="joinAuthenticationImg down" />
-      <div className="joinAuthenticationDetail top">793-427104-94857</div>
+    <div className="joinAuthenticationImg">
+      <img src={coin} alt="coin" />
+      <img src={hana2} alt="hana" className="down" />
+      <div className="top">{params.accountNumber}</div>
       <div className="joinAuthenticationDetail">
-        김철수 님 통장이 맞는지
+        {params.name} 님 통장이 맞는지
         <br />
         확인하기 위해
         <br />

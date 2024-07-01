@@ -6,9 +6,12 @@ import BottomPopupInfo from "@/components/MeetingAccount/AgreeTerms/bottompopupi
 import sinhantransparent from "@/assets/images/systemEvent/main/sinhantransparent.svg";
 // @ts-ignore
 import person2 from "@/assets/images/meetaccountinfo/person2.svg";
+import { useNavigate } from "react-router-dom";
 
 function MacCreatedInfo() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   const accountName = "럭키비키 다이노스";
   const accountHolder = "이상민";
@@ -24,7 +27,7 @@ function MacCreatedInfo() {
     buttonProp: {
       btnText: "네, 생성할게요",
       btnBelowText: "다시 한번 생각해볼게요",
-      onClick: () => setIsPopupOpen(!isPopupOpen)
+      onClick: () => navigate(`/maccount/register/complete`)
     },
     img: person2,
     title: "해당 정보로 계좌를 생성할까요?",
