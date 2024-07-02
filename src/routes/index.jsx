@@ -7,6 +7,16 @@ import * as Pages from "@/pages";
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Layouts.RenewalNonFooter />,
+    children: [
+      {
+        path: "memberhome",
+        children: [{ index: true, element: <Pages.Home /> }]
+      }
+    ]
+  },
+  {
+    path: "/",
     element: <Layouts.WhiteFooter />,
     children: [
       // {
@@ -51,16 +61,6 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: "/",    
-    element: <Layouts.RenewalNonFooter />,
-    children: [
-      {
-        path: "/",
-        children: [{ index: true, element: <Pages.Home /> }]
-      }
-    ]
-  }, 
-  {
     path: "/",
     element: <Layouts.GrayNonFooter />,
 
@@ -87,7 +87,6 @@ const router = createBrowserRouter([
         path: "choose/loser",
         children: [{ index: true, element: <Pages.Voted /> }]
       },
-      
       {
         path: "platform/join/idverification",
         children: [
@@ -239,7 +238,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        children: [{ index: true, element: <Pages.Home /> }]
+        children: [{ index: true, element: <Pages.Main /> }]
       },
       {
         path: "platform/join/main",
