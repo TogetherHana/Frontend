@@ -24,3 +24,30 @@ export const characterAtom = atom("");
 
 // 모임통장 회비걷기->수금요청 화면에서 금액값 전달하기
 export const amountAtom = atom("");
+
+// device Token 저장
+export const deviceTokenAtom = atom("");
+
+// 회원가입 정보
+export const memberInfo = {
+  name: "",
+  accountNumber: "",
+  phoneNumber: "",
+  address: "",
+  deviceToken: "",
+  nickName: ""
+};
+
+export const memberAtom = atom(memberInfo);
+
+// 본인인증 상태 유지용
+export const userIdVerifiedAtom = atom(false);
+
+// 본인인증 에러 모달용
+export const authCheckAtom = atom(initialModalState);
+
+// 계좌 연동
+export const accountAtom = atom("");
+
+// 은행 선택 모달
+export const bankSelectAtom = atom(initialModalState);

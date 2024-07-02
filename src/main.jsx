@@ -14,7 +14,8 @@ Modal.setAppElement("#root");
 // serviceWorker.register();
 
 // FCM
-requestForToken();
+// requestForToken();
+// console.log(requestForToken());
 
 const rootElement = document.getElementById("root");
 

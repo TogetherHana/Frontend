@@ -1,19 +1,62 @@
 import React, { useEffect, useState } from "react";
-import Button from "@/components/Button";
-import { useNavigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { requestForToken } from "@/firebase";
 import "./style.scss";
+import { deviceTokenAtom } from "@/stores";
+import { useAtom } from "jotai";
+import { useNavigate } from "react-router-dom";
+
+// const queryClient = new QueryClient();
 
 function Main() {
-  //const navigate = useNavigate();
   const [showSpinner, setShowSpinner] = useState(true);
+  const [deviceToken, setDeviceToken] = useAtom(deviceTokenAtom);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowSpinner(false);
-    }, 10000);
+    const fetchData = async () => {
+      const token = await requestForToken();
+      setDeviceToken(token);
+    };
 
-    return () => clearTimeout(timer);
+    fetchData();
   }, []);
+
+  // api 호출
+  const isMember = useQuery({
+    queryKey: ["is-member"],
+    queryFn: async () => {
+      const response = await fetch(
+        `http://localhost:8080/auth/login?deviceToken=${deviceToken}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+      );
+      // console.log(response);
+      return response.json();
+    }
+  });
+
+  useEffect(() => {
+    // isMember.data.isSuccess -> false 가입화면, true-> timer이후 showspinner 값 변경
+    if (isMember.data && isMember.data.isSuccess) {
+      const timer = setTimeout(() => {
+        setShowSpinner(false);
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    } else {
+      const timer = setTimeout(() => {
+        navigate(`/platform/join/main`);
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isMember]);
 
   return (
     <>

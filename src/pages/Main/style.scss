@@ -140,8 +140,9 @@
 }
 
 .mainSub {
-  @apply grid text-center mt-80;
+  @apply grid text-center;
   @include responsive-font-size(25px);
+  @include responsive-position(600px, 120px);
   color: #44bd91;
   font-family: "Hana2M";
 }
