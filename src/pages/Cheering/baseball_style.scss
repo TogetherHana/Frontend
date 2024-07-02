@@ -64,151 +64,50 @@
       flex-direction: row;
       justify-content: space-around;
 
-      img {
+      img, .imgBlank {
         @apply m-1;
-        @include responsive-hw(100px, 100px);
-        // border: --border;
+        @include responsive-hw(100px, 100px);     
       }
-      img:hover {
+      .img-nc:hover {      
         border-radius: 10px;
-        border: 2px solid black;
+        border: 5px solid $color-nc;
       }
-
-      .nc {
-        // height: 100px;
-        // width: 100px;
-        @include responsive-hw(100px, 100px);
-        position: relative;
-        background-image: url(@/assets/images/baseballTeams/nc.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
+      .img-hanwha:hover {       
+        border-radius: 10px;
+        border: 5px solid $color-hanwha;
       }
-      .nc:hover {
-        background-color: $color-nc;
+      .img-Lions:hover {      
+        border-radius: 10px;
+        border: 5px solid $color-Lions;
       }
-      .hanwha {
-        height: 100px;
-        width: 100px;
-        position: relative;
-        background-image: url(@/assets/images/baseballTeams/hanwha.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
+      .img-LG:hover {        
+        border-radius: 10px;
+        border: 5px solid $color-LG;
       }
-      .hanwha:hover {
-        background-color: $color-hanwha;
+      .img-KT:hover {        
+        border-radius: 10px;
+        border: 5px solid $color-KT;
       }
-      .Lions {
-        height: 100px;
-        width: 100px;
-        position: relative;
-        background-image: url(@/assets/images/baseballTeams/Lions.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
+      .img-Lotte:hover {        
+        border-radius: 10px;
+        border: 5px solid $color-Lotte;
       }
-      .Lions:hover {
-        background-color: $color-Lions;
+      .img-Doosan:hover {        
+        border-radius: 10px;
+        border: 5px solid $color-Doosan-Navy;
       }
-      .LG {
-        height: 100px;
-        width: 100px;
-        position: relative;
-        background-image: url(@/assets/images/baseballTeams/LG.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
+      .img-Kia:hover {        
+        border-radius: 10px;
+        border: 5px solid $color-Kia;
       }
-      .LG:hover {
-        background-color: $color-LG;
+      .img-Kiwoom:hover {        
+        border-radius: 10px;
+        border: 5px solid  $color-Kiwoom;
       }
-      .KT {
-        height: 100px;
-        width: 100px;
-        position: relative;
-        background-image: url(@/assets/images/baseballTeams/KT.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-      }
-      .KT:hover {
-        background-color: $color-KT;
-      }
-      .Lotte {
-        height: 100px;
-        width: 100px;
-        position: relative;
-        background-image: url(@/assets/images/baseballTeams/Lotte.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-      }
-      .Lotte:hover {
-        background-color: $color-Lotte;
-      }
-      .Doosan {
-        height: 100px;
-        width: 100px;
-        position: relative;
-        background-image: url(@/assets/images/baseballTeams/Doosan.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-      }
-      .Doosan:hover {
-        background-color: $color-Doosan-Navy;
-      }
-      .Kia {
-        height: 100px;
-        width: 100px;
-        position: relative;
-        background-image: url(@/assets/images/baseballTeams/Kia.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-      }
-      .Kia:hover {
-        background-color: $color-Kia;
-      }
-      .Kiwoom {
-        height: 100px;
-        width: 100px;
-        position: relative;
-        background-image: url(@/assets/images/baseballTeams/Kiwoom.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-      }
-      .Kiwoom:hover {
-        background-color: $color-Kiwoom;
-      }
-      .SSG {
-        height: 100px;
-        width: 100px;
-        position: relative;
-        background-image: url(@/assets/images/baseballTeams/SSG.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-      }
-      .SSG:hover {
-        background-color: $color-SSG;
-      }
-      .dummy {
-        height: 100px;
-        width: 100px;
-        position: relative;
-      }
-      .check {
-        height: 100px;
-        width: 100px;
-        position: relative;
-        background-image: url(@/assets/images/check.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-      }
+      .img-SSG:hover {        
+        border-radius: 10px;
+        border: 5px solid $color-SSG;
+      }               
     }
   }
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./baseball_style.scss";
 import { useNavigate } from "react-router-dom";
 import nc from "@/assets/images/baseballTeams/nc.svg";
@@ -13,26 +13,32 @@ import Kiwoom from "@/assets/images/baseballTeams/Kiwoom.svg";
 import SSG from "@/assets/images/baseballTeams/SSG.svg";
 import check from "@/assets/images/check.svg";
 import TeamLogo from "@/components/Cheering/teamlogo";
+import axios from "axios";
 
 function Baseball() {
   const navigate = useNavigate();
+  const memberIdx = 5;
 
   const logoParams = [
     {
-      contents: [nc, hanwha, lions],
-      teams: ["nc", "hanwha", "Lions"]
+      contents: [Doosan, nc, Kia],
+      teams: ["Doosan", "nc", "Kia"],
+      sportsIdx: [1, 5, 8]
     },
     {
-      contents: [LG, KT, Lotte],
-      teams: ["LG", "KT", "Lotte"]
+      contents: [LG, hanwha, lions],
+      teams: ["LG", "hanwha", "lions"],
+      sportsIdx: [2, 6, 9]
     },
     {
-      contents: [Doosan, Kia, Kiwoom],
-      teams: ["Doosan", "Kia", "Kiwoom"]
+      contents: [Kiwoom, Lotte, KT],
+      teams: ["Kiwoom", "Lotte", "KT"],
+      sportsIdx: [3, 7, 10]
     },
     {
       contents: [SSG, "", check],
-      teams: ["SSG", "", ""]
+      teams: ["SSG", "", "check"],
+      sportsIdx: [4, 0, 0]
     }
   ];
 
@@ -62,7 +68,7 @@ function Baseball() {
           </div>
         </div>
         <div className="logo-container">
-          <TeamLogo params={logoParams} />
+          <TeamLogo params={logoParams} memberIdx={memberIdx}/>
         </div>
       </div>
     </>
