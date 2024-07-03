@@ -130,16 +130,17 @@
 }
 
 .userinfobtnLocation {
-  @include responsive-position-height(770px);
-  @include responsive-position-width(34px);
-  position: fixed;
+  // @include responsive-position-height(770px);
+  // @include responsive-position-width(34px);
+  // position: fixed;
+  @include responsive-position(770px, 34px);
 }
 
 // select stock
 .selectStockMain {
   @include responsive-position(151px, 60px);
   @include responsive-font-size(30px);
-  font-family: "NanumSquareRoundB";
+  font-family: "BMHanna";
   line-height: 1.5;
 }
 
@@ -256,4 +257,12 @@
 
 .maccountCompleteImg {
   @include responsive-position(425px, 115px);
+}
+
+.checkedFalse {
+  @apply grid text-center mt-8;
+  @include responsive-font-size(15px);
+  font-family: "NanumSquareRoundR";
+  line-height: 1.5;
+  color: red;
 }

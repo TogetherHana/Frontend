@@ -36,3 +36,40 @@ export const sendFeeAtom = atom({
   amount: "",
   accountPassword: ""
 });
+
+// device Token 저장
+export const deviceTokenAtom = atom("");
+
+// 회원가입 정보
+export const memberInfo = {
+  name: "",
+  accountNumber: "",
+  phoneNumber: "",
+  address: "",
+  fcmToken: "",
+  nickName: ""
+};
+
+export const memberAtom = atom(memberInfo);
+
+// 본인인증 상태 유지용
+export const userIdVerifiedAtom = atom(false);
+
+// 본인인증 에러 모달용
+export const authCheckAtom = atom(initialModalState);
+
+// 계좌 연동
+export const accountAtom = atom("");
+
+// 은행 선택 모달
+export const bankSelectAtom = atom(initialModalState);
+
+// 모임통장 생성정보
+export const maccountInfo = {
+  sharePurpose: "",
+  accountName: "",
+  accountPassword: ""
+};
+
+export const maccountAtom = atom(maccountInfo);
+

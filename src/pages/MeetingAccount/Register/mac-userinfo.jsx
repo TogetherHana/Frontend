@@ -15,7 +15,7 @@ function MacUserInfo() {
 
   const btnParams = {
     btnText: "정보를 확인했어요",
-    onClick: () => navigate(`/maccount/register/userinfo`)
+    onClick: () => navigate(`/maccount/register/selectstock`)
   };
 
   return (

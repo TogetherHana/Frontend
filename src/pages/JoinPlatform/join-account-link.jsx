@@ -1,32 +1,86 @@
 import BankList from "@/components/JoinPlatform/banklist";
 import VerificationBtn from "@/components/MeetingAccount/IdVerification/verificationbtn";
 import ModalBottomUp from "@/components/MeetingAccount/modalbottomup";
-import { atom, useAtomValue } from "jotai";
+import { atom, useAtom } from "jotai";
 import React, { useEffect, useState } from "react";
 import JoinAuthentication from "./join-account-authentication";
+import {
+  accountAtom,
+  bankSelectAtom,
+  initialModalState,
+  memberAtom
+} from "@/stores";
+import { useQuery } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 
 export const selectBankAtom = atom(null);
 
 function JoinAccountLink() {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const navigate = useNavigate();
+
+  // const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isPopupOpenData, setIsPopupOpenData] = useAtom(bankSelectAtom);
   const [isAuthPopupOpen, setIsAuthPopupOpen] = useState(false);
   const [accountNumber, setAccountNumber] = useState("");
-  //   const [selectBank, setSelectBank] = useState();
-  const selectBank = useAtomValue(selectBankAtom);
+  // const [selectBank, setSelectBank] = useState("");
+  const [bankSelect, setBankSelect] = useAtom(accountAtom);
+  const [memberInfo, setMemberInfo] = useAtom(memberAtom);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const accountParams = {
     accountNumber: accountNumber,
-    name: "김철수"
+    name: memberInfo.name
   };
-
-  useEffect(() => {}, [selectBank, accountNumber]);
-
-  // console.log(accountNumber);
 
   const joinAccountLinkParams = {
     btnText: "인증하기",
-    onClick: () => setIsAuthPopupOpen(!isAuthPopupOpen)
+    onClick: () => {
+      setIsSubmitting(true);
+    }
   };
+
+  const isAccountValidate = useQuery({
+    queryKey: ["is-accountvalidate"],
+    queryFn: async () => {
+      const response = await fetch("http://localhost:8080/auth/account-check", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          accountNumber: accountNumber,
+          bankName: bankSelect
+        })
+      });
+      return response.json();
+    },
+    enabled: isSubmitting
+  });
+
+  useEffect(() => {}, [bankSelect, accountNumber]);
+
+  useEffect(() => {
+    if (isAccountValidate.data) {
+      if (isAccountValidate.data.isSuccess) {
+        // console.log("success");
+        setMemberInfo((prev) => ({
+          ...prev,
+          accountNumber: accountNumber
+        }));
+        setIsAuthPopupOpen(!isAuthPopupOpen);
+
+        const timer = setTimeout(() => {
+          setIsAuthPopupOpen(!isAuthPopupOpen);
+          navigate("/platform/join/authentication/check");
+        }, 3000);
+
+        return () => clearTimeout(timer);
+      } else {
+        // console.log("failed");
+        // setIsAuthPopupOpen(!isAuthPopupOpen);
+      }
+    }
+  }, [isAccountValidate.data]);
 
   return (
     <div>
@@ -34,9 +88,14 @@ function JoinAccountLink() {
       {/* 은행선택 */}
       <div
         className="userInfoInput bs"
-        onClick={() => setIsPopupOpen(!isPopupOpen)}
+        onClick={() =>
+          setIsPopupOpenData((prev) => ({
+            ...prev,
+            isOpen: !isPopupOpenData.isOpen
+          }))
+        }
       >
-        {selectBank === null ? "은행 선택" : selectBank}
+        {bankSelect === "" ? "은행 선택" : bankSelect}
       </div>
       {/* 계좌번호 */}
       <input
@@ -46,12 +105,16 @@ function JoinAccountLink() {
       />
       {/* BankList params -> 선택된 값들로 바뀌어야 함 */}
       <ModalBottomUp
-        isPopupOpen={isPopupOpen}
-        onClose={() => setIsPopupOpen(false)}
+        isPopupOpen={isPopupOpenData.isOpen}
+        onClose={() => setIsPopupOpenData(initialModalState)}
         snapPoints={[500]}
         content={<BankList />}
       />
-      <VerificationBtn params={joinAccountLinkParams} />
+      {bankSelect !== "" ? (
+        <VerificationBtn params={joinAccountLinkParams} />
+      ) : (
+        ""
+      )}
       <ModalBottomUp
         isPopupOpen={isAuthPopupOpen}
         onClose={() => setIsAuthPopupOpen(false)}

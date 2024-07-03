@@ -43,6 +43,11 @@
   font-weight: 400;
   src: url("@/fonts/Sansation_Regular.ttf") format("truetype");
 }
+@font-face {
+  font-family: "Hana2M";
+  font-weight: 400;
+  src: url("@/fonts/Hana2-Medium.ttf") format("truetype");
+}
 
 // @supports (padding-top: env(safe-area-inset-top)) {
 //   body {
