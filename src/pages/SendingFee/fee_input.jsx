@@ -3,14 +3,32 @@ import "./fee_input.scss";
 import Button from "@/components/Button";
 import { useNavigate } from "react-router-dom";
 import { useAtom } from "jotai";
-import { amountAtom, characterAtom } from "@/stores";
+import { sendFeeAtom } from "@/stores";
 
+// @ts-ignore
+import hana from "@/assets/images/banklist/hana.svg";
+// @ts-ignore
+import sinhan from "@/assets/images/banklist/sinhan.svg";
+// @ts-ignore
+import kb from "@/assets/images/banklist/kb.svg";
+// @ts-ignore
+import woori from "@/assets/images/banklist/woori.svg";
+
+{
+  /* <img src={img} alt={name} /> */
+}
 
 function SendFeeInput() {
   const navigate = useNavigate();
 
   // 숫자입력
-  const [inputValue, setInputValue] = useAtom(amountAtom);
+  const [inputValue, setInputValue] = useState("");
+  const [sendData, setSendData] = useAtom(sendFeeAtom);
+
+  const gotoPassword = () => {
+    setSendData({ ...sendData, amount: inputValue });
+  };
+
   const BtnClick = (number) => {
     setInputValue((prevValue) => {
       const newValue = prevValue.replace(/,/g, "") + number; // Remove commas before adding new number
@@ -31,34 +49,55 @@ function SendFeeInput() {
     return value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
- 
-
- 
-
   return (
     <>
-      <div className="fee-container">
+      <div className="send-fee-container">
         <div className="header">
-          <div className="back">&lt;</div>
-          <div>모임통장 회비걷기</div>
+          <div className="back" onClick={() => navigate(-1)}>
+            &lt;
+          </div>
+          <div>모임통장 돈보내기</div>
           <div className="row-dummy"></div>
         </div>
 
         <div className="input-container">
-         
-          <div className="content">
-            <div className="title">총 얼마 걷을래요?</div>
-            <div className="col-dummy" />
-            <input
-              type="text"
-              value={inputValue}
-              className="num-input"
-              placeholder="걷을금액"
-            />
+          <div className="receiver-bank-img">
+            {sendData.bank === "하나" ? (
+              <img src={hana} alt={"하나은행"} />
+            ) : (
+              <div></div>
+            )}
+            {sendData.bank === "신한" ? (
+              <img src={sinhan} alt={"신한은행"} />
+            ) : (
+              <div></div>
+            )}
+            {sendData.bank === "국민" ? (
+              <img src={kb} alt={"국민은행"} />
+            ) : (
+              <div></div>
+            )}
+            {sendData.bank === "우리" ? (
+              <img src={woori} alt={"우리은행"} />
+            ) : (
+              <div></div>
+            )}
+          </div>
+          <div className="receiver-font">{sendData.receiver} 님에게</div>
+          <div className="receiver-bank-font">
+            {sendData.bank} {sendData.receiveAccountNumber}
+          </div>
+          <input
+            type="text"
+            value={inputValue}
+            className="num-input"
+            placeholder="보낼금액"
+          />
+          <div className="remain-amount">
+            <div></div>
+            <div></div>
           </div>
         </div>
-
-        
 
         <div className="num-container">
           <div className="num-line">
@@ -106,7 +145,7 @@ function SendFeeInput() {
             </div>
           </div>
           <Button
-            onClick={() => navigate("/fee/collect")}
+            onClick={gotoPassword}
             disabled={!inputValue}
             style={{
               marginBottom: "15px",

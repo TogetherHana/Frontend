@@ -1,3 +1,5 @@
+@import "../../common/styles/scss/responsive.scss";
+
 .baseballhome-container {
   width: 100%;
   height: 100%;
@@ -5,15 +7,42 @@
   display: flex;
   flex-direction: column;
 
-  font-family: "NanumSquareRoundB";
-  font-weight: 900;
+  font-family: "BMHanna";    
+
+  .fee-btns {
+    display: flex !important;
+    flex-direction: row !important;
+
+    .fee-collect {
+      width: 165px !important;
+      height: 50px !important;
+      margin-right: 15px !important;
+      background-color: white !important;
+      color: $color-primary1 !important;
+      border: 1px solid $color-primary1 !important;
+      box-shadow: none !important;
+    }
+
+    .fee-send {
+      width: 165px !important;
+      height: 50px !important;
+      margin-left: 15px !important;
+      background-color: $color-primary1 !important;
+      color: white !important;         
+      box-shadow: none !important;
+    }
+  }
 
   .header {
+    @apply p-5 flex mt-16 text-center;
+    @include responsive-font-size(20px);
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 
     padding: 20px;
+    font-family: "NanumSquareRoundB";
     font-size: 20px;
 
     .back {
@@ -51,10 +80,7 @@
         padding-left: 5px;
       }
 
-      .btns {
-        display: flex;
-        flex-direction: row;
-      }
+      
     }
 
     .account-number {
@@ -71,9 +97,10 @@
   }
 
   .bottom-container {
+    font-family: "NanumSquareRoundB";
     background-color: white;
     width: 100%;
-    height: 481px;
+    height: 400px; 
     overflow-y: auto;
 
     .components {

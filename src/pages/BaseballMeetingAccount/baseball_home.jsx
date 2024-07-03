@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 function BaseballHome() {
   const navigate = useNavigate();
   const [selectedButton, setSelectedButton] = useState("입출금"); // 어떤 버튼이 선택되었는지를 나타내는 상태
+  const remainBalance = localStorage.getItem("latestRemainBalance");
 
   const handleButtonClick = (button) => {
     setSelectedButton(button); // 클릭된 버튼의 이름을 상태로 설정
@@ -24,6 +25,20 @@ function BaseballHome() {
     color: selectedButton === button ? "#44BD91" : "#868686",
     cursor: "pointer"
   });
+
+  const formatNumber = (number) => {
+    return new Intl.NumberFormat().format(number);
+  };
+
+  // const memberIdx = 1;
+
+  const collectFee = () => {
+    navigate("/fee");
+  };
+
+  const sendFee = () => {
+    navigate("/send");
+  };
 
   return (
     <>
@@ -40,33 +55,18 @@ function BaseballHome() {
             <div className="account-name">럭키비키 다이노스</div>
           </div>
           <div className="account-number">하나 748-911260-51507</div>
-          <div className="account-amount">30,000원</div>
+          <div className="account-amount">{formatNumber(remainBalance)} 원</div>
           <div className="col-dummy" />
-          <div className="btns">
-            <Button
-              style={{
-                width: "165px",
-                height: "50px",
-                marginRight: "15px",
-                backgroundColor: "white",
-                color: "#44BD91",
-                border: "1px solid #44BD91",
-                boxShadow: "none"
-              }}
-
-              onClick={() => navigate("/fee")}
-
+          <div className="fee-btns">
+            <Button             
+              className="fee-collect"
+              onClick={collectFee}
             >
               회비 걷기
             </Button>
-            <Button
-              style={{
-                width: "165px",
-                height: "50px",
-                marginLeft: "15px",
-                boxShadow: "none"
-              }}
-              onClick={() => navigate("/send")}
+            <Button             
+              className="fee-send"
+              onClick={sendFee}
             >
               보내기
             </Button>
@@ -83,7 +83,7 @@ function BaseballHome() {
               >
                 입출금
               </div>
-            </div>            
+            </div>
             <div className="component">
               <div
                 onClick={() => handleButtonClick("친구")}
@@ -92,7 +92,7 @@ function BaseballHome() {
               >
                 친구
               </div>
-            </div>            
+            </div>
             <div className="component">
               <div
                 onClick={() => handleButtonClick("빅매치")}
@@ -104,9 +104,9 @@ function BaseballHome() {
             </div>
           </div>
 
-          {selectedButton === '입출금' && <History/>}
-          {selectedButton === '친구' && <Friends />}
-          {selectedButton === '빅매치' && <BigmatchHistory />}
+          {selectedButton === "입출금" && <History />}
+          {selectedButton === "친구" && <Friends />}
+          {selectedButton === "빅매치" && <BigmatchHistory />}
         </div>
       </div>
     </>
