@@ -50,11 +50,15 @@ function Main() {
       if (isMember.data.isSuccess) {
         const timer = setTimeout(() => {
           setShowSpinner(false);
+          setTimeout(() => {
+            navigate("/memberhome");
+          }, 3000);
         }, 5000);
 
+        // const timer2 =
         return () => {
           clearTimeout(timer);
-          navigate("/memberhome");
+          // clearTimeout(timer2);
         };
       } else {
         const timer = setTimeout(() => {

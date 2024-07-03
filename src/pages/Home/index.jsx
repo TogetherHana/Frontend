@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MainAccountDiv from "@/components/Main/mainaccountdiv";
 import MainMiddleBtn from "@/components/Main/mainmiddlebtn";
 import MainAccountLastDiv from "@/components/Main/mainaccountlastdiv";
 import pfimg from "@/assets/images/mainrenewal/pfimg.svg";
-import kiatogether from "@/assets/images/characters/Kia_together.svg";
 import hana4040 from "@/assets/images/hana4040.svg";
 import clover from "@/assets/images/mainrenewal/clover.svg";
 import event from "@/assets/images/mileage/event.svg";
@@ -13,10 +12,15 @@ import charging from "@/assets/images/mileage/charging.svg";
 import convert from "@/assets/images/mileage/convert.svg";
 import "./style.scss";
 import { useNavigate } from "react-router-dom";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import Main from "../Main";
 
 function Home() {
   const [isSetCheeringTeam, setIsSetCheeringTeam] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(true);
+  const [isSubmittingU, setIsSubmittingU] = useState(true);
 
+  const qc = useQueryClient();
   const navigate = useNavigate();
 
   const middleBtnParams = [
@@ -34,6 +38,51 @@ function Home() {
     }
   ];
 
+  // @ts-ignore
+  // jwt acccesstoken, refreshtoken
+  const jwtTokendata = qc.getQueryData(["is-member"]).data;
+
+  // 모임통장 리스트 가져오기
+  const sharingAccountInfo = useQuery({
+    queryKey: ["sac-info"],
+    queryFn: async () => {
+      const response = await fetch("http://localhost:8080/sharing-account/my", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${jwtTokendata.accessToken}`
+        }
+      });
+
+      return response.json();
+    },
+    enabled: isSubmitting
+  });
+
+  // 사용자 마일리지, 응원팀, 닉네임 정보 가져오기
+  const userInfo = useQuery({
+    queryKey: ["user-info"],
+    queryFn: async () => {
+      const response = await fetch("http://localhost:8080/member/me", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application.json",
+          Authorization: `Bearer ${jwtTokendata.accessToken}`
+        }
+      });
+
+      return response.json();
+    }
+  });
+
+  useEffect(() => {
+    setIsSubmitting(false);
+  }, [sharingAccountInfo.data]);
+
+  useEffect(() => {
+    setIsSubmittingU(false);
+  }, [userInfo.data]);
+
   return (
     <>
       {/* top */}
@@ -43,7 +92,9 @@ function Home() {
           <div>함께, 하나</div>
         </div>
         <div className="right">
-          <div className="txt">이상민 님</div>
+          {userInfo.data && (
+            <div className="txt">{userInfo.data.data.nickname} 님</div>
+          )}
           <img src={pfimg} alt="profileImg" />
         </div>
       </div>
@@ -54,7 +105,10 @@ function Home() {
       </div>
       {/* middle1 content */}
       <div className="renewalMiddleContentDiv">
-        <MainAccountDiv img={kiatogether} />
+        {sharingAccountInfo.data &&
+          sharingAccountInfo.data.data.map((item, index) => (
+            <MainAccountDiv key={index} params={item} />
+          ))}
         <MainAccountLastDiv />
       </div>
       {/* sports mileage */}
@@ -63,7 +117,8 @@ function Home() {
           <div className="top">
             <div>MY 스포츠 마일리지</div>
             <div className="mile">
-              <div>5,430M</div>
+              {userInfo.data && <div>{userInfo.data.data.mileage.amount}M</div>}
+              {/* <div>5,430M</div> */}
               <div className="milebtn">무료 마일리지 받기!</div>
             </div>
           </div>
