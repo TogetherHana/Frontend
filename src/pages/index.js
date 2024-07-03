@@ -26,6 +26,7 @@ export { default as MacRegister } from "./MeetingAccount/Register/mac-register";
 export { default as MacSelectStock } from "./MeetingAccount/Register/mac-select-stock";
 export { default as MacSetAccountName } from "./MeetingAccount/Register/mac-set-account-name";
 export { default as MacSetAccountPW } from "./MeetingAccount/Register/mac-set-account-pw";
+export { default as MacSetAccountPWCheck } from "./MeetingAccount/Register/mac-set-account-pw-check";
 export { default as MacUserInfo } from "./MeetingAccount/Register/mac-userinfo";
 export { default as MacIcMain } from "./MeetingAccount/InviteCode/mac-ic-main";
 export { default as MacIcAgreeTerms } from "./MeetingAccount/InviteCode/mac-ic-agree-terms";
@@ -34,11 +35,14 @@ export { default as MacIcComplete } from "./MeetingAccount/InviteCode/mac-ic-com
 // Join Platform - 회원가입
 export { default as JoinMain } from "./JoinPlatform/join-main";
 export { default as JoinIntro } from "./JoinPlatform/join-intro";
+export { default as NotificationRequest } from "./JoinPlatform/join-notification-request";
 export { default as JoinIdVerification } from "./JoinPlatform/join-id-verification";
 export { default as JoinAccountLink } from "./JoinPlatform/join-account-link";
 export { default as JoinAuthenticationCheck } from "./JoinPlatform/joinauthenticationcheck";
 export { default as JoinSetNickName } from "./JoinPlatform/joinsetnickname";
 export { default as JoinComplete } from "./JoinPlatform/joincomplete";
+export { default as JoinInfoCheck } from "./JoinPlatform/join-info-check";
+export { default as JoinRegisterProcessing } from "./JoinPlatform/join-register-processing";
 // System Event
 export { default as SystemEvent } from "./SystemEvent";
 export { default as SystemEventSelectWin } from "./SystemEvent/se-select-win";

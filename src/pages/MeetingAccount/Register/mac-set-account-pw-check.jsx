@@ -7,9 +7,10 @@ import Button from "@/components/Button";
 import { maccountAtom } from "@/stores";
 import { useAtom } from "jotai";
 
-function MacSetAccountPW({ title, config }) {
+function MacSetAccountPWCheck({ title, config }) {
   const navigate = useNavigate();
   const [accountPW, setAccountPW] = useState([]);
+  const [isChecked, setIsChecked] = useState(false);
   const [macInfo, setMacInfo] = useAtom(maccountAtom);
 
   // const handleNextPage = (config) => {
@@ -18,6 +19,7 @@ function MacSetAccountPW({ title, config }) {
   //     : () => navigate(`/maccount/register/createdinfo`);
   // };
 
+  console.log(macInfo);
   const handleNumberClick = (number) => {
     if (accountPW.length < 4) {
       setAccountPW([...accountPW, number]);
@@ -31,12 +33,19 @@ function MacSetAccountPW({ title, config }) {
   };
 
   const handlePWBtn = () => {
-    // setMacInfo((prev) => ({ ...prev, accountName: accountName }));
-    setMacInfo((prev) => ({ ...prev, accountPassword: accountPW.join("") }));
-    navigate("/maccount/register/setaccountpw/check");
+    navigate("/maccount/register/createdInfo");
   };
 
-  useEffect(() => {}, [accountPW]);
+  useEffect(() => {
+    console.log(isChecked);
+    if (accountPW.length == 4) {
+      if (accountPW.join("") === macInfo.accountPassword) {
+        setIsChecked(true);
+        console.log(typeof accountPW.join(""));
+        console.log(typeof macInfo.accountPassword);
+      }
+    }
+  }, [accountPW]);
 
   return (
     <>
@@ -80,9 +89,16 @@ function MacSetAccountPW({ title, config }) {
           </div>
         </div>
         {accountPW.length == 4 ? (
-          <Button onClick={() => handlePWBtn()} className="numberKeyPadBtn">
-            확인
-          </Button>
+          isChecked ? (
+            <Button onClick={() => handlePWBtn()} className="numberKeyPadBtn">
+              다음
+            </Button>
+          ) : (
+            <div className="checkedFalse">
+              비밀번호가 일치하지 않습니다
+              <br /> 다시 입력해주세요
+            </div>
+          )
         ) : (
           ""
         )}
@@ -91,4 +107,4 @@ function MacSetAccountPW({ title, config }) {
   );
 }
 
-export default MacSetAccountPW;
+export default MacSetAccountPWCheck;

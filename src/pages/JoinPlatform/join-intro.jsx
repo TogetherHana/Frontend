@@ -26,7 +26,7 @@ function JoinIntro() {
       {/* button */}
       <div
         className="joinIntroNextDiv"
-        onClick={() => navigate(`/platform/join/idverification`)}
+        onClick={() => navigate(`/platform/request/notification`)}
       >
         <div>함께, 하기</div>
         <img src={arrow} alt="arrow" />

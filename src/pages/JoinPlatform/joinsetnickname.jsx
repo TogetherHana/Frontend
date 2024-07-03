@@ -3,8 +3,10 @@ import { memberAtom } from "@/stores";
 import { useQuery } from "@tanstack/react-query";
 import { useAtom } from "jotai";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function JoinSetNickName() {
+  const navigate = useNavigate();
   const [duplicateCheck, setDuplicateCheck] = useState(false);
   const [nickName, setNickName] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -14,6 +16,7 @@ function JoinSetNickName() {
     btnText: "가입하기",
     onClick: () => {
       console.log(memberInfo);
+      navigate("/platform/join/infocheck");
     }
   };
 

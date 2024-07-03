@@ -7,20 +7,27 @@ import sinhantransparent from "@/assets/images/systemEvent/main/sinhantransparen
 // @ts-ignore
 import person2 from "@/assets/images/meetaccountinfo/person2.svg";
 import { useNavigate } from "react-router-dom";
+import { useAtom } from "jotai";
+import { deviceTokenAtom, maccountAtom } from "@/stores";
+import { useQuery } from "@tanstack/react-query";
 
 function MacCreatedInfo() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
+  const [macInfo, setmacInfo] = useAtom(maccountAtom);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [deviceToken] = useAtom(deviceTokenAtom);
+
   const navigate = useNavigate();
 
-  const accountName = "럭키비키 다이노스";
+  // const accountName = "럭키비키 다이노스";
   const accountHolder = "이상민";
   const accountCreateDate = "2024. 06. 20";
 
   const createdInfoParams = {
     btnText: "계좌 개설하기",
     btnBelowText: "다시 입력하기",
-    onClick: () => setIsPopupOpen(!isPopupOpen)
+    onClick: () => createMAccount()
   };
 
   const bottomPopupInfoParams = {
@@ -35,12 +42,39 @@ function MacCreatedInfo() {
         불가하오니, 신중하게 결정해주세요`
   };
 
+  const createMAccount = () => {
+    setIsSubmitting(true);
+    setIsPopupOpen(!isPopupOpen);
+  };
+
+  const maccountCreate = useQuery({
+    queryKey: ["mac-create"],
+    queryFn: async () => {
+      const response = await fetch(
+        "http://localhost:8080/sharing-account/create",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${deviceToken}`
+          },
+          body: JSON.stringify(macInfo)
+        }
+      );
+    },
+    enabled: isSubmitting
+  });
+
   return (
     <>
       <div className="setAccountNameMain">
         <div className="setAccountNameTitle createdInfo">계좌 생성정보</div>
         <div className="userInfoInputText">계좌 이름</div>
-        <input className="userInfoInput address" value={accountName} disabled />
+        <input
+          className="userInfoInput address"
+          value={macInfo.accountName}
+          disabled
+        />
         <div className="userInfoInputText">소유주</div>
         <input
           className="userInfoInput address"

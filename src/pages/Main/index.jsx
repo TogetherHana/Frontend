@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 function Main() {
   const [showSpinner, setShowSpinner] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [deviceToken, setDeviceToken] = useAtom(deviceTokenAtom);
 
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ function Main() {
       setDeviceToken(token);
     };
 
-    fetchData();
+    fetchData().then(() => setIsSubmitting(true));
   }, []);
 
   // api 호출
@@ -36,27 +37,34 @@ function Main() {
           }
         }
       );
-      // console.log(response);
+      console.log(response);
       return response.json();
-    }
+    },
+    enabled: isSubmitting
   });
 
   useEffect(() => {
     // isMember.data.isSuccess -> false 가입화면, true-> timer이후 showspinner 값 변경
-    if (isMember.data && isMember.data.isSuccess) {
-      const timer = setTimeout(() => {
-        setShowSpinner(false);
-      }, 5000);
+    if (isMember.data) {
+      console.log(isMember.data.isSuccess);
+      if (isMember.data.isSuccess) {
+        const timer = setTimeout(() => {
+          setShowSpinner(false);
+        }, 5000);
 
-      return () => clearTimeout(timer);
-    } else {
-      const timer = setTimeout(() => {
-        navigate(`/platform/join/main`);
-      }, 5000);
+        return () => {
+          clearTimeout(timer);
+          navigate("/memberhome");
+        };
+      } else {
+        const timer = setTimeout(() => {
+          navigate(`/platform/join/intro`);
+        }, 5000);
 
-      return () => clearTimeout(timer);
+        return () => clearTimeout(timer);
+      }
     }
-  }, [isMember]);
+  }, [isMember.data]);
 
   return (
     <>

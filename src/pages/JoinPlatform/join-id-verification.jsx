@@ -123,57 +123,59 @@ function JoinIdVerification() {
   }, [isAuthenticated.data]);
 
   return (
-    <div className="joinIdVerificationDiv">
-      <div className="title">본인 인증</div>
-      <div className="content">
-        <div className="userInfoInputText">이름</div>
-        <input
-          className="userInfoInput"
-          onChange={(e) => setName(e.target.value)}
-        />
-        <div className="userInfoInputText">전화번호</div>
-        <div className="flex">
+    <>
+      <div className="joinIdVerificationDiv">
+        <div className="title">본인 인증</div>
+        <div className="content">
+          <div className="userInfoInputText">이름</div>
           <input
-            className="userInfoInput tel1"
-            onChange={(e) => setTelf(e.target.value)}
-          />{" "}
-          -{" "}
-          <input
-            className="userInfoInput tel2"
-            onChange={(e) => setTels(e.target.value)}
-          />{" "}
-          -{" "}
-          <input
-            className="userInfoInput tel2"
-            onChange={(e) => setTelt(e.target.value)}
+            className="userInfoInput"
+            onChange={(e) => setName(e.target.value)}
           />
-        </div>
-        <div className="flex">
-          <div className="userInfoInputText">인증번호 입력</div>
-          <div
-            className="joinNumberCheck"
-            onClick={() => sendAuthenticationNumber()}
-          >
-            인증번호 받기
+          <div className="userInfoInputText">전화번호</div>
+          <div className="flex">
+            <input
+              className="userInfoInput tel1"
+              onChange={(e) => setTelf(e.target.value)}
+            />{" "}
+            -{" "}
+            <input
+              className="userInfoInput tel2"
+              onChange={(e) => setTels(e.target.value)}
+            />{" "}
+            -{" "}
+            <input
+              className="userInfoInput tel2"
+              onChange={(e) => setTelt(e.target.value)}
+            />
           </div>
-        </div>
-        <div className="flex">
-          <input
-            className="userInfoInput vnm"
-            onChange={(e) => setAuthNumber(e.target.value)}
-          />
-          <div className="joinIdVerificationNotify time">{formatTime()}</div>
-          <div
-            className="joinNumberCheck small"
-            onClick={() => checkAuthenticationNumber()}
-          >
-            확인
+          <div className="flex">
+            <div className="userInfoInputText">인증번호 입력</div>
+            <div
+              className="joinNumberCheck"
+              onClick={() => sendAuthenticationNumber()}
+            >
+              인증번호 받기
+            </div>
           </div>
+          <div className="flex">
+            <input
+              className="userInfoInput vnm"
+              onChange={(e) => setAuthNumber(e.target.value)}
+            />
+            <div className="joinIdVerificationNotify time">{formatTime()}</div>
+            <div
+              className="joinNumberCheck small"
+              onClick={() => checkAuthenticationNumber()}
+            >
+              확인
+            </div>
+          </div>
+          <div className="joinIdVerificationNotify">
+            5분 이내에 인증번호를 입력해주세요
+          </div>
+          <div className="authCheckInfo"></div>
         </div>
-        <div className="joinIdVerificationNotify">
-          5분 이내에 인증번호를 입력해주세요
-        </div>
-        <div className="authCheckInfo"></div>
       </div>
       {/* <AuthCheckModal /> */}
       {userIdVerified ? (
@@ -181,7 +183,7 @@ function JoinIdVerification() {
       ) : (
         ""
       )}
-    </div>
+    </>
   );
 }
 

@@ -34,7 +34,7 @@ export const memberInfo = {
   accountNumber: "",
   phoneNumber: "",
   address: "",
-  deviceToken: "",
+  fcmToken: "",
   nickName: ""
 };
 
@@ -51,3 +51,12 @@ export const accountAtom = atom("");
 
 // 은행 선택 모달
 export const bankSelectAtom = atom(initialModalState);
+
+// 모임통장 생성정보
+export const maccountInfo = {
+  sharePurpose: "",
+  accountName: "",
+  accountPassword: ""
+};
+
+export const maccountAtom = atom(maccountInfo);
