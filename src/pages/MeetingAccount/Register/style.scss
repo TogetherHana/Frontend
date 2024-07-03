@@ -134,6 +134,10 @@
   // @include responsive-position-width(34px);
   // position: fixed;
   @include responsive-position(770px, 34px);
+
+  &.detail {
+    @include responsive-position(320px, 34px);
+  }
 }
 
 // select stock
@@ -190,11 +194,27 @@
 }
 
 .termsDiv {
-  @apply mt-6;
+  @apply mt-6 p-5;
   @include responsive-hw(471px, 353px);
   background-color: white;
   border-radius: 25px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  .title {
+    @apply text-center;
+    color: #44bd91;
+  }
+  .detail {
+    @include responsive-font-size(12px);
+    .content {
+      @apply my-5;
+      line-height: 1.5;
+      .title {
+        @include responsive-font-size(17px);
+        color: black;
+      }
+    }
+  }
 }
 
 // setaccountname

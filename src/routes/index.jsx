@@ -179,6 +179,15 @@ const router = createBrowserRouter([
         ]
       },
       {
+        path: "processing",
+        children: [
+          {
+            index: true,
+            element: <Pages.MacRegisterProcessing />
+          }
+        ]
+      },
+      {
         path: "complete",
         children: [
           {

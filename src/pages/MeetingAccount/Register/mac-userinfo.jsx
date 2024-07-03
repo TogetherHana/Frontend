@@ -54,9 +54,7 @@ function MacUserInfo() {
           </div>
         </div>
       </div>
-      <div className="userinfobtnLocation">
-        <VerificationBtn params={btnParams} />
-      </div>
+      <VerificationBtn params={btnParams} />
     </>
   );
 }

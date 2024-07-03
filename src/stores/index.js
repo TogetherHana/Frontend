@@ -28,6 +28,9 @@ export const amountAtom = atom("");
 // device Token 저장
 export const deviceTokenAtom = atom("");
 
+// access Token
+export const accessTokenATom = atom("");
+
 // 회원가입 정보
 export const memberInfo = {
   name: "",
