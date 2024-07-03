@@ -3,11 +3,15 @@ import React from "react";
 import idtotal from "@/assets/images/ocr/idtotal.svg";
 import "./style.scss";
 import VerificationBtn from "@/components/MeetingAccount/IdVerification/verificationbtn";
+import { useNavigate } from "react-router-dom";
 
 function MacIdVerification() {
+  const navigate = useNavigate();
+
   const btnParams = {
     btnText: "신분증 촬영하기",
-    btnBelowText: "신분증 촬영이 안돼요 😂"
+    btnBelowText: "신분증 촬영이 안돼요 😂",
+    onClick: () => navigate("/maccount/register/userinfo")
   };
   return (
     <>

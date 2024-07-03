@@ -12,7 +12,7 @@ function MacComplete() {
   const completeParams = {
     btnText: "메인화면으로",
     btnBelowText: "만든 계좌 바로 확인하러 가기",
-    onClick: () => navigate(`/`)
+    onClick: () => navigate(`/memberhome`)
   };
 
   return (

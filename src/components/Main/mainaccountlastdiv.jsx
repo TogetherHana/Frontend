@@ -12,12 +12,12 @@ function MainAccountLastDiv() {
     {
       img: together,
       content: "모임통장, 하나 더?",
-      url: "maccount/register"
+      url: "/maccount/register"
     },
     {
       img: invitecode,
       content: "초대코드로 모임 합류",
-      url: "maccount/invitecode"
+      url: "/maccount/invitecode"
     }
   ];
   return (

@@ -161,7 +161,7 @@ const router = createBrowserRouter([
           {
             index: true,
             element: (
-              <Pages.MacSetAccountPW
+              <Pages.MacSetAccountPWCheck
                 title={"계좌 비밀번호 확인"}
                 config={"create"}
               />
@@ -247,6 +247,18 @@ const router = createBrowserRouter([
       {
         path: "platform/join/intro",
         children: [{ index: true, element: <Pages.JoinIntro /> }]
+      },
+      {
+        path: "platform/request/notification",
+        children: [{ index: true, element: <Pages.NotificationRequest /> }]
+      },
+      {
+        path: "platform/join/infocheck",
+        children: [{ index: true, element: <Pages.JoinInfoCheck /> }]
+      },
+      {
+        path: "platform/join/processing",
+        children: [{ index: true, element: <Pages.JoinRegisterProcessing /> }]
       },
       {
         path: "platform/join/complete",
