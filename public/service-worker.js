@@ -6,7 +6,7 @@ self.addEventListener("install", function (e) {
   e.waitUntil(
     caches.open(assetCacheName).then((cache) => {
       // 캐시로 지정할 파일을 지정
-      cache.addAll(["../index.html", "icons/favicon.ico"]);
+      cache.addAll(["../index.html", "icons/favicon.ico", "../src/fonts"]);
     })
   );
   // 제어중인 서비스워커가 존재해도 대기 상태 건너 뜀
