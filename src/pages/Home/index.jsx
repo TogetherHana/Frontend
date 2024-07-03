@@ -14,11 +14,14 @@ import "./style.scss";
 import { useNavigate } from "react-router-dom";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import Main from "../Main";
+import { accessTokenATom } from "@/stores";
+import { useAtom } from "jotai";
 
 function Home() {
   const [isSetCheeringTeam, setIsSetCheeringTeam] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(true);
   const [isSubmittingU, setIsSubmittingU] = useState(true);
+  const [accessToken, setAccessToken] = useAtom(accessTokenATom);
 
   const qc = useQueryClient();
   const navigate = useNavigate();
@@ -72,11 +75,13 @@ function Home() {
       });
 
       return response.json();
-    }
+    },
+    enabled: isSubmittingU
   });
 
   useEffect(() => {
     setIsSubmitting(false);
+    setAccessToken(jwtTokendata.accessToken);
   }, [sharingAccountInfo.data]);
 
   useEffect(() => {
