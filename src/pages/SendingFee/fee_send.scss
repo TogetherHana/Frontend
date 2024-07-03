@@ -1,94 +1,281 @@
+// @import "../../common/styles/scss/responsive.scss";
+
+// // join - main
+// .joinMainTitle {
+//   @apply grid place-items-center;
+//   @include responsive-position(750px, 80px);
+//   @include responsive-font-size(30px);
+//   font-family: "NanumSquareRoundB";
+//   line-height: 1.5;
+// }
+
+// // join - intro
+// .joinIntroDiv {
+//   @apply grid;
+//   @include responsive-position(127px, 54px);
+//   justify-content: space-between;
+
+//   div {
+//     flex: 1;
+//   }
+// }
+
+// .joinIntroSquare {
+//   @apply grid place-items-center;
+//   @include responsive-hw(55px, 135px);
+//   @include responsive-font-size(30px);
+//   border-radius: 10px;
+//   background-color: #44bd91;
+//   font-family: "BMHanna";
+//   color: white;
+
+//   &.large {
+//     @include responsive-hw(135px, 265px);
+//     @include responsive-font-size(40px);
+//   }
+// }
+
+// .joinIntroBasic {
+//   @apply my-5;
+//   @include responsive-font-size(30px);
+//   font-family: "BMHanna";
+// }
+
+// .joinIntroSmile {
+//   @include responsive-position(416px, 60px);
+// }
+
+// .joinIntroNextDiv {
+//   @include responsive-hw(30px, 130px);
+//   @include responsive-position(707px, 226px);
+
+//   div {
+//     @include responsive-font-size(25px);
+//     font-family: "BMHanna";
+//   }
+// }
+
+// // join - idVerification
+// .joinIdVerificationDiv {
+//   @include responsive-position(258px, 51px);
+//   .title {
+//     @include responsive-font-size(30px);
+//     font-family: "BMHanna";
+//   }
+
+//   .content {
+//     @include responsive-position(52px, 0px);
+//   }
+// }
+
+// .joinIdVerificationNotify {
+//   @include responsive-position(290px, 0px);
+//   @include responsive-font-size(10px);
+//   font-family: "Noto sans";
+//   color: rgba(97, 97, 97, 0.72);
+
+//   &.time {
+//     @include responsive-font-size(15px);
+//     @include responsive-position(260px, 165px);
+//   }
+// }
+
+// .joinNumberCheck {
+//   @apply my-5 grid place-items-center ml-4;
+//   @include responsive-hw(20px, 100px);
+//   @include responsive-font-size(10px);
+//   font-family: "NanumSquareRoundR";
+//   border-radius: 25px;
+//   background-color: #777575;
+//   color: #f6f6f6;
+
+//   &.small {
+//     @include responsive-hw(20px, 45px);
+//     margin-left: 1rem;
+//   }
+
+//   &.middle {
+//     @include responsive-position(400px, 310px);
+//     @include responsive-hw(20px, 57px);
+//   }
+// }
+
+// // join - account link
+// .joinAccountLinkTitle {
+//   @include responsive-position(250px, 50px);
+//   @include responsive-font-size(30px);
+//   font-family: "BMHanna";
+// }
+
+// .joinAuthenticationImg {
+//   @apply grid place-items-center w-full;
+//   @include responsive-position(60px, 0px);
+
+//   .down {
+//     @apply mt-10;
+//   }
+
+//   .top {
+//     @include responsive-position(212px, 150px);
+//     @include responsive-font-size(15px);
+//     font-family: "NotoSans";
+//   }
+// }
+
+// .joinAuthenticationDetail {
+//   @apply text-center;
+//   @include responsive-position(267px, 127px);
+//   @include responsive-font-size(20px);
+//   font-family: "BMHanna";
+//   line-height: 1.5;
+// }
+
+// .joinAuthenticationCheckTitle {
+//   font-family: "BMHanna";
+//   font-size: 25px;
+//   line-height: 1;
+//   position: absolute;
+//   top: 300px;
+//   left: 45px;
+// }
+
+// .joinAuthenticationCheckImg {
+//   position: absolute;
+//   top: 376px;
+//   left: 39px;
+// }
+
+// .joinAuthenticationCheckBtn {
+//   font-family: "NanumSquareRoundR";
+//   font-size: 10px;
+//   border-radius: 25px;
+//   background-color: #777575;
+//   width: 45px;
+//   height: 20px;
+//   margin-left: 1rem;
+//   color: #f6f6f6;
+//   @apply grid place-items-center;
+
+//   &.auth {
+//     position: absolute;
+//     top: 475px;
+//     left: 310px;
+//   }
+// }
+
+// .joinSetNickNameTitle {
+//   font-family: "BMHanna";
+//   font-size: 30px;
+//   position: absolute;
+//   top: 308px;
+//   left: 51px;
+// }
+
+// .joinSetNickNameSub {
+//   font-family: "NotoSans";
+//   font-size: 17px;
+//   color: #777575;
+//   position: absolute;
+//   top: 358px;
+//   left: 51px;
+// }
+
+// .joinCompleteTxt {
+//   position: absolute;
+//   font-family: "BMHanna";
+//   font-size: 30px;
+
+//   &.first {
+//     top: 144px;
+//     left: 90px;
+//   }
+//   &.second {
+//     top: 315px;
+//     left: 177px;
+//   }
+//   &.third {
+//     top: 395px;
+//     left: 102px;
+//   }
+// }
+
+// .joinCompleteTxtMain {
+//   position: absolute;
+//   top: 215px;
+//   left: 130px;
+//   background-color: #44bd91;
+//   border-radius: 10px;
+//   font-family: "BMHanna";
+//   font-size: 40px;
+//   color: white;
+//   width: 165px;
+//   height: 75px;
+
+//   @apply grid place-items-center text-center;
+// }
+
+// .joinCompleteImg {
+//   position: absolute;
+//   top: 510px;
+//   left: 127px;
+// }
+
 .collect-container {
-    width: 100%;
-    height: 100%;
-  
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  .header {
     display: flex;
-    flex-direction: column;
-  
-    .header {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-  
-      padding: 20px;
-  
-      font-family: "NanumSquareRoundB";
-      font-weight: 700;
-      font-size: 20px;
-  
-      .back {
-        width: 10%;
-      }
-    }
-  
-    .content {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      align-items: center;
-      justify-content: center;
-  
-      .title {
-        font-family: "BMHanna";
-        font-weight: 900;
-        font-size: 30px;
-        width: 250px;
-      }
-  
-      .character {      
-        width: 100%;
-        height: 100%;
-        padding: 20px;
-        position: relative;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-  
-        &.Hanwha_second {
-          background-image: url(@/assets/images/characters/Hanwha_together.svg);
-        }
-        &.Kia_second {
-          background-image: url(@/assets/images/characters/Kia_together.svg);
-        }
-        &.Kiwoom_second {
-          background-image: url(@/assets/images/characters/Kiwoom_together.svg);
-        }
-        &.KT_second {
-          background-image: url(@/assets/images/characters/KT_together.svg);
-        }
-        &.LG_second {
-          background-image: url(@/assets/images/characters/LG_alone2.svg);
-        }
-        &.Lions_second {
-          background-image: url(@/assets/images/characters/Lions_alone2.svg);
-        }
-        &.Lotte_second {
-          background-image: url(@/assets/images/characters/Lotte_alone2.svg);
-        }
-        &.Nc_second {
-          background-image: url(@/assets/images/characters/nc_alone2.svg);
-        }
-        &.Ssg_second {
-          background-image: url(@/assets/images/characters/ssg_alone.svg);
-        }
-        &.Doosan_second {
-          background-image: url(@/assets/images/characters/ssg_alone.svg);
-        }
-      }
-    }
-  
-    .btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  
-    .row-dummy {
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding: 20px;
+
+    font-family: "NanumSquareRoundB";
+    font-weight: 700;
+    font-size: 20px;
+
+    .back {
       width: 10%;
     }
-  
-    .col-dummy {
-      height: 100px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    .title {
+      font-family: "NanumSquareRoundB";
+      font-weight: 400;
+      font-size: 30px;
+      left: 0;
+      align-self: flex-start;
+      width: 100%;
+    }
+
+    .toSend {
+      // @include responsive-font-size(20px);
+      border: none;
+      border-bottom: 1px solid #c6c6c6;
+      // background-color: #f2f2f2;
+      font-family: "NotoSans";
+      font-size: 17px;
+      padding-left: 1rem;
+      width: 8rem;
     }
   }
-  
+
+  .row-dummy {
+    width: 10%;
+  }
+
+  .col-dummy {
+    height: 100px;
+  }
+}

@@ -66,9 +66,7 @@ function BaseballHome() {
                 marginLeft: "15px",
                 boxShadow: "none"
               }}
-
               onClick={() => navigate("/send")}
-
             >
               보내기
             </Button>

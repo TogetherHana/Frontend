@@ -13,15 +13,26 @@ function Cheering() {
     {
       content: "야구",
       img: baseball,
-      onClick: () => navigate(`/choice/team/baseball`)
+      onClick: () => {
+        localStorage.setItem("sportsType", "BASEBALL");
+        // console.log("어떤 응원팀?");
+        // console.log(localStorage.getItem("sportsType"));
+        navigate(`/choice/team/baseball`);
+      }
     },
     {
       content: "축구",
-      img: soccer
+      img: soccer,
+      // onClick: () => {
+      //   localStorage.setItem("sportsType", "SOCCER");       
+      // }
     },
     {
       content: "E-스포츠",
-      img: esports
+      img: esports,
+      // onClick: () => {
+      //   localStorage.setItem("sportsType", "E_SPORTS");      
+      // }
     }
   ];
 
@@ -38,7 +49,7 @@ function Cheering() {
           <div>스포츠 종목 선택</div>
           <div className="plus">중복선택가능</div>
           <div className="detail">
-            {sportsTypeParams.map((item, index) => (
+            {sportsTypeParams.map((item) => (
               <SportsType params={item} />
             ))}
           </div>
