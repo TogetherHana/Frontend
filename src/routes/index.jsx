@@ -20,7 +20,6 @@ import CreateMatch from "@/pages/BigMatch/create";
 import * as Layouts from "@/layouts";
 import * as Pages from "@/pages";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -58,21 +57,19 @@ const router = createBrowserRouter([
           { index: true, element: <Pages.Cheering /> },
           { path: ":baseball", element: <Pages.Baseball /> }
         ]
-      },        
+      },
       {
         path: "create/match",
-        children: [
-          { index: true, element: <CreateMatch /> }              
-        ]
-      }, 
+        children: [{ index: true, element: <CreateMatch /> }]
+      },
       {
         path: "match",
         children: [
-          { index: true, element: <Bigmatch /> }, 
-          { path: ":finish", element: <Finish />},       
-          { path: ":complete", element: <Voted />}            
+          { index: true, element: <Bigmatch /> },
+          { path: ":finish", element: <Finish /> },
+          { path: ":complete", element: <Voted /> }
         ]
-      },           
+      },
       {
         path: "maccount/register",
         children: [
@@ -192,6 +189,14 @@ const router = createBrowserRouter([
       {
         path: "platform/join/complete",
         children: [{ index: true, element: <Pages.JoinComplete /> }]
+      },
+      {
+        path: "firstComeEvent/wait",
+        children: [{ index: true, element: <Pages.WaitingRoom /> }]
+      },
+      {
+        path: "firstComeEvent/play",
+        children: [{ index: true, element: <Pages.Play /> }]
       }
     ]
   }
