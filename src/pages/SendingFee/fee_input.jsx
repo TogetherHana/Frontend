@@ -14,10 +14,6 @@ import kb from "@/assets/images/banklist/kb.svg";
 // @ts-ignore
 import woori from "@/assets/images/banklist/woori.svg";
 
-{
-  /* <img src={img} alt={name} /> */
-}
-
 function SendFeeInput() {
   const navigate = useNavigate();
 
@@ -27,6 +23,7 @@ function SendFeeInput() {
 
   const gotoPassword = () => {
     setSendData({ ...sendData, amount: inputValue });
+    navigate("/send/amount/pwcheck");
   };
 
   const BtnClick = (number) => {
@@ -48,6 +45,20 @@ function SendFeeInput() {
   const formatNumber = (value) => {
     return value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
+
+  const stringToLong = (str) => {
+    try {
+      // 쉼표 제거
+      const sanitizedStr = str.replace(/,/g, "");
+      return BigInt(sanitizedStr);
+    } catch (error) {
+      console.error("Invalid string for BigInt conversion:", error);
+      return null;
+    }
+  };
+
+  const remainBalance = localStorage.getItem("latestRemainBalance");
+  const account_name = localStorage.getItem("account_name");
 
   return (
     <>
@@ -87,15 +98,31 @@ function SendFeeInput() {
           <div className="receiver-bank-font">
             {sendData.bank} {sendData.receiveAccountNumber}
           </div>
-          <input
-            type="text"
-            value={inputValue}
-            className="num-input"
-            placeholder="보낼금액"
-          />
+          {stringToLong(inputValue) > stringToLong(remainBalance) ? (
+            <>
+              <input
+                type="text"
+                value={inputValue}
+                style={{ color: "red" }}
+                className="num-input"
+                placeholder="보낼금액"
+              />
+              <div className="cant">잔액이 부족합니다!</div>
+            </>
+          ) : (
+            <input
+              type="text"
+              value={inputValue}
+              className="num-input"
+              placeholder="보낼금액"
+            />
+          )}
           <div className="remain-amount">
-            <div></div>
-            <div></div>
+            {/* account_name자리 */}
+            <div>럭키비키 다이노스</div>
+            <div onClick={() => setInputValue(formatNumber(remainBalance))}>
+              {formatNumber(remainBalance)}원 &gt;
+            </div>
           </div>
         </div>
 

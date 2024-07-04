@@ -207,6 +207,12 @@ const router = createBrowserRouter([
           { index: true, element: <Pages.FeeSend /> },
           { path: ":amount", element: <Pages.SendFeeInput /> }
         ]
+      },
+      {
+        path: "send/amount/pwcheck",
+        children: [
+          { index: true, element: <Pages.SendPWcheck/> },          
+        ]
       }
     ]
   },

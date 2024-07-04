@@ -1,16 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./baseball_home.scss";
 import Button from "@/components/Button";
 import Friends from "./friends";
 import History from "./history";
 import BigmatchHistory from "./bigmatch_history";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 function BaseballHome() {
   const navigate = useNavigate();
   const [selectedButton, setSelectedButton] = useState("입출금"); // 어떤 버튼이 선택되었는지를 나타내는 상태
   const remainBalance = localStorage.getItem("latestRemainBalance");
+
+  const [searchParams] = useSearchParams(); // 메인홈에서 받아오는 모임통장 계좌idx랑 계좌이름
+  const account_idx = searchParams.get("idx");
+  const account_name = searchParams.get("name");
+
+  useEffect(() => {
+    if (account_idx && account_name) {
+      // localStorage.setItem('account_idx', account_idx);
+      localStorage.setItem('account_name', account_name);
+    }
+  }, [account_idx, account_name]);
 
   const handleButtonClick = (button) => {
     setSelectedButton(button); // 클릭된 버튼의 이름을 상태로 설정
@@ -52,7 +63,7 @@ function BaseballHome() {
         <div className="top-container">
           <div className="account-title">
             <div className="baseball-image" />
-            <div className="account-name">럭키비키 다이노스</div>
+            <div className="account-name">{account_name}</div>
           </div>
           <div className="account-number">하나 748-911260-51507</div>
           <div className="account-amount">{formatNumber(remainBalance)} 원</div>
