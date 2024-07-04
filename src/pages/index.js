@@ -1,3 +1,5 @@
+import MacRegisterProcessing from "./MeetingAccount/Register/mac-register-processing";
+
 // Cheering - 응원팀 설정
 export { default as Cheering } from "./Cheering/index";
 export { default as Baseball } from "./Cheering/baseball_index";
@@ -33,6 +35,7 @@ export { default as MacIcMain } from "./MeetingAccount/InviteCode/mac-ic-main";
 export { default as MacIcAgreeTerms } from "./MeetingAccount/InviteCode/mac-ic-agree-terms";
 export { default as MacIcRegistering } from "./MeetingAccount/InviteCode/mac-ic-registering";
 export { default as MacIcComplete } from "./MeetingAccount/InviteCode/mac-ic-complete";
+export { default as MacRegisterProcessing } from "./MeetingAccount/Register/mac-register-processing";
 // Join Platform - 회원가입
 export { default as JoinMain } from "./JoinPlatform/join-main";
 export { default as JoinIntro } from "./JoinPlatform/join-intro";

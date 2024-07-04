@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import VerificationBtn from "@/components/MeetingAccount/IdVerification/verificationbtn";
 import ModalBottomUp from "@/components/MeetingAccount/modalbottomup";
 import BottomPopupInfo from "@/components/MeetingAccount/AgreeTerms/bottompopupinfo";
@@ -8,33 +8,45 @@ import sinhantransparent from "@/assets/images/systemEvent/main/sinhantransparen
 import person2 from "@/assets/images/meetaccountinfo/person2.svg";
 import { useNavigate } from "react-router-dom";
 import { useAtom } from "jotai";
-import { deviceTokenAtom, maccountAtom } from "@/stores";
-import { useQuery } from "@tanstack/react-query";
+import { accessTokenATom, maccountAtom } from "@/stores";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 function MacCreatedInfo() {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-  const [macInfo, setmacInfo] = useAtom(maccountAtom);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [deviceToken] = useAtom(deviceTokenAtom);
-
   const navigate = useNavigate();
 
-  // const accountName = "럭키비키 다이노스";
-  const accountHolder = "이상민";
-  const accountCreateDate = "2024. 06. 20";
+  const qc = useQueryClient();
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [macInfo, setmacInfo] = useAtom(maccountAtom);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [accessToken, setAccessToken] = useAtom(accessTokenATom);
+
+  // @ts-ignore
+  const accountHolder = qc.getQueryData(["user-info"]).data.nickname;
 
   const createdInfoParams = {
     btnText: "계좌 개설하기",
     btnBelowText: "다시 입력하기",
-    onClick: () => createMAccount()
+    onClick: () => setIsPopupOpen(!isPopupOpen)
   };
+
+  const formedDate = (date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+
+    return `${year}. ${month}. ${day}`;
+  };
+
+  const date = new Date();
+  const accountCreateDate = formedDate(date);
 
   const bottomPopupInfoParams = {
     buttonProp: {
       btnText: "네, 생성할게요",
       btnBelowText: "다시 한번 생각해볼게요",
-      onClick: () => navigate(`/maccount/register/complete`)
+      onClick: () => createMAccount(),
+      cnm: "detail"
     },
     img: person2,
     title: "해당 정보로 계좌를 생성할까요?",
@@ -44,7 +56,6 @@ function MacCreatedInfo() {
 
   const createMAccount = () => {
     setIsSubmitting(true);
-    setIsPopupOpen(!isPopupOpen);
   };
 
   const maccountCreate = useQuery({
@@ -56,14 +67,25 @@ function MacCreatedInfo() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${deviceToken}`
+            Authorization: `Bearer ${accessToken}`
           },
           body: JSON.stringify(macInfo)
         }
       );
+
+      return response.json();
     },
     enabled: isSubmitting
   });
+
+  useEffect(() => {
+    if (maccountCreate.data) {
+      if (maccountCreate.data.isSuccess) {
+        // console.log("성공");
+        navigate("/maccount/register/processing");
+      }
+    }
+  }, [maccountCreate.data]);
 
   return (
     <>
