@@ -238,7 +238,7 @@ const router = createBrowserRouter([
         children: [{ index: true, element: <Pages.MacIcAgreeTerms /> }]
       },
       {
-        path: "registering",
+        path: "processing",
         children: [{ index: true, element: <Pages.MacIcRegistering /> }]
       },
       {

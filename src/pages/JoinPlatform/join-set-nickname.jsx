@@ -45,16 +45,16 @@ function JoinSetNickName() {
   useEffect(() => {
     if (nicknameCheck.data) {
       if (nicknameCheck.data.isSuccess) {
-        document.querySelector(".authCheckInfo").innerHTML =
+        document.querySelector(".authCheckInfoComplete").innerHTML =
           "사용가능한 닉네임입니다.";
         setDuplicateCheck(true);
         setIsSubmitting(false);
         setMemberInfo((prev) => ({
           ...prev,
-          nickName: nickName
+          nickname: nickName
         }));
       } else {
-        document.querySelector(".authCheckInfo").innerHTML =
+        document.querySelector(".authCheckInfoComplete").innerHTML =
           "다른 닉네임을 사용해주세요.";
       }
     }
@@ -77,7 +77,7 @@ function JoinSetNickName() {
       >
         중복 확인
       </button>
-      <div className="authCheckInfo"></div>
+      <div className="authCheckInfoComplete"></div>
       {duplicateCheck ? <VerificationBtn params={joinSetNickNameParams} /> : ""}
     </div>
   );

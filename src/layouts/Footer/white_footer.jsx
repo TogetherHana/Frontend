@@ -23,11 +23,13 @@ const GreenFooter = () => {
             굿즈샵
           </div>
         </Link>
-        <Link to="/" className="nav-item">
+        <Link to="/memberhome" className="nav-item">
           <div className="home" />
           <div
             className={
-              locationNow.pathname === "/" ? "active-nav-text" : "nav-text"
+              locationNow.pathname === "/memberhome"
+                ? "active-nav-text"
+                : "nav-text"
             }
           >
             홈
