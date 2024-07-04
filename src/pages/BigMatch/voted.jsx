@@ -10,20 +10,22 @@ function Voted() {
   const [gameTitle, setGameTitle] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
 
-  const memberIdx = 1;
-
   console.log("----지금 진행중인 게임 idx는?----");
   console.log(localStorage.getItem("playingGameIdx"));
+  const jwtToken = localStorage.getItem("jwtToken");
+  console.log("---토큰값 있나?---");
+  console.log(jwtToken);
 
   const ship = async () => {
     const gameIdx = localStorage.getItem("playingGameIdx");
 
     try {
       const response = await axios.get(
-        `http://127.0.0.1:8080/game/${gameIdx}/${memberIdx}`,
+        `http://127.0.0.1:8080/game/${gameIdx}`,
         {
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${jwtToken}`
           }
         }
       );
@@ -53,14 +55,15 @@ function Voted() {
       const gameIdx = localStorage.getItem("playingGameIdx");
       try {
         const response = await axios.post(
-          `http://127.0.0.1:8080/game/select/${memberIdx}`,
+          `http://127.0.0.1:8080/game/select`,
           {
             gameIdx: gameIdx,
             gameOptionIdx: selectedOption
           },
           {
             headers: {
-              "Content-Type": "application/json"
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${jwtToken}`
             }
           }
         );

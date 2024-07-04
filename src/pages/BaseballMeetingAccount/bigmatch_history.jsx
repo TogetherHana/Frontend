@@ -28,9 +28,6 @@ function BigmatchHistory() {
 
         console.log(response.data.data);
         setData(response.data.data);
-        
-        console.log(data.playingGame.gameIdx);
-        localStorage.setItem("playingGameIdx", data.playingGame.gameIdx);
       } catch (error) {
         if (error.response) {
           console.error("Response error:", error.response.data);
@@ -47,6 +44,9 @@ function BigmatchHistory() {
 
   useEffect(() => {
     if (!data || !data.playingGame) return;
+
+    console.log(data.playingGame.gameIdx);
+    localStorage.setItem("playingGameIdx", data.playingGame.gameIdx);
 
     const calculateTimeLeft = () => {
       const deadline = dayjs(data.playingGame.deadline);
@@ -140,7 +140,7 @@ function BigmatchHistory() {
                     <div className="winners-losers">
                       <div className="profile" />
                       <div key={idx}>{winner.nickname}</div>
-                      <div className="row-dummy2" />                    
+                      <div className="row-dummy2" />
                     </div>
                   ))}
                 </div>

@@ -66,7 +66,7 @@ function FeeCollect() {
       collectingAmount: numericInputValue
     };
 
-    const jwtToken = sessionStorage.getItem("jwtToken");
+    const jwtToken = localStorage.getItem("jwtToken");
     console.log("---토큰값 있나?---");
     console.log(jwtToken);
 
@@ -83,7 +83,7 @@ function FeeCollect() {
       );
 
       console.log(response.data);
-      // navigate("/baseball/home");
+      navigate("/baseball/home");
     } catch (error) {
       if (error.response) {
         console.error("Response error:", error.response.data);

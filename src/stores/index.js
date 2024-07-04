@@ -40,7 +40,7 @@ export const amountAtom = atom("");
 
 // 모임통장 돈보내기->송금할 은행,계좌번호,받는사람,보낼금액,계좌비밀번호
 export const sendFeeAtom = atom({
-  bank: "하나",
+  bank: "",
   receiveAccountNumber: "",
   receiver: "",
   amount: "",
