@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 
 function VerificationBtn({ params }) {
   const navigate = useNavigate();
-  const { btnText, btnBelowText, onClick } = params;
+  const { btnText, btnBelowText, onClick, cnm } = params;
 
   return (
-    <div className="userinfobtnLocation">
+    <div className={`userinfobtnLocation ${cnm}`}>
       <Button onClick={onClick} className="idVerification btn">
         {btnText}
       </Button>

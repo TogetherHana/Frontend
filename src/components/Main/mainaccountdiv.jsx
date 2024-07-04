@@ -3,21 +3,42 @@ import "./styles.scss";
 import HomeMileageSubBtn from "../Button/homemileagesubbtn";
 import HomeAccountDivBtn from "../Button/homeaccountdivbtn";
 import GlobalModal from "../Modal";
+import { useNavigate } from "react-router-dom";
 
-function MainAccountDiv({ img }) {
+function MainAccountDiv({ params }) {
+  const navigate = useNavigate();
+
+  // console.log(params);
+  const formatCurrency = (number) => {
+    return new Intl.NumberFormat("ko-KR", {
+      // style: "currency",
+      currency: "KRW"
+    }).format(number);
+  };
+
+  const handleSharingAccount = (accountIdx, accountName) => {
+    const encodedAccountName = encodeURIComponent(accountName);
+    navigate(`/baseball/home?idx=${accountIdx}&name=${accountName}`);
+  };
+
   return (
-    <div className="homeDiv middle2">
-      <div className="mainAccountDivImg">
-        <img src={img} />
-      </div>
-      <div>
-        <div className="mainAccountDivTxt">축구모임통장</div>
-        <div className="mainAccountDivTxt middle">1111-123-213124</div>
-        <div className="mainAccountDivTxt bottom">11,000원</div>
-      </div>
-      <div>
-        <HomeAccountDivBtn content={"초대"} cnm={""} />
-        <HomeAccountDivBtn content={"이체"} cnm={"cnm2"} />
+    <div
+      className="renewalMiddleContent"
+      onClick={() => handleSharingAccount(params.sharingAccountIdx, params.accountName)}
+    >
+      <div className="mainAccountDiv">
+        <div className="mainAccountDivTxt">{params.accountName}</div>
+        <div className="mainAccountDivTxt middle">
+          모임통장 {params.accountNumber}
+        </div>
+        <div className="mainAccountDivTxt bottom">
+          {formatCurrency(params.remainBalance)}원
+        </div>
+        <div className="flex">
+          <HomeAccountDivBtn content={"초대하기"} cnm={""} />
+          <HomeAccountDivBtn content={"이체하기"} cnm={"cnm2"} />
+          <HomeAccountDivBtn content={"・・・"} cnm={"cnm3"} />
+        </div>
       </div>
     </div>
   );

@@ -1,17 +1,15 @@
+@import "../../common/styles/scss/responsive.scss";
 .sportstype-container {
   width: 100%;
   height: 100%;
 
   .header {
-    display: flex;
+    @apply p-5 flex mt-16 text-center;
+    @include responsive-font-size(20px);
     flex-direction: row;
     justify-content: space-between;
-    
-    padding: 20px;
-
     font-family: "NanumSquareRoundB";
     font-weight: 700;
-    font-size: 20px;
 
     .back {
       width: 10%;
@@ -19,70 +17,43 @@
   }
 
   .content {
-    display: flex;
+    @apply mt-24 flex place-items-center text-center;
+    @include responsive-font-size(30px);    
+
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-
-    font-size: x-large;
     font-family: "BMHanna";
-    font-weight: 900;
-
     width: 100%;
     height: 90%;
 
     .plus {
-      margin-top: 10px;      
+      @apply mt-3;
+      @include responsive-font-size(15px);
+      font-family: "NotoSans";
       color: $color-text1;
-      font-weight: 400;
-      font-size: small;
+    }
+
+    .detail {
+      @apply mt-10;
     }
 
     .type-button {
-      display: flex;
+      @apply flex place-items-center mb-12;
+      // @include responsive-height(50px);
+      @include responsive-hw(80px, 286px);
       flex-direction: row;
       justify-content: space-evenly;
-      text-align: center;
-      align-items: center;
-
       border: 2px solid $color-primary1;
       border-radius: 15px;
       background-color: $color-background;
       width: 70%;
-      height: 50px;
+      // height: 50px;
 
-      .baseball {
-        height: 40px;
-        width: 40px;
-        position: relative;
-        background-image: url(@/assets/images/sportsType/baseball_bat_black.svg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
+      img {
+        @include responsive-hw(50px, 50px);
       }
-      .soccer {
-        height: 40px;
-        width: 40px;
-        position: relative;
-        background-image: url(@/assets/images/sportsType/football_black.svg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-      }
-      .esports {
-        height: 40px;
-        width: 40px;
-        position: relative;
-        background-image: url(@/assets/images/sportsType/esports_black.svg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-      }
-      .text {
-        font-size: 15px;
-        font-weight: 900;
-        width: 60px;
+
+      div {
+        @include responsive-font-size(15px);
       }
     }
 
@@ -95,7 +66,7 @@
     width: 10%;
   }
 
-  .col-dummy {
-    height: 40px;
-  }
+  // .col-dummy {
+  //   height: 40px;
+  // }
 }

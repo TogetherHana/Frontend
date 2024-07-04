@@ -1,9 +1,40 @@
 import React from "react";
 import "./style.scss";
 import { useNavigate } from "react-router-dom";
+import SportsType from "@/components/Cheering/sportstype";
+import baseball from "@/assets/images/sportsType/baseball_bat_black.svg";
+import soccer from "@/assets/images/sportsType/football_black.svg";
+import esports from "@/assets/images/sportsType/esports_black.svg";
 
 function Cheering() {
   const navigate = useNavigate();
+
+  const sportsTypeParams = [
+    {
+      content: "야구",
+      img: baseball,
+      onClick: () => {
+        localStorage.setItem("sportsType", "BASEBALL");
+        // console.log("어떤 응원팀?");
+        // console.log(localStorage.getItem("sportsType"));
+        navigate(`/choice/team/baseball`);
+      }
+    },
+    {
+      content: "축구",
+      img: soccer,
+      // onClick: () => {
+      //   localStorage.setItem("sportsType", "SOCCER");       
+      // }
+    },
+    {
+      content: "E-스포츠",
+      img: esports,
+      // onClick: () => {
+      //   localStorage.setItem("sportsType", "E_SPORTS");      
+      // }
+    }
+  ];
 
   return (
     <>
@@ -13,35 +44,15 @@ function Cheering() {
           <div>종목 선택</div>
           <div className="row-dummy"></div>
         </div>
-
         <div className="content">
-          <div className="col-dummy" />
-          <div className="col-dummy" />
-          <div className="col-dummy" />
           <div>관심있는</div>
           <div>스포츠 종목 선택</div>
           <div className="plus">중복선택가능</div>
-          <div className="col-dummy" />
-          <button
-            className="type-button"
-            onClick={() => navigate("/choice/team/baseball")}
-          >
-            <div className="baseball" />
-            <div className="text">야구</div>
-          </button>
-          <div className="col-dummy" />
-          <button className="type-button">
-            <div className="soccer" />
-            <div className="text">축구</div>
-          </button>
-          <div className="col-dummy" />
-          <button className="type-button">
-            <div className="esports" />
-            <div className="text">e-sports</div>
-          </button>
-          <div className="col-dummy" />
-          <div className="col-dummy" />
-          <div className="col-dummy" />
+          <div className="detail">
+            {sportsTypeParams.map((item) => (
+              <SportsType params={item} />
+            ))}
+          </div>
         </div>
       </div>
     </>

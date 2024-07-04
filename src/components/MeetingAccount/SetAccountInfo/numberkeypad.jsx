@@ -3,7 +3,7 @@ import React from "react";
 import back from "@/assets/images/back.svg";
 import Button from "@/components/Button";
 
-function NumberKeyPad() {
+function NumberKeyPad({ onClick }) {
   return (
     <div className="numberKeypad">
       <div className="numberKeypadRow first">
@@ -28,7 +28,7 @@ function NumberKeyPad() {
           <img src={back} alt="back" />
         </div>
       </div>
-      <Button onClick={() => {}} className="numberKeyPadBtn">
+      <Button onClick={onClick} className="numberKeyPadBtn">
         확인
       </Button>
     </div>

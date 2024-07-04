@@ -1,21 +1,5 @@
-import GrayFooter from "@/layouts/Footer/gray_footer";
-import GrayNonFooter from "@/layouts/NonFooter/gray_nonfooter";
-import GreenNonFooter from "@/layouts/NonFooter/green_nonfooter";
-import Bigmatch from "@/pages/BigMatch";
-import Finish from "@/pages/BigMatch/finish";
-import Voted from "@/pages/BigMatch/voted";
-import Cheering from "@/pages/Cheering";
-import Baseball from "@/pages/Cheering/baseball_index";
-import FeeCollect from "@/pages/CollectingFee/fee_collect";
-import FeeInput from "@/pages/CollectingFee/fee_input";
-import Home from "@/pages/Home";
-import Main from "@/pages/Main";
-import Mileage from "@/pages/Mileage";
-import SystemEvent from "@/pages/SystemEvent";
-import Test from "@/pages/TestTest";
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
-import CreateMatch from "@/pages/BigMatch/create";
 
 import * as Layouts from "@/layouts";
 import * as Pages from "@/pages";
@@ -23,16 +7,11 @@ import * as Pages from "@/pages";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layouts.GrayFooter />,
-
+    element: <Layouts.RenewalNonFooter />,
     children: [
       {
-        path: "mileage",
-        children: [{ index: true, element: <Pages.Mileage /> }]
-      },
-      {
-        path: "event",
-        children: [{ index: true, element: <Pages.SystemEvent /> }]
+        path: "memberhome",
+        children: [{ index: true, element: <Pages.Home /> }]
       }
     ]
   },
@@ -40,9 +19,44 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layouts.WhiteFooter />,
     children: [
+      // {
+      //   path: "/",
+      //   children: [{ index: true, element: <Pages.Home /> }]
+      // },
       {
-        path: "/",
-        children: [{ index: true, element: <Pages.Home /> }]
+        path: "event",
+        children: [{ index: true, element: <Pages.SystemEvent /> }]
+      },
+      {
+        path: "mileage",
+        children: [{ index: true, element: <Pages.Mileage /> }]
+      },
+      {
+        path: "event/selectwin/baseball",
+        children: [{ index: true, element: <Pages.SystemEventSelectWinB /> }]
+      }
+    ]
+  },
+  {
+    path: "/",
+    element: <Layouts.GreenFooter />,
+
+    children: [
+      {
+        path: "baseball/home",
+        children: [{ index: true, element: <Pages.BaseballHome /> }]
+      },
+      {
+        path: "history",
+        children: [{ index: true, element: <Pages.History /> }]
+      },
+      {
+        path: "friends",
+        children: [{ index: true, element: <Pages.Friends /> }]
+      },
+      {
+        path: "match/history",
+        children: [{ index: true, element: <Pages.BigmatchHistory /> }]
       }
     ]
   },
@@ -107,31 +121,8 @@ const router = createBrowserRouter([
         ]
       },
       {
-        path: "maccount/setaccountpw/check",
-        children: [
-          {
-            index: true,
-            element: <Pages.MacSetAccountPW title={"계좌 비밀번호 확인"} />
-          }
-        ]
-      },
-      {
-        path: "maccount/createdinfo",
-        children: [
-          {
-            index: true,
-            element: <Pages.MacCreatedInfo />
-          }
-        ]
-      },
-      {
-        path: "maccount/complete",
-        children: [
-          {
-            index: true,
-            element: <Pages.MacComplete />
-          }
-        ]
+        path: "choose/loser",
+        children: [{ index: true, element: <Pages.Voted /> }]
       },
       {
         path: "platform/join/idverification",
@@ -157,6 +148,94 @@ const router = createBrowserRouter([
     ]
   },
   {
+    path: "/maccount/register",
+    element: <Layouts.GrayNonFooter />,
+    children: [
+      {
+        path: "",
+        children: [
+          { index: true, element: <Pages.MacRegister /> },
+          { path: ":testId", element: <Pages.Main /> }
+        ]
+      },
+      {
+        path: "idverification",
+        children: [{ index: true, element: <Pages.MacIdVerification /> }]
+      },
+      {
+        path: "userinfo",
+        children: [{ index: true, element: <Pages.MacUserInfo /> }]
+      },
+      {
+        path: "selectstock",
+        children: [{ index: true, element: <Pages.MacSelectStock /> }]
+      },
+      {
+        path: "agreeterms",
+        children: [{ index: true, element: <Pages.MacAgreeTerms /> }]
+      },
+      {
+        path: "setaccountname",
+        children: [{ index: true, element: <Pages.MacSetAccountName /> }]
+      },
+      {
+        path: "setaccountpw",
+        children: [
+          {
+            index: true,
+            element: (
+              <Pages.MacSetAccountPW
+                title={"계좌 비밀번호 설정"}
+                config={"check"}
+              />
+            )
+          }
+        ]
+      },
+      {
+        path: "setaccountpw/check",
+        children: [
+          {
+            index: true,
+            element: (
+              <Pages.MacSetAccountPWCheck
+                title={"계좌 비밀번호 확인"}
+                config={"create"}
+              />
+            )
+          }
+        ]
+      },
+      {
+        path: "createdinfo",
+        children: [
+          {
+            index: true,
+            element: <Pages.MacCreatedInfo />
+          }
+        ]
+      },
+      {
+        path: "processing",
+        children: [
+          {
+            index: true,
+            element: <Pages.MacRegisterProcessing />
+          }
+        ]
+      },
+      {
+        path: "complete",
+        children: [
+          {
+            index: true,
+            element: <Pages.MacComplete />
+          }
+        ]
+      }
+    ]
+  },
+  {
     path: "/",
     element: <Layouts.GreenNonFooter />,
 
@@ -167,6 +246,39 @@ const router = createBrowserRouter([
           { index: true, element: <Pages.FeeInput /> },
           { path: ":collect", element: <Pages.FeeCollect /> }
         ]
+      },
+      {
+        path: "send",
+        children: [
+          { index: true, element: <Pages.FeeSend /> },
+          { path: ":amount", element: <Pages.SendFeeInput /> }
+        ]
+      },
+      {
+        path: "send/amount/pwcheck",
+        children: [{ index: true, element: <Pages.SendPWcheck /> }]
+      }
+    ]
+  },
+  {
+    path: "/maccount/invitecode",
+    element: <Layouts.WhiteNonFooter />,
+    children: [
+      {
+        path: "",
+        children: [{ index: true, element: <Pages.MacIcMain /> }]
+      },
+      {
+        path: "agreeterms",
+        children: [{ index: true, element: <Pages.MacIcAgreeTerms /> }]
+      },
+      {
+        path: "registering",
+        children: [{ index: true, element: <Pages.MacIcRegistering /> }]
+      },
+      {
+        path: "complete",
+        children: [{ index: true, element: <Pages.MacIcComplete /> }]
       }
     ]
   },
@@ -176,7 +288,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        children: [{ index: true, element: <Pages.Home /> }]
+        children: [{ index: true, element: <Pages.Main /> }]
       },
       {
         path: "platform/join/main",
@@ -187,8 +299,24 @@ const router = createBrowserRouter([
         children: [{ index: true, element: <Pages.JoinIntro /> }]
       },
       {
+        path: "platform/request/notification",
+        children: [{ index: true, element: <Pages.NotificationRequest /> }]
+      },
+      {
+        path: "platform/join/infocheck",
+        children: [{ index: true, element: <Pages.JoinInfoCheck /> }]
+      },
+      {
+        path: "platform/join/processing",
+        children: [{ index: true, element: <Pages.JoinRegisterProcessing /> }]
+      },
+      {
         path: "platform/join/complete",
         children: [{ index: true, element: <Pages.JoinComplete /> }]
+      },
+      {
+        path: "event/selectwin",
+        children: [{ index: true, element: <Pages.SystemEventSelectWin /> }]
       },
       {
         path: "firstComeEvent/wait",

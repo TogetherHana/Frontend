@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import "./gray_style.scss";
+import "./white_style.scss";
 
 function WhiteNonFooter() {
   return (

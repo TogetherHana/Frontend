@@ -9,7 +9,15 @@ import router from "./routes";
 import GlobalModal from "./components/Modal";
 
 function App() {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 60 * 1000,
+        // @ts-ignore
+        cacheTime: 30 * 60 * 1000 // 30 min
+      }
+    }
+  });
 
   const checkBrowserSize = ($rootStyle) => {
     if (!$rootStyle) {

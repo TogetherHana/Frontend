@@ -49,21 +49,21 @@ function FeeInput() {
   };
   const add5000 = () => {
     setInputValue((prevValue) => {
-      const numericValue = parseInt(prevValue.replace(/,/g, ''), 10) || 0;
+      const numericValue = parseInt(prevValue.replace(/,/g, ""), 10) || 0;
       const newValue = numericValue + 5000;
       return formatNumber(newValue.toString());
     });
   };
   const add10000 = () => {
     setInputValue((prevValue) => {
-      const numericValue = parseInt(prevValue.replace(/,/g, ''), 10) || 0;
+      const numericValue = parseInt(prevValue.replace(/,/g, ""), 10) || 0;
       const newValue = numericValue + 10000;
       return formatNumber(newValue.toString());
     });
   };
   const add50000 = () => {
     setInputValue((prevValue) => {
-      const numericValue = parseInt(prevValue.replace(/,/g, ''), 10) || 0;
+      const numericValue = parseInt(prevValue.replace(/,/g, ""), 10) || 0;
       const newValue = numericValue + 50000;
       return formatNumber(newValue.toString());
     });
@@ -92,14 +92,15 @@ function FeeInput() {
     <>
       <div className="fee-container">
         <div className="header">
-          <div className="back">&lt;</div>
+          <div className="back" onClick={() => navigate("/baseball/home")}>
+            &lt;
+          </div>
           <div>모임통장 회비걷기</div>
           <div className="row-dummy"></div>
         </div>
 
         <div className="input-container">
-          <div className={`character ${randomImage}`}>
-            {/* <div className=""></div> */}
+          <div className={`character ${randomImage}`}>            
           </div>
           <div className="content">
             <div className="title">총 얼마 걷을래요?</div>
@@ -109,14 +110,20 @@ function FeeInput() {
               value={inputValue}
               className="num-input"
               placeholder="걷을금액"
-            />
-          </div>
+            />             
+          </div>       
         </div>
 
-        <div className="btns">
-          <button className="btn" onClick={add5000}>+ 5천</button>
-          <button className="btn" onClick={add10000}>+ 1만</button>
-          <button className="btn" onClick={add50000}>+ 5만</button>
+        <div className="btns">        
+          <button className="btn" onClick={add5000}>
+            + 5천
+          </button>
+          <button className="btn" onClick={add10000}>
+            + 1만
+          </button>
+          <button className="btn" onClick={add50000}>
+            + 5만
+          </button>
         </div>
 
         <div className="num-container">

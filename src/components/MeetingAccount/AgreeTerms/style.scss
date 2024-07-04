@@ -1,0 +1,17 @@
+@import "../../../common/styles/scss/responsive.scss";
+// checkTerms
+.checkTermsMain {
+  @apply ml-11 mt-7;
+}
+
+.checkTermsTitle {
+  @apply my-8;
+  @include responsive-font-size(23px);
+  font-family: "NanumSquareRoundB";
+}
+
+.checkTermsDetail {
+  @include responsive-font-size(15px);
+  font-family: "NotoSans";
+  color: rgba(97, 97, 97, 0.72);
+}

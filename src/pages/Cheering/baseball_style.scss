@@ -1,17 +1,15 @@
+@import "../../common/styles/scss/responsive.scss";
 .baseballTeam-container {
   width: 100%;
   height: 100%;
 
   .header {
-    display: flex;
+    @apply p-5 flex mt-16 text-center;
+    @include responsive-font-size(20px);
     flex-direction: row;
     justify-content: space-between;
-    
-    padding: 20px;
-
     font-family: "NanumSquareRoundB";
     font-weight: 700;
-    font-size: 20px;
 
     .back {
       width: 10%;
@@ -19,27 +17,25 @@
   }
 
   .content {
+    @apply my-11;
+    @include responsive-font-size(30px);
     position: relative;
     text-align: center;
     align-items: center;
     width: 100%;
-
-    font-size: x-large;
     font-family: "BMHanna";
-    font-weight: 900;
 
     .background-logo {
+      @include responsive-hw(200px, 200px);
       background-image: url(@/assets/images/systemEvent/main/sinhanLogo.svg);
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
-      width: 200px;
-      height: 200px;
       opacity: 0.1; /* Adjust the opacity to make the logo less intrusive */
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);      
+      transform: translate(-50%, -50%);
     }
 
     .text-overlay {
@@ -48,159 +44,70 @@
     }
 
     .plus {
-      margin-top: 10px;
+      @apply mt-3;
+      @include responsive-font-size(15px);
+      font-family: "NotoSans";
       color: $color-text1;
-      font-weight: 400;
-      font-size: small;
     }
   }
 
   .logo-container {
-    display: flex;
+    @apply flex place-items-center;
+    // display: flex;
     flex-direction: column;
-    align-items: center;
+    // align-items: center;
     // justify-content: space-around;
-    height: auto;
+    height: 100vh;
 
     .logo-line {
-      display: flex;
+      @apply flex;
       flex-direction: row;
       justify-content: space-around;
 
-      .nc {
-        height: 100px;
-        width: 100px;
-        position: relative;
-        background-image: url(@/assets/images/baseballTeams/nc.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
+      img, .imgBlank {
+        @apply m-1;
+        @include responsive-hw(100px, 100px);     
       }
-      .nc:hover {
-        background-color: $color-nc;
+      .img-nc:hover {      
+        border-radius: 10px;
+        border: 5px solid $color-nc;
       }
-      .hanwha {
-        height: 100px;
-        width: 100px;
-        position: relative;
-        background-image: url(@/assets/images/baseballTeams/hanwha.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
+      .img-hanwha:hover {       
+        border-radius: 10px;
+        border: 5px solid $color-hanwha;
       }
-      .hanwha:hover {
-        background-color: $color-hanwha;
+      .img-Lions:hover {      
+        border-radius: 10px;
+        border: 5px solid $color-Lions;
       }
-      .Lions {
-        height: 100px;
-        width: 100px;
-        position: relative;
-        background-image: url(@/assets/images/baseballTeams/Lions.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
+      .img-LG:hover {        
+        border-radius: 10px;
+        border: 5px solid $color-LG;
       }
-      .Lions:hover {
-        background-color: $color-Lions;
+      .img-KT:hover {        
+        border-radius: 10px;
+        border: 5px solid $color-KT;
       }
-      .LG {
-        height: 100px;
-        width: 100px;
-        position: relative;
-        background-image: url(@/assets/images/baseballTeams/LG.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
+      .img-Lotte:hover {        
+        border-radius: 10px;
+        border: 5px solid $color-Lotte;
       }
-      .LG:hover {
-        background-color: $color-LG;
+      .img-Doosan:hover {        
+        border-radius: 10px;
+        border: 5px solid $color-Doosan-Navy;
       }
-      .KT {
-        height: 100px;
-        width: 100px;
-        position: relative;
-        background-image: url(@/assets/images/baseballTeams/KT.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
+      .img-Kia:hover {        
+        border-radius: 10px;
+        border: 5px solid $color-Kia;
       }
-      .KT:hover {
-        background-color: $color-KT;
+      .img-Kiwoom:hover {        
+        border-radius: 10px;
+        border: 5px solid  $color-Kiwoom;
       }
-      .Lotte {
-        height: 100px;
-        width: 100px;
-        position: relative;
-        background-image: url(@/assets/images/baseballTeams/Lotte.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-      }
-      .Lotte:hover {
-        background-color: $color-Lotte;
-      }
-      .Doosan {
-        height: 100px;
-        width: 100px;
-        position: relative;
-        background-image: url(@/assets/images/baseballTeams/Doosan.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-      }
-      .Doosan:hover {
-        background-color: $color-Doosan-Navy;
-      }
-      .Kia {
-        height: 100px;
-        width: 100px;
-        position: relative;
-        background-image: url(@/assets/images/baseballTeams/Kia.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-      }
-      .Kia:hover {
-        background-color: $color-Kia;
-      }
-      .Kiwoom {
-        height: 100px;
-        width: 100px;
-        position: relative;
-        background-image: url(@/assets/images/baseballTeams/Kiwoom.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-      }
-      .Kiwoom:hover {
-        background-color: $color-Kiwoom;
-      }
-      .SSG {
-        height: 100px;
-        width: 100px;
-        position: relative;
-        background-image: url(@/assets/images/baseballTeams/SSG.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-      }
-      .SSG:hover {
-        background-color: $color-SSG;
-      }
-      .dummy {
-        height: 100px;
-        width: 100px;
-        position: relative;
-      }
-      .check {
-        height: 100px;
-        width: 100px;
-        position: relative;
-        background-image: url(@/assets/images/check.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-      }
+      .img-SSG:hover {        
+        border-radius: 10px;
+        border: 5px solid $color-SSG;
+      }               
     }
   }
 

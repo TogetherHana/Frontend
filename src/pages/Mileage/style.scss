@@ -1,0 +1,83 @@
+@import "../../common/styles/scss/responsive.scss";
+.mileageTitle {
+  @include responsive-font-size(20px);
+  @include responsive-position(63px, 119px);
+  font-family: "NanumSquareRoundB";
+}
+
+.mileageCarousel {
+  @include responsive-hw(200px, 431px);
+  @include responsive-position-height(100px);
+  position: absolute;
+}
+
+.mileageProduct {
+  @apply flex;
+  @include responsive-position(325px, 30px);
+}
+
+.mileageProductCategory {
+  @apply grid place-items-center mr-5;
+  @include responsive-hw(50px, 110px);
+  @include responsive-font-size(17px);
+  font-family: "NanumSquareRoundB";
+  border-radius: 10px;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+}
+
+.mileagePopularProduct {
+  @include responsive-width(386px);
+  @include responsive-position(420px, 30px);
+  @include responsive-font-size(20px);
+  font-family: "NanumSquareRoundB";
+
+  .more {
+    @include responsive-position(10px, 310px);
+    @include responsive-font-size(13px);
+    color: #868686;
+  }
+
+  .maincontent {
+    @apply flex mt-6;
+    width: 100%;
+  }
+}
+
+.mileagePopularProductBelow {
+  @apply flex;
+  @include responsive-width(386px);
+  @include responsive-position(770px, 30px);
+  @include responsive-font-size(20px);
+  font-family: "NanumSquareRoundB";
+
+  .more {
+    @include responsive-position(10px, 260px);
+    @include responsive-font-size(13px);
+    color: #868686;
+  }
+
+  .maincontent {
+    @apply flex;
+    @include responsive-position(40px, 20px);
+  }
+}
+
+.mileagePopularProductMainContent {
+  @apply grid w-full place-items-center;
+}
+
+.mileageProductDivTxt {
+  @include responsive-font-size(15px);
+  font-family: "NanumSquareRoundR";
+  line-height: 2;
+
+  &.pnm {
+    @include responsive-font-size(20px);
+    font-family: "NanumSquareRoundB";
+  }
+  &.pmile {
+    @include responsive-font-size(15px);
+    @apply flex place-items-center;
+    font-family: "Sansation";
+  }
+}

@@ -5,7 +5,7 @@
     <!-- iOS notch -->
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, shrinnk-to-fit=yes, viewport-fit=cover"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
     <!-- iOS 상단바 스타일 지정 -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -41,6 +41,31 @@
     <title>함께, 하나?</title>
   </head>
   <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          this.navigator.serviceWorker
+            .register("/public/service-worker.js")
+            .then(
+              function (registration) {
+                console.log(
+                  "Worker registration successful",
+                  registration.scope
+                );
+              },
+              function (err) {
+                console.log("Worker registration failed", err);
+              }
+            )
+            .catch(function (err) {
+              console.log(err);
+            });
+        });
+      } else {
+        console.log("Service worker is not supported by browser.");
+      }
+    </script>
     <div id="root"></div>
     <script type="module" src="src/main.jsx"></script>
   </body>

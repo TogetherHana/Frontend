@@ -1,8 +1,18 @@
+@import "../../common/styles/scss/responsive.scss";
+
+// join - main
+.joinMainTitle {
+  @apply grid place-items-center;
+  @include responsive-position(750px, 80px);
+  @include responsive-font-size(30px);
+  font-family: "NanumSquareRoundB";
+  line-height: 1.5;
+}
+
+// join - intro
 .joinIntroDiv {
-  position: absolute;
-  top: 127px;
-  left: 54px;
-  display: grid;
+  @apply grid;
+  @include responsive-position(127px, 54px);
   justify-content: space-between;
 
   div {
@@ -11,137 +21,113 @@
 }
 
 .joinIntroSquare {
+  @apply grid place-items-center;
+  @include responsive-hw(55px, 135px);
+  @include responsive-font-size(30px);
   border-radius: 10px;
   background-color: #44bd91;
-  width: 135px;
-  height: 55px;
   font-family: "BMHanna";
-  font-size: 30px;
   color: white;
-  @apply grid place-items-center;
 
   &.large {
-    width: 265px;
-    height: 135px;
-    font-size: 40px;
+    @include responsive-hw(135px, 265px);
+    @include responsive-font-size(40px);
   }
 }
 
 .joinIntroBasic {
-  font-family: "BMHanna";
-  font-size: 30px;
   @apply my-5;
+  @include responsive-font-size(30px);
+  font-family: "BMHanna";
 }
 
 .joinIntroSmile {
-  position: absolute;
-  top: 416px;
-  left: 67px;
+  @include responsive-position(416px, 60px);
 }
 
-.joinIntroNextText {
-  position: fixed;
-  top: 834px;
-  left: 280px;
-  font-family: "BMHanna";
-  font-size: 25px;
+.joinIntroNextDiv {
+  @include responsive-hw(30px, 130px);
+  @include responsive-position(707px, 226px);
+
+  div {
+    @include responsive-font-size(25px);
+    font-family: "BMHanna";
+  }
 }
 
-.joinIntroArrow {
-  position: absolute;
-  top: 735px;
-  left: 227px;
-}
+// join - idVerification
+.joinIdVerificationDiv {
+  @include responsive-position(258px, 51px);
+  .title {
+    @include responsive-font-size(30px);
+    font-family: "BMHanna";
+  }
 
-.joinIdVerificationTitle {
-  font-family: "BMHanna";
-  font-size: 30px;
-  position: absolute;
-  top: 258px;
-  left: 51px;
-}
-
-.joinIdVerificationContent {
-  position: absolute;
-  top: 342px;
-  left: 54px;
+  .content {
+    @include responsive-position(52px, 0px);
+  }
 }
 
 .joinIdVerificationNotify {
+  @include responsive-position(290px, 0px);
+  @include responsive-font-size(10px);
   font-family: "Noto sans";
-  font-size: 10px;
   color: rgba(97, 97, 97, 0.72);
-  position: absolute;
-  top: 290px;
 
   &.time {
-    position: fixed;
-    top: 605px;
-    left: 215px;
-    font-size: 15px;
+    @include responsive-font-size(15px);
+    @include responsive-position(260px, 165px);
   }
 }
 
 .joinNumberCheck {
+  @apply my-5 grid place-items-center ml-4;
+  @include responsive-hw(20px, 100px);
+  @include responsive-font-size(10px);
   font-family: "NanumSquareRoundR";
-  font-size: 10px;
-  width: 100px;
-  height: 20px;
   border-radius: 25px;
   background-color: #777575;
   color: #f6f6f6;
-  @apply my-5 grid place-items-center ml-4;
 
   &.small {
-    width: 45px;
-    height: 20px;
+    @include responsive-hw(20px, 45px);
     margin-left: 1rem;
   }
 
   &.middle {
-    width: 57px;
-    height: 20px;
-    position: absolute;
-    top: 400px;
-    left: 310px;
+    @include responsive-position(400px, 310px);
+    @include responsive-hw(20px, 57px);
   }
 }
 
+// join - account link
 .joinAccountLinkTitle {
+  @include responsive-position(250px, 50px);
+  @include responsive-font-size(30px);
   font-family: "BMHanna";
-  font-size: 30px;
-  position: absolute;
-  top: 250px;
-  left: 50px;
 }
 
 .joinAuthenticationImg {
-  position: Absolute;
-  top: 60px;
-  left: 175px;
+  @apply grid place-items-center w-full;
+  @include responsive-position(60px, 0px);
 
-  &.down {
-    top: 173px;
-    left: 201px;
+  .down {
+    @apply mt-10;
+  }
+
+  .top {
+    @include responsive-position(212px, 150px);
+    @include responsive-font-size(15px);
+    font-family: "NotoSans";
   }
 }
 
 .joinAuthenticationDetail {
-  @apply grid place-items-center text-center;
-  position: absolute;
+  @apply text-center;
+  @include responsive-position(267px, 127px);
+  @include responsive-font-size(20px);
   font-family: "BMHanna";
-  font-size: 20px;
-  top: 267px;
-  left: 127px;
   line-height: 1.5;
-
-  &.top {
-    font-family: "NotoSans";
-    font-size: 15px;
-
-    top: 212px;
-    left: 150px;
-  }
 }
 
 .joinAuthenticationCheckTitle {
@@ -232,4 +218,211 @@
   position: absolute;
   top: 510px;
   left: 127px;
+}
+
+// notification - request
+.notificationRequestTitle {
+  @apply grid place-items-center text-center mt-40 mx-auto;
+  font-family: "NanumSquareRoundB";
+
+  .title {
+    @apply mt-10;
+    @include responsive-font-size(30px);
+  }
+  .sub {
+    @apply mt-10;
+    @include responsive-font-size(17px);
+    color: #777575;
+    line-height: 1.5;
+  }
+}
+
+.flip-card {
+  background-color: transparent;
+  // width: 240px;
+  // height: 154px;
+  @include responsive-hw(350px, 250px);
+  @include responsive-font-size(20px);
+  font-family: "NanumSquareRoundR";
+  // font-family: "Hana2M";
+  perspective: 1000px;
+  color: white;
+}
+
+.heading_8264 {
+  // position: absolute;
+  // letter-spacing: 0.2em;
+  // font-size: 0.5em;
+  // top: 2em;
+  // left: 18.6em;
+}
+
+.logo {
+  position: absolute;
+  top: 6.8em;
+  left: 11.7em;
+}
+
+.chip {
+  position: absolute;
+  top: 2.3em;
+  left: 1.5em;
+}
+
+.contactless {
+  position: absolute;
+  top: 3.5em;
+  left: 12.4em;
+}
+
+.number {
+  // position: absolute;
+  // font-weight: bold;
+  // font-size: 0.6em;
+  @include responsive-font-size(15px);
+  @include responsive-position(200px, 20px);
+  // top: 8.3em;
+  // left: 1.6em;
+}
+
+.valid_thru {
+  @include responsive-font-size(13px);
+  @include responsive-position(230px, 20px);
+  color: black;
+  // position: absolute;
+  // font-weight: bold;
+  // top: 635.8em;
+  // font-size: 0.01em;
+  // left: 140.3em;
+}
+
+.date_8264 {
+  position: absolute;
+  font-weight: bold;
+  font-size: 0.5em;
+  top: 13.6em;
+  left: 3.2em;
+}
+
+.name {
+  @include responsive-font-size(13px);
+  @include responsive-position(250px, 20px);
+  color: black;
+  // position: absolute;
+  // font-weight: bold;
+  // font-size: 0.5em;
+  // top: 16.1em;
+  // left: 2em;
+}
+
+.strip {
+  position: absolute;
+  background-color: black;
+  width: 15em;
+  height: 1.5em;
+  top: 2.4em;
+  background: repeating-linear-gradient(
+    45deg,
+    #303030,
+    #303030 10px,
+    #202020 10px,
+    #202020 20px
+  );
+}
+
+.mstrip {
+  position: absolute;
+  // background-color: rgb(255, 255, 255);
+  background-color: #44bd91;
+  // box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.75);
+  width: 8em;
+  height: 0.8em;
+  top: 5em;
+  left: 0.8em;
+  border-radius: 2.5px;
+}
+
+.sstrip {
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  width: 4.1em;
+  height: 0.8em;
+  top: 5em;
+  left: 10em;
+  border-radius: 2.5px;
+}
+
+.code {
+  font-weight: bold;
+  text-align: center;
+  margin: 0.2em;
+  color: black;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 1rem;
+}
+
+.flip-card-front {
+  box-shadow:
+    rgba(0, 0, 0, 0.4) 0px 2px 2px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -1px 0px inset;
+  // background-color: #171717;
+  // background-color: white;
+  background-color: #44bd91;
+}
+
+.flip-card-back {
+  box-shadow:
+    rgba(0, 0, 0, 0.4) 0px 2px 2px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -1px 0px inset;
+  // background-color: #171717;
+  background-color: white;
+  transform: rotateY(180deg);
+}
+
+.flip-card-back-nickname {
+  @include responsive-position(40px, 20px);
+  @include responsive-font-size(30px);
+  color: black;
+}
+
+.flip-card-back-phone {
+  @include responsive-position(140px, 20px);
+  @include responsive-font-size(15px);
+  color: black;
+}
+
+.flip-card-info {
+  @apply mt-3;
+}
+
+.flipDiv {
+  @apply grid;
+  @include responsive-position(220px, 90px);
 }
