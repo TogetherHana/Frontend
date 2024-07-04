@@ -41,7 +41,8 @@ function Main() {
       console.log(response);
       return response.json();
     },
-    enabled: isSubmitting
+    enabled: isSubmitting,
+    gcTime: 30 * 60 * 1000
   });
 
   useEffect(() => {
@@ -49,10 +50,13 @@ function Main() {
     if (isMember.data) {
       console.log(isMember.data.isSuccess);
       if (isMember.data.isSuccess) {
+        // localStorage.setItem("accessToken", isMember.data.data.accessToken);
         // setAccessToken(isMember.data.data.accessToken);
         // console.log(accessToken);
+
         const timer = setTimeout(() => {
           setShowSpinner(false);
+          setIsSubmitting(false);
           setTimeout(() => {
             navigate("/memberhome");
           }, 3000);
@@ -66,6 +70,7 @@ function Main() {
       } else {
         const timer = setTimeout(() => {
           navigate(`/platform/join/intro`);
+          setIsSubmitting(false);
         }, 5000);
 
         return () => clearTimeout(timer);

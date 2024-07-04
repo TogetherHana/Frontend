@@ -41,14 +41,13 @@ function MainAccountDiv({ params }) {
   };
 
   return (
-    <div
-      className="renewalMiddleContent"
-      onClick={() => handleSharingAccount(params.sharingAccountIdx, params.accountName)}
-    >
+    <div className="renewalMiddleContent">
       <div className="mainAccountDiv">
         <div
           className="mainAccountDivTxt"
-          onClick={() => handleSharingAccount(params.sharingAccountIdx)}
+          onClick={() =>
+            handleSharingAccount(params.sharingAccountIdx, params.accountName)
+          }
         >
           {params.accountName}
         </div>
@@ -60,15 +59,8 @@ function MainAccountDiv({ params }) {
         </div>
         <div className="flex">
           {btnProps.map((item, index) => (
-            <HomeAccountDivBtn params={item} />
+            <HomeAccountDivBtn key={index} params={item} />
           ))}
-          {/* <HomeAccountDivBtn
-            content={"초대하기"}
-            cnm={""}
-            idx={params.sharingAccountIdx}
-          />
-          <HomeAccountDivBtn content={"이체하기"} cnm={"cnm2"} />
-          <HomeAccountDivBtn content={"・・・"} cnm={"cnm3"} /> */}
         </div>
       </div>
     </div>

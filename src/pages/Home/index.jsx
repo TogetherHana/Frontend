@@ -27,8 +27,6 @@ function Home() {
   const qc = useQueryClient();
   const navigate = useNavigate();
 
-  // console.log(accessToken);
-
   const middleBtnParams = [
     {
       top: "이벤트",
@@ -153,7 +151,7 @@ function Home() {
           {/* event & goods shop */}
           <div className="renewalMiddleBtnDiv">
             {middleBtnParams.map((item, index) => (
-              <MainMiddleBtn params={item} />
+              <MainMiddleBtn key={index} params={item} />
             ))}
           </div>
           {/* cheering team */}

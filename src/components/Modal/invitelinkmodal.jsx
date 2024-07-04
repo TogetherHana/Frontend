@@ -27,45 +27,19 @@ export const closeModal = (setInviteModalData) => {
 
 function InviteLinkModal() {
   const [inviteModalData, setInviteModalData] = useAtom(inviteLinkAtom);
-
-  // const onClickConfirmButton = () => {
-  //   if (inviteModalData.onClickConfirm) inviteModalData.onClickConfirm();
-  //   else closeModal(setInviteModalData);
-  // };
   return (
     <Modal
       isOpen={inviteModalData.isOpen}
-      // onAfterOpen={afterOpenModal}
       onRequestClose={() => closeModal(setInviteModalData)}
-      // @ts-ignore
-      // style={customStyles}
       overlayClassName={"invite-link-modal-overlay"}
     >
-      {/* <Button
-        color="default"
-        className="right close-btn"
-        onClick={() => closeModal(setInviteModalData)}
-      >
-        x
-      </Button> */}
       <div className="center">
         {inviteModalData.children ? (
           inviteModalData.children
         ) : (
-          // <span>{inviteModalData.content}</span>
-          // <div>{parse(inviteModalData.content)}</div>
           <>{inviteModalData.content}</>
         )}
       </div>
-      {/* <Button
-        className="global-modal-button"
-        shape="rect"
-        onClick={() => onClickConfirmButton()}
-      >
-        {inviteModalData.confirmButtonText
-          ? inviteModalData.confirmButtonText
-          : "확인"}
-      </Button> */}
     </Modal>
   );
 }

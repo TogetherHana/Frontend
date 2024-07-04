@@ -1,6 +1,6 @@
 import { accountAtom, inviteLinkAtom } from "@/stores";
 import { useAtom } from "jotai";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import InviteLinkModal from "../Modal/invitelinkmodal";
 import MainAccountLink from "../Main/mainaccountlink";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
@@ -30,15 +30,22 @@ function HomeAccountDivBtn({ params }) {
   });
 
   const handleInviteLinkModal = () => {
-    // isSubmitting value add
     setIsSubmitting(true);
     setInviteModalData((prevData) => ({
       ...prevData,
-      isOpen: !prevData.isOpen,
-      content: <MainAccountLink code={inviteCodeInfo.data.data} />
+      isOpen: !prevData.isOpen
     }));
     setIsSubmitting(false);
   };
+
+  useEffect(() => {
+    if (inviteCodeInfo.data) {
+      setInviteModalData((prevData) => ({
+        ...prevData,
+        content: <MainAccountLink code={inviteCodeInfo.data.data} />
+      }));
+    }
+  }, [inviteCodeInfo.data]);
 
   return (
     <>

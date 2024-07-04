@@ -1,4 +1,5 @@
 import React from "react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 // @ts-ignore
 import copy from "@/assets/images/copy.svg";
 
@@ -14,7 +15,12 @@ function MainAccountLink({ code }) {
         placeholder={`${code}`}
         disabled
       />
-      <img src={copy} alt="copy" className="accountLinkCopy" />
+      <CopyToClipboard
+        text={`${code}`}
+        onCopy={() => console.log("copy success!")}
+      >
+        <img src={copy} alt="copy" className="accountLinkCopy" />
+      </CopyToClipboard>
     </div>
   );
 }

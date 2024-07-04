@@ -26,7 +26,7 @@ function MainAccountLastDiv() {
       {/* <MainAccountCreate img={together} content="모임통장, 하나 더?" />
       <MainAccountCreate img={invitecode} content="초대코드로 모임 합류" /> */}
       {mainAccountCreateParms.map((item, index) => (
-        <MainAccountCreate params={item} />
+        <MainAccountCreate params={item} key={index} />
       ))}
     </div>
   );

@@ -7,7 +7,7 @@ import hanalogo from "@/assets/images/systemEvent/main/hanaLogo.svg";
 import sinhanlogo from "@/assets/images/systemEvent/main/sinhanLogo.svg";
 // @ts-ignore
 import lcklogo from "@/assets/images/systemEvent/main/lcklogo.svg";
-import SystemEventSelectWinDiv from "@/components/SystemEvent/systemeventselectwindiv";
+import SystemEventSelectWinDiv from "@/components/SystemEvent/se-select-win-div";
 
 function SystemEventSelectWin() {
   const divParams = [
@@ -38,8 +38,9 @@ function SystemEventSelectWin() {
       <div className="systemEventSelectWinMain">승리팀 맞추기 이벤트</div>
       <img src={eventmain3} className="systemEventSelectWinMainImg" />
       <div className="systemEventSelectWinMainBelow">
-        {divParams.map((item) => (
+        {divParams.map((item, index) => (
           <SystemEventSelectWinDiv
+            key={index}
             content={item.title}
             slogun={item.slogun}
             logo={item.img}
