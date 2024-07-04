@@ -2,7 +2,7 @@ import React from "react";
 // @ts-ignore
 import copy from "@/assets/images/copy.svg";
 
-function MainAccountLink() {
+function MainAccountLink({ code }) {
   return (
     <div className="mainAccountLinkContent">
       <div className="mainAccountLinkTxt">축구모임통장 초대링크</div>
@@ -11,7 +11,7 @@ function MainAccountLink() {
       </div>
       <input
         className="mainAccountLinkTxt link"
-        placeholder="초대링크"
+        placeholder={`${code}`}
         disabled
       />
       <img src={copy} alt="copy" className="accountLinkCopy" />

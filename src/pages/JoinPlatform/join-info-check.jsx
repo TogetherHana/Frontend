@@ -57,7 +57,7 @@ function JoinInfoCheck() {
             <div className="flip-card-back">
               {/* <div className="strip"> </div> */}
               <div className="flip-card-back-nickname">
-                {memberInfo.nickName}
+                {memberInfo.nickname}
               </div>
               <div className="mstrip"></div>
               <div className="flip-card-back-phone">

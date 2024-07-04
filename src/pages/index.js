@@ -42,9 +42,9 @@ export { default as JoinIntro } from "./JoinPlatform/join-intro";
 export { default as NotificationRequest } from "./JoinPlatform/join-notification-request";
 export { default as JoinIdVerification } from "./JoinPlatform/join-id-verification";
 export { default as JoinAccountLink } from "./JoinPlatform/join-account-link";
-export { default as JoinAuthenticationCheck } from "./JoinPlatform/joinauthenticationcheck";
-export { default as JoinSetNickName } from "./JoinPlatform/joinsetnickname";
-export { default as JoinComplete } from "./JoinPlatform/joincomplete";
+export { default as JoinAuthenticationCheck } from "./JoinPlatform/join-authentication-check";
+export { default as JoinSetNickName } from "./JoinPlatform/join-set-nickname";
+export { default as JoinComplete } from "./JoinPlatform/join-complete";
 export { default as JoinInfoCheck } from "./JoinPlatform/join-info-check";
 export { default as JoinRegisterProcessing } from "./JoinPlatform/join-register-processing";
 // System Event

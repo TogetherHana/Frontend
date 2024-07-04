@@ -152,6 +152,7 @@
 
     .txt {
       @apply mr-2 mt-auto;
+      @include responsive-width(70px);
     }
   }
 }
@@ -235,10 +236,12 @@
       font-family: "Sansation";
       color: #44bd91;
       .milebtn {
-        @apply grid place-items-center ml-28;
+        @apply grid place-items-center;
         @include responsive-font-size(15px);
-        @include responsive-width(150px);
-        @include responsive-height(30px);
+        @include responsive-hw(30px, 150px);
+        // @include responsive-width(150px);
+        // @include responsive-height(30px);
+        @include responsive-position(50px, 230px);
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
         background-color: #4c7d6b;
@@ -333,4 +336,18 @@
   // border-left:
   @include responsive-height(69px);
   border-left: thick solid #32a1ce;
+}
+
+.homeDataProcessing {
+  // @apply h-full w-full;
+  background-color: white;
+  img {
+    @apply mx-auto mt-60;
+  }
+  div {
+    @apply text-center mt-10;
+    @include responsive-font-size(25px);
+    font-family: "NanumSquareRoundR";
+    line-height: 1.5;
+  }
 }
