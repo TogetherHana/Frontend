@@ -74,50 +74,13 @@ const router = createBrowserRouter([
       },
       {
         path: "create/match",
-        children: [{ index: true, element: <CreateMatch /> }]
+        children: [{ index: true, element: <Pages.CreateMatch /> }]
       },
       {
         path: "match",
         children: [
-          { index: true, element: <Bigmatch /> },
-          { path: ":finish", element: <Finish /> },
-          { path: ":complete", element: <Voted /> }
-        ]
-      },
-      {
-        path: "maccount/register",
-        children: [
-          { index: true, element: <Pages.MacRegister /> },
-          { path: ":testId", element: <Pages.Main /> }
-        ]
-      },
-      {
-        path: "maccount/idverification",
-        children: [{ index: true, element: <Pages.MacIdVerification /> }]
-      },
-      {
-        path: "maccount/userinfo",
-        children: [{ index: true, element: <Pages.MacUserInfo /> }]
-      },
-      {
-        path: "maccount/selectstock",
-        children: [{ index: true, element: <Pages.MacSelectStock /> }]
-      },
-      {
-        path: "maccount/agreeterms",
-        children: [{ index: true, element: <Pages.MacAgreeTerms /> }]
-      },
-      {
-        path: "maccount/setaccountname",
-        children: [{ index: true, element: <Pages.MacSetAccountName /> }]
-      },
-      {
-        path: "maccount/setaccountpw",
-        children: [
-          {
-            index: true,
-            element: <Pages.MacSetAccountPW title={"계좌 비밀번호 설정"} />
-          }
+          { index: true, element: <Pages.Bigmatch /> },
+          { path: ":finish", element: <Pages.Finish /> }
         ]
       },
       {
