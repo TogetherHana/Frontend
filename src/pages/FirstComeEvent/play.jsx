@@ -13,13 +13,19 @@ const Play = () => {
   const [responseMessage, setResponseMessage] = useState("");
   const [showModal, setShowModal] = useState(false);
 
+  console.log(localStorage.getItem("playingGameIdx"));
+  const jwtToken = localStorage.getItem("jwtToken");
+  console.log("---토큰값 있나?---");
+  console.log(jwtToken);
+
   const handleTicketClick = async () => {
     setShowModal(true);
     setResponseMessage("success");
     try {
       const response = await axios.post("/event/get-ticket", {
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${jwtToken}`
         }
       });
       if (response.data == true) {
