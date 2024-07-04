@@ -4,9 +4,13 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAtom } from "jotai";
 import {
+  inviteLinkAtom,
   sportSharingAccountFriendsAtom,
   sportSharingAccountIdxAtom
 } from "@/stores";
+import InviteLinkModal from "@/components/Modal/invitelinkmodal";
+import MainAccountLink from "@/components/Main/mainaccountlink";
+import { useQuery } from "@tanstack/react-query";
 
 function Friends() {
   const navigate = useNavigate();
@@ -15,6 +19,8 @@ function Friends() {
   const [sportSharingAccountFriends, setSportSharingAccountFriends] = useAtom(
     sportSharingAccountFriendsAtom
   ); // 모임통장 모임원수
+  const [inviteModalData, setInviteModalData] = useAtom(inviteLinkAtom);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const fetchMembers = async () => {
@@ -52,6 +58,39 @@ function Friends() {
   // @ts-ignore
   setSportSharingAccountFriends(members.length);
 
+  const jwtToken = localStorage.getItem("jwtToken");
+  console.log("---토큰값 있나?---");
+  console.log(jwtToken);
+
+  // 친구초대링크 모달띄우기
+  const inviteCodeInfo = useQuery({
+    queryKey: ["invite-code"],
+    queryFn: async () => {
+      const response = await fetch(
+        `http://localhost:8080/invite/code?sharingAccountIdx=${sportSharingAccountIdx}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${jwtToken}`
+          }
+        }
+      );
+      return response.json();
+    },
+    enabled: isSubmitting
+  });
+  const handleInviteLinkModal = () => {
+    // isSubmitting value add
+    setIsSubmitting(true);
+    setInviteModalData((prevData) => ({
+      ...prevData,
+      isOpen: !prevData.isOpen,
+      content: <MainAccountLink code={inviteCodeInfo.data.data} />
+    }));
+    setIsSubmitting(false);
+  };
+
   return (
     <>
       <div className="friend-container">
@@ -76,7 +115,7 @@ function Friends() {
         ))}
         <div className="friends-title-container">
           <div className="position">친구</div>
-          <div className="additional" onClick={() => {}}>
+          <div className="additional" onClick={handleInviteLinkModal}>
             추가
           </div>
         </div>
@@ -101,6 +140,7 @@ function Friends() {
           ))}
         </div>
       </div>
+      <InviteLinkModal />
     </>
   );
 }
