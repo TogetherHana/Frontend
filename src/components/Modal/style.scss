@@ -172,3 +172,70 @@
     }
   }
 }
+
+.send-fee-modal-overlay {
+  &.ReactModal__Overlay--after-open {
+    //overlay 수정
+    @include responsive-height(932px); // 100vh
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.2);
+    .ReactModal__Content {
+      @include responsive-width(375px);
+      @include responsive-height(175px);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+      .checking {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      .check-receiver {
+        text-align: center;
+        font-family: "NanumSquareRoundB";
+        font-weight: 900;
+        @include responsive-font-size(28px);
+        @include responsive-hw(34px, 332px);       
+        margin-bottom: 10px;
+      }
+      .check-bank {
+        text-align: center;
+        font-family: "NanumSquareRoundR";
+        font-weight: 400;
+        color: $color-text1;
+        @include responsive-font-size(18px);
+        @include responsive-hw(15px, 332px);
+        margin-bottom: 20px;
+      }
+
+      .buttons-position {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      .cancel-modal-button {
+        @include responsive-hw(50px, 155px);
+
+        background-color: white;
+        color: $color-primary1;
+        border: 1px solid $color-primary1;
+        border-radius: 15px;
+      }
+      .confirm-modal-button {
+        @include responsive-hw(50px, 155px);
+
+        background-color: $color-primary1;
+        color: white;
+        border-radius: 15px;
+      }
+    }
+  }
+}

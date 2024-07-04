@@ -36,7 +36,7 @@ function Friends() {
     fetchMembers();
   }, [sharingAccountIdx]); // sharingAccountIdx가 변경될 때마다 다시 데이터를 가져옴
 
-  const leaders = members.filter((member) => member.isLeader);
+  const leaders = members.filter((member) => member.isLeader);  
   const friends = members.filter((member) => !member.isLeader);
 
   return (

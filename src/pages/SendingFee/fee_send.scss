@@ -1,4 +1,4 @@
-// @import "../../common/styles/scss/responsive.scss";
+@import "../../common/styles/scss/responsive.scss";
 
 // // join - main
 // .joinMainTitle {
@@ -228,6 +228,9 @@
   flex-direction: column;
 
   .header {
+    @apply p-5 flex mt-16 text-center;
+    @include responsive-font-size(20px);
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -243,33 +246,86 @@
     }
   }
 
-  .content {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-
-    .title {
-      font-family: "NanumSquareRoundB";
-      font-weight: 400;
-      font-size: 30px;
-      left: 0;
-      align-self: flex-start;
-      width: 100%;
-    }
-
-    .toSend {
-      // @include responsive-font-size(20px);
-      border: none;
-      border-bottom: 1px solid #c6c6c6;
-      // background-color: #f2f2f2;
-      font-family: "NotoSans";
-      font-size: 17px;
-      padding-left: 1rem;
-      width: 8rem;
-    }
+  .title {
+    @include responsive-position(250px, 50px);
+    @include responsive-font-size(30px);
+    font-family: "BMHanna";
   }
+
+  .bankNumInput {
+    @include responsive-font-size(20px);
+    border: none;
+    border-bottom: 1px solid #c6c6c6;
+    background-color: $color-primary2;
+    font-family: "NotoSans";
+    padding-left: 1rem;
+    width: 8rem;
+     
+    &.acnm {      
+      padding-left: 0;
+      width: 20rem;
+      position: fixed;
+      top: 416px;
+      left: 50px;
+      // margin-bottom: 1.5rem;
+      ::placeholder {
+        font-size: 17px;
+      }
+    }  
+    &.acnm2 {
+      padding-left: 0;
+      width: 20rem;
+      position: fixed;
+      top: 470px;
+      left: 50px;
+      // margin-bottom: 1.5rem;
+      ::placeholder {
+        font-size: 17px;
+      }
+    }
+    &.bs {
+      // bankselect
+      padding-left: 0;
+      position: fixed;
+      top: 348px;
+      left: 50px;
+      width: 5rem;
+  
+      ::placeholder {
+        font-size: 17px;
+      }
+    }    
+  }
+
+  
+
+  // .content {
+  //   display: flex;
+  //   flex-direction: column;
+  //   text-align: center;
+  //   align-items: center;
+  //   justify-content: center;
+
+  //   .title {
+  //     font-family: "NanumSquareRoundB";
+  //     font-weight: 400;
+  //     font-size: 30px;
+  //     left: 0;
+  //     align-self: flex-start;
+  //     width: 100%;
+  //   }
+
+  //   .toSend {
+  //     // @include responsive-font-size(20px);
+  //     border: none;
+  //     border-bottom: 1px solid #c6c6c6;
+  //     // background-color: #f2f2f2;
+  //     font-family: "NotoSans";
+  //     font-size: 17px;
+  //     padding-left: 1rem;
+  //     width: 8rem;
+  //   }
+  // }
 
   .row-dummy {
     width: 10%;

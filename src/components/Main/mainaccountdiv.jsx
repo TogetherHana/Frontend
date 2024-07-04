@@ -35,12 +35,16 @@ function MainAccountDiv({ params }) {
     }
   ];
 
-  const handleSharingAccount = (accountIdx) => {
-    navigate(`/baseball/home?idx=${accountIdx}`);
+  const handleSharingAccount = (accountIdx, accountName) => {
+    const encodedAccountName = encodeURIComponent(accountName);
+    navigate(`/baseball/home?idx=${accountIdx}&name=${accountName}`);
   };
 
   return (
-    <div className="renewalMiddleContent">
+    <div
+      className="renewalMiddleContent"
+      onClick={() => handleSharingAccount(params.sharingAccountIdx, params.accountName)}
+    >
       <div className="mainAccountDiv">
         <div
           className="mainAccountDivTxt"

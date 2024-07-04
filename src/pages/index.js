@@ -19,6 +19,7 @@ export { default as FeeInput } from "./CollectingFee/fee_input";
 // Send Fee - 모임통장 돈 보내기
 export { default as SendFeeInput } from "./SendingFee/fee_input";
 export { default as FeeSend } from "./SendingFee/fee_send";
+export { default as SendPWcheck } from "./SendingFee/pw_check";
 // Meeting Account - 모임통장
 export { default as MacAgreeTerms } from "./MeetingAccount/Register/mac-agree-terms";
 export { default as MacCreatedInfo } from "./MeetingAccount/Register/mac-createdinfo";
