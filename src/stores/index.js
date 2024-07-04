@@ -1,4 +1,5 @@
 import { atom } from "jotai";
+import { atomWithStorage } from 'jotai/utils';
 
 // 모달 초기 상태 정의
 export const initialModalState = {
@@ -22,6 +23,15 @@ export const inviteLinkAtom = atom(initialModalState);
 export const selectWinTeamAtom = atom(initialModalState);
 // 모임통장 돈보내기 확인용 모달
 export const sendFeeCheckModalAtom = atom(initialModalState);
+
+// 모임통장 홈화면에서 작업하기 위해
+// -> 모임통장 계좌번호, 모임통장 이름, 모임통장 계좌번호 저장하기
+export const sportSharingAccountIdxAtom = atomWithStorage('sportSharingAccountIdx', []);
+export const sportSharingAccountNameAtom = atomWithStorage('sportSharingAccountName', []);
+export const sportSharingAccountNumAtom = atomWithStorage('sportSharingAccountNum', []);
+
+// 모임통장 홈화면에서->친구리스트에서 리더포함 모임통장이 몇명으로 이루어져있는지 모임원 수 저장하기
+export const sportSharingAccountFriendsAtom = atomWithStorage('sportSharingAccountFriends', []);
 
 // 모임통장 회비걷기->수금요청 화면에서 캐릭터이미지key값 전달하기
 export const characterAtom = atom("");

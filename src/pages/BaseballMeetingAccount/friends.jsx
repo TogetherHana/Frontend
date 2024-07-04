@@ -2,17 +2,25 @@ import React, { useEffect, useState } from "react";
 import "./friends.scss";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useAtom } from "jotai";
+import {
+  sportSharingAccountFriendsAtom,
+  sportSharingAccountIdxAtom
+} from "@/stores";
 
 function Friends() {
   const navigate = useNavigate();
   const [members, setMembers] = useState([]);
-  const sharingAccountIdx = 1; // 모임통장 인덱스 값
+  const [sportSharingAccountIdx] = useAtom(sportSharingAccountIdxAtom); // 모임통장 인덱스
+  const [sportSharingAccountFriends, setSportSharingAccountFriends] = useAtom(
+    sportSharingAccountFriendsAtom
+  ); // 모임통장 모임원수
 
   useEffect(() => {
     const fetchMembers = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8080/sharing-account/members?sharingAccountIdx=${sharingAccountIdx}`,
+          `http://127.0.0.1:8080/sharing-account/members?sharingAccountIdx=${sportSharingAccountIdx}`,
           {
             headers: {
               "Content-Type": "application/json"
@@ -34,10 +42,15 @@ function Friends() {
     };
 
     fetchMembers();
-  }, [sharingAccountIdx]); // sharingAccountIdx가 변경될 때마다 다시 데이터를 가져옴
+  }, [sportSharingAccountIdx]); // sharingAccountIdx가 변경될 때마다 다시 데이터를 가져옴
 
-  const leaders = members.filter((member) => member.isLeader);  
+  const leaders = members.filter((member) => member.isLeader);
   const friends = members.filter((member) => !member.isLeader);
+  console.log("----모임통장 모임원의 수는?----");
+  console.log(members.length);
+
+  // @ts-ignore
+  setSportSharingAccountFriends(members.length);
 
   return (
     <>
@@ -45,31 +58,45 @@ function Friends() {
         <div className="position">총무</div>
         {leaders.map((leader) => (
           <div key={leader.memberIdx} className="leader">
-            <div className="logo-wrapper">
-              <img
-                className="cheeringTeam-img"
-                src={leader.imageUrl}
-                alt={leader.memberNickName}
-              />
-            </div>
-            <div className="name">{leader.memberNickName}</div>
+            {leader.imageUrl !== null ? (
+              <>
+                <div className="logo-wrapper">
+                  <img
+                    className="cheeringTeam-img"
+                    src={leader.imageUrl}
+                    alt={leader.memberNickName}
+                  />
+                </div>
+                <div className="nick-name">{leader.memberNickName}</div>
+              </>
+            ) : (
+              <div className="nick-name">{leader.memberNickName}</div>
+            )}
           </div>
         ))}
         <div className="friends-title-container">
           <div className="position">친구</div>
-          <div className="additional" onClick={()=>navigate("/")}>추가</div>
+          <div className="additional" onClick={() => {}}>
+            추가
+          </div>
         </div>
         <div className="friends-grid">
           {friends.map((friend) => (
             <div key={friend.memberIdx} className="friend">
-              <div className="logo-wrapper">
-                <img
-                  className="cheeringTeam-img"
-                  src={friend.imageUrl}
-                  alt={friend.memberNickName}
-                />
-              </div>
-              <div className="name">{friend.memberNickName}</div>
+              {friend.imageUrl !== null ? (
+                <>
+                  <div className="logo-wrapper">
+                    <img
+                      className="cheeringTeam-img"
+                      src={friend.imageUrl}
+                      alt={friend.memberNickName}
+                    />
+                  </div>
+                  <div className="nick-name">{friend.memberNickName}</div>
+                </>
+              ) : (
+                <div className="nick-name">{friend.memberNickName}</div>
+              )}
             </div>
           ))}
         </div>

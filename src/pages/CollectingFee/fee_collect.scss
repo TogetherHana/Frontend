@@ -26,7 +26,7 @@
     }
   }
 
-  .content {
+  .collect-content {
     @apply mt-24 flex place-items-center text-center;
 
     display: flex;
@@ -34,17 +34,26 @@
     text-align: center;
     align-items: center;
     justify-content: center;
-   
-    .title {
-      font-family: "BMHanna";     
-      font-size: 30px;
-      width: 250px;
+
+    .collect-title {
+      font-family: "BMHanna";
+      @include responsive-font-size(30px);
+      @include responsive-width(250px);
+      @include responsive-margin-bottom(20px);
+      @include responsive-margin-top(50px);
+    }
+    .collect-sub {      
+      font-family: "NanumSquareRoundB";
+      @include responsive-font-size(16px);
+      @include responsive-width(300px);
+      color: red;
     }
 
     .character {
-      width: 100%;
-      height: 100%;
-      padding: 20px;
+      @include responsive-hw(200px, 200px);
+      // width: 100%;
+      // height: 100%;
+      // padding: 20px;
       position: relative;
       background-size: contain;
       background-repeat: no-repeat;
@@ -88,9 +97,9 @@
   }
 
   .col-dummy {
-    @apply mt-24 flex place-items-center text-center;    
+    @apply mt-24 flex place-items-center text-center;
   }
-  .col-dummy2 {       
+  .col-dummy2 {
     @apply p-5 flex mt-16 text-center;
   }
 }

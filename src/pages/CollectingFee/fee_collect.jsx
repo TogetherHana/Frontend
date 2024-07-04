@@ -2,9 +2,16 @@ import React from "react";
 import "./fee_collect.scss";
 import Button from "@/components/Button";
 import { useAtom } from "jotai";
-import { amountAtom, characterAtom } from "@/stores";
+import {
+  accessTokenATom,
+  amountAtom,
+  characterAtom,
+  sportSharingAccountFriendsAtom,
+  sportSharingAccountIdxAtom
+} from "@/stores";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useQueryClient } from "@tanstack/react-query";
 
 const images = {
   Hanwha: ["Hanwha_second"],
@@ -24,35 +31,59 @@ const getRandomImage = (key) => {
 };
 
 function FeeCollect() {
+  const qc = useQueryClient();
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useAtom(amountAtom);
   const [randomImageKey, setRandomImageKey] = useAtom(characterAtom);
-  const memberIdx = 1;
+  const [sportSharingAccountIdx] = useAtom(sportSharingAccountIdxAtom); // 모임통장 인덱스
+  const [sportSharingAccountFriends] = useAtom(sportSharingAccountFriendsAtom); // 모임통장 모임원수
+  // const jwtToken = useAtom(accessTokenATom);
 
   const goBack = () => {
     setInputValue("");
     navigate("/fee");
   };
 
+
+  // 쉼표와 '원' 제거
+  const sanitizedInputValue = inputValue.replace(/,/g, "");
+  // Integer로 변환
+  const numericInputValue = Number(sanitizedInputValue);
+  // 나눗셈 연산
+  // @ts-ignore
+  const calculate = numericInputValue / sportSharingAccountFriends;
+  console.log("---걷을 전체 회비는?---");
+  console.log(numericInputValue);
+  console.log("---모임원의 수는?---");
+  console.log(sportSharingAccountFriends);
+  console.log("---그럼 인당 걷을 회비는?---");
+  console.log(calculate);
+  const stringCalculate = calculate.toString();
+  
   const handleCollect = async () => {
     const taxCollectRequest = {
-      sharingAccountId: 1,
-      collectingAmount: parseInt(inputValue, 10)
+      sharingAccountId: sportSharingAccountIdx,
+      collectingAmount: numericInputValue
     };
+
+    const jwtToken = sessionStorage.getItem("jwtToken");
+    console.log("---토큰값 있나?---");
+    console.log(jwtToken);
 
     try {
       const response = await axios.post(
-        `http://127.0.0.1:8080/sharing-account/collect/${memberIdx}`,
+        `http://127.0.0.1:8080/sharing-account/collect`,
         taxCollectRequest,
         {
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${jwtToken}`
           }
         }
       );
 
       console.log(response.data);
-      navigate("/baseball/home");
+      // navigate("/baseball/home");
     } catch (error) {
       if (error.response) {
         console.error("Response error:", error.response.data);
@@ -75,12 +106,11 @@ function FeeCollect() {
           <div className="row-dummy"></div>
         </div>
 
-        <div className="content">
-          <div className="title">총 얼마 걷을래요?</div>
-          <div className="col-dummy" />
-          <div className={`character ${getRandomImage(randomImageKey)}`} />
-          <div className="col-dummy" />
-          <div className="title">{inputValue}원</div>
+        <div className="collect-content">
+          <div className="collect-title">총 얼마 걷을래요?</div>          
+          <div className={`character ${getRandomImage(randomImageKey)}`} />          
+          <div className="collect-title">{inputValue}원</div>
+          <div className="collect-sub">인당 {stringCalculate}원씩 회비걷기 요청을 보냅니다.</div>
           <div className="col-dummy2" />
         </div>
 

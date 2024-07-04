@@ -3,11 +3,13 @@ import "./bigmatch_history.scss";
 import axios from "axios";
 import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
+import { useAtom } from "jotai";
+import { sportSharingAccountIdxAtom } from "@/stores";
 
 function BigmatchHistory() {
   const navigate = useNavigate();
 
-  const sharingAccountIdx = 1; // 모임통장 인덱스 값
+  const [sportSharingAccountIdx] = useAtom(sportSharingAccountIdxAtom); // 모임통장 인덱스
   const [data, setData] = useState(null);
   const [timeLeft, setTimeLeft] = useState("");
   const [isDeadlinePassed, setIsDeadlinePassed] = useState(false);
@@ -16,7 +18,7 @@ function BigmatchHistory() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8080/game/history/${sharingAccountIdx}`,
+          `http://127.0.0.1:8080/game/history/${sportSharingAccountIdx}`,
           {
             headers: {
               "Content-Type": "application/json"
@@ -41,7 +43,7 @@ function BigmatchHistory() {
     };
 
     fetchData();
-  }, [sharingAccountIdx]); // sharingAccountIdx가 변경될 때마다 다시 데이터를 가져옴
+  }, [sportSharingAccountIdx]); // sharingAccountIdx가 변경될 때마다 다시 데이터를 가져옴
 
   useEffect(() => {
     if (!data || !data.playingGame) return;
