@@ -1,3 +1,5 @@
+@import "../../common/styles/scss/responsive.scss";
+
 .fee-container {
   width: 100%;
   height: 100%;
@@ -6,6 +8,9 @@
   flex-direction: column;
 
   .header {
+    @apply p-5 flex mt-16 text-center;
+    @include responsive-font-size(20px);
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -23,13 +28,14 @@
 
   .input-container {
     flex: 2;
+    
 
     display: flex;
     flex-direction: row;
     padding: 30px;
 
     .character {
-      flex: 2;            
+      flex: 3;            
     
       width: 100%;
       height: 100%;
@@ -78,8 +84,7 @@
       justify-content: center;
 
       .title {
-        font-family: "BMHanna";
-        font-weight: 900;
+        font-family: "BMHanna";   
         font-size: 30px;
 
         width: 250px;
@@ -105,7 +110,14 @@
   }
 
   .btns {
-    height: 60px;
+    // @apply p-5 flex mt-16 text-center;
+    // @include responsive-font-size(20px);
+
+    // @apply mt-24 flex place-items-center text-center;
+    // @include responsive-font-size(30px);
+
+@include responsive-margin-top(60px);
+    // height: 60px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -113,8 +125,10 @@
     margin-right: 10px;
 
     .btn {
-      width: 117px;
-      height: 40px;
+      @include responsive-hw(40px, 117px);
+
+      // width: 117px;
+      // height: 40px;
       background-color: $color-background;
       border: 1px solid $color-primary1;
       border-radius: 20px;
@@ -122,12 +136,12 @@
     }
   }
 
-  .num-container {
-    flex: 3;
-    background-color: white;
-    // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    // border-radius: 10px;
+  .num-container {    
+    @include responsive-font-size(30px);
 
+
+    flex: 3;
+    background-color: white; 
     display: flex;
     flex-direction: column;
     justify-content: center;

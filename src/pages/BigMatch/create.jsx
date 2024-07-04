@@ -78,6 +78,7 @@ function CreateMatch() {
         {
           headers: {
             "Content-Type": "application/json"
+            
           }
         }
       );

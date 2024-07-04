@@ -92,7 +92,7 @@ function FeeInput() {
     <>
       <div className="fee-container">
         <div className="header">
-          <div className="back" onClick={() => navigate(-1)}>
+          <div className="back" onClick={() => navigate("/baseball/home")}>
             &lt;
           </div>
           <div>모임통장 회비걷기</div>
@@ -100,8 +100,7 @@ function FeeInput() {
         </div>
 
         <div className="input-container">
-          <div className={`character ${randomImage}`}>
-            {/* <div className=""></div> */}
+          <div className={`character ${randomImage}`}>            
           </div>
           <div className="content">
             <div className="title">총 얼마 걷을래요?</div>
@@ -111,11 +110,11 @@ function FeeInput() {
               value={inputValue}
               className="num-input"
               placeholder="걷을금액"
-            />
-          </div>
+            />             
+          </div>       
         </div>
 
-        <div className="btns">
+        <div className="btns">        
           <button className="btn" onClick={add5000}>
             + 5천
           </button>
