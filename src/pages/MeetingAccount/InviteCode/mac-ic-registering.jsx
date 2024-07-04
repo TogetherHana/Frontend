@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Spinner from "@/assets/Spin@1x-1.0s-200px-200px.gif";
+import { useNavigate } from "react-router-dom";
 
 function MacIcRegistering() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const timer = setTimeout(
+      () => navigate("/maccount/invitecode/complete"),
+      3000
+    );
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <div className="macIcRegistering">
       <img src={Spinner} alt="spinner" />

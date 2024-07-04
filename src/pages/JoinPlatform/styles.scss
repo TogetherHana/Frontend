@@ -426,3 +426,9 @@
   @apply grid;
   @include responsive-position(220px, 90px);
 }
+
+.authCheckInfoComplete {
+  @include responsive-font-size(17px);
+  @include responsive-position(450px, 60px);
+  font-family: "NotoSans";
+}

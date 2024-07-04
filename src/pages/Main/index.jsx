@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { requestForToken } from "@/firebase";
 import "./style.scss";
-import { deviceTokenAtom } from "@/stores";
+import { accessTokenATom, deviceTokenAtom } from "@/stores";
 import { useAtom } from "jotai";
 import { useNavigate } from "react-router-dom";
 
@@ -12,6 +12,7 @@ function Main() {
   const [showSpinner, setShowSpinner] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [deviceToken, setDeviceToken] = useAtom(deviceTokenAtom);
+  const [accessToken, setAccessToken] = useAtom(accessTokenATom);
 
   const navigate = useNavigate();
 
@@ -48,6 +49,8 @@ function Main() {
     if (isMember.data) {
       console.log(isMember.data.isSuccess);
       if (isMember.data.isSuccess) {
+        // setAccessToken(isMember.data.data.accessToken);
+        // console.log(accessToken);
         const timer = setTimeout(() => {
           setShowSpinner(false);
           setTimeout(() => {

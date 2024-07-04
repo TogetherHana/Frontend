@@ -38,7 +38,7 @@ export const memberInfo = {
   phoneNumber: "",
   address: "",
   fcmToken: "",
-  nickName: ""
+  nickname: ""
 };
 
 export const memberAtom = atom(memberInfo);

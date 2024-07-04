@@ -26,10 +26,16 @@
 }
 
 .macIcBottomUpInfoDiv {
+  @apply grid place-items-center;
+  img {
+    // @apply place-items-center;
+    @include responsive-hw(150px, 150px);
+  }
   .title {
     @apply text-center;
     @include responsive-font-size(25px);
     font-family: "NanumSquareRoundR";
+    line-height: 1.5;
   }
 }
 
@@ -60,4 +66,44 @@
 }
 
 .macIcCompleteDiv {
+  // @include responsive-position(175px, 40px);
+  // border: 1px solid black;
+  img {
+    @include responsive-position(300px, 115px);
+  }
+
+  .completeDialog {
+    @include responsive-position(175px, 37px);
+  }
+  .detail {
+    @apply text-center;
+    @include responsive-font-size(25px);
+    // @include responsive-position()
+    // position: absolute;
+    // @include responsive-height(30px);
+    @include responsive-position(550px, 70px);
+    font-family: "NanumSquareRoundB";
+    line-height: 1.5;
+    // @include responsive-position;
+  }
+}
+
+.termsInfoInviteCode {
+  @include responsive-position(183px, 42px);
+  font-family: "NanumSquareRoundB";
+  line-height: 1.4;
+
+  .title {
+    @include responsive-font-size(25px);
+  }
+
+  .titleSub {
+    @include responsive-font-size(30px);
+  }
+
+  .sub {
+    @include responsive-font-size(15px);
+    color: rgba(97, 97, 97, 0.72);
+    font-family: "NotoSans";
+  }
 }
