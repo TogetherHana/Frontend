@@ -50,7 +50,7 @@ function MacSelectStock() {
       </div>
       <div className="selectStockDiv">
         {stockParams.map((item, index) => (
-          <StockDiv params={item} />
+          <StockDiv key={index} params={item} />
         ))}
       </div>
     </>

@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function MacRegisterProcessing() {
   const navigate = useNavigate();
+  const location = useLocation();
+
   useEffect(() => {
-    const timer = setTimeout(
-      () => navigate("/maccount/register/complete"),
-      3000
-    );
+    const timer = setTimeout(() => navigate(`${location.state.url}`), 3000);
     return () => clearTimeout(timer);
   }, []);
   return (
@@ -21,7 +20,7 @@ function MacRegisterProcessing() {
         <div className="typing-shadow"></div>
       </div>
       <div className="mainTitle">
-        모임통장을 생성중입니다
+        {location.state.text}
         <br /> 잠시만 기다려주세요
       </div>
       <div className="mainSub">

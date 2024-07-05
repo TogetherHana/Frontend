@@ -11,7 +11,13 @@ function MacIdVerification() {
   const btnParams = {
     btnText: "신분증 촬영하기",
     btnBelowText: "신분증 촬영이 안돼요 😂",
-    onClick: () => navigate("/maccount/register/userinfo")
+    onClick: () =>
+      navigate("/maccount/register/processing", {
+        state: {
+          url: "/maccount/register/idcertification",
+          text: "확인중입니다"
+        }
+      })
   };
   return (
     <>

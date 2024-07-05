@@ -126,6 +126,10 @@ const router = createBrowserRouter([
         children: [{ index: true, element: <Pages.MacIdVerification /> }]
       },
       {
+        path: "idcertification",
+        children: [{ index: true, element: <Pages.MacIdCertification /> }]
+      },
+      {
         path: "userinfo",
         children: [{ index: true, element: <Pages.MacUserInfo /> }]
       },

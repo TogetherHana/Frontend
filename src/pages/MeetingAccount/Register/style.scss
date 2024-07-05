@@ -50,7 +50,7 @@
 .userInfo {
   @apply m-5;
   @include responsive-font-size(30px);
-  font-family: "BMHanna";
+  font-family: "NanumSquareRoundB";
 }
 
 .userInfoInput {
@@ -144,7 +144,7 @@
 .selectStockMain {
   @include responsive-position(151px, 60px);
   @include responsive-font-size(30px);
-  font-family: "BMHanna";
+  font-family: "NanumSquareRoundB";
   line-height: 1.5;
 }
 
@@ -285,4 +285,24 @@
   font-family: "NanumSquareRoundR";
   line-height: 1.5;
   color: red;
+}
+
+.hanaCertifyDiv {
+  @include responsive-hw(300px, 390px);
+  @include responsive-position(400px, 20px);
+  background-color: rgba(0, 149, 145, 0.7);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  color: white;
+  font-family: "NotoSans";
+  img {
+    @include responsive-position(42px, 165px);
+  }
+  .title {
+    @include responsive-position(136px, 95px);
+    @include responsive-font-size(25px);
+  }
+  .sub {
+    @include responsive-position(197px, 119px);
+  }
 }

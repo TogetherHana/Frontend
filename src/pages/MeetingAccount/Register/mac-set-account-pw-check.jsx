@@ -41,8 +41,6 @@ function MacSetAccountPWCheck({ title, config }) {
     if (accountPW.length == 4) {
       if (accountPW.join("") === macInfo.accountPassword) {
         setIsChecked(true);
-        console.log(typeof accountPW.join(""));
-        console.log(typeof macInfo.accountPassword);
       }
     }
   }, [accountPW]);
