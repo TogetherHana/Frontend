@@ -26,7 +26,7 @@ function Friends() {
     const fetchMembers = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8080/sharing-account/members?sharingAccountIdx=${sportSharingAccountIdx}`,
+          `${import.meta.env.VITE_BE_URI}/sharing-account/members?sharingAccountIdx=${sportSharingAccountIdx}`,
           {
             headers: {
               "Content-Type": "application/json"

@@ -1,6 +1,6 @@
 import { accountAtom, inviteLinkAtom } from "@/stores";
 import { useAtom } from "jotai";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import InviteLinkModal from "../Modal/invitelinkmodal";
 import MainAccountLink from "../Main/mainaccountlink";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
@@ -15,7 +15,7 @@ function HomeAccountDivBtn({ params }) {
     queryKey: ["invite-code"],
     queryFn: async () => {
       const response = await fetch(
-        `http://localhost:8080/invite/code?sharingAccountIdx=${params.idx}`,
+        `${import.meta.env.VITE_BE_URI}/invite/code?sharingAccountIdx=${params.idx}`,
         {
           method: "GET",
           headers: {
@@ -30,15 +30,22 @@ function HomeAccountDivBtn({ params }) {
   });
 
   const handleInviteLinkModal = () => {
-    // isSubmitting value add
     setIsSubmitting(true);
     setInviteModalData((prevData) => ({
       ...prevData,
-      isOpen: !prevData.isOpen,
-      content: <MainAccountLink code={inviteCodeInfo.data.data} />
+      isOpen: !prevData.isOpen
     }));
-    setIsSubmitting(false);
   };
+
+  useEffect(() => {
+    if (inviteCodeInfo.data) {
+      setIsSubmitting(false);
+      setInviteModalData((prevData) => ({
+        ...prevData,
+        content: <MainAccountLink code={inviteCodeInfo.data.data} />
+      }));
+    }
+  }, [inviteCodeInfo.data]);
 
   return (
     <>

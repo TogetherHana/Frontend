@@ -4,23 +4,22 @@ import axios from "axios";
 import { sportSharingAccountIdxAtom } from "@/stores";
 import { useAtom } from "jotai";
 
-
 function formatDate(serverDate) {
   const date = new Date(serverDate);
   const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
   return `${year}.${month}.${day}`;
 }
 function History() {
-  const [data, setData] = useState([]);  
+  const [data, setData] = useState([]);
   const [sportSharingAccountIdx] = useAtom(sportSharingAccountIdxAtom); // 모임통장 인덱스
 
   useEffect(() => {
     const fetchMembers = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8080/sharing-account/history?sharingAccountIdx=${sportSharingAccountIdx}`,
+          `${import.meta.env.VITE_BE_URI}/sharing-account/history?sharingAccountIdx=${sportSharingAccountIdx}`,
           {
             headers: {
               "Content-Type": "application/json"

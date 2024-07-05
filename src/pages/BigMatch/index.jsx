@@ -23,7 +23,7 @@ function Bigmatch() {
 
     try {
       const response = await axios.get(
-        `http://127.0.0.1:8080/game/${gameIdx}`,
+        `${import.meta.env.VITE_BE_URI}/game/${gameIdx}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -59,7 +59,7 @@ function Bigmatch() {
       const gameIdx = localStorage.getItem("playingGameIdx");
       try {
         const response = await axios.post(
-          `http://127.0.0.1:8080/game/option`,
+          `${import.meta.env.VITE_BE_URI}/game/option`,
           {
             gameIdx: gameIdx,
             gameOptionIdx: selectedOption

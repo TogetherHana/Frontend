@@ -43,14 +43,14 @@ function SendPWcheck() {
       amount: parseInt(sendData.amount.replace(/,/g, ""), 10),
       accountPassword: accountPW.join("")
     };
-    
+
     const jwtToken = localStorage.getItem("jwtToken");
     console.log("---토큰값 있나?---");
     console.log(jwtToken);
 
     try {
       const response = await axios.post(
-        `http://127.0.0.1:8080/sharing-account/withdraw`,
+        `${import.meta.env.VITE_BE_URI}/sharing-account/withdraw`,
         transferRequest,
         {
           headers: {

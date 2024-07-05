@@ -1,5 +1,5 @@
 import React from "react";
-import SystemEventHashTag from "./systemeventhashtag";
+import SystemEventHashTag from "./se-hashtag";
 import { Link } from "react-router-dom";
 
 function SystemEventDiv({ img, title, date, hashTagParams, link }) {

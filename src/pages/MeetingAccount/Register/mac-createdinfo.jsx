@@ -62,7 +62,7 @@ function MacCreatedInfo() {
     queryKey: ["mac-create"],
     queryFn: async () => {
       const response = await fetch(
-        "http://localhost:8080/sharing-account/create",
+        `${import.meta.env.VITE_BE_URI}/sharing-account/create`,
         {
           method: "POST",
           headers: {
