@@ -56,6 +56,11 @@ export { default as Home } from "./Home";
 export { default as Main } from "./Main";
 export { default as Mileage } from "./Mileage";
 export { default as Test } from "./TestTest";
+
 // FirstComeEvent - 선착순이벤트
 export { default as WaitingRoom } from "./FirstComeEvent/waitingRoom";
 export { default as Play } from "./FirstComeEvent/play";
+
+// Admin
+export { default as AdminEvent } from "./Admin/EventStatistics";
+export { default as AdminTransfer } from "./Admin/TransferStatistics";

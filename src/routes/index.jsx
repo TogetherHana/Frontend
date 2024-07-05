@@ -290,6 +290,20 @@ const router = createBrowserRouter([
         children: [{ index: true, element: <Pages.Play /> }]
       }
     ]
+  },
+  {
+    path: "/admin",
+    element: <Layouts.AdminLayouts />,
+    children: [
+      {
+        path: "",
+        children: [{ index: true, element: <Pages.AdminTransfer /> }]
+      },
+      {
+        path: "event",
+        children: [{ index: true, element: <Pages.AdminEvent /> }]
+      }
+    ]
   }
 ]);
 
