@@ -139,11 +139,11 @@ const TransferStatistics = () => {
         <div className="col-span-2 w-full space-y-6 flex flex-col">
           <div>
             <p className="mb-2 text-lg leading-6 font-semibold text-gray-500 dark:text-sky-400">
-            한 달간 실적
+              한 달간 실적
             </p>
             <div className="flex items-center">
               <h1 className="inline-block text-xl sm:text-2xl font-extrabold text-emerald-500 tracking-tight dark:text-slate-200">
-              2024.06.01 ~ 2024.06.30
+                2024.06.01 ~ 2024.06.30
               </h1>
             </div>
 

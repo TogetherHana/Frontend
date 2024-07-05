@@ -1,7 +1,13 @@
 import React, { useEffect } from "react";
 import ApexCharts from "apexcharts";
 
-const BarChart = ({ series, categories, chartTitle, thisMonth, increaseDecrease }) => {
+const BarChart = ({
+  series,
+  categories,
+  chartTitle,
+  thisMonth,
+  increaseDecrease
+}) => {
   useEffect(() => {
     const options = {
       series: series,

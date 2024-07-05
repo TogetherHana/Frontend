@@ -12,7 +12,7 @@ import { Link, useLocation } from "react-router-dom";
 import hanaLogo from "@/assets/images/hana.svg";
 
 const AdminSidebar = () => {
-  const location = useLocation();  
+  const location = useLocation();
 
   return (
     <Sidebar>
@@ -41,7 +41,7 @@ const AdminSidebar = () => {
             <h3 className="font-noto text-hanaGreen text-2xl">
               <span className="font-bold">관리자</span>님
             </h3>
-            <p className="font-noto text-gray-500">함께, 하나 소속</p>
+            <p className="font-noto text-gray-500">함께,하나 소속</p>
             <button
               type="button"
               // onClick={handleLogout}
@@ -76,7 +76,7 @@ const AdminSidebar = () => {
             }}
           >
             이벤트
-          </Sidebar.Item>          
+          </Sidebar.Item>
         </Sidebar.ItemGroup>
       </Sidebar.Items>
     </Sidebar>
