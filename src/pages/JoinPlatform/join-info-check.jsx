@@ -21,13 +21,16 @@ function JoinInfoCheck() {
   const registerProcessing = useQuery({
     queryKey: ["register-processing"],
     queryFn: async () => {
-      const response = await fetch("http://localhost:8080/member/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(memberInfo)
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BE_URI}/member/register`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(memberInfo)
+        }
+      );
       return response.json();
     },
     enabled: isSubmitting

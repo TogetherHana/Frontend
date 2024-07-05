@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.scss";
-import SystemEventDiv from "@/components/SystemEvent/systemeventdiv";
+import SystemEventDiv from "@/components/SystemEvent/se-div";
 // @ts-ignore
 import eventmain from "@/assets/images/systemEvent/eventmain/eventmain.svg";
 // @ts-ignore

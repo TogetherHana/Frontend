@@ -1,4 +1,10 @@
-import { globalModalAtom, initialModalState, inviteLinkAtom } from "@/stores";
+import {
+  authCheckAtom,
+  globalModalAtom,
+  initialModalState,
+  inviteLinkAtom,
+  mileageModalAtom
+} from "@/stores";
 import { useAtom } from "jotai";
 import React, { useEffect } from "react";
 import Modal from "react-modal";
@@ -21,27 +27,28 @@ const customStyles = {
   }
 };
 
-export const closeModal = (setInviteModalData) => {
-  setInviteModalData(initialModalState);
+export const closeModal = (setMileageModalData) => {
+  setMileageModalData(initialModalState);
 };
 
-function InviteLinkModal() {
-  const [inviteModalData, setInviteModalData] = useAtom(inviteLinkAtom);
+function HomeMileageModal() {
+  const [mileageModalData, setMileageModalData] = useAtom(mileageModalAtom);
+
   return (
     <Modal
-      isOpen={inviteModalData.isOpen}
-      onRequestClose={() => closeModal(setInviteModalData)}
-      overlayClassName={"invite-link-modal-overlay"}
+      isOpen={mileageModalData.isOpen}
+      onRequestClose={() => closeModal(setMileageModalData)}
+      overlayClassName={"home-mileage-modal-overlay"}
     >
       <div className="center">
-        {inviteModalData.children ? (
-          inviteModalData.children
+        {mileageModalData.children ? (
+          mileageModalData.children
         ) : (
-          <>{inviteModalData.content}</>
+          <>{mileageModalData.content}</>
         )}
       </div>
     </Modal>
   );
 }
 
-export default InviteLinkModal;
+export default HomeMileageModal;

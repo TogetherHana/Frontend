@@ -42,16 +42,19 @@ function JoinAccountLink() {
   const isAccountValidate = useQuery({
     queryKey: ["is-accountvalidate"],
     queryFn: async () => {
-      const response = await fetch("http://localhost:8080/auth/account-check", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          accountNumber: accountNumber,
-          bankName: bankSelect
-        })
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BE_URI}/auth/account-check`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            accountNumber: accountNumber,
+            bankName: bankSelect
+          })
+        }
+      );
       return response.json();
     },
     enabled: isSubmitting

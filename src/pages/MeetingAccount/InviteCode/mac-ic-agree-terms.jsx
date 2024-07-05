@@ -15,7 +15,7 @@ function MacIcAgreeTerms() {
   const qc = useQueryClient();
   const navigate = useNavigate();
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [accessToken, setAccessToken] = useAtom(accessTokenATom);
+  // const [accessToken, setAccessToken] = useAtom(accessTokenATom);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isProcessing, setIsProcessing] = useState(true);
 
@@ -26,6 +26,8 @@ function MacIcAgreeTerms() {
   // const inviteCode = qc.getQueryData(["invite-code"]);
   // console.log(inviteCode);
   const inviteCode = localStorage.getItem("invite-code");
+  // @ts-ignore
+  const accessToken = qc.getQueryData(["is-member"]).data.accessToken;
 
   const agreeTermsProp = {
     btnText: "약관 동의하기",
@@ -70,8 +72,8 @@ function MacIcAgreeTerms() {
 
   useEffect(() => {
     if (macRegisterInfo.data) {
+      setIsSubmitting(false);
       if (macRegisterInfo.data.isSuccess) {
-        setIsSubmitting(false);
         navigate("/maccount/invitecode/processing");
       }
     }

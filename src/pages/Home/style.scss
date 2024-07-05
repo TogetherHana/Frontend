@@ -351,3 +351,70 @@
     line-height: 1.5;
   }
 }
+
+.homeMileageModalDiv {
+  @apply w-full;
+  @include responsive-font-size(25px);
+  font-family: "NanumSquareRoundR";
+
+  .title {
+    @include responsive-font-size(25px);
+  }
+  .detail {
+    @apply flex w-full;
+    @include responsive-position(80px, 0px);
+    @include responsive-font-size(15px);
+  }
+  .mileage {
+    @apply w-2/5;
+    .convertMileage {
+      @apply flex;
+      @include responsive-position(20px, 250px);
+      .inputM {
+        @apply mt-auto;
+        @include responsive-hw(30px, 70px);
+        border: none;
+        border-bottom: 1px solid black;
+      }
+    }
+
+    .currentM {
+      @apply mt-2;
+      @include responsive-font-size(30px);
+    }
+  }
+}
+
+.homeMileageBtn {
+  @apply grid place-items-center;
+  @include responsive-hw(30px, 132px);
+  @include responsive-font-size(13px);
+  @include responsive-position(240px, 125px);
+  background-color: #5c4a4a;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+}
+
+.homeMileageDropDown {
+  /* 04 Dropdown */
+  @apply flex flex-row;
+  @include responsive-hw(40px, 200px);
+  @include responsive-position(170px, 90px);
+  box-sizing: border-box;
+
+  /* Auto layout */
+  // display: flex;
+  // flex-direction: row;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 16px;
+
+  // width: 250px;
+  // height: 55px;
+
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}

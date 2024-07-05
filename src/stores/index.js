@@ -86,3 +86,5 @@ export const maccountInfo = {
 
 export const maccountAtom = atom(maccountInfo);
 
+// 마일리지 충전 및 전환 모달?
+export const mileageModalAtom = atom(initialModalState);

@@ -15,7 +15,7 @@ function TeamLogo({ params, memberIdx }) {
 
     try {
       const response = await axios.put(
-        `http://127.0.0.1:8080/sports-club/pick/${memberIdx}`,
+        `${import.meta.env.VITE_BE_URI}/sports-club/pick/${memberIdx}`,
         sportsClubIdx,
         {
           headers: {
@@ -27,7 +27,7 @@ function TeamLogo({ params, memberIdx }) {
 
       if (!response.data.isSuccess) {
         alert("이미 응원팀을 설정했습니다.");
-      } 
+      }
 
       navigate("/");
     } catch (error) {
