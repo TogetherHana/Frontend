@@ -1,83 +1,166 @@
 import React, { useEffect, useState } from "react";
 import BarChart from "../../components/Chart/BarChart";
 import CountingCard from "../../components/Card/CountingCard";
+import { useNavigate } from "react-router-dom";
 
 const TransferStatistics = () => {
-  // const [settlementDetail, setSettlementDetail] = useState([]);
+  const [chartData, setChartData] = useState({
+    series: [
+      {
+        name: "",
+        color: "",
+        data: []
+      }
+    ],
+    categories: [],
+    chartTitle: "",
+    thisMonth: "",
+    increaseDecrease: ""
+  });
 
-  // const doCalculateSettlement = async () => {
-  //   try {
-  //     const response = await calculateSettlement();
-  //     console.log(response);
-  //     setSettlementDetail(response.result);
-  //   } catch (error) {
-  //     console.error("Failed to fetch response:", error);
-  //   }
-  // };
+  const formatNumber = (number) => {
+    return new Intl.NumberFormat().format(number);
+  };
 
-  // const totalAmount =
-  //   settlementDetail.depositTotalCount +
-  //   settlementDetail.withdrawalTotalCount;
+  const cntClick = () => {
+    const seriesData = [200, 220, 250, 280];
+    const thisMonthValue = seriesData[seriesData.length - 1];
+    const prevMonthValue = seriesData[seriesData.length - 2];
+    const increment =
+      ((thisMonthValue - prevMonthValue) / prevMonthValue) * 100;
 
-  // useEffect(() => {
-  //   doCalculateSettlement();
-  // }, []);
+    setChartData({
+      series: [
+        {
+          name: "생성 건수",
+          color: "#44BD91",
+          data: [200, 220, 250, 280]
+        }
+      ],
+
+      categories: ["3월", "4월", "5월", "6월"],
+      chartTitle: "모임통장 생성건수",
+      thisMonth: formatNumber(thisMonthValue),
+      increaseDecrease: increment + "%"
+    });
+  };
+  const participantClick = () => {
+    const seriesData = [1500, 1700, 2000, 2300];
+    const thisMonthValue = seriesData[seriesData.length - 1];
+    const prevMonthValue = seriesData[seriesData.length - 2];
+    const increment =
+      ((thisMonthValue - prevMonthValue) / prevMonthValue) * 100;
+
+    setChartData({
+      series: [
+        {
+          name: "참여자 수",
+          color: "#44BD91",
+          data: [1500, 1700, 2000, 2300]
+        }
+      ],
+
+      categories: ["3월", "4월", "5월", "6월"],
+      chartTitle: "모임통장 참여자 수",
+      thisMonth: formatNumber(thisMonthValue),
+      increaseDecrease: increment + "%"
+    });
+  };
+  const transactionClick = () => {
+    const seriesData = [5000, 5500, 6000, 6500];
+    const thisMonthValue = seriesData[seriesData.length - 1];
+    const prevMonthValue = seriesData[seriesData.length - 2];
+    const increment =
+      ((thisMonthValue - prevMonthValue) / prevMonthValue) * 100;
+
+    setChartData({
+      series: [
+        {
+          name: "입출금 건수",
+          color: "#44BD91",
+          data: [5000, 5500, 6000, 6500]
+        }
+      ],
+
+      categories: ["3월", "4월", "5월", "6월"],
+      chartTitle: "모임통장 입출금거래 건수",
+      thisMonth: formatNumber(thisMonthValue),
+      increaseDecrease: increment + "%"
+    });
+  };
+  const eventClick = () => {
+    const seriesData = [800, 900, 1000, 1200];
+    const thisMonthValue = seriesData[seriesData.length - 1];
+    const prevMonthValue = seriesData[seriesData.length - 2];
+    const increment =
+      ((thisMonthValue - prevMonthValue) / prevMonthValue) * 100;
+
+    setChartData({
+      series: [
+        {
+          name: "이벤트 건수",
+          color: "#44BD91",
+          data: [800, 900, 1000, 1200]
+        }
+      ],
+
+      categories: ["3월", "4월", "5월", "6월"],
+      chartTitle: "모임통장 이벤트 참여 건수",
+      thisMonth: formatNumber(thisMonthValue),
+      increaseDecrease: increment + "%"
+    });
+  };
+
+  useEffect(() => {
+    cntClick();
+  }, []);
 
   return (
     <div className="w-full space-y-6">
       <div className="space-y-2">
         <h1 className="text-xl font-extrabold text-gray-900 dark:text-white md:text-2xl lg:text-4xl">
-          저번 주의{" "}
+          함께, 하나?{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
-            입출금 정산
+            모임통장 통계
           </span>{" "}
           현황입니다.
         </h1>
-        <p className="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
-          6월 1주차에 하나은행에서 발생한 입금과 출금의 정산 결과를
-          확인해보세요! 🙌
-        </p>
       </div>
       <div className="w-full grid grid-cols-6  gap-6">
         <div className="col-span-4">
-          <BarChart />
+          <BarChart
+            series={chartData.series}
+            categories={chartData.categories}
+            chartTitle={chartData.chartTitle}
+            thisMonth={chartData.thisMonth}
+            increaseDecrease={chartData.increaseDecrease}
+          />
         </div>
         <div className="col-span-2 w-full space-y-6 flex flex-col">
           <div>
             <p className="mb-2 text-lg leading-6 font-semibold text-gray-500 dark:text-sky-400">
-              집계 데이터
+            한 달간 실적
             </p>
             <div className="flex items-center">
               <h1 className="inline-block text-xl sm:text-2xl font-extrabold text-emerald-500 tracking-tight dark:text-slate-200">
-                거래 건수 합계
+              2024.06.01 ~ 2024.06.30
               </h1>
             </div>
 
-            <ul role="list" className="mt-4">
-              <li className="flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="size-6"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-
-                <span className="text-sm font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">
-                  {/* {settlementDetail.startDate} ~ {settlementDetail.endDate} */}
-                  2024.06.01 ~ 2024.06.30
-                </span>
-              </li>
-            </ul>
+            {/*  */}
           </div>
-          <CountingCard title="전체 거래" count="1928438070" />
-          <CountingCard title="입금 이체" count="1,874,639,250" />
-          <CountingCard title="출금 이체" count="53,798,820" />
+          <div onClick={cntClick}>
+            <CountingCard title="모임통장 개설 건수" count="280" />
+          </div>
+          <div onClick={participantClick}>
+            <CountingCard title="모임통장 참여자 수" count="2,300" />
+          </div>
+          <div onClick={transactionClick}>
+            <CountingCard title="모임통장 입출금거래 건수" count="6,500" />
+          </div>
+          <div onClick={eventClick}>
+            <CountingCard title="모임통장 이벤트 참여 건수" count="1200" />
+          </div>
         </div>
       </div>
     </div>

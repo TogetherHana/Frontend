@@ -12,9 +12,7 @@ import { Link, useLocation } from "react-router-dom";
 import hanaLogo from "@/assets/images/hana.svg";
 
 const AdminSidebar = () => {
-  const location = useLocation();
-
-  const [name, setName] = useState("");
+  const location = useLocation();  
 
   return (
     <Sidebar>
@@ -55,13 +53,13 @@ const AdminSidebar = () => {
           <hr />
           <Sidebar.Item
             as={Link}
-            to="/admin"
+            to="/admin/maccountStats"
             icon={HiPresentationChartBar}
             labelColor="dark"
             className="my-4"
             style={{
               fontWeight:
-                location.pathname === "/admin/event" ? "bold" : "normal"
+                location.pathname === "/admin/maccountStats" ? "bold" : "normal"
             }}
           >
             모임통장
@@ -74,67 +72,11 @@ const AdminSidebar = () => {
             className="my-4"
             style={{
               fontWeight:
-                location.pathname === "/admin/transfer" ? "bold" : "normal"
+                location.pathname === "/admin/event" ? "bold" : "normal"
             }}
           >
             이벤트
-          </Sidebar.Item>
-          <Sidebar.Item
-            as={Link}
-            to="/admin/inheritance-review"
-            icon={HiClipboard}
-            className="my-4"
-            style={{
-              fontWeight:
-                location.pathname === "/admin/inheritance-review"
-                  ? "bold"
-                  : "normal"
-            }}
-          >
-            DashBoard
-          </Sidebar.Item>
-          {/* <Sidebar.Item
-            as={Link}
-            to="/admin/consulting-review"
-            icon={HiChatAlt}
-            className="my-4"
-            style={{
-              fontWeight:
-                location.pathname === "/admin/consulting-review"
-                  ? "bold"
-                  : "normal"
-            }}
-          >
-            상담 대기 목록
-          </Sidebar.Item>
-          <Sidebar.Item
-            as={Link}
-            to="/admin/sms-reservation"
-            icon={HiMail}
-            className="my-4"
-            style={{
-              fontWeight:
-                location.pathname === "/admin/sms-reservation"
-                  ? "bold"
-                  : "normal"
-            }}
-          >
-            문자 예약 발송
-          </Sidebar.Item>
-          <Sidebar.Item
-            as={Link}
-            to="/admin/sms-reservation/result"
-            icon={HiMailOpen}
-            className="my-4"
-            style={{
-              fontWeight:
-                location.pathname === "/admin/sms-reservation/result"
-                  ? "bold"
-                  : "normal"
-            }}
-          >
-            문자 예약 결과
-          </Sidebar.Item> */}
+          </Sidebar.Item>          
         </Sidebar.ItemGroup>
       </Sidebar.Items>
     </Sidebar>
