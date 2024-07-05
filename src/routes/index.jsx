@@ -296,7 +296,7 @@ const router = createBrowserRouter([
     element: <Layouts.AdminLayouts />,
     children: [
       {
-        path: "",
+        path: "maccountStats",
         children: [{ index: true, element: <Pages.AdminTransfer /> }]
       },
       {
