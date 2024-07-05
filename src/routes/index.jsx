@@ -280,6 +280,14 @@ const router = createBrowserRouter([
       {
         path: "event/selectwin",
         children: [{ index: true, element: <Pages.SystemEventSelectWin /> }]
+      },
+      {
+        path: "firstComeEvent/wait",
+        children: [{ index: true, element: <Pages.WaitingRoom /> }]
+      },
+      {
+        path: "firstComeEvent/play",
+        children: [{ index: true, element: <Pages.Play /> }]
       }
     ]
   },

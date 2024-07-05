@@ -1,16 +1,26 @@
 import React, { useEffect, useState } from "react";
 import "./history.scss";
 import axios from "axios";
+import { sportSharingAccountIdxAtom } from "@/stores";
+import { useAtom } from "jotai";
 
+
+function formatDate(serverDate) {
+  const date = new Date(serverDate);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}.${month}.${day}`;
+}
 function History() {
-  const [data, setData] = useState([]);
-  const sharingAccountIdx = 1; // 모임통장 인덱스 값
+  const [data, setData] = useState([]);  
+  const [sportSharingAccountIdx] = useAtom(sportSharingAccountIdxAtom); // 모임통장 인덱스
 
   useEffect(() => {
     const fetchMembers = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8080/sharing-account/history?sharingAccountIdx=${sharingAccountIdx}`,
+          `http://127.0.0.1:8080/sharing-account/history?sharingAccountIdx=${sportSharingAccountIdx}`,
           {
             headers: {
               "Content-Type": "application/json"
@@ -39,7 +49,7 @@ function History() {
     };
 
     fetchMembers();
-  }, [sharingAccountIdx]); // sharingAccountIdx가 변경될 때마다 다시 데이터를 가져옴
+  }, [sportSharingAccountIdx]); // sharingAccountIdx가 변경될 때마다 다시 데이터를 가져옴
 
   const formatNumber = (number) => {
     return new Intl.NumberFormat().format(number);
@@ -54,7 +64,7 @@ function History() {
           .map((transaction, index) => (
             <div className="one-thing" key={index}>
               <div className="date-name">
-                <div className="date">06.18</div>
+                <div className="date">{formatDate(transaction.createdAt)}</div>
                 {transaction.transferType === "WITHDRAW" && (
                   <div>{transaction.recipient}</div>
                 )}

@@ -14,16 +14,20 @@ function Bigmatch() {
 
   console.log("----지금 진행중인 게임 idx는?----");
   console.log(localStorage.getItem("playingGameIdx"));
+  const jwtToken = localStorage.getItem("jwtToken");
+  console.log("---토큰값 있나?---");
+  console.log(jwtToken);
 
   const ship = async () => {
     const gameIdx = localStorage.getItem("playingGameIdx");
 
     try {
       const response = await axios.get(
-        `http://127.0.0.1:8080/game/${gameIdx}/4`,
+        `http://127.0.0.1:8080/game/${gameIdx}`,
         {
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${jwtToken}`
           }
         }
       );
@@ -55,14 +59,15 @@ function Bigmatch() {
       const gameIdx = localStorage.getItem("playingGameIdx");
       try {
         const response = await axios.post(
-          `http://127.0.0.1:8080/game/option/5`,
+          `http://127.0.0.1:8080/game/option`,
           {
             gameIdx: gameIdx,
             gameOptionIdx: selectedOption
           },
           {
             headers: {
-              "Content-Type": "application/json"
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${jwtToken}`
             }
           }
         );
@@ -136,7 +141,10 @@ function Bigmatch() {
                       onChange={handleOptionChange}
                       checked={selectedOption === option.gameOptionIdx}
                       // @ts-ignore
-                      disabled={isVotingMember} // 투표 멤버인 경우 라디오 버튼을 비활성화
+                      disabled={
+                        isVotingMember &&
+                        selectedOption !== option.gameOptionIdx
+                      } // 투표 멤버인 경우 라디오 버튼을 비활성화
                     />
                     <span className="on"></span>
                     {option.optionTitle}
@@ -161,7 +169,7 @@ function Bigmatch() {
               </div>
             </div>
           ))}
-          {!isVotingMember && (
+          {!isVotingMember ? (
             <Button
               className="btn"
               onClick={
@@ -171,6 +179,10 @@ function Bigmatch() {
               }
             >
               {!isVotingClosed ? "한배타기" : "승리호결정"}
+            </Button>
+          ) : (
+            <Button className="btn" onClick={() => navigate("/baseball/home")}>
+              홈으로 돌아가기
             </Button>
           )}
         </div>
