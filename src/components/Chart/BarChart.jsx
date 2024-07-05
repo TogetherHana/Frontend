@@ -63,7 +63,7 @@ const BarChart = ({
         intersect: false,
         y: {
           formatter: function (value) {
-            return value + "원";
+            return value + "건";
           }
         },
         style: {
@@ -79,7 +79,7 @@ const BarChart = ({
             cssClass: "text-sm font-normal fill-gray-500 dark:fill-gray-400"
           },
           formatter: function (value) {
-            return value + "원";
+            return value + "건";
           }
         },
         categories: categories,
