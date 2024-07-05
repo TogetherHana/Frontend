@@ -43,7 +43,7 @@ const AdminSidebar = () => {
             <h3 className="font-noto text-hanaGreen text-2xl">
               <span className="font-bold">관리자</span>님
             </h3>
-            <p className="font-noto text-gray-500">함께, 하나 소속</p>
+            <p className="font-noto text-gray-500">함께,하나 소속</p>
             <button
               type="button"
               // onClick={handleLogout}
@@ -93,48 +93,6 @@ const AdminSidebar = () => {
           >
             DashBoard
           </Sidebar.Item>
-          {/* <Sidebar.Item
-            as={Link}
-            to="/admin/consulting-review"
-            icon={HiChatAlt}
-            className="my-4"
-            style={{
-              fontWeight:
-                location.pathname === "/admin/consulting-review"
-                  ? "bold"
-                  : "normal"
-            }}
-          >
-            상담 대기 목록
-          </Sidebar.Item>
-          <Sidebar.Item
-            as={Link}
-            to="/admin/sms-reservation"
-            icon={HiMail}
-            className="my-4"
-            style={{
-              fontWeight:
-                location.pathname === "/admin/sms-reservation"
-                  ? "bold"
-                  : "normal"
-            }}
-          >
-            문자 예약 발송
-          </Sidebar.Item>
-          <Sidebar.Item
-            as={Link}
-            to="/admin/sms-reservation/result"
-            icon={HiMailOpen}
-            className="my-4"
-            style={{
-              fontWeight:
-                location.pathname === "/admin/sms-reservation/result"
-                  ? "bold"
-                  : "normal"
-            }}
-          >
-            문자 예약 결과
-          </Sidebar.Item> */}
         </Sidebar.ItemGroup>
       </Sidebar.Items>
     </Sidebar>
