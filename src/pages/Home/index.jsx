@@ -44,8 +44,13 @@ function Home() {
 
   // @ts-ignore
   // jwt acccesstoken, refreshtoken
-  const jwtTokendata = qc.getQueryData(["is-member"]).data;
-  // const jwtTokendata = qc.getQueryData(["is-member"])?.data;
+  const jwtTokendata = qc.getQueryData(["is-member"])?.data;
+  localStorage.setItem("jwtToken", jwtTokendata.accessToken);
+  console.log("---토큰값 잘 저장됐나??---");
+  console.log(localStorage.getItem("jwtToken"));
+  console.log("\n---refreshToken은 있는건가?---");
+  console.log(jwtTokendata.refreshToken);
+
 
   // 모임통장 리스트 가져오기
   const sharingAccountInfo = useQuery({

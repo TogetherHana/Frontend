@@ -4,10 +4,26 @@ import HomeMileageSubBtn from "../Button/homemileagesubbtn";
 import HomeAccountDivBtn from "../Button/homeaccountdivbtn";
 import GlobalModal from "../Modal";
 import { useNavigate } from "react-router-dom";
+import { useAtom } from "jotai";
+import {
+  sportSharingAccountIdxAtom,
+  sportSharingAccountNameAtom,
+  sportSharingAccountNumAtom
+} from "@/stores";
 import { Home } from "@/pages";
 
 function MainAccountDiv({ params }) {
   const navigate = useNavigate();
+
+  const [sportSharingAccountIdx, setSportSharingAccountIdx] = useAtom(
+    sportSharingAccountIdxAtom
+  ); // 모임통장 인덱스
+  const [sportSharingAccountName, setSportSharingAccountName] = useAtom(
+    sportSharingAccountNameAtom
+  ); // 모임통장 계좌이름
+  const [sportSharingAccountNum, setSportSharingAccountNum] = useAtom(
+    sportSharingAccountNumAtom
+  ); // 모임통장 계좌번호
 
   // console.log(params);
   const formatCurrency = (number) => {
@@ -17,6 +33,15 @@ function MainAccountDiv({ params }) {
     }).format(number);
   };
 
+  const handleSharingAccount = (accountIdx, accountName, accountNumber) => {
+    const encodedAccountName = encodeURIComponent(accountName); // 띄어쓰기가 있을 가능성때문
+
+    setSportSharingAccountIdx(accountIdx);
+    setSportSharingAccountName(accountName);
+    setSportSharingAccountNum(accountNumber);
+    navigate(`/baseball/home`);
+    // navigate(`/baseball/home?idx=${accountIdx}&name=${accountName}`);
+  };
   const btnProps = [
     {
       content: "초대하기",
@@ -35,18 +60,14 @@ function MainAccountDiv({ params }) {
     }
   ];
 
-  const handleSharingAccount = (accountIdx, accountName) => {
-    const encodedAccountName = encodeURIComponent(accountName);
-    navigate(`/baseball/home?idx=${accountIdx}&name=${accountName}`);
-  };
-
   return (
+
     <div className="renewalMiddleContent">
       <div className="mainAccountDiv">
         <div
           className="mainAccountDivTxt"
           onClick={() =>
-            handleSharingAccount(params.sharingAccountIdx, params.accountName)
+            handleSharingAccount(params.sharingAccountIdx, params.accountName, params.accountNumber)
           }
         >
           {params.accountName}

@@ -28,15 +28,14 @@
 
   .input-container {
     flex: 2;
-    
 
     display: flex;
     flex-direction: row;
     padding: 30px;
 
     .character {
-      flex: 3;            
-    
+      flex: 3;
+
       width: 100%;
       height: 100%;
       position: relative;
@@ -84,7 +83,7 @@
       justify-content: center;
 
       .title {
-        font-family: "BMHanna";   
+        font-family: "BMHanna";
         font-size: 30px;
 
         width: 250px;
@@ -116,7 +115,9 @@
     // @apply mt-24 flex place-items-center text-center;
     // @include responsive-font-size(30px);
 
-@include responsive-margin-top(60px);
+    @include responsive-margin-top(30px);
+    @include responsive-margin-bottom(30px);
+
     // height: 60px;
     display: flex;
     flex-direction: row;
@@ -136,12 +137,11 @@
     }
   }
 
-  .num-container {    
+  .num-container {
     @include responsive-font-size(30px);
 
-
     flex: 3;
-    background-color: white; 
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
