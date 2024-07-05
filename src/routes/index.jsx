@@ -219,9 +219,7 @@ const router = createBrowserRouter([
       },
       {
         path: "send/amount/pwcheck",
-        children: [
-          { index: true, element: <Pages.SendPWcheck/> },          
-        ]
+        children: [{ index: true, element: <Pages.SendPWcheck /> }]
       }
     ]
   },
@@ -282,6 +280,20 @@ const router = createBrowserRouter([
       {
         path: "event/selectwin",
         children: [{ index: true, element: <Pages.SystemEventSelectWin /> }]
+      }
+    ]
+  },
+  {
+    path: "/admin",
+    element: <Layouts.AdminLayouts />,
+    children: [
+      {
+        path: "",
+        children: [{ index: true, element: <Pages.AdminTransfer /> }]
+      },
+      {
+        path: "event",
+        children: [{ index: true, element: <Pages.AdminEvent /> }]
       }
     ]
   }

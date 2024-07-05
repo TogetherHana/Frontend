@@ -56,3 +56,6 @@ export { default as Home } from "./Home";
 export { default as Main } from "./Main";
 export { default as Mileage } from "./Mileage";
 export { default as Test } from "./TestTest";
+// Admin
+export { default as AdminEvent } from "./Admin/EventStatistics";
+export { default as AdminTransfer } from "./Admin/TransferStatistics";
