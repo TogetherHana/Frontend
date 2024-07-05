@@ -18,7 +18,7 @@ function BigmatchHistory() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8080/game/history/${sportSharingAccountIdx}`,
+          `${import.meta.env.VITE_BE_URI}/game/history/${sportSharingAccountIdx}`,
           {
             headers: {
               "Content-Type": "application/json"

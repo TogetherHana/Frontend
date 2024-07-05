@@ -30,7 +30,7 @@ function Main() {
     queryKey: ["is-member"],
     queryFn: async () => {
       const response = await fetch(
-        `http://localhost:8080/auth/login?deviceToken=${deviceToken}`,
+        `${import.meta.env.VITE_BE_URI}/auth/login?deviceToken=${deviceToken}`,
         {
           method: "GET",
           headers: {
@@ -41,8 +41,7 @@ function Main() {
       console.log(response);
       return response.json();
     },
-    enabled: isSubmitting,
-    gcTime: 30 * 60 * 1000
+    enabled: isSubmitting
   });
 
   useEffect(() => {

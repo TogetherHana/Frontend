@@ -17,17 +17,20 @@ function SystemEventSelectCheck({ teamnm, matchnm, img, gameidx, teamidx }) {
   const predictInfo = useQuery({
     queryKey: ["user-predict"],
     queryFn: async () => {
-      const response = await fetch("http://localhost:8080/event/pick", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${accessToken}`
-        },
-        body: JSON.stringify({
-          eventGameIdx: gameidx,
-          winnerPredictTeamIdx: teamidx
-        })
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BE_URI}/event/pick`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`
+          },
+          body: JSON.stringify({
+            eventGameIdx: gameidx,
+            winnerPredictTeamIdx: teamidx
+          })
+        }
+      );
       return response.json();
     },
     enabled: isSubmitting

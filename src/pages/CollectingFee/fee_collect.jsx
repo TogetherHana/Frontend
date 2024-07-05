@@ -44,7 +44,6 @@ function FeeCollect() {
     navigate("/fee");
   };
 
-
   // 쉼표와 '원' 제거
   const sanitizedInputValue = inputValue.replace(/,/g, "");
   // Integer로 변환
@@ -59,7 +58,7 @@ function FeeCollect() {
   console.log("---그럼 인당 걷을 회비는?---");
   console.log(calculate);
   const stringCalculate = calculate.toString();
-  
+
   const handleCollect = async () => {
     const taxCollectRequest = {
       sharingAccountId: sportSharingAccountIdx,
@@ -72,7 +71,7 @@ function FeeCollect() {
 
     try {
       const response = await axios.post(
-        `http://127.0.0.1:8080/sharing-account/collect`,
+        `${import.meta.env.VITE_BE_URI}/sharing-account/collect`,
         taxCollectRequest,
         {
           headers: {
@@ -107,10 +106,12 @@ function FeeCollect() {
         </div>
 
         <div className="collect-content">
-          <div className="collect-title">총 얼마 걷을래요?</div>          
-          <div className={`character ${getRandomImage(randomImageKey)}`} />          
+          <div className="collect-title">총 얼마 걷을래요?</div>
+          <div className={`character ${getRandomImage(randomImageKey)}`} />
           <div className="collect-title">{inputValue}원</div>
-          <div className="collect-sub">인당 {stringCalculate}원씩 회비걷기 요청을 보냅니다.</div>
+          <div className="collect-sub">
+            인당 {stringCalculate}원씩 회비걷기 요청을 보냅니다.
+          </div>
           <div className="col-dummy2" />
         </div>
 

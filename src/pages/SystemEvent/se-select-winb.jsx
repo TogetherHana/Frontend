@@ -11,12 +11,15 @@ function SystemEventSelectWinB() {
   const matchInfo = useQuery({
     queryKey: ["match-info"],
     queryFn: async () => {
-      const response = await fetch("http://localhost:8080/event/list", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json"
+      const response = await fetch(
+        `${import.meta.env.VITE_BE_URI}/event/list`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          }
         }
-      });
+      );
       return response.json();
     },
     enabled: isSubmitting

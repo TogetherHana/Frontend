@@ -15,7 +15,7 @@ function HomeAccountDivBtn({ params }) {
     queryKey: ["invite-code"],
     queryFn: async () => {
       const response = await fetch(
-        `http://localhost:8080/invite/code?sharingAccountIdx=${params.idx}`,
+        `${import.meta.env.VITE_BE_URI}/invite/code?sharingAccountIdx=${params.idx}`,
         {
           method: "GET",
           headers: {
@@ -35,11 +35,11 @@ function HomeAccountDivBtn({ params }) {
       ...prevData,
       isOpen: !prevData.isOpen
     }));
-    setIsSubmitting(false);
   };
 
   useEffect(() => {
     if (inviteCodeInfo.data) {
+      setIsSubmitting(false);
       setInviteModalData((prevData) => ({
         ...prevData,
         content: <MainAccountLink code={inviteCodeInfo.data.data} />

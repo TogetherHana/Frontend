@@ -2,7 +2,7 @@ import "./style.scss";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { accessTokenATom } from "@/stores";
+import { accessTokenATom, authCheckAtom, mileageModalAtom } from "@/stores";
 import { useAtom } from "jotai";
 import MainAccountDiv from "@/components/Main/mainaccountdiv";
 import MainMiddleBtn from "@/components/Main/mainmiddlebtn";
@@ -16,13 +16,14 @@ import MainMileageBtn from "@/components/Main/mainmileagebtn";
 import charging from "@/assets/images/mileage/charging.svg";
 import convert from "@/assets/images/mileage/convert.svg";
 import HomeDataProcessing from "./home-data-processing";
+import HomeMileageModal from "@/components/Modal/homemileagemodal";
+import MainMileageConvertDiv from "@/components/Main/main-mileage-convert-div";
 
 function Home() {
-  const [isSetCheeringTeam, setIsSetCheeringTeam] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(true);
   const [isSubmittingU, setIsSubmittingU] = useState(true);
-  const [accessToken, setAccessToken] = useAtom(accessTokenATom);
+  const [mileageModalData, setMileageModalData] = useAtom(mileageModalAtom);
 
   const qc = useQueryClient();
   const navigate = useNavigate();
@@ -51,18 +52,20 @@ function Home() {
   console.log("\n---refreshToken은 있는건가?---");
   console.log(jwtTokendata.refreshToken);
 
-
   // 모임통장 리스트 가져오기
   const sharingAccountInfo = useQuery({
     queryKey: ["sac-info"],
     queryFn: async () => {
-      const response = await fetch("http://localhost:8080/sharing-account/my", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${jwtTokendata.accessToken}`
+      const response = await fetch(
+        `${import.meta.env.VITE_BE_URI}/sharing-account/my`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${jwtTokendata.accessToken}`
+          }
         }
-      });
+      );
 
       return response.json();
     },
@@ -73,7 +76,7 @@ function Home() {
   const userInfo = useQuery({
     queryKey: ["user-info"],
     queryFn: async () => {
-      const response = await fetch("http://localhost:8080/member/me", {
+      const response = await fetch(`${import.meta.env.VITE_BE_URI}/member/me`, {
         method: "GET",
         headers: {
           "Content-Type": "application.json",
@@ -84,7 +87,27 @@ function Home() {
       return response.json();
     },
     enabled: isSubmittingU
+    // refetchOnMount: true
+    // refetchOnWindowFocus: "always"
   });
+
+  // 마일리지 충전
+  const handleMileageCharge = () => {};
+
+  // 마일리지 환전
+  const handleMileageConvert = () => {
+    // 사용자 마일리지 정보
+    const mileageInfo = {
+      mileageIdx: userInfo.data.data.mileage.mileageIdx,
+      amount: userInfo.data.data.mileage.amount
+    };
+
+    setMileageModalData((prev) => ({
+      ...prev,
+      isOpen: !prev.isOpen,
+      content: <MainMileageConvertDiv mileageInfo={mileageInfo} />
+    }));
+  };
 
   useEffect(() => {
     setIsSubmitting(false);
@@ -95,10 +118,10 @@ function Home() {
     setIsSubmittingU(false);
   }, [userInfo.data]);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2000);
-    return () => clearTimeout(timer);
-  }, []);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => setIsLoading(false), 2000);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   return (
     <>
@@ -148,9 +171,17 @@ function Home() {
             </div>
             <hr />
             <div className="bottom">
-              <MainMileageBtn content={"충전하기"} img={charging} />
+              <MainMileageBtn
+                content={"충전하기"}
+                img={charging}
+                onClick={() => handleMileageCharge()}
+              />
               {/* <div className="v-line"></div> */}
-              <MainMileageBtn content={"환전하기"} img={convert} />
+              <MainMileageBtn
+                content={"환전하기"}
+                img={convert}
+                onClick={() => handleMileageConvert()}
+              />
             </div>
           </div>
           {/* event & goods shop */}
@@ -172,6 +203,7 @@ function Home() {
             </div>
             <img src={clover} alt="clover" />
           </div>
+          <HomeMileageModal />
         </>
       )}
     </>

@@ -24,7 +24,7 @@ function JoinSetNickName() {
     queryKey: ["is-nickname-duplicate"],
     queryFn: async () => {
       const response = await fetch(
-        `http://localhost:8080/member/nickname-check?nickname=${nickName}`,
+        `${import.meta.env.VITE_BE_URI}/member/nickname-check?nickname=${nickName}`,
         {
           method: "GET",
           headers: {

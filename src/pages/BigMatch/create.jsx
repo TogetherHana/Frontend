@@ -75,7 +75,7 @@ function CreateMatch() {
 
     try {
       const response = await axios.post(
-        `http://127.0.0.1:8080/game/${sportSharingAccountIdx}`,
+        `${import.meta.env.VITE_BE_URI}/game/${sportSharingAccountIdx}`,
         bigmatchFormData,
         {
           headers: {

@@ -26,7 +26,7 @@ function JoinAuthenticationCheck() {
     queryKey: ["is-accountauthentication"],
     queryFn: async () => {
       const response = await fetch(
-        "http://localhost:8080/auth/account-verify",
+        `${import.meta.env.VITE_BE_URI}/auth/account-verify`,
         {
           method: "POST",
           headers: {
