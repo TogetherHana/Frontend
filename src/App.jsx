@@ -12,9 +12,10 @@ function App() {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
-        staleTime: 30 * 60 * 1000,
+        staleTime: 1000,
         // @ts-ignore
-        cacheTime: 30 * 60 * 1000 // 30 min
+        // cacheTime: 30 * 60 * 1000 // 30 min
+        gcTime: Infinity
       }
     }
   });

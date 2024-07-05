@@ -3,11 +3,13 @@ import "./bigmatch_history.scss";
 import axios from "axios";
 import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
+import { useAtom } from "jotai";
+import { sportSharingAccountIdxAtom } from "@/stores";
 
 function BigmatchHistory() {
   const navigate = useNavigate();
 
-  const sharingAccountIdx = 1; // 모임통장 인덱스 값
+  const [sportSharingAccountIdx] = useAtom(sportSharingAccountIdxAtom); // 모임통장 인덱스
   const [data, setData] = useState(null);
   const [timeLeft, setTimeLeft] = useState("");
   const [isDeadlinePassed, setIsDeadlinePassed] = useState(false);
@@ -16,7 +18,7 @@ function BigmatchHistory() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8080/game/history/${sharingAccountIdx}`,
+          `${import.meta.env.VITE_BE_URI}/game/history/${sportSharingAccountIdx}`,
           {
             headers: {
               "Content-Type": "application/json"
@@ -26,9 +28,6 @@ function BigmatchHistory() {
 
         console.log(response.data.data);
         setData(response.data.data);
-        
-        console.log(data.playingGame.gameIdx);
-        localStorage.setItem("playingGameIdx", data.playingGame.gameIdx);
       } catch (error) {
         if (error.response) {
           console.error("Response error:", error.response.data);
@@ -41,10 +40,13 @@ function BigmatchHistory() {
     };
 
     fetchData();
-  }, [sharingAccountIdx]); // sharingAccountIdx가 변경될 때마다 다시 데이터를 가져옴
+  }, [sportSharingAccountIdx]); // sharingAccountIdx가 변경될 때마다 다시 데이터를 가져옴
 
   useEffect(() => {
     if (!data || !data.playingGame) return;
+
+    console.log(data.playingGame.gameIdx);
+    localStorage.setItem("playingGameIdx", data.playingGame.gameIdx);
 
     const calculateTimeLeft = () => {
       const deadline = dayjs(data.playingGame.deadline);
@@ -138,7 +140,7 @@ function BigmatchHistory() {
                     <div className="winners-losers">
                       <div className="profile" />
                       <div key={idx}>{winner.nickname}</div>
-                      <div className="row-dummy2" />                    
+                      <div className="row-dummy2" />
                     </div>
                   ))}
                 </div>

@@ -6,6 +6,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import "./create.scss";
 import Button from "@/components/Button";
 import { useNavigate } from "react-router-dom";
+import { useAtom } from "jotai";
+import { sportSharingAccountIdxAtom } from "@/stores";
 
 const DateInput = forwardRef(({ value, onClick }, ref) => (
   <button className="date-custom" onClick={onClick} ref={ref}>
@@ -40,7 +42,7 @@ function CreateMatch() {
   const [endTime, setEndTime] = useState(new Date());
   const [deadLine, setDeadLine] = useState("");
   const [fine, setFine] = useState(0);
-  const sharingAccountIdx = 1; // 모임통장 인덱스 값
+  const [sportSharingAccountIdx] = useAtom(sportSharingAccountIdxAtom); // 모임통장 인덱스
 
   const addInput = () => {
     setGameOptions([...gameOptions, { optionTitle: "" }]); // 새로운 입력 필드 추가
@@ -73,12 +75,11 @@ function CreateMatch() {
 
     try {
       const response = await axios.post(
-        `http://127.0.0.1:8080/game/${sharingAccountIdx}`,
+        `${import.meta.env.VITE_BE_URI}/game/${sportSharingAccountIdx}`,
         bigmatchFormData,
         {
           headers: {
             "Content-Type": "application/json"
-            
           }
         }
       );
@@ -86,12 +87,6 @@ function CreateMatch() {
       console.log("--------------------------------------");
       console.log(response.data);
       navigate("/baseball/home");
-
-      // if (response.data.result == "success") {
-      // } else {
-      //   // Handle authentication failure
-      //   console.error("Authentication failed:", response.data.message);
-      // }
     } catch (error) {
       if (error.response) {
         // The request was made and the server responded with a status code

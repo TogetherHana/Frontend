@@ -19,10 +19,12 @@ function MacCreatedInfo() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [macInfo, setmacInfo] = useAtom(maccountAtom);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [accessToken, setAccessToken] = useAtom(accessTokenATom);
+  // const [accessToken, setAccessToken] = useAtom(accessTokenATom);
 
   // @ts-ignore
   const accountHolder = qc.getQueryData(["user-info"]).data.nickname;
+  // @ts-ignore
+  const accessToken = qc.getQueryData(["is-member"]).data.accessToken;
 
   const createdInfoParams = {
     btnText: "계좌 개설하기",
@@ -55,6 +57,7 @@ function MacCreatedInfo() {
   };
 
   const createMAccount = () => {
+    console.log("click");
     setIsSubmitting(true);
   };
 
@@ -62,7 +65,7 @@ function MacCreatedInfo() {
     queryKey: ["mac-create"],
     queryFn: async () => {
       const response = await fetch(
-        "http://localhost:8080/sharing-account/create",
+        `${import.meta.env.VITE_BE_URI}/sharing-account/create`,
         {
           method: "POST",
           headers: {
@@ -80,9 +83,15 @@ function MacCreatedInfo() {
 
   useEffect(() => {
     if (maccountCreate.data) {
+      setIsSubmitting(false);
       if (maccountCreate.data.isSuccess) {
         // console.log("성공");
-        navigate("/maccount/register/processing");
+        navigate("/maccount/register/processing", {
+          state: {
+            url: "/maccount/register/complete",
+            text: "모임통장을 생성중입니다"
+          }
+        });
       }
     }
   }, [maccountCreate.data]);

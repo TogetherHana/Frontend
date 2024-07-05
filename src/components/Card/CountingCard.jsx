@@ -19,7 +19,7 @@ const CountingCard = ({ title = "", count = "" }) => {
         </span>
         <span className="text-2xl font-semibold text-emerald-500">건</span>
         <span className="ms-1 text-base font-normal text-gray-500 dark:text-gray-400">
-          / week
+          / month
         </span>
       </div>
     </div>

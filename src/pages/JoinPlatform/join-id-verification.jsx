@@ -38,7 +38,7 @@ function JoinIdVerification() {
   const sendAuthenticationNumber = () => {
     const phoneNumber = telf + tels + telt;
 
-    fetch("http://localhost:8080/auth/sms", {
+    fetch(`${import.meta.env.VITE_BE_URI}/auth/sms`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -65,13 +65,16 @@ function JoinIdVerification() {
   const isAuthenticated = useQuery({
     queryKey: ["is-authenticated"],
     queryFn: async () => {
-      const response = await fetch("http://localhost:8080/auth/sms-verify", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(smsCertificationDto)
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BE_URI}/auth/sms-verify`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(smsCertificationDto)
+        }
+      );
 
       return response.json();
     },

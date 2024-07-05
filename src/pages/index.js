@@ -36,6 +36,7 @@ export { default as MacIcAgreeTerms } from "./MeetingAccount/InviteCode/mac-ic-a
 export { default as MacIcRegistering } from "./MeetingAccount/InviteCode/mac-ic-registering";
 export { default as MacIcComplete } from "./MeetingAccount/InviteCode/mac-ic-complete";
 export { default as MacRegisterProcessing } from "./MeetingAccount/Register/mac-register-processing";
+export { default as MacIdCertification } from "./MeetingAccount/Register/mac-id-certification";
 // Join Platform - 회원가입
 export { default as JoinMain } from "./JoinPlatform/join-main";
 export { default as JoinIntro } from "./JoinPlatform/join-intro";
@@ -56,6 +57,11 @@ export { default as Home } from "./Home";
 export { default as Main } from "./Main";
 export { default as Mileage } from "./Mileage";
 export { default as Test } from "./TestTest";
+
+// FirstComeEvent - 선착순이벤트
+export { default as WaitingRoom } from "./FirstComeEvent/waitingRoom";
+export { default as Play } from "./FirstComeEvent/play";
+
 // Admin
 export { default as AdminEvent } from "./Admin/EventStatistics";
 export { default as AdminTransfer } from "./Admin/TransferStatistics";

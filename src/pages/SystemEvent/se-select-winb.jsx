@@ -1,61 +1,57 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import sinhantransparent from "@/assets/images/systemEvent/main/sinhantransparent.svg";
 import sports from "@/assets/images/mileage/sports.svg";
-import SystemEventSelectWinMatch from "@/components/SystemEvent/systemeventselectwinmatch";
-import baseball_daegu from "@/assets/images/systemEvent/baseball/background_daegu.svg";
-import baseball_samsung from "@/assets/images/baseballTeams/Lions.svg";
-import baseball_ssg from "@/assets/images/baseballTeams/SSG.svg";
-import baseball_jamsil from "@/assets/images/systemEvent/baseball/background_jamsil.svg";
-import baseball_doosan from "@/assets/images/baseballTeams/Doosan.svg";
-import baseball_nc from "@/assets/images/baseballTeams/nc.svg";
+import SystemEventSelectWinMatch from "@/components/SystemEvent/se-select-win-match";
+import { useQuery } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 
 function SystemEventSelectWinB() {
-  const matchParams = [
-    {
-      img: baseball_daegu,
-      match: {
-        time: "18:30",
-        stadium: "대구삼성라이온즈파크",
-        name: "삼성 라이온즈 vs SSG 랜더스"
-      },
-      home: {
-        type: "홈",
-        team: "삼성<br/> 라이온즈",
-        teamnm: "삼성 라이온즈",
-        rank: "3위",
-        img: baseball_samsung
-      },
-      away: {
-        type: "원정",
-        team: "SSG<br/> 랜더스",
-        teamnm: "SSG 랜더스",
-        rank: "5위",
-        img: baseball_ssg
-      }
+  const [isSubmitting, setIsSubmitting] = useState(true);
+
+  const matchInfo = useQuery({
+    queryKey: ["match-info"],
+    queryFn: async () => {
+      const response = await fetch(
+        `${import.meta.env.VITE_BE_URI}/event/list`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+      );
+      return response.json();
     },
-    {
-      img: baseball_jamsil,
-      match: {
-        time: "18:30",
-        stadium: "잠실야구장",
-        name: "두산 베어스 vs NC 다이노스"
-      },
-      home: {
-        type: "홈",
-        team: "두산<br/> 베어스",
-        teamnm: "두산 베어스",
-        rank: "4위",
-        img: baseball_doosan
-      },
-      away: {
-        type: "원정",
-        team: "NC<br/> 다이노스",
-        teamnm: "NC 다이노스",
-        rank: "6위",
-        img: baseball_nc
-      }
-    }
-  ];
+    enabled: isSubmitting
+  });
+
+  const formedDate = (date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+
+    return `${year}. ${month}. ${day}`;
+  };
+
+  const getDayOfWeek = () => {
+    const daysOfWeek = [
+      "일요일",
+      "월요일",
+      "화요일",
+      "수요일",
+      "목요일",
+      "금요일",
+      "토요일"
+    ];
+    const today = new Date();
+    const dayIndex = today.getDay(); // getDay() returns a number from 0 (Sunday) to 6 (Saturday)
+    return daysOfWeek[dayIndex];
+  };
+
+  useEffect(() => {
+    setIsSubmitting(false);
+  }, []);
+
   return (
     <>
       {/* top */}
@@ -76,7 +72,9 @@ function SystemEventSelectWinB() {
           </div>
         </div>
         <div className="systemEventSelectWinBelow">
-          <div className="date">2024. 06. 18 화요일 경기</div>
+          <div className="date">
+            {formedDate(new Date())} {getDayOfWeek()} 경기
+          </div>
           <div className="reward">
             <img src={sports} width={15} height={15} />
             <div className="price">700M</div>
@@ -85,9 +83,15 @@ function SystemEventSelectWinB() {
       </div>
       {/* match select */}
       <div className="systemEventSelectWinBB">
-        {matchParams.map((item, index) => (
-          <SystemEventSelectWinMatch params={item} />
-        ))}
+        {matchInfo.data &&
+          matchInfo.data.data.map((item, index) => (
+            <SystemEventSelectWinMatch params={item} key={index} />
+          ))}
+        {matchInfo.data && matchInfo.data.data.length <= 5 ? (
+          <div className="remainMatchInfo">타구장 경기는 취소되었습니다</div>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );

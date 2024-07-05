@@ -30,7 +30,7 @@ function Main() {
     queryKey: ["is-member"],
     queryFn: async () => {
       const response = await fetch(
-        `http://localhost:8080/auth/login?deviceToken=${deviceToken}`,
+        `${import.meta.env.VITE_BE_URI}/auth/login?deviceToken=${deviceToken}`,
         {
           method: "GET",
           headers: {
@@ -49,10 +49,13 @@ function Main() {
     if (isMember.data) {
       console.log(isMember.data.isSuccess);
       if (isMember.data.isSuccess) {
+        // localStorage.setItem("accessToken", isMember.data.data.accessToken);
         // setAccessToken(isMember.data.data.accessToken);
         // console.log(accessToken);
+
         const timer = setTimeout(() => {
           setShowSpinner(false);
+          setIsSubmitting(false);
           setTimeout(() => {
             navigate("/memberhome");
           }, 3000);
@@ -66,6 +69,7 @@ function Main() {
       } else {
         const timer = setTimeout(() => {
           navigate(`/platform/join/intro`);
+          setIsSubmitting(false);
         }, 5000);
 
         return () => clearTimeout(timer);

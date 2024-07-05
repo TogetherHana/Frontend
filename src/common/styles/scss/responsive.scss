@@ -27,6 +27,9 @@
 @mixin responsive-margin-top($base-px) {
   margin-top: calc($base-px/932px) * 100vh;
 }
+@mixin responsive-margin-bottom($base-px) {
+  margin-bottom: calc($base-px / 932px) * 100vh;
+}
 @mixin responsive-margin-left($base-px) {
   margin-left: calc($base-px/431px) * 100vw;
 }

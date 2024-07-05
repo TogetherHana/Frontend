@@ -5,15 +5,22 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./fee_send.scss";
 import Button from "@/components/Button";
-import { sendFeeAtom, sendFeeCheckModalAtom } from "@/stores";
+import {
+  accountAtom,
+  bankSelectAtom,
+  initialModalState,
+  sendFeeAtom,
+  sendFeeCheckModalAtom
+} from "@/stores";
 import SendFeeCheckModal from "@/components/Modal/sendFeeCheckmodal";
 
 function FeeSend() {
   const navigate = useNavigate();
 
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  // const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isPopupOpenData, setIsPopupOpenData] = useAtom(bankSelectAtom);
   const [sendData, setSendData] = useAtom(sendFeeAtom);
-
+  const [bankSelect, setBankSelect] = useAtom(accountAtom);
   const [modalData, setModalData] = useAtom(sendFeeCheckModalAtom);
 
   const ReadyToSend = () => {
@@ -27,6 +34,10 @@ function FeeSend() {
       onClickConfirm: () => navigate("/send/amount")
     }));
   };
+
+  useEffect(() => {
+    setSendData({ ...sendData, bank: bankSelect.replace("은행","") });
+  }, [bankSelect]);
 
   return (
     <>
@@ -43,10 +54,16 @@ function FeeSend() {
 
         {/* 은행선택 */}
         <div
-          className="bankNumInput bs"
-          onClick={() => setIsPopupOpen(!isPopupOpen)}
+          className="bankNumInput bs"          
+          onClick={() =>
+            setIsPopupOpenData((prev) => ({
+              ...prev,
+              isOpen: !isPopupOpenData.isOpen
+            }))
+          }
         >
-          {sendData.bank === "" ? "은행선택" : sendData.bank}
+          {/* {sendData.bank === "" ? "은행선택" : sendData.bank} */}
+          {bankSelect === "" ? "은행선택" : bankSelect}
         </div>
 
         {/* 계좌번호 */}
@@ -75,13 +92,13 @@ function FeeSend() {
 
         {/* BankList params -> 선택된 값들로 바뀌어야 함 */}
         <ModalBottomUp
-          isPopupOpen={isPopupOpen}
-          onClose={() => setIsPopupOpen(false)}
+          isPopupOpen={isPopupOpenData.isOpen}
+          onClose={() => setIsPopupOpenData(initialModalState)}
           snapPoints={[500]}
           content={<BankList />}
-        />
+        />      
 
-        <SendFeeCheckModal/>
+        <SendFeeCheckModal />
       </div>
     </>
   );

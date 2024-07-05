@@ -1,0 +1,100 @@
+.play-container {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+
+  font-family: "BMHanna";
+  font-weight: 400;
+
+  .header {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding: 20px;
+
+    font-family: "BMHanna";
+    font-weight: 400;
+    font-size: 20px;
+
+    .back {
+      width: 10%;
+    }
+  }
+
+  .content {
+    width: 100vw;
+    height: 100vh;
+    background: url(@/assets/images/firstComeEvent/firstComeEventBackGround.svg);
+  }
+
+  .highlight-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    color: white;
+    -webkit-text-stroke: 2px blue;
+    text-shadow: 1px 1px 2px black;
+    margin-top: 210px;
+    font-size: 55px;
+    margin-top: 200px;
+  }
+
+  .ticket-image-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 270px;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  /* 모달 스타일 */
+  .modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .modal-content {
+    display: flex;
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .modal-content hr {
+    width: 100%;
+    border: 1px solid #ccc;
+    margin: 20px 0;
+  }
+
+  .modal-light-text {
+    font-size: 26px;
+  }
+
+  .modal-highlight-text {
+    font-size: 40px;
+  }
+}

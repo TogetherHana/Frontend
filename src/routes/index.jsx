@@ -126,6 +126,10 @@ const router = createBrowserRouter([
         children: [{ index: true, element: <Pages.MacIdVerification /> }]
       },
       {
+        path: "idcertification",
+        children: [{ index: true, element: <Pages.MacIdCertification /> }]
+      },
+      {
         path: "userinfo",
         children: [{ index: true, element: <Pages.MacUserInfo /> }]
       },
@@ -280,6 +284,14 @@ const router = createBrowserRouter([
       {
         path: "event/selectwin",
         children: [{ index: true, element: <Pages.SystemEventSelectWin /> }]
+      },
+      {
+        path: "firstComeEvent/wait",
+        children: [{ index: true, element: <Pages.WaitingRoom /> }]
+      },
+      {
+        path: "firstComeEvent/play",
+        children: [{ index: true, element: <Pages.Play /> }]
       }
     ]
   },
@@ -288,7 +300,7 @@ const router = createBrowserRouter([
     element: <Layouts.AdminLayouts />,
     children: [
       {
-        path: "",
+        path: "maccountStats",
         children: [{ index: true, element: <Pages.AdminTransfer /> }]
       },
       {

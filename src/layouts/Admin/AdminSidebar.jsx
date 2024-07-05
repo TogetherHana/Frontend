@@ -14,8 +14,6 @@ import hanaLogo from "@/assets/images/hana.svg";
 const AdminSidebar = () => {
   const location = useLocation();
 
-  const [name, setName] = useState("");
-
   return (
     <Sidebar>
       <Sidebar.Logo
@@ -55,13 +53,13 @@ const AdminSidebar = () => {
           <hr />
           <Sidebar.Item
             as={Link}
-            to="/admin"
+            to="/admin/maccountStats"
             icon={HiPresentationChartBar}
             labelColor="dark"
             className="my-4"
             style={{
               fontWeight:
-                location.pathname === "/admin/event" ? "bold" : "normal"
+                location.pathname === "/admin/maccountStats" ? "bold" : "normal"
             }}
           >
             모임통장
@@ -74,24 +72,10 @@ const AdminSidebar = () => {
             className="my-4"
             style={{
               fontWeight:
-                location.pathname === "/admin/transfer" ? "bold" : "normal"
+                location.pathname === "/admin/event" ? "bold" : "normal"
             }}
           >
             이벤트
-          </Sidebar.Item>
-          <Sidebar.Item
-            as={Link}
-            to="/admin/inheritance-review"
-            icon={HiClipboard}
-            className="my-4"
-            style={{
-              fontWeight:
-                location.pathname === "/admin/inheritance-review"
-                  ? "bold"
-                  : "normal"
-            }}
-          >
-            DashBoard
           </Sidebar.Item>
         </Sidebar.ItemGroup>
       </Sidebar.Items>

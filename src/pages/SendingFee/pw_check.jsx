@@ -4,21 +4,15 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import back from "@/assets/images/back.svg";
 import Button from "@/components/Button";
-import { sendFeeAtom } from "@/stores";
+import { sendFeeAtom, sportSharingAccountIdxAtom } from "@/stores";
 import { useAtom } from "jotai";
 import axios from "axios";
 
 function SendPWcheck() {
   const navigate = useNavigate();
   const [accountPW, setAccountPW] = useState([]);
+  const [sportSharingAccountIdx] = useAtom(sportSharingAccountIdxAtom); // 모임통장 인덱스
   const [sendData, setSendData] = useAtom(sendFeeAtom);
-  const sharingAccountId = 1;
-
-  // const handleNextPage = (config) => {
-  //   return config === "check"
-  //     ? () => navigate(`/maccount/register/setaccountpw/check`)
-  //     : () => navigate(`/maccount/register/createdinfo`);
-  // };
 
   const handleNumberClick = (number) => {
     if (accountPW.length < 4) {
@@ -33,43 +27,42 @@ function SendPWcheck() {
   };
 
   const handlePWBtn = async () => {
-    // setMacInfo((prev) => ({ ...prev, accountName: accountName }));
-    // setMacInfo((prev) => ({ ...prev, accountPassword: accountPW.join("") }));
-
     setSendData({ ...sendData, accountPassword: accountPW.join("") });
 
     console.log("---- 자 이제 확인해보자 ----");
-    console.log(`모임통장 idx: ${sharingAccountId}`);
+    console.log(`모임통장 idx: ${sportSharingAccountIdx}`);
     console.log(`받는 사람의 계좌번호: ${sendData.receiveAccountNumber}`);
     console.log(`받는 사람: ${sendData.receiver}`);
     console.log(`송금할 금액: ${sendData.amount}`);
     console.log(`모임통장 비밀번호: ${accountPW.join("")}`);
 
     const transferRequest = {
-      sharingAccountIdx: sharingAccountId,
+      sharingAccountIdx: sportSharingAccountIdx,
       receiveAccountNumber: sendData.receiveAccountNumber,
       receiver: sendData.receiver,
-      amount: parseInt(sendData.amount.replace(/,/g, ''), 10),
+      amount: parseInt(sendData.amount.replace(/,/g, ""), 10),
       accountPassword: accountPW.join("")
     };
 
-    const memberIdx = 1;
-
+    const jwtToken = localStorage.getItem("jwtToken");
+    console.log("---토큰값 있나?---");
+    console.log(jwtToken);
 
     try {
       const response = await axios.post(
-        `http://127.0.0.1:8080/sharing-account/withdraw/${memberIdx}`,
+        `${import.meta.env.VITE_BE_URI}/sharing-account/withdraw`,
         transferRequest,
         {
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${jwtToken}`
           }
         }
       );
 
       console.log("--------------------------------------");
       console.log(response.data);
-      navigate("/baseball/home");         
+      navigate("/baseball/home");
     } catch (error) {
       if (error.response) {
         // The request was made and the server responded with a status code

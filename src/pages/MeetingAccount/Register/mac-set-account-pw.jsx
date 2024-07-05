@@ -12,18 +12,10 @@ function MacSetAccountPW({ title, config }) {
   const [accountPW, setAccountPW] = useState([]);
   const [macInfo, setMacInfo] = useAtom(maccountAtom);
 
-  // const handleNextPage = (config) => {
-  //   return config === "check"
-  //     ? () => navigate(`/maccount/register/setaccountpw/check`)
-  //     : () => navigate(`/maccount/register/createdinfo`);
-  // };
-
   const handleNumberClick = (number) => {
     if (accountPW.length < 4) {
       setAccountPW([...accountPW, number]);
     }
-
-    console.log(accountPW);
   };
 
   const handleNumberCancel = () => {
