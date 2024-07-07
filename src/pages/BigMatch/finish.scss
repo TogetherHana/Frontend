@@ -1,25 +1,28 @@
+@import "../../common/styles/scss/responsive.scss";
+
 .finish-container {
   width: 100%;
   height: 100%;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+  justify-content: space-between;
 
   background-color: $color-background;
   overflow-y: auto;
 
   .header {
+    @apply p-5 flex mt-16 text-center;
+    @include responsive-font-size(20px);
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 
-    padding: 20px;
-    background-color: white;
+    @include responsive-padding(20px);
 
     font-family: "BMHanna";
     font-weight: 400;
-    font-size: 20px;
 
     .back {
       width: 10%;
@@ -35,9 +38,8 @@
 
     font-family: "BMHanna";
     font-weight: 900;
-    font-size: 40px;
-
-    padding: 20px;
+    @include responsive-font-size(40px);
+    @include responsive-padding(20px);
   }
 
   .content-container {
@@ -49,11 +51,10 @@
 
     font-family: "BMHanna";
     font-weight: 400;
-    font-size: 24px;
+    @include responsive-font-size(24px);
 
     .pirate {
-      width: 128px;
-      height: 128px;
+      @include responsive-hw(128px, 128px);
       position: relative;
       background-image: url(@/assets/images/pirate.svg);
       background-size: contain;
@@ -62,8 +63,7 @@
     }
 
     .hook {
-      width: 113px;
-      height: 113px;
+      @include responsive-hw(113px, 113px);
       position: relative;
       background-image: url(@/assets/images/hooks.gif);
       background-size: contain;
@@ -73,7 +73,7 @@
 
     .losers {
       display: flex;
-      flex-direction: column; 
+      flex-direction: column;
       position: relative;
       text-align: center;
       align-items: center;
@@ -85,24 +85,20 @@
       font-weight: 900;
 
       .prison {
-        width: 298px;
-        height: 200px;
+        @include responsive-hw(200px, 298px);
         background-image: url(@/assets/images/prison.svg);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center center;
-        position: relative;  // Make prison the relative positioned parent        
+        position: relative; // Make prison the relative positioned parent
       }
 
       .user-names {
         display: flex;
         flex-direction: column;
-        justify-content: center;        
+        justify-content: center;
 
-        position: absolute;  // Position user-names absolutely within the relative prison
-        // top: 70%;  // Adjust top position as needed
-        // left: 50%; // Adjust left position as needed
-        // transform: translate(-50%, -50%);  // Center user-names within prison
+        position: absolute;
         top: 0; // Align to the top of the prison
         left: 50%; // Center horizontally
         transform: translateX(-50%); // Adjust to center
@@ -116,17 +112,15 @@
           border: 2px solid black;
           border-radius: 10px;
           background-color: $color-background;
-          padding: 20px;
-          margin: 10px;
-          width: 150px;
-          height: 45px;
+          @include responsive-padding(20px);
+          @include responsive-margin(10px);
+          @include responsive-hw(45px, 150px);
 
           z-index: 1;
           opacity: 0.6;
 
           .user-profile {
-            width: 32px;
-            height: 32px;
+            @include responsive-hw(32px, 32px);
             position: relative;
             background-image: url(@/assets/images/sailor.svg);
             background-size: contain;
@@ -134,7 +128,7 @@
             background-position: center center;
           }
           .user-name {
-            font-size: 24px;
+            @include responsive-font-size(24px);
           }
         }
       }
@@ -146,11 +140,11 @@
   }
 
   .col-dummy {
-    height: 30px;
+    @include responsive-height(30px);
   }
 
-  .btn {  
+  .btn {
     align-self: center;
-    margin-bottom: 20px;
+    @include responsive-margin-bottom(20px);
   }
 }

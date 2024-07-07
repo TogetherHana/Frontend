@@ -18,11 +18,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layouts.WhiteFooter />,
-    children: [
-      // {
-      //   path: "/",
-      //   children: [{ index: true, element: <Pages.Home /> }]
-      // },
+    children: [     
       {
         path: "event",
         children: [{ index: true, element: <Pages.SystemEvent /> }]

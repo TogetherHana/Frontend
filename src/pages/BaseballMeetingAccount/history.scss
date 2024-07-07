@@ -1,3 +1,5 @@
+@import "../../common/styles/scss/responsive.scss";
+
 .transfer-history-container {
   display: flex;
   flex-direction: column;
@@ -6,32 +8,31 @@
 
   font-family: "NanumSquareRoundB";
   font-weight: 900;
-  font-size: 17px;
+  @include responsive-font-size(17px);
 
   overflow-y: auto;
 
   .one-thing {
-    width: 386px;
-    height: 100px;
+    @include responsive-hw(100px, 386px);
 
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
-    padding-left: 50px;
-    padding-right: 50px;
+    @include responsive-padding-left(50px);
+    @include responsive-padding-right(50px);
 
     .date-name {
       display: flex;
-      flex-direction: column;     
+      flex-direction: column;
       justify-content: flex-start;
 
       color: black;
 
       .date {
-        font-size: 13px;
-        margin-bottom: 10px;        
+        @include responsive-font-size(13px);
+        @include responsive-margin-bottom(10px);
       }
     }
 
@@ -43,19 +44,19 @@
       .type {
         align-self: flex-end;
         color: $color-primary1;
-        font-size: 13px;
-        margin-bottom: 5px;
+        @include responsive-font-size(13px);
+        @include responsive-margin-bottom(5px);
       }
       .transfer {
         align-self: flex-end;
         color: #5866e5;
-        font-size: 17px;
-        margin-bottom: 7px;
+        @include responsive-font-size(17px);
+        @include responsive-margin-bottom(7px);
       }
       .remain {
         align-self: flex-end;
         color: $color-text1;
-        font-size: 13px;
+        @include responsive-font-size(13px);
       }
     }
   }
