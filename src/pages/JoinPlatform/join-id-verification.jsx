@@ -119,7 +119,7 @@ function JoinIdVerification() {
       } else {
         console.log("인증에 실패했습니다.");
         document.querySelector(".authCheckInfo").innerHTML =
-          "인증에 실패했습니다";
+          "<div style='color: red;'>인증에 실패했습니다</div>";
       }
       setIsSubmitting(false);
     }

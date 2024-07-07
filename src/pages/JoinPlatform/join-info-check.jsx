@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import hana4040 from "@/assets/images/hana4040.svg";
 import { useAtom } from "jotai";
 import { memberAtom } from "@/stores";
@@ -38,11 +38,18 @@ function JoinInfoCheck() {
 
   const handleMemberRegister = () => {
     setIsSubmitting(true);
-    if (registerProcessing.data && registerProcessing.isSuccess) {
-      navigate("/platform/join/processing");
-    }
+
     // console.log(registerProcessing.data);
   };
+
+  useEffect(() => {
+    if (registerProcessing.data) {
+      setIsSubmitting(false);
+      if (registerProcessing.data && registerProcessing.isSuccess) {
+        navigate("/platform/join/processing");
+      }
+    }
+  }, [registerProcessing.data]);
 
   return (
     <>

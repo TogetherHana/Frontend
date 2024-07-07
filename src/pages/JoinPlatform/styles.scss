@@ -132,93 +132,75 @@
 }
 
 .joinAuthenticationCheckTitle {
+  @include responsive-position(300px, 45px);
+  @include responsive-font-size(25px);
   font-family: "BMHanna";
-  font-size: 25px;
   line-height: 1;
-  position: absolute;
-  top: 300px;
-  left: 45px;
 }
 
 .joinAuthenticationCheckImg {
-  position: absolute;
-  top: 376px;
-  left: 39px;
+  @include responsive-position(376px, 39px);
 }
 
 .joinAuthenticationCheckBtn {
+  @apply grid place-items-center;
+  @include responsive-hw(20px, 45px);
+  @include responsive-font-size(10px);
   font-family: "NanumSquareRoundR";
-  font-size: 10px;
   border-radius: 25px;
   background-color: #777575;
-  width: 45px;
-  height: 20px;
   margin-left: 1rem;
   color: #f6f6f6;
-  @apply grid place-items-center;
 
   &.auth {
-    position: absolute;
-    top: 475px;
-    left: 310px;
+    @include responsive-position(475px, 310px);
   }
 }
 
 .joinSetNickNameTitle {
+  @include responsive-position(308px, 51px);
+  @include responsive-font-size(30px);
   font-family: "BMHanna";
-  font-size: 30px;
-  position: absolute;
-  top: 308px;
-  left: 51px;
 }
 
 .joinSetNickNameSub {
+  @include responsive-position(358px, 51px);
+  @include responsive-font-size(17px);
   font-family: "NotoSans";
-  font-size: 17px;
   color: #777575;
-  position: absolute;
-  top: 358px;
-  left: 51px;
 }
 
 .joinCompleteTxt {
-  position: absolute;
-  font-family: "BMHanna";
-  font-size: 30px;
+  @include responsive-font-size(30px);
+  font-family: "Hana2M";
 
   &.first {
-    top: 144px;
-    left: 90px;
+    @include responsive-position(133px, 77px);
   }
   &.second {
-    top: 315px;
-    left: 177px;
+    @include responsive-position(315px, 178px);
   }
   &.third {
-    top: 395px;
-    left: 102px;
+    @include responsive-position(395px, 89px);
   }
 }
 
 .joinCompleteTxtMain {
-  position: absolute;
-  top: 215px;
-  left: 130px;
+  @apply grid place-items-center text-center;
+  @include responsive-position(215px, 130px);
+  @include responsive-hw(75px, 165px);
+  @include responsive-font-size(40px);
   background-color: #44bd91;
   border-radius: 10px;
   font-family: "BMHanna";
-  font-size: 40px;
   color: white;
-  width: 165px;
-  height: 75px;
-
-  @apply grid place-items-center text-center;
 }
 
 .joinCompleteImg {
-  position: absolute;
-  top: 510px;
-  left: 127px;
+  @include responsive-position(510px, 127px);
+  // position: absolute;
+  // top: 510px;
+  // left: 127px;
 }
 
 // notification - request
@@ -240,12 +222,9 @@
 
 .flip-card {
   background-color: transparent;
-  // width: 240px;
-  // height: 154px;
   @include responsive-hw(350px, 250px);
   @include responsive-font-size(20px);
   font-family: "NanumSquareRoundR";
-  // font-family: "Hana2M";
   perspective: 1000px;
   color: white;
 }
@@ -277,24 +256,14 @@
 }
 
 .number {
-  // position: absolute;
-  // font-weight: bold;
-  // font-size: 0.6em;
   @include responsive-font-size(15px);
   @include responsive-position(200px, 20px);
-  // top: 8.3em;
-  // left: 1.6em;
 }
 
 .valid_thru {
   @include responsive-font-size(13px);
   @include responsive-position(230px, 20px);
   color: black;
-  // position: absolute;
-  // font-weight: bold;
-  // top: 635.8em;
-  // font-size: 0.01em;
-  // left: 140.3em;
 }
 
 .date_8264 {
