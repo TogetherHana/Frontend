@@ -45,7 +45,6 @@
 
     // padding: 20px;
     font-family: "NanumSquareRoundB";
-    // font-size: 20px;
 
     .back {
       width: 10%;
@@ -114,9 +113,7 @@
       flex-direction: row;
       align-items: center;
       justify-content: space-evenly;
-
-      // font-size: 20px;
-      margin-top: 10px;
+      @include responsive-margin-top(10px);
     }
   }
 
@@ -125,6 +122,6 @@
   }
 
   .col-dummy {
-    height: 40px;
+    @include responsive-height(40px);
   }
 }

@@ -1,4 +1,5 @@
 @import "../../common/styles/scss/responsive.scss";
+
 .baseballTeam-container {
   width: 100%;
   height: 100%;
@@ -53,10 +54,7 @@
 
   .logo-container {
     @apply flex place-items-center;
-    // display: flex;
     flex-direction: column;
-    // align-items: center;
-    // justify-content: space-around;
     height: 100vh;
 
     .logo-line {
@@ -64,50 +62,51 @@
       flex-direction: row;
       justify-content: space-around;
 
-      img, .imgBlank {
+      img,
+      .imgBlank {
         @apply m-1;
-        @include responsive-hw(100px, 100px);     
+        @include responsive-hw(100px, 100px);
       }
-      .img-nc:hover {      
+      .img-nc:hover {
         border-radius: 10px;
         border: 5px solid $color-nc;
       }
-      .img-hanwha:hover {       
+      .img-hanwha:hover {
         border-radius: 10px;
         border: 5px solid $color-hanwha;
       }
-      .img-Lions:hover {      
+      .img-Lions:hover {
         border-radius: 10px;
         border: 5px solid $color-Lions;
       }
-      .img-LG:hover {        
+      .img-LG:hover {
         border-radius: 10px;
         border: 5px solid $color-LG;
       }
-      .img-KT:hover {        
+      .img-KT:hover {
         border-radius: 10px;
         border: 5px solid $color-KT;
       }
-      .img-Lotte:hover {        
+      .img-Lotte:hover {
         border-radius: 10px;
         border: 5px solid $color-Lotte;
       }
-      .img-Doosan:hover {        
+      .img-Doosan:hover {
         border-radius: 10px;
         border: 5px solid $color-Doosan-Navy;
       }
-      .img-Kia:hover {        
+      .img-Kia:hover {
         border-radius: 10px;
         border: 5px solid $color-Kia;
       }
-      .img-Kiwoom:hover {        
+      .img-Kiwoom:hover {
         border-radius: 10px;
-        border: 5px solid  $color-Kiwoom;
+        border: 5px solid $color-Kiwoom;
       }
-      .img-SSG:hover {        
+      .img-SSG:hover {
         border-radius: 10px;
         border: 5px solid $color-SSG;
-      }               
+      }
     }
   }
 
@@ -116,6 +115,6 @@
   }
 
   .col-dummy {
-    height: 35px;
+    @include responsive-height(35px);
   }
 }

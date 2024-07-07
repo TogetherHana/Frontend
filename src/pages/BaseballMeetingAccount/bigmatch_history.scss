@@ -15,16 +15,15 @@
   .leftTime {
     color: #f51a1a;
     position: absolute;
-    left: 22px;
+    @include responsive-position-width(22px);
   }
 
   .playingGame-container {
     border: 1px solid $color-primary1;
     background-color: $color-background;
-    width: 387px;
-    height: 131px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    @include responsive-hw(131px, 387px);
+    @include responsive-margin-top(15px);
+    @include responsive-margin-bottom(15px);
 
     display: flex;
     flex-direction: row;
@@ -34,8 +33,7 @@
     position: relative;
 
     .punch-img {
-      width: 80px;
-      height: 80px;
+      @include responsive-hw(80px, 80px);
       background-image: url(@/assets/images/punch.svg);
       background-size: contain;
       background-repeat: no-repeat;
@@ -43,42 +41,36 @@
     }
 
     .playingGame-title {
-      width: 130px;
-      height: 40px;
-      font-size: 20px;
+      @include responsive-hw(40px, 130px);
+      @include responsive-font-size(20px);
       text-align: center;
     }
 
     .go-bigmatch {
       color: $color-primary1;
-      font-size: 16px;
-
-      position: absolute;
-      bottom: 10px;
-      right: 30px;
+      @include responsive-font-size(16px);
+      @include responsive-position2(10px, 30px);
     }
   }
   .nonPlayingGame-container {
     border: 1px solid $color-primary1;
     background-color: $color-background;
-    width: 387px;
-    height: 131px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    @include responsive-hw(131px, 387px);
+    @include responsive-margin-top(15px);
+    @include responsive-margin-bottom(15px);
 
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     text-align: center;
 
-    font-size: 16px;
+    @include responsive-font-size(16px);
   }
 
   .line {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    width: 387px;
-    height: 1px;
+    @include responsive-margin-top(15px);
+    @include responsive-margin-bottom(15px);
+    @include responsive-hw(1px, 387px);
     background-color: $color-background2;
   }
 
@@ -88,22 +80,21 @@
 
     .createTime {
       position: absolute;
-      left: 0px;
+      @include responsive-position-width(0px);
     }
     .gameHistory-container {
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
-      padding-left: 20px;
+      @include responsive-padding-left(20px);
 
       border: 1px solid $color-text1;
       background-color: $color-background;
-      width: 387px;
-      height: 131px;
-      margin-top: 15px;
-      margin-bottom: 15px;
+      @include responsive-hw(131px, 387px);
+      @include responsive-margin-top(15px);
+      @include responsive-margin-bottom(15px);
 
-      font-size: 16px;
+      @include responsive-font-size(16px);
 
       .winner-loser-container {
         display: flex;
@@ -115,13 +106,12 @@
           color: black;
 
           .profile {
-            width: 15px;
-            height: 15px;
+            @include responsive-hw(15px, 15px);
             background-image: url(@/assets/images/sailor.svg);
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center center;
-            margin-right: 5px;
+            @include responsive-margin-right(5px);
           }
         }
       }
@@ -133,19 +123,18 @@
     }
     .history-empty {
       text-align: center;
-      margin-top: 60px;
-
-      @include responsive-font-size(50px);      
+      @include responsive-margin-top(60px);
+      @include responsive-font-size(50px);
     }
   }
 
   .row-dummy {
-    width: 10px;
+    @include responsive-width(10px);
   }
   .row-dummy2 {
-    width: 15px;
+    @include responsive-width(15px);
   }
   .col-dummy {
-    height: 10px;
+    @include responsive-height(10px);
   }
 }
