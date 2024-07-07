@@ -162,11 +162,20 @@ function JoinIdVerification() {
             </div>
           </div>
           <div className="flex">
-            <input
-              className="userInfoInput vnm"
-              onChange={(e) => setAuthNumber(e.target.value)}
-            />
-            <div className="joinIdVerificationNotify time">{formatTime()}</div>
+            <div>
+              <input
+                className="userInfoInput vnm"
+                onChange={(e) => setAuthNumber(e.target.value)}
+                // placeholder="5분이내에 인증번호를 입력해주세요"
+              />
+              <div className="joinIdVerificationNotify time">
+                {formatTime()}
+              </div>
+              <div className="joinIdVerificationNotify">
+                5분 이내에 인증번호를 입력해주세요
+              </div>
+            </div>
+
             <div
               className="joinNumberCheck small"
               onClick={() => checkAuthenticationNumber()}
@@ -174,9 +183,7 @@ function JoinIdVerification() {
               확인
             </div>
           </div>
-          <div className="joinIdVerificationNotify">
-            5분 이내에 인증번호를 입력해주세요
-          </div>
+
           <div className="authCheckInfo"></div>
         </div>
       </div>

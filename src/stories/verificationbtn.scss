@@ -1,0 +1,47 @@
+@import "../common/styles/scss/responsive.scss";
+.userinfobtnLocation {
+  // @include responsive-position-height(770px);
+  // @include responsive-position-width(34px);
+  // position: fixed;
+  @include responsive-position(770px, 34px);
+
+  &.detail {
+    @include responsive-position(320px, 34px);
+  }
+}
+
+// id-verification
+.idVerification {
+  @include responsive-font-size(30px);
+  @apply my-5 grid place-items-center;
+
+  &.detail {
+    @include responsive-font-size(20px);
+    font-family: "NotoSans";
+    color: #616161;
+    opacity: 0.62;
+  }
+
+  &.btn {
+    @include responsive-font-size(20px);
+    margin: 0;
+    font-family: "NanumSquareRoundR";
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  &.below {
+    @apply mt-5;
+    @include responsive-font-size(15px);
+    font-family: "NotoSans";
+    color: rgba(97, 97, 97, 0.72);
+  }
+
+  &.main {
+    @include responsive-position(129px, 50px);
+  }
+
+  &.img {
+    @include responsive-hw(263px, 382px);
+    @include responsive-position(369px, 26px);
+  }
+}

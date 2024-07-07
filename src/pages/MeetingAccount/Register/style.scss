@@ -73,8 +73,11 @@
     width: 7rem;
   }
   &.vnm {
-    width: 12rem;
-    margin-bottom: 1.5rem;
+    // @apply mt-auto;
+    @apply mb-1;
+    @include responsive-hw(30px, 200px);
+    @include responsive-font-size(13px);
+    // margin-bottom: 1.5rem;
   }
   &.acnm {
     padding-left: 0;

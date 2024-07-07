@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "@/components/Button";
-import { useNavigate } from "react-router-dom";
+import "./verificationbtn.scss";
+// import { useNavigate } from "react-router-dom";
 
 function VerificationBtn({ params }) {
   // const navigate = useNavigate();

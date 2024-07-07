@@ -69,7 +69,8 @@
 }
 
 .joinIdVerificationNotify {
-  @include responsive-position(290px, 0px);
+  // @apply grid place-
+  // @include responsive-position/290px, 0px);
   @include responsive-font-size(10px);
   font-family: "Noto sans";
   color: rgba(97, 97, 97, 0.72);
