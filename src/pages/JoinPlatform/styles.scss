@@ -117,17 +117,18 @@
   }
 
   .top {
-    @include responsive-position(212px, 150px);
+    @apply mt-5;
+    // @include responsive-position(212px, 150px);
     @include responsive-font-size(15px);
     font-family: "NotoSans";
   }
 }
 
 .joinAuthenticationDetail {
-  @apply text-center;
-  @include responsive-position(267px, 127px);
-  @include responsive-font-size(20px);
-  font-family: "BMHanna";
+  @apply text-center mt-10;
+  // @include responsive-position(267px, 127px);
+  @include responsive-font-size(23px);
+  font-family: "NanumSquareRoundB";
   line-height: 1.5;
 }
 

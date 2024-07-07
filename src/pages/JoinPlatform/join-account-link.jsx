@@ -27,8 +27,18 @@ function JoinAccountLink() {
   const [memberInfo, setMemberInfo] = useAtom(memberAtom);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const parseAccountNumber = (number) => {
+    return (
+      number.substring(0, 3) +
+      " - " +
+      number.substring(3, 9) +
+      " - " +
+      number.substring(9)
+    );
+  };
+
   const accountParams = {
-    accountNumber: accountNumber,
+    accountNumber: parseAccountNumber(accountNumber),
     name: memberInfo.name
   };
 
@@ -64,6 +74,7 @@ function JoinAccountLink() {
 
   useEffect(() => {
     if (isAccountValidate.data) {
+      setIsSubmitting(false);
       if (isAccountValidate.data.isSuccess) {
         // console.log("success");
         setMemberInfo((prev) => ({
@@ -103,7 +114,7 @@ function JoinAccountLink() {
       {/* 계좌번호 */}
       <input
         className="userInfoInput acnm"
-        placeholder="계좌번호 입력"
+        placeholder="계좌번호 입력( - 제외, 14자리)"
         onChange={(e) => setAccountNumber(e.target.value)}
       />
       {/* BankList params -> 선택된 값들로 바뀌어야 함 */}
@@ -113,7 +124,7 @@ function JoinAccountLink() {
         snapPoints={[500]}
         content={<BankList />}
       />
-      {bankSelect !== "" ? (
+      {bankSelect !== "" && accountNumber.length >= 14 ? (
         <VerificationBtn params={joinAccountLinkParams} />
       ) : (
         ""
