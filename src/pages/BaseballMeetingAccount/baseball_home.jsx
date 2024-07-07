@@ -61,6 +61,16 @@ function BaseballHome() {
     navigate("/send");
   };
 
+  const parseAccountNumber = (number) => {
+    return (
+      number.substring(0, 3) +
+      " - " +
+      number.substring(3, 9) +
+      " - " +
+      number.substring(9)
+    );
+  };
+
   return (
     <>
       <div className="baseballhome-container">
@@ -77,9 +87,11 @@ function BaseballHome() {
             <div className="baseball-image" />
             <div className="account-name">{sportSharingAccountName}</div>
           </div>
-          <div className="account-number">하나 {sportSharingAccountNum}</div>
+          <div className="account-number">
+            하나 {parseAccountNumber(sportSharingAccountNum)}
+          </div>
           <div className="account-amount">{formatNumber(remainBalance)} 원</div>
-          <div className="col-dummy" />
+          {/* <div className="col-dummy" /> */}
           <div className="fee-btns">
             <Button className="fee-collect" onClick={collectFee}>
               회비 걷기

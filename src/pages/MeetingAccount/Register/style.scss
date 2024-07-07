@@ -81,26 +81,30 @@
   }
   &.acnm {
     @include responsive-position(416px, 50px);
+    @include responsive-width(310px);
     padding-left: 0;
-    width: 20rem;
+    // width: 20rem;
     ::placeholder {
       @include responsive-font-size(17px);
     }
   }
   &.acnm2 {
     @include responsive-position(470px, 50px);
+    @include responsive-width(310px);
     padding-left: 0;
-    width: 20rem;
+    // width: 20rem;
     ::placeholder {
       @include responsive-font-size(17px);
     }
   }
   &.acnm3 {
     @include responsive-position(414px, 60px);
+    @include responsive-width(310px);
     padding-left: 0;
-    width: 20rem;
+    // width: 20rem;
     ::placeholder {
-      font-size: 17px;
+      // font-size: 17px;
+      @include responsive-font-size(17px);
     }
   }
   &.bs {
@@ -150,7 +154,8 @@
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
   img {
-    @apply ml-5;
+    @apply ml-5 mt-3;
+    @include responsive-hw(60px, 60px);
   }
 
   div {

@@ -7,9 +7,10 @@
   display: flex;
   flex-direction: column;
 
-  font-family: "BMHanna";    
+  font-family: "BMHanna";
 
   .fee-btns {
+    @apply mt-4;
     display: flex !important;
     flex-direction: row !important;
 
@@ -28,22 +29,23 @@
       height: 50px !important;
       margin-left: 15px !important;
       background-color: $color-primary1 !important;
-      color: white !important;         
+      color: white !important;
       box-shadow: none !important;
     }
   }
 
   .header {
-    @apply p-5 flex mt-16 text-center;
+    @apply p-5 flex mt-12 text-center;
+    @include responsive-hw(60px, 431px);
     @include responsive-font-size(20px);
 
-    display: flex;
+    // display: flex;
     flex-direction: row;
     justify-content: space-between;
 
-    padding: 20px;
+    // padding: 20px;
     font-family: "NanumSquareRoundB";
-    font-size: 20px;
+    // font-size: 20px;
 
     .back {
       width: 10%;
@@ -51,65 +53,69 @@
   }
 
   .top-container {
-    width: 100%;
-    height: 320px;
+    // width: 100%;
+    // height: 320px;
+    @apply flex place-items-center;
+    @include responsive-hw(260px, 431px);
 
-    display: flex;
+    // display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    // align-items: center;
+    // justify-content: center;
 
     .account-title {
-      display: flex;
-      flex-direction: row;
-      padding-top: 10px;
-      padding-bottom: 10px;
+      @apply flex flex-row mt-10;
+      @include responsive-font-size(24px);
+      font-family: "NanumSquareRoundB";
 
       .baseball-image {
-        height: 25px;
-        width: 25px;
+        @apply mr-2;
+        @include responsive-hw(25px, 25px);
         background-image: url(@/assets/images/baseballLogo.svg);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center center;
-        padding-right: 5px;
       }
 
       .account-name {
-        font-size: 24px;
-        padding-left: 5px;
+        // font-size: 24px;
+        // padding-left: 5px;
       }
-
-      
     }
 
     .account-number {
+      @apply py-3;
+      font-family: "NanumSquareRoundR";
       color: $color-text1;
-      padding-top: 10px;
-      padding-bottom: 10px;
+      // padding-top: 10px;
+      // padding-bottom: 10px;
     }
 
     .account-amount {
-      font-size: 30px;
-      padding-top: 10px;
-      padding-bottom: 10px;
+      @apply py-3;
+      @include responsive-font-size(30px);
+      font-family: "NanumSquareRoundR";
+      // font-size: 30px;
+      // padding-top: 10px;
+      // padding-bottom: 10px;
     }
   }
 
   .bottom-container {
     font-family: "NanumSquareRoundB";
     background-color: white;
-    width: 100%;
-    height: 400px; 
+    @include responsive-hw(552px, 431px);
     overflow-y: auto;
 
     .components {
+      @include responsive-font-size(20px);
+
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-evenly;
 
-      font-size: 20px;
+      // font-size: 20px;
       margin-top: 10px;
     }
   }
