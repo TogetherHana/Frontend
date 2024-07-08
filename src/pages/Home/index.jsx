@@ -195,11 +195,6 @@ function Home() {
           <div className="renewalCheeringTeamDiv">
             {userInfo.data &&
               userInfo.data.data.myTeams.map((item, index) => (
-                // <div className="renewalCheeringTeam">
-                //   {item.sportsClubName}
-                //   {item.sportsType}
-                //   {img}
-                // </div>
                 <CheeringTeamDiv params={item} />
               ))}
             {userInfo.data && userInfo.data.data.myTeams.length <= 3 ? (

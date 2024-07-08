@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import SystemEventCheckBtn from "./se-check-btn";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { accessTokenATom } from "@/stores";
+import { accessTokenATom, selectWinTeamAtom } from "@/stores";
 import { useAtom } from "jotai";
 
 function SystemEventSelectCheck({ teamnm, matchnm, img, gameidx, teamidx }) {
   // const [accessToken, setAccessToken] = useAtom(accessTokenATom);
+  const [selectWinTeamData, setSelectWinTeamData] = useAtom(selectWinTeamAtom);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isChecking, setIsChecking] = useState(false);
 
@@ -39,6 +40,13 @@ function SystemEventSelectCheck({ teamnm, matchnm, img, gameidx, teamidx }) {
   // 사용자의 승리팀 예측
   const handlePredictWinTeam = () => {
     setIsSubmitting(true);
+  };
+
+  const handleCancelModal = () => {
+    setSelectWinTeamData((prev) => ({
+      ...prev,
+      isOpen: !prev.isOpen
+    }));
   };
 
   useEffect(() => {
@@ -85,7 +93,7 @@ function SystemEventSelectCheck({ teamnm, matchnm, img, gameidx, teamidx }) {
             <SystemEventCheckBtn
               content={"아니오"}
               istrue={false}
-              onClick={() => handlePredictWinTeam()}
+              onClick={() => handleCancelModal()}
             />
             <SystemEventCheckBtn
               content={"예"}
