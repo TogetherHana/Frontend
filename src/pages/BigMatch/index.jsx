@@ -12,7 +12,6 @@ function Bigmatch() {
   const [gameTitle, setGameTitle] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
   const [votedOption, setVotedOption] = useState(0);
-  let data;
 
   console.log("----지금 진행중인 게임 idx는?----");
   console.log(localStorage.getItem("playingGameIdx"));
@@ -35,12 +34,16 @@ function Bigmatch() {
       );
 
       console.log(response.data.data);
-      data = response.data.data;
+      const data = response.data.data;
 
       setIsVotingClosed(data.isVotingClosed);
       setIsVotingMember(data.isVotingMember);
       setGameTitle(data.gameTitle);
       setGameOptions(data.gameOptionDtos);
+
+      if (isVotingMember) {
+        setVotedOption(data.votedOptionIdx);
+      }
     } catch (error) {
       if (error.response) {
         console.error("Response error:", error.response.data);
@@ -55,11 +58,6 @@ function Bigmatch() {
   useEffect(() => {
     ship();
   }, []);
-
-  if (isVotingMember) {
-    // @ts-ignore
-    setVotedOption(data.votedOptionIdx);
-  }
 
   const handleShipButtonClick = async () => {
     if (selectedOption !== null) {
