@@ -15,8 +15,9 @@
     flex-direction: row !important;
 
     .fee-collect {
-      width: 165px !important;
-      height: 50px !important;
+      // width: 165px !important;
+      // height: 50px !important;
+      @include responsive-hw(50px, 165px);
       margin-right: 15px !important;
       background-color: white !important;
       color: $color-primary1 !important;
@@ -25,8 +26,9 @@
     }
 
     .fee-send {
-      width: 165px !important;
-      height: 50px !important;
+      // width: 165px !important;
+      // height: 50px !important;
+      @include responsive-hw(50px, 165px);
       margin-left: 15px !important;
       background-color: $color-primary1 !important;
       color: white !important;

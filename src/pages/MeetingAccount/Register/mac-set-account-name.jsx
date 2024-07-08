@@ -48,12 +48,12 @@ function MacSetAccountName() {
         </div>
         {/* 계좌 이름 추천 */}
       </div>
-      <div className="setAccountNameChatbot">
+      {/* <div className="setAccountNameChatbot">
         <img src={chatbot} alt="chatbotcharacter" />
         <ChatbotMsg content={msg1} loc={"loc1"} />
         <ChatbotMsg content={msg2} loc={"loc2"} />
         <ChatbotMsg content={""} loc={"loc3"} />
-      </div>
+      </div> */}
       <div className="setAccountNameBtn">
         <InfoHalfBtn
           content={"이전"}
