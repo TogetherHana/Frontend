@@ -33,40 +33,38 @@
     align-items: center;
 
     .receiver-bank-img {
-      @include responsive-margin-top(20px);
-      @include responsive-margin-bottom(20px);
+      @include responsive-position(132px, 190px);
     }
     .receiver-font {
+      @include responsive-font-size(20px);
+      @include responsive-position(201px, 157px);
       font-family: "NanumSquareRoundB";
       font-weight: 700;
-      @include responsive-font-size(20px);
-      @include responsive-margin-bottom(20px);
+
+      // @include responsive-margin-bottom(20px);
     }
     .receiver-bank-font {
+      @include responsive-font-size(15px);
+      @include responsive-position(243px, 128px);
       font-family: "NanumSquareRoundB";
       font-weight: 700;
-      @include responsive-font-size(15px);
       color: $color-text1;
-      @include responsive-margin-bottom(20px);
+      // @include responsive-margin-bottom(20px);
     }
 
     .num-input {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      @include responsive-margin-top(20px);
-      @include responsive-margin-bottom(10px);
+      @apply flex text-center place-items-center;
+      @include responsive-width(200px);
+      @include responsive-font-size(30px);
+      @include responsive-position(285px, 115px);
 
       border: none;
       background: transparent;
       color: transparent; /* To hide the input text */
       outline: none; /* To remove the default focus outline */
-      @include responsive-width(200px);
 
       font-family: "NanumSquareRoundR";
       font-weight: 400;
-      @include responsive-font-size(30px);
       color: $color-text1;
     }
     .cant {
@@ -77,22 +75,22 @@
     }
 
     .remain-amount {
+      @apply flex flex-row;
       @include responsive-hw(55px, 334px);
-      @include responsive-margin-top(15px);
+      @include responsive-padding-left(30px);
+      @include responsive-padding-right(30px);
+      @include responsive-font-size(15px);
+      @include responsive-position(360px, 48px);
       background-color: white;
       border-radius: 20px;
       box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
 
-      display: flex;
-      flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      @include responsive-padding-left(30px);
-      @include responsive-padding-right(30px);
 
       font-family: "NanumSquareRoundR";
-      font-weight: 700;
-      @include responsive-font-size(15px);
+      font-weight: 400;
+
       color: $color-text1;
     }
   }

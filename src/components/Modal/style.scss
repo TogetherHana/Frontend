@@ -234,10 +234,14 @@
     right: 0;
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.2);
-    .ReactModal__Content {
-      @include responsive-width(375px);
-      @include responsive-height(175px);
 
+    .ReactModal__Content {
+      // @include responsive-width(375px);
+      // @include responsive-height(225px);
+      @include responsive-hw(250px, 375px);
+      @include responsive-position(300px, 28px);
+      // @include responsive-position(466px, 215px);
+      border-radius: 22px;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
@@ -252,7 +256,7 @@
         text-align: center;
         font-family: "NanumSquareRoundB";
         font-weight: 900;
-        @include responsive-font-size(28px);
+        @include responsive-font-size(25px);
         @include responsive-hw(34px, 332px);
         margin-bottom: 10px;
       }

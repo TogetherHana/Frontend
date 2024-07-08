@@ -74,7 +74,7 @@ function SendFeeInput() {
         <div className="input-container">
           <div className="receiver-bank-img">
             {sendData.bank === "하나" ? (
-              <img src={hana} alt={"하나은행"} />
+              <img src={hana} alt={"하나은행"} width={50} height={50} />
             ) : (
               <div></div>
             )}
