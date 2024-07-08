@@ -5,12 +5,13 @@ import VerificationBtn from "@/components/MeetingAccount/IdVerification/verifica
 import { useNavigate } from "react-router-dom";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useAtom } from "jotai";
-import { deviceTokenAtom } from "@/stores";
+import { deviceTokenAtom, memberAtom } from "@/stores";
 
 function JoinComplete() {
   const navigate = useNavigate();
   const qc = useQueryClient();
-  const [deviceToken, setDeviceToken] = useAtom(deviceTokenAtom);
+  // const [deviceToken, setDeviceToken] = useAtom(deviceTokenAtom);
+  const [memberInfo, setMemberInfo] = useAtom(memberAtom);
   const [isSubmitting, setIsSubmitting] = useState(true);
 
   const joinCompleteParams = {
@@ -23,7 +24,7 @@ function JoinComplete() {
     queryKey: ["is-member"],
     queryFn: async () => {
       const response = await fetch(
-        `${import.meta.env.VITE_BE_URI}/auth/login?deviceToken=${deviceToken}`,
+        `${import.meta.env.VITE_BE_URI}/auth/login?deviceToken=${memberInfo.fcmToken}`,
         {
           method: "GET",
           headers: {
@@ -38,7 +39,7 @@ function JoinComplete() {
   });
 
   useEffect(() => {
-    console.log(deviceToken);
+    console.log(memberInfo.fcmToken);
     setIsSubmitting(false);
   }, []);
 

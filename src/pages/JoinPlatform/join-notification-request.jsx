@@ -14,7 +14,7 @@ function NotificationRequest() {
 
   const fetchData = async () => {
     const token = await requestForToken();
-    setDeviceToken(token);
+    return token;
   };
 
   const btnProp = {
@@ -24,8 +24,13 @@ function NotificationRequest() {
       Notification.requestPermission().then((permission) => {
         if (permission === "granted") {
           console.log("알림 허용됨");
-          fetchData().then((response) => {
-            setMemberInfo((prev) => ({ ...prev, fcmToken: deviceToken }));
+          fetchData().then((token) => {
+            console.log(token);
+            setDeviceToken(token);
+            setMemberInfo((prev) => ({
+              ...prev,
+              fcmToken: token
+            }));
             navigate("/platform/join/idverification");
           });
         } else console.log("알림 거부됨");

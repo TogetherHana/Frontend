@@ -17,16 +17,8 @@ function Main() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // console.log(localStorage.getItem("deviceToken"));
-    // if (localStorage.getItem("deviceToken")) {
-    // isMember 바로 호출
-    // setDeviceToken(localStorage.getItem("deviceToken"));
-    // setIsSubmitting(true);
-    // } else {
-    // localStorage.removeItem("deviceToken");
     const fetchData = async () => {
       const token = await requestForToken();
-      // console.log(localStorage.setItem("deviceToken", token));
       setDeviceToken(token);
     };
 
@@ -58,10 +50,6 @@ function Main() {
     if (isMember.data) {
       console.log(isMember.data.isSuccess);
       if (isMember.data.isSuccess) {
-        // localStorage.setItem("accessToken", isMember.data.data.accessToken);
-        // setAccessToken(isMember.data.data.accessToken);
-        // console.log(accessToken);
-
         const timer = setTimeout(() => {
           setShowSpinner(false);
           setIsSubmitting(false);

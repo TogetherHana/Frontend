@@ -6,6 +6,7 @@ import VerificationBtn from "@/components/MeetingAccount/IdVerification/verifica
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { register } from "@/serviceWorker";
+import { requestForToken } from "@/firebase";
 
 function JoinInfoCheck() {
   const navigate = useNavigate();
@@ -38,12 +39,8 @@ function JoinInfoCheck() {
   });
 
   const handleMemberRegister = () => {
-    setMemberInfo((prev) => ({
-      ...prev,
-      fcmToken: deviceToken
-    }));
+    console.log(memberInfo);
     setIsSubmitting(true);
-    // console.log(registerProcessing.data);
   };
 
   useEffect(() => {

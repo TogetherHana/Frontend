@@ -89,9 +89,6 @@ function Home() {
       return response.json();
     },
     enabled: isSubmittingU
-    // refetchInterval: 1000
-    // refetchOnMount: true
-    // refetchOnWindowFocus: "always"
   });
 
   // 마일리지 충전
@@ -120,10 +117,6 @@ function Home() {
   useEffect(() => {
     setIsSubmittingU(false);
   }, [userInfo.data]);
-
-  useEffect(() => {
-    // qc.refetchQueries({ queryKey: ["user-info"] });
-  }, [qc.getQueryData(["user-info"])]);
 
   // useEffect(() => {
   //   const timer = setTimeout(() => setIsLoading(false), 2000);
@@ -160,7 +153,8 @@ function Home() {
               sharingAccountInfo.data.data.map((item, index) => (
                 <MainAccountDiv key={index} params={item} />
               ))}
-            {sharingAccountInfo.data.data.length !== 0 ? (
+            {sharingAccountInfo.data &&
+            sharingAccountInfo.data.data.length !== 0 ? (
               <MainAccountLastDiv />
             ) : (
               <MainAccountLastDivC />
