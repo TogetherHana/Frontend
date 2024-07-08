@@ -83,8 +83,7 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       background-color: white;
       border-radius: 20px;
-      @include responsive-margin-top(10px);
-      @include responsive-margin-bottom(10px);
+      @include responsive-margin(10px);      
 
       .logo-wrapper {
         @include responsive-hw(48px, 48px);
