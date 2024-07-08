@@ -263,6 +263,9 @@
 }
 
 // complete
+.macCompleteAdImg {
+  @include responsive-position(51px, 0px);
+}
 .maccountCompleteTitle {
   @include responsive-position(327px, 60px);
   @include responsive-font-size(30px);
