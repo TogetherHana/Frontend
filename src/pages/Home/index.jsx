@@ -48,10 +48,10 @@ function Home() {
   // jwt acccesstoken, refreshtoken
   const jwtTokendata = qc.getQueryData(["is-member"])?.data;
   localStorage.setItem("jwtToken", jwtTokendata.accessToken);
-  console.log("---토큰값 잘 저장됐나??---");
-  console.log(localStorage.getItem("jwtToken"));
-  console.log("\n---refreshToken은 있는건가?---");
-  console.log(jwtTokendata.refreshToken);
+  // console.log("---토큰값 잘 저장됐나??---");
+  // console.log(localStorage.getItem("jwtToken"));
+  // console.log("\n---refreshToken은 있는건가?---");
+  // console.log(jwtTokendata.refreshToken);
 
   // 모임통장 리스트 가져오기
   const sharingAccountInfo = useQuery({
@@ -88,6 +88,7 @@ function Home() {
       return response.json();
     },
     enabled: isSubmittingU
+    // refetchInterval: 1000
     // refetchOnMount: true
     // refetchOnWindowFocus: "always"
   });
@@ -118,6 +119,10 @@ function Home() {
   useEffect(() => {
     setIsSubmittingU(false);
   }, [userInfo.data]);
+
+  // useEffect(() => {
+  //   qc.refetchQueries({ queryKey: ["user-info"] });
+  // }, [mileageModalData]);
 
   // useEffect(() => {
   //   const timer = setTimeout(() => setIsLoading(false), 2000);

@@ -34,7 +34,6 @@ function MainMileageConvertDiv({ mileageInfo }) {
     },
     enabled: isSubmitting,
     staleTime: 2000
-    // refetchInterval: 1000
   });
 
   const handleConvertMileage = () => {
@@ -45,7 +44,8 @@ function MainMileageConvertDiv({ mileageInfo }) {
     if (convertInfo.data) {
       setIsSubmitting(false);
       if (convertInfo.data.isSuccess) {
-        console.log(convertInfo.data.data);
+        // console.log(convertInfo.data.data);
+
         setMileageModalData((prev) => ({
           ...prev,
           isOpen: !prev.isOpen
@@ -53,6 +53,10 @@ function MainMileageConvertDiv({ mileageInfo }) {
       }
     }
   }, [convertInfo.data]);
+
+  useEffect(() => {
+    qc.resetQueries({ queryKey: ["convert-info"] });
+  }, [mileageModalData]);
 
   return (
     <div className="homeMileageModalDiv">
@@ -76,7 +80,7 @@ function MainMileageConvertDiv({ mileageInfo }) {
           </div>
         </div>
       </div>
-      <div className="homeMileageDropDown"></div>
+      {/* <div className="homeMileageDropDown"></div> */}
       <div className="homeMileageBtn" onClick={() => handleConvertMileage()}>
         전환하기
       </div>

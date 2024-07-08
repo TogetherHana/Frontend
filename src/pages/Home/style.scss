@@ -385,11 +385,12 @@
   font-family: "NanumSquareRoundR";
 
   .title {
+    @apply mt-8;
     @include responsive-font-size(25px);
   }
   .detail {
     @apply flex w-full;
-    @include responsive-position(80px, 0px);
+    @include responsive-position(120px, 0px);
     @include responsive-font-size(15px);
   }
   .mileage {
@@ -399,6 +400,7 @@
       @include responsive-position(20px, 250px);
       .inputM {
         @apply mt-auto;
+        @include responsive-font-size(25px);
         @include responsive-hw(30px, 70px);
         border: none;
         border-bottom: 1px solid black;
