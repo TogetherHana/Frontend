@@ -12,14 +12,18 @@ function TeamLogo({ params, memberIdx }) {
 
   const submit = async () => {
     const sportsClubIdx = localStorage.getItem("sportsIdx");
+    const jwtToken = localStorage.getItem("jwtToken");
+    console.log("---토큰값 있나?---");
+    console.log(jwtToken);
 
     try {
       const response = await axios.put(
-        `${import.meta.env.VITE_BE_URI}/sports-club/pick/${memberIdx}`,
+        `${import.meta.env.VITE_BE_URI}/sports-club/pick`,
         sportsClubIdx,
         {
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${jwtToken}`
           }
         }
       );

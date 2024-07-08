@@ -18,20 +18,9 @@ function BaseballHome() {
   const [selectedButton, setSelectedButton] = useState("입출금"); // 어떤 버튼이 선택되었는지를 나타내는 상태
   const remainBalance = localStorage.getItem("latestRemainBalance");
 
-  // const [searchParams] = useSearchParams(); // 메인홈에서 받아오는 모임통장 계좌idx랑 계좌이름
-  // const account_idx = searchParams.get("idx");
-  // const account_name = searchParams.get("name");
-
   const [sportSharingAccountIdx] = useAtom(sportSharingAccountIdxAtom); // 모임통장 인덱스
   const [sportSharingAccountName] = useAtom(sportSharingAccountNameAtom); // 모임통장 계좌이름
   const [sportSharingAccountNum] = useAtom(sportSharingAccountNumAtom); // 모임통장 계좌번호
-
-  // useEffect(() => {
-  //   if (account_idx && account_name) {
-  //     // localStorage.setItem('account_idx', account_idx);
-  //     localStorage.setItem("account_name", account_name);
-  //   }
-  // }, [account_idx, account_name]);
 
   const handleButtonClick = (button) => {
     setSelectedButton(button); // 클릭된 버튼의 이름을 상태로 설정
@@ -51,8 +40,6 @@ function BaseballHome() {
     return new Intl.NumberFormat().format(number);
   };
 
-  // const memberIdx = 1;
-
   const collectFee = () => {
     navigate("/fee");
   };
@@ -64,9 +51,9 @@ function BaseballHome() {
   const parseAccountNumber = (number) => {
     return (
       number.substring(0, 3) +
-      " - " +
+      "-" +
       number.substring(3, 9) +
-      " - " +
+      "-" +
       number.substring(9)
     );
   };
