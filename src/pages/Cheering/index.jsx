@@ -40,7 +40,7 @@ function Cheering() {
     <>
       <div className="sportstype-container">
         <div className="header">
-          <div className="back" onClick={() => navigate("/baseball/home")}>
+          <div className="back" onClick={() => navigate("/memberhome")}>
             &lt;
           </div>
           <div>종목 선택</div>

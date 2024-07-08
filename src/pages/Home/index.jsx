@@ -18,6 +18,7 @@ import convert from "@/assets/images/mileage/convert.svg";
 import HomeDataProcessing from "./home-data-processing";
 import HomeMileageModal from "@/components/Modal/homemileagemodal";
 import MainMileageConvertDiv from "@/components/Main/main-mileage-convert-div";
+import CheeringTeamDiv from "@/components/Main/main-cheeringteam-div";
 
 function Home() {
   const [isLoading, setIsLoading] = useState(false);
@@ -191,17 +192,32 @@ function Home() {
             ))}
           </div>
           {/* cheering team */}
-          <div
-            className="renewalCheeringTeam"
-            onClick={() => navigate(`/choice/team`)}
-          >
-            <div className="content">
-              <div className="top">
-                응원팀 설정하고 함께, 하나 더 재미있게 즐기기!
+          <div className="renewalCheeringTeamDiv">
+            {userInfo.data &&
+              userInfo.data.data.myTeams.map((item, index) => (
+                // <div className="renewalCheeringTeam">
+                //   {item.sportsClubName}
+                //   {item.sportsType}
+                //   {img}
+                // </div>
+                <CheeringTeamDiv params={item} />
+              ))}
+            {userInfo.data && userInfo.data.data.myTeams.length <= 3 ? (
+              <div
+                className="renewalCheeringTeam"
+                onClick={() => navigate(`/choice/team`)}
+              >
+                <div className="content">
+                  <div className="top">
+                    응원팀 설정하고 함께, 하나 더 재미있게 즐기기!
+                  </div>
+                  <div>MY 응원팀 설정하기</div>
+                </div>
+                <img src={clover} alt="clover" />
               </div>
-              <div>MY 응원팀 설정하기</div>
-            </div>
-            <img src={clover} alt="clover" />
+            ) : (
+              ""
+            )}
           </div>
           <HomeMileageModal />
         </>

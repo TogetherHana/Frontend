@@ -1,17 +1,15 @@
 import React, { useState } from "react";
-import parse from "html-react-parser";
 import { selectWinTeamAtom } from "@/stores";
 import { useAtom } from "jotai";
 import SelectWinTeamModal from "../Modal/selectwinteammodal";
 import SystemEventSelectCheck from "./se-select-win-check";
 import jamsil from "@/assets/images/systemEvent/baseball/background_jamsil.svg";
-import lg_twins from "@/assets/images/baseballTeams/LG.svg";
-import kiwoom_heroes from "@/assets/images/baseballTeams/Kiwoom.svg";
-import { useQueryClient } from "@tanstack/react-query";
+import teamImages from "../team-images";
 
 function SystemEventSelectWinMatch({ params }) {
   const [selectWinTeamData, setSelectWinTeamData] = useAtom(selectWinTeamAtom);
   const [isSubmitting, setIsSubmitting] = useState(true);
+
   const handleSelectWinTeam = (teamnm, matchnm, img, gameidx, teamidx) => {
     setSelectWinTeamData((prevData) => ({
       ...prevData,
@@ -40,20 +38,6 @@ function SystemEventSelectWinMatch({ params }) {
     return stadiumImg;
   };
 
-  const getTeamImg = (teamName) => {
-    let teamImg = null;
-    switch (teamName) {
-      case "LG 트윈스":
-        teamImg = lg_twins;
-        break;
-      case "키움 히어로즈":
-        teamImg = kiwoom_heroes;
-        break;
-      default:
-        break;
-    }
-    return teamImg;
-  };
   return (
     <>
       <div
@@ -91,7 +75,7 @@ function SystemEventSelectWinMatch({ params }) {
               )
             }
           >
-            <img src={getTeamImg(params.home.teamName)} alt="home" />
+            <img src={teamImages[params.home.teamName]} alt="home" />
           </div>
 
           <div className="systemEventSelectWinMatchDivTeamInfo">vs</div>
@@ -107,7 +91,7 @@ function SystemEventSelectWinMatch({ params }) {
               )
             }
           >
-            <img src={getTeamImg(params.away.teamName)} alt="away" />
+            <img src={teamImages[params.away.teamName]} alt="away" />
           </div>
           <div className="systemEventSelectWinMatchDivTeamInfo">
             <div>원정</div>
