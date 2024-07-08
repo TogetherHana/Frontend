@@ -28,8 +28,9 @@ function TeamLogo({ params, memberIdx }) {
       if (!response.data.isSuccess) {
         alert("이미 응원팀을 설정했습니다.");
       }
-
-      navigate("/");
+      else{
+        navigate("/memberhome");
+      }
     } catch (error) {
       console.error("Error picking team:", error);
     }

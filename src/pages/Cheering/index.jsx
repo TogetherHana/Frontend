@@ -22,16 +22,16 @@ function Cheering() {
     },
     {
       content: "축구",
-      img: soccer,
+      img: soccer
       // onClick: () => {
-      //   localStorage.setItem("sportsType", "SOCCER");       
+      //   localStorage.setItem("sportsType", "SOCCER");
       // }
     },
     {
       content: "E-스포츠",
-      img: esports,
+      img: esports
       // onClick: () => {
-      //   localStorage.setItem("sportsType", "E_SPORTS");      
+      //   localStorage.setItem("sportsType", "E_SPORTS");
       // }
     }
   ];
@@ -40,7 +40,9 @@ function Cheering() {
     <>
       <div className="sportstype-container">
         <div className="header">
-          <div className="back">&lt;</div>
+          <div className="back" onClick={() => navigate("/baseball/home")}>
+            &lt;
+          </div>
           <div>종목 선택</div>
           <div className="row-dummy"></div>
         </div>

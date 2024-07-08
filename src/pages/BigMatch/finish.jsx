@@ -7,6 +7,8 @@ function Finish() {
   const navigate = useNavigate();
   const [losers, setLosers] = useState([]);
 
+  const gameTitle = localStorage.getItem("gameTitle");
+
   useEffect(() => {
     // 로컬 스토리지에서 데이터를 가져와 상태에 저장
     const storedLosers = JSON.parse(localStorage.getItem("losers")) || [];
@@ -26,11 +28,7 @@ function Finish() {
         </div>
 
         <div className="title-container">
-          <div>
-            두산 VS 롯데
-            <br />
-            오늘의 승자는?
-          </div>
+          <div>{gameTitle}</div>
           <div
             style={{
               width: "100%",
@@ -63,18 +61,18 @@ function Finish() {
                 </div>
               ))}
             </div>
-          </div>          
+          </div>
         </div>
         <div className="col-dummy" />
         <div className="col-dummy" />
         <Button
-            className="btn"
-            onClick={() => {
-              navigate("/baseball/home");
-            }}
-          >
-            확인
-          </Button>
+          className="btn"
+          onClick={() => {
+            navigate("/baseball/home");
+          }}
+        >
+          확인
+        </Button>
       </div>
     </>
   );
