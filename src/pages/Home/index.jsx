@@ -20,6 +20,7 @@ import HomeMileageModal from "@/components/Modal/homemileagemodal";
 import MainMileageConvertDiv from "@/components/Main/main-mileage-convert-div";
 import CheeringTeamDiv from "@/components/Main/main-cheeringteam-div";
 import MainAccountLastDivC from "@/components/Main/mainaccountlastdiv-c";
+import MainMileageChargeDiv from "@/components/Main/main-mileage-charge-div";
 
 function Home() {
   const [isLoading, setIsLoading] = useState(false);
@@ -92,7 +93,18 @@ function Home() {
   });
 
   // 마일리지 충전
-  const handleMileageCharge = () => {};
+  const handleMileageCharge = () => {
+    const mileageInfo = {
+      mileageIdx: userInfo.data.data.mileage.mileageIdx,
+      amount: userInfo.data.data.mileage.amount
+    };
+
+    setMileageModalData((prev) => ({
+      ...prev,
+      isOpen: !prev.isOpen,
+      content: <MainMileageChargeDiv mileageInfo={mileageInfo} />
+    }));
+  };
 
   // 마일리지 환전
   const handleMileageConvert = () => {

@@ -18,7 +18,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layouts.WhiteFooter />,
-    children: [     
+    children: [
       {
         path: "event",
         children: [{ index: true, element: <Pages.SystemEvent /> }]
@@ -220,6 +220,14 @@ const router = createBrowserRouter([
       {
         path: "send/amount/pwcheck",
         children: [{ index: true, element: <Pages.SendPWcheck /> }]
+      },
+      {
+        path: "maccount/transfer/input",
+        children: [{ index: true, element: <Pages.MacTransferInput /> }]
+      },
+      {
+        path: "maccount/transfer/pwcheck",
+        children: [{ index: true, element: <Pages.MacTransferPWCheck /> }]
       }
     ]
   },

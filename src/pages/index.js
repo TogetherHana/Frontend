@@ -37,6 +37,8 @@ export { default as MacIcRegistering } from "./MeetingAccount/InviteCode/mac-ic-
 export { default as MacIcComplete } from "./MeetingAccount/InviteCode/mac-ic-complete";
 export { default as MacRegisterProcessing } from "./MeetingAccount/Register/mac-register-processing";
 export { default as MacIdCertification } from "./MeetingAccount/Register/mac-id-certification";
+export { default as MacTransferInput } from "./MeetingAccount/Transfer/mac-transfer-input";
+export { default as MacTransferPWCheck } from "./MeetingAccount/Transfer/mac-transfer-pwcheck";
 // Join Platform - 회원가입
 export { default as JoinMain } from "./JoinPlatform/join-main";
 export { default as JoinIntro } from "./JoinPlatform/join-intro";

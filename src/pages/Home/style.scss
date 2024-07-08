@@ -393,19 +393,67 @@
   font-family: "NanumSquareRoundR";
 
   .title {
-    @apply mt-8;
+    @apply mt-6;
     @include responsive-font-size(25px);
   }
   .detail {
     @apply flex w-full;
-    @include responsive-position(120px, 0px);
+    @include responsive-position(100px, 0px);
     @include responsive-font-size(15px);
+  }
+  .info {
+    @include responsive-font-size(13px);
+    @include responsive-position(200px, 60px);
+    font-family: "NotoSans";
+    color: #868686;
   }
   .mileage {
     @apply w-2/5;
     .convertMileage {
       @apply flex;
       @include responsive-position(20px, 250px);
+      .inputM {
+        @apply mt-auto;
+        @include responsive-font-size(25px);
+        @include responsive-hw(30px, 70px);
+        border: none;
+        border-bottom: 1px solid black;
+      }
+    }
+
+    .currentM {
+      @apply mt-2;
+      @include responsive-font-size(30px);
+    }
+  }
+}
+
+.homeMileageModalChargeDiv {
+  @apply w-full;
+  @include responsive-font-size(25px);
+  font-family: "NanumSquareRoundR";
+
+  .title {
+    @apply mt-6;
+    @include responsive-font-size(25px);
+  }
+  .detail {
+    @apply flex;
+    @include responsive-position(100px, 140px);
+    @include responsive-font-size(15px);
+  }
+  .info {
+    @include responsive-font-size(13px);
+    @include responsive-position(200px, 50px);
+    font-family: "NotoSans";
+    color: #868686;
+  }
+  .mileage {
+    //@apply w-2/5;
+
+    .convertMileage {
+      @apply flex;
+      @include responsive-position(30px, 10px);
       .inputM {
         @apply mt-auto;
         @include responsive-font-size(25px);

@@ -18,7 +18,7 @@ function MacComplete() {
   return (
     <>
       <div>
-        <img src={advertisement1} alt="ad" />
+        <img src={advertisement1} alt="ad" className="macCompleteAdImg" />
         <div className="maccountCompleteTitle">계좌 개설이 완료되었어요!</div>
         <img src={bankbook} alt="bankbook" className="maccountCompleteImg" />
       </div>

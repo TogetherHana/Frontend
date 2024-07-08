@@ -4,7 +4,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { mileageModalAtom } from "@/stores";
 import { useAtom } from "jotai";
 
-function MainMileageConvertDiv({ mileageInfo }) {
+function MainMileageChargeDiv({ mileageInfo }) {
   const qc = useQueryClient();
   const [convertMileage, setConvertMileage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -14,7 +14,7 @@ function MainMileageConvertDiv({ mileageInfo }) {
   const accessToken = qc.getQueryData(["is-member"]).data.accessToken;
 
   const convertInfo = useQuery({
-    queryKey: ["convert-info"],
+    queryKey: ["charge-info"],
     queryFn: async () => {
       const response = await fetch(
         `${import.meta.env.VITE_BE_URI}/mileage/transfer`,
@@ -37,7 +37,7 @@ function MainMileageConvertDiv({ mileageInfo }) {
   });
 
   const handleConvertMileage = () => {
-    setIsSubmitting(true);
+    // setIsSubmitting(true);
   };
 
   useEffect(() => {
@@ -61,19 +61,12 @@ function MainMileageConvertDiv({ mileageInfo }) {
   }, [mileageModalData]);
 
   return (
-    <div className="homeMileageModalDiv">
-      <div className="title">마일리지 전환</div>
+    <div className="homeMileageModalChargeDiv">
+      <div className="title">마일리지 충전</div>
       <div className="detail">
         <div className="mileage">
-          <div>현재 마일리지</div>
-          <div className="currentM">{mileageInfo.amount}M</div>
-        </div>
-        {/* 전환 svg */}
-        <img src={reloading} alt="reloading" className="mx-auto" />
-        <div className="mileage">
-          <div>전환할 마일리지</div>
+          <div>충전할 마일리지</div>
           <div className="convertMileage">
-            {/* <input /> */}
             <input
               className="inputM"
               onChange={(e) => setConvertMileage(e.target.value)}
@@ -83,14 +76,14 @@ function MainMileageConvertDiv({ mileageInfo }) {
         </div>
       </div>
       <div className="info">
-        전환하기 버튼을 누르면 연동된 계좌로 입금됩니다
+        충전하기 버튼을 누르면 연동된 계좌에서 출금됩니다
       </div>
       {/* <div className="homeMileageDropDown"></div> */}
       <div className="homeMileageBtn" onClick={() => handleConvertMileage()}>
-        전환하기
+        충전하기
       </div>
     </div>
   );
 }
 
-export default MainMileageConvertDiv;
+export default MainMileageChargeDiv;
