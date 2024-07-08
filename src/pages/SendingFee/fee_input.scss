@@ -113,15 +113,15 @@
   }
 
   .num-container {
+    @apply flex place-items-center text-center;
+    @include responsive-position(449px, 0px);
+    @include responsive-hw(483px, 431px);
     flex: 3;
     background-color: white;
 
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    height: auto;
+    // height: auto;
+    // width: auto;
 
     .num-line {
       display: flex;

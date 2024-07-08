@@ -22,12 +22,15 @@ const Play = () => {
     setShowModal(true);
     setResponseMessage("success");
     try {
-      const response = await axios.post("/event/get-ticket", {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${jwtToken}`
+      const response = await axios.get(
+        `${import.meta.env.VITE_BE_URI}/event/get-ticket`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${jwtToken}`
+          }
         }
-      });
+      );
       if (response.data == true) {
         setResponseMessage("success");
       } else {

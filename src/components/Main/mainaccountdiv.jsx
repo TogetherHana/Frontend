@@ -11,6 +11,7 @@ import {
   sportSharingAccountNumAtom
 } from "@/stores";
 import { Home } from "@/pages";
+import HomeAccountDivTransaction from "../Button/homeaccountdivtransaction";
 
 function MainAccountDiv({ params }) {
   const navigate = useNavigate();
@@ -33,7 +34,12 @@ function MainAccountDiv({ params }) {
     }).format(number);
   };
 
-  const handleSharingAccount = (accountIdx, accountName, accountNumber, remainBalance) => {
+  const handleSharingAccount = (
+    accountIdx,
+    accountName,
+    accountNumber,
+    remainBalance
+  ) => {
     const encodedAccountName = encodeURIComponent(accountName); // 띄어쓰기가 있을 가능성때문
 
     setSportSharingAccountIdx(accountIdx);
@@ -62,13 +68,17 @@ function MainAccountDiv({ params }) {
   ];
 
   return (
-
     <div className="renewalMiddleContent">
       <div className="mainAccountDiv">
         <div
           className="mainAccountDivTxt"
           onClick={() =>
-            handleSharingAccount(params.sharingAccountIdx, params.accountName, params.accountNumber, params.remainBalance)
+            handleSharingAccount(
+              params.sharingAccountIdx,
+              params.accountName,
+              params.accountNumber,
+              params.remainBalance
+            )
           }
         >
           {params.accountName}
@@ -80,9 +90,13 @@ function MainAccountDiv({ params }) {
           {formatCurrency(params.remainBalance)}원
         </div>
         <div className="flex">
-          {btnProps.map((item, index) => (
+          {/* {btnProps.map((item, index) => (
             <HomeAccountDivBtn key={index} params={item} />
-          ))}
+          ))} */}
+          <HomeAccountDivBtn params={btnProps[0]} />
+          <HomeAccountDivTransaction params={btnProps[1]} />
+          {/* <HomeAccountDivBtn params={btnProps[1]} /> */}
+          <HomeAccountDivBtn params={btnProps[2]} />
         </div>
       </div>
     </div>
