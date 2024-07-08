@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import hana4040 from "@/assets/images/hana4040.svg";
 import { useAtom } from "jotai";
-import { memberAtom } from "@/stores";
+import { deviceTokenAtom, memberAtom } from "@/stores";
 import VerificationBtn from "@/components/MeetingAccount/IdVerification/verificationbtn";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
@@ -10,6 +10,7 @@ import { register } from "@/serviceWorker";
 function JoinInfoCheck() {
   const navigate = useNavigate();
   const [memberInfo, setMemberInfo] = useAtom(memberAtom);
+  const [deviceToken, setDeviceToken] = useAtom(deviceTokenAtom);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   console.log(JSON.stringify(memberInfo));
@@ -37,8 +38,11 @@ function JoinInfoCheck() {
   });
 
   const handleMemberRegister = () => {
+    setMemberInfo((prev) => ({
+      ...prev,
+      fcmToken: deviceToken
+    }));
     setIsSubmitting(true);
-
     // console.log(registerProcessing.data);
   };
 
