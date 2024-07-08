@@ -33,12 +33,13 @@ function MainAccountDiv({ params }) {
     }).format(number);
   };
 
-  const handleSharingAccount = (accountIdx, accountName, accountNumber) => {
+  const handleSharingAccount = (accountIdx, accountName, accountNumber, remainBalance) => {
     const encodedAccountName = encodeURIComponent(accountName); // 띄어쓰기가 있을 가능성때문
 
     setSportSharingAccountIdx(accountIdx);
     setSportSharingAccountName(accountName);
     setSportSharingAccountNum(accountNumber);
+    localStorage.setItem("latestRemainBalance", remainBalance);
     navigate(`/baseball/home`);
     // navigate(`/baseball/home?idx=${accountIdx}&name=${accountName}`);
   };
@@ -67,7 +68,7 @@ function MainAccountDiv({ params }) {
         <div
           className="mainAccountDivTxt"
           onClick={() =>
-            handleSharingAccount(params.sharingAccountIdx, params.accountName, params.accountNumber)
+            handleSharingAccount(params.sharingAccountIdx, params.accountName, params.accountNumber, params.remainBalance)
           }
         >
           {params.accountName}
