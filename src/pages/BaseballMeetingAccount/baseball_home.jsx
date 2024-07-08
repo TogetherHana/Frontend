@@ -48,13 +48,18 @@ function BaseballHome() {
     navigate("/send");
   };
 
-  const parseAccountNumber = (number) => {
+  const parseAccountNumber = (accountNum) => {
+    if (typeof accountNum !== "string") {
+      console.warn("accountNum is not a string:", accountNum);
+      return "";
+    }
+
     return (
-      number.substring(0, 3) +
+      accountNum.substring(0, 3) +
       "-" +
-      number.substring(3, 9) +
+      accountNum.substring(3, 9) +
       "-" +
-      number.substring(9)
+      accountNum.substring(9)
     );
   };
 
@@ -75,7 +80,9 @@ function BaseballHome() {
             <div className="account-name">{sportSharingAccountName}</div>
           </div>
           <div className="account-number">
-            하나 {parseAccountNumber(sportSharingAccountNum)}
+            하나{" "}
+            {sportSharingAccountNum &&
+              parseAccountNumber(sportSharingAccountNum)}
           </div>
           <div className="account-amount">{formatNumber(remainBalance)} 원</div>
           {/* <div className="col-dummy" /> */}

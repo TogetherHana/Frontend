@@ -33,11 +33,11 @@ const WaitingRoom = () => {
   return (
     <>
       <div className="waitingRoom-container">
-        <div className="header">
+        {/* <div className="header">
           <div className="back">&lt;</div>
           <div>선착순 이벤트</div>
           <div className="row-dummy"></div>
-        </div>
+        </div> */}
         <div className="content">
           <div className="banner-image-container">
             <img src={bannerImg} alt="배너 이미지" />

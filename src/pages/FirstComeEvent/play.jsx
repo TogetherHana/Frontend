@@ -49,11 +49,11 @@ const Play = () => {
   return (
     <>
       <div className="play-container">
-        <div className="header">
+        {/* <div className="header">
           <div className="back">&lt;</div>
           <div>선착순 이벤트</div>
           <div className="row-dummy"></div>
-        </div>
+        </div> */}
         <div className="content">
           <div className="highlight-text">
             <div>전광판의</div>

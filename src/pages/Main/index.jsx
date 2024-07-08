@@ -17,20 +17,21 @@ function Main() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log(localStorage.getItem("deviceToken"));
-    if (localStorage.getItem("deviceToken")) {
-      // isMember 바로 호출
-      setDeviceToken(localStorage.getItem("deviceToken"));
-      setIsSubmitting(true);
-    } else {
-      const fetchData = async () => {
-        const token = await requestForToken();
-        console.log(localStorage.setItem("deviceToken", token));
-        setDeviceToken(token);
-      };
+    // console.log(localStorage.getItem("deviceToken"));
+    // if (localStorage.getItem("deviceToken")) {
+    // isMember 바로 호출
+    // setDeviceToken(localStorage.getItem("deviceToken"));
+    // setIsSubmitting(true);
+    // } else {
+    // localStorage.removeItem("deviceToken");
+    const fetchData = async () => {
+      const token = await requestForToken();
+      // console.log(localStorage.setItem("deviceToken", token));
+      setDeviceToken(token);
+    };
 
-      fetchData().then(() => setIsSubmitting(true));
-    }
+    fetchData().then(() => setIsSubmitting(true));
+    // }
   }, []);
 
   // api 호출

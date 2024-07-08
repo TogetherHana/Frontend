@@ -56,6 +56,8 @@ function MainMileageConvertDiv({ mileageInfo }) {
 
   useEffect(() => {
     qc.resetQueries({ queryKey: ["convert-info"] });
+    // qc.refetchQueries({ queryKey: ["user-info"] });
+    // qc.invalidateQueries({ queryKey: ["user-info"] });
   }, [mileageModalData]);
 
   return (

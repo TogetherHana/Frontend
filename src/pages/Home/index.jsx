@@ -19,6 +19,7 @@ import HomeDataProcessing from "./home-data-processing";
 import HomeMileageModal from "@/components/Modal/homemileagemodal";
 import MainMileageConvertDiv from "@/components/Main/main-mileage-convert-div";
 import CheeringTeamDiv from "@/components/Main/main-cheeringteam-div";
+import MainAccountLastDivC from "@/components/Main/mainaccountlastdiv-c";
 
 function Home() {
   const [isLoading, setIsLoading] = useState(false);
@@ -120,9 +121,9 @@ function Home() {
     setIsSubmittingU(false);
   }, [userInfo.data]);
 
-  // useEffect(() => {
-  //   qc.refetchQueries({ queryKey: ["user-info"] });
-  // }, [mileageModalData]);
+  useEffect(() => {
+    // qc.refetchQueries({ queryKey: ["user-info"] });
+  }, [qc.getQueryData(["user-info"])]);
 
   // useEffect(() => {
   //   const timer = setTimeout(() => setIsLoading(false), 2000);
@@ -159,7 +160,11 @@ function Home() {
               sharingAccountInfo.data.data.map((item, index) => (
                 <MainAccountDiv key={index} params={item} />
               ))}
-            <MainAccountLastDiv />
+            {sharingAccountInfo.data.data.length !== 0 ? (
+              <MainAccountLastDiv />
+            ) : (
+              <MainAccountLastDivC />
+            )}
           </div>
           {/* sports mileage */}
           <div className="renewalMiddleMileageDiv">
