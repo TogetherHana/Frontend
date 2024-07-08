@@ -82,7 +82,13 @@ function FeeCollect() {
       );
 
       console.log(response.data);
-      navigate("/baseball/home");
+
+      if(!response.data.isSuccess){
+        alert(response.data.message);
+      }
+      else{
+        navigate("/baseball/home");
+      }
     } catch (error) {
       if (error.response) {
         console.error("Response error:", error.response.data);

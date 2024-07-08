@@ -62,7 +62,13 @@ function SendPWcheck() {
 
       console.log("--------------------------------------");
       console.log(response.data);
-      navigate("/baseball/home");
+
+      if(!response.data.isSuccess){
+        alert(response.data.message);
+      }
+      else{
+        navigate("/baseball/home");
+      }      
     } catch (error) {
       if (error.response) {
         // The request was made and the server responded with a status code

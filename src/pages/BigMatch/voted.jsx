@@ -74,6 +74,7 @@ function Voted() {
           alert("승리호 결정은 총무 권한이 필요합니다!");
           return;
         } else {
+          localStorage.setItem("gameTitle", gameTitle);
           localStorage.setItem(
             "losers",
             JSON.stringify(response.data.data.losers)

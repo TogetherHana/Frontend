@@ -11,6 +11,8 @@ function Bigmatch() {
   const [gameOptions, setGameOptions] = useState([]);
   const [gameTitle, setGameTitle] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
+  const [votedOption, setVotedOption] = useState(0);
+  let data;
 
   console.log("----지금 진행중인 게임 idx는?----");
   console.log(localStorage.getItem("playingGameIdx"));
@@ -33,7 +35,7 @@ function Bigmatch() {
       );
 
       console.log(response.data.data);
-      const data = response.data.data;
+      data = response.data.data;
 
       setIsVotingClosed(data.isVotingClosed);
       setIsVotingMember(data.isVotingMember);
@@ -53,6 +55,11 @@ function Bigmatch() {
   useEffect(() => {
     ship();
   }, []);
+
+  if (isVotingMember) {
+    // @ts-ignore
+    setVotedOption(data.votedOptionIdx);
+  }
 
   const handleShipButtonClick = async () => {
     if (selectedOption !== null) {
@@ -91,8 +98,6 @@ function Bigmatch() {
   const handleOptionChange = (event) => {
     const gameOptionIdx = parseInt(event.target.id.replace("option-", ""));
     setSelectedOption(gameOptionIdx);
-
-    // setSelectedOption(event.target.value);
   };
 
   const handleVictoryButtonClick = () => {
@@ -139,7 +144,10 @@ function Bigmatch() {
                       name="option"
                       value={option.optionTitle}
                       onChange={handleOptionChange}
-                      checked={selectedOption === option.gameOptionIdx}
+                      checked={
+                        selectedOption === option.gameOptionIdx ||
+                        (isVotingMember && votedOption === option.gameOptionIdx)
+                      }
                       // @ts-ignore
                       disabled={
                         isVotingMember &&
