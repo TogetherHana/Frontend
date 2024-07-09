@@ -5,6 +5,7 @@ importScripts("https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js");
 importScripts(
   "https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"
 );
+// import onBackgroundMessage from "firebase/messaging/sw";
 
 // Initialize the Firebase app in the service worker by passing in
 // your app's Firebase config object.
@@ -23,7 +24,7 @@ const firebaseApp = firebase.initializeApp({
 // messages.
 const messaging = firebase.messaging();
 
-onmessage(messaging, (payload) => {
+messaging.onMessage((payload) => {
   const notificationTitle = payload.title;
   const notificationOptions = {
     body: payload.body,
@@ -33,7 +34,7 @@ onmessage(messaging, (payload) => {
   self.registration.showNotification(notificationTitle, notificationOptions);
 });
 
-onBackgroundMessage(messaging, (payload) => {
+messaging.onBackgroundMessage((payload) => {
   const notificationTitle = payload.title;
   const notificationOptions = {
     body: payload.body,
