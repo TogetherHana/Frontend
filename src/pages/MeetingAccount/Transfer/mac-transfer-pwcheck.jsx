@@ -4,84 +4,127 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import back from "@/assets/images/back.svg";
 import Button from "@/components/Button";
-import { sendFeeAtom, sportSharingAccountIdxAtom } from "@/stores";
+import {
+  sendFeeAtom,
+  sportSharingAccountIdxAtom,
+  transferInputAtom
+} from "@/stores";
 import { useAtom } from "jotai";
 import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 
 function MacTransferPWCheck() {
   const navigate = useNavigate();
   const [accountPW, setAccountPW] = useState([]);
-  const [sportSharingAccountIdx] = useAtom(sportSharingAccountIdxAtom); // 모임통장 인덱스
-  const [sendData, setSendData] = useAtom(sendFeeAtom);
+  const [transferInputInfo, setTransferInputInfo] = useAtom(transferInputAtom);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  // const [sportSharingAccountIdx] = useAtom(sportSharingAccountIdxAtom); // 모임통장 인덱스
+  // const [sendData, setSendData] = useAtom(sendFeeAtom);
 
   const handleNumberClick = (number) => {
     if (accountPW.length < 4) {
       setAccountPW([...accountPW, number]);
     }
-
-    console.log(accountPW);
   };
 
   const handleNumberCancel = () => {
     setAccountPW(accountPW.slice(0, -1));
   };
 
-  const handlePWBtn = async () => {
-    setSendData({ ...sendData, accountPassword: accountPW.join("") });
-
-    console.log("---- 자 이제 확인해보자 ----");
-    console.log(`모임통장 idx: ${sportSharingAccountIdx}`);
-    console.log(`받는 사람의 계좌번호: ${sendData.receiveAccountNumber}`);
-    console.log(`받는 사람: ${sendData.receiver}`);
-    console.log(`송금할 금액: ${sendData.amount}`);
-    console.log(`모임통장 비밀번호: ${accountPW.join("")}`);
-
-    const transferRequest = {
-      sharingAccountIdx: sportSharingAccountIdx,
-      receiveAccountNumber: sendData.receiveAccountNumber,
-      receiver: sendData.receiver,
-      amount: parseInt(sendData.amount.replace(/,/g, ""), 10),
-      accountPassword: accountPW.join("")
-    };
-
-    const jwtToken = localStorage.getItem("jwtToken");
-    console.log("---토큰값 있나?---");
-    console.log(jwtToken);
-
-    try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_BE_URI}/sharing-account/withdraw`,
-        transferRequest,
+  const transferInfo = useQuery({
+    queryKey: ["transfer-info"],
+    queryFn: async () => {
+      const response = await fetch(
+        `${import.meta.env.VITE_BE_URI}/sharing-account/deposit`,
         {
+          method: "POST",
           headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${jwtToken}`
-          }
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(transferInputInfo)
         }
       );
+      return response.json();
+    },
+    enabled: isSubmitting
+  });
 
-      console.log("--------------------------------------");
-      console.log(response.data);
+  const handleTransfer = () => {
+    console.log(transferInputInfo);
+    setIsSubmitting(true);
+  };
 
-      if (!response.data.isSuccess) {
-        alert(response.data.message);
-      } else {
-        navigate("/baseball/home");
-      }
-    } catch (error) {
-      if (error.response) {
-        // The request was made and the server responded with a status code
-        // that falls out of the range of 2xx
-        console.error("Response error:", error.response.data);
-      } else if (error.request) {
-        // The request was made but no response was received
-        console.error("No response error:", error.request);
-      } else {
-        // Something happened in setting up the request that triggered an Error
-        console.error("Axios error:", error.message);
+  useEffect(() => {
+    if (transferInfo.data) {
+      setIsSubmitting(false);
+      if (transferInfo.data.isSuccess) {
+        // navigate('/maccount/transfer/complete', )
+        navigate("/maccount/register/processing", {
+          state: {
+            url: "/maccount/transfer/complete",
+            text: "이체 진행중입니다"
+          }
+        });
       }
     }
-  };
+  }, [transferInfo.data]);
+
+  // const handlePWBtn = async () => {
+  //   // setSendData({ ...sendData, accountPassword: accountPW.join("") });
+
+  //   // console.log("---- 자 이제 확인해보자 ----");
+  //   // console.log(`모임통장 idx: ${sportSharingAccountIdx}`);
+  //   // console.log(`받는 사람의 계좌번호: ${sendData.receiveAccountNumber}`);
+  //   // console.log(`받는 사람: ${sendData.receiver}`);
+  //   // console.log(`송금할 금액: ${sendData.amount}`);
+  //   // console.log(`모임통장 비밀번호: ${accountPW.join("")}`);
+
+  //   const transferRequest = {
+  //     sharingAccountIdx: sportSharingAccountIdx,
+  //     receiveAccountNumber: sendData.receiveAccountNumber,
+  //     receiver: sendData.receiver,
+  //     amount: parseInt(sendData.amount.replace(/,/g, ""), 10),
+  //     accountPassword: accountPW.join("")
+  //   };
+
+  //   // const jwtToken = localStorage.getItem("jwtToken");
+  //   // console.log("---토큰값 있나?---");
+  //   // console.log(jwtToken);
+
+  //   try {
+  //     const response = await axios.post(
+  //       `${import.meta.env.VITE_BE_URI}/sharing-account/withdraw`,
+  //       transferRequest,
+  //       {
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           Authorization: `Bearer ${jwtToken}`
+  //         }
+  //       }
+  //     );
+
+  //     console.log("--------------------------------------");
+  //     console.log(response.data);
+
+  //     if (!response.data.isSuccess) {
+  //       alert(response.data.message);
+  //     } else {
+  //       navigate("/baseball/home");
+  //     }
+  //   } catch (error) {
+  //     if (error.response) {
+  //       // The request was made and the server responded with a status code
+  //       // that falls out of the range of 2xx
+  //       console.error("Response error:", error.response.data);
+  //     } else if (error.request) {
+  //       // The request was made but no response was received
+  //       console.error("No response error:", error.request);
+  //     } else {
+  //       // Something happened in setting up the request that triggered an Error
+  //       console.error("Axios error:", error.message);
+  //     }
+  //   }
+  // };
 
   useEffect(() => {}, [accountPW]);
 
@@ -127,7 +170,7 @@ function MacTransferPWCheck() {
           </div>
         </div>
         {accountPW.length == 4 ? (
-          <Button onClick={() => handlePWBtn()} className="numberKeyPadBtn">
+          <Button onClick={() => handleTransfer()} className="numberKeyPadBtn">
             확인
           </Button>
         ) : (

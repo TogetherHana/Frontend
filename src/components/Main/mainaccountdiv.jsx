@@ -12,8 +12,10 @@ import {
 } from "@/stores";
 import { Home } from "@/pages";
 import HomeAccountDivTransaction from "../Button/homeaccountdivtransaction";
+import { useQueryClient } from "@tanstack/react-query";
 
-function MainAccountDiv({ params }) {
+function MainAccountDiv({ params, nickname }) {
+  const qc = useQueryClient();
   const navigate = useNavigate();
 
   const [sportSharingAccountIdx, setSportSharingAccountIdx] = useAtom(
@@ -25,6 +27,9 @@ function MainAccountDiv({ params }) {
   const [sportSharingAccountNum, setSportSharingAccountNum] = useAtom(
     sportSharingAccountNumAtom
   ); // 모임통장 계좌번호
+
+  // @ts-ignore
+  // const userInfo = qc.getQueryData(["user-info"]).data;
 
   // console.log(params);
   const formatCurrency = (number) => {
@@ -58,7 +63,10 @@ function MainAccountDiv({ params }) {
     {
       content: "이체하기",
       cnm: "cnm2",
-      idx: params.sharingAccountIdx
+      idx: params.sharingAccountIdx,
+      acnm: params.accountName,
+      acnum: params.accountNumber,
+      unm: nickname
     },
     {
       content: "・・・",

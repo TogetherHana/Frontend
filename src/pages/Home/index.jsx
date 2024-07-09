@@ -162,8 +162,13 @@ function Home() {
           {/* middle1 content */}
           <div className="renewalMiddleContentDiv">
             {sharingAccountInfo.data &&
+              userInfo.data &&
               sharingAccountInfo.data.data.map((item, index) => (
-                <MainAccountDiv key={index} params={item} />
+                <MainAccountDiv
+                  key={index}
+                  params={item}
+                  nickname={userInfo.data.data.nickname}
+                />
               ))}
             {sharingAccountInfo.data &&
             sharingAccountInfo.data.data.length !== 0 ? (
