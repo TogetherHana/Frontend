@@ -56,9 +56,9 @@ function MacIcMain() {
 
   useEffect(() => {
     if (macInfo.data) {
+      setIsSubmitting(false);
       if (macInfo.data.isSuccess) {
         setIsPopupOpen(!isPopupOpen);
-        setIsSubmitting(false);
       }
     }
   }, [macInfo.data]);
