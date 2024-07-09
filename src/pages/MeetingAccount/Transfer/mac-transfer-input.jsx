@@ -107,8 +107,8 @@ function MacTransferInput() {
             {/* account_name자리 */}
 
             <div>하나 748-911260-51507</div>
-            <div onClick={() => setInputValue(formatNumber(120000))}>
-              {formatNumber(120000)}원 &gt;
+            <div>
+              120,000 원 &gt;
             </div>
           </div>
         </div>
