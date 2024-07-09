@@ -72,15 +72,19 @@ function MacIcMain() {
       </div>
       <img src={invitecodemain} alt="invitecode" className="mx-auto mt-11" />
       <div className="macInviteCodeInputDiv">
-        <input
-          placeholder="초대코드 입력"
-          onChange={(e) => setInvitecode(e.target.value)}
-        />
-        {invitecode !== "" ? (
-          <div onClick={() => handlePopupOpen()}>확인</div>
-        ) : (
-          ""
-        )}
+        <div className="input-group">
+          <input
+            className="input"
+            placeholder="초대코드 입력하세요!"
+            onChange={(e) => setInvitecode(e.target.value)}
+          />
+          <input
+            className="button--submit"
+            value="확인"
+            type="button"
+            onClick={() => handlePopupOpen()}
+          />
+        </div>
       </div>
       <ModalBottomUp
         isPopupOpen={isPopupOpen}

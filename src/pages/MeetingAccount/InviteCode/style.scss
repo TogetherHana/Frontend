@@ -6,22 +6,47 @@
 }
 
 .macInviteCodeInputDiv {
-  @apply flex mx-28 my-8;
-  div {
-    @apply grid place-items-center;
-    @include responsive-hw(20px, 45px);
-    @include responsive-font-size(10px);
-    background-color: #777575;
-    color: white;
-    border-radius: 25px;
+  @apply flex place-items-center mt-4;
+  .input-group {
+    @apply mx-20;
+    display: flex;
+    align-items: center;
   }
 
-  input {
-    border-bottom: 1px solid #c6c6c6;
-  }
-
-  ::placeholder {
+  .input {
     @include responsive-font-size(15px);
+    @include responsive-hw(50px, 200px);
+    // min-height: 50px;
+    // max-width: 150px;
+    padding: 0 1rem;
+    color: black;
+    // font-size: 15px;
+    border: 1px solid #44bd91;
+    border-radius: 6px 0 0 6px;
+    background-color: transparent;
+  }
+
+  .button--submit {
+    @include responsive-font-size(15px);
+    min-height: 50px;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    background-color: #44bd91;
+    color: #fff;
+    // font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .button--submit:hover {
+    background-color: #5e5dcd;
+  }
+
+  .input:focus,
+  .input:focus-visible {
+    border-color: #3898ec;
+    outline: none;
   }
 }
 
