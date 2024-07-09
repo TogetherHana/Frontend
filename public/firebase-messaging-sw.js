@@ -25,9 +25,9 @@ const firebaseApp = firebase.initializeApp({
 const messaging = firebase.messaging();
 
 messaging.onMessage((payload) => {
-  const notificationTitle = payload.title;
+  const notificationTitle = payload.notification.title;
   const notificationOptions = {
-    body: payload.body,
+    body: payload.notification.body,
     icon: "/icons/favicon-32x32.png",
     tag: ""
   };
@@ -35,9 +35,9 @@ messaging.onMessage((payload) => {
 });
 
 messaging.onBackgroundMessage((payload) => {
-  const notificationTitle = payload.title;
+  const notificationTitle = payload.notification.title;
   const notificationOptions = {
-    body: payload.body,
+    body: payload.notification.body,
     icon: "/icons/favicon-32x32.png",
     tag: ""
   };
