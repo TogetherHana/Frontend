@@ -58,7 +58,8 @@ function JoinIdVerification() {
 
   const checkAuthenticationNumber = () => {
     console.log(smsCertificationDto);
-    setIsSubmitting(true);
+    // setIsSubmitting(true);
+    setUserIdVerified(true);
   };
 
   // 코드 확인 요청 보내기
@@ -124,6 +125,10 @@ function JoinIdVerification() {
       setIsSubmitting(false);
     }
   }, [isAuthenticated.data]);
+
+  useEffect(() => {
+    console.log(memberInfo);
+  }, []);
 
   return (
     <>

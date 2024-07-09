@@ -49,10 +49,11 @@ function Main() {
     // isMember.data.isSuccess -> false 가입화면, true-> timer이후 showspinner 값 변경
     if (isMember.data) {
       console.log(isMember.data.isSuccess);
+      setIsSubmitting(false);
       if (isMember.data.isSuccess) {
         const timer = setTimeout(() => {
           setShowSpinner(false);
-          setIsSubmitting(false);
+          // setIsSubmitting(false);
           setTimeout(() => {
             navigate("/memberhome");
           }, 3000);
@@ -66,7 +67,7 @@ function Main() {
       } else {
         const timer = setTimeout(() => {
           navigate(`/platform/join/intro`);
-          setIsSubmitting(false);
+          // setIsSubmitting(false);
         }, 5000);
 
         return () => clearTimeout(timer);

@@ -60,7 +60,7 @@ function Mileage() {
             // @ts-ignore
             index
           ) => (
-            <MileageProductCategory content={item.content} />
+            <MileageProductCategory key={index} content={item.content} />
           )
         )}
       </div>

@@ -41,7 +41,8 @@ function JoinAuthenticationCheck() {
   });
 
   const checkNumberCode = () => {
-    setIsSubmitting(true);
+    navigate("/platform/join/setnickname");
+    // setIsSubmitting(true);
     // 숫자코드 입력 인증 -> 모달 다음 or 닫기
     if (isAccountAuthentication.data) {
       if (isAccountAuthentication.data.isSuccess) {
