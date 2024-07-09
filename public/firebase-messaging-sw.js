@@ -23,6 +23,16 @@ const firebaseApp = firebase.initializeApp({
 // messages.
 const messaging = firebase.messaging();
 
+onmessage(messaging, (payload) => {
+  const notificationTitle = payload.title;
+  const notificationOptions = {
+    body: payload.body,
+    icon: "/icons/favicon-32x32.png",
+    tag: ""
+  };
+  self.registration.showNotification(notificationTitle, notificationOptions);
+});
+
 onBackgroundMessage(messaging, (payload) => {
   const notificationTitle = payload.title;
   const notificationOptions = {
