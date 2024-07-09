@@ -24,22 +24,22 @@ const firebaseApp = firebase.initializeApp({
 // messages.
 const messaging = firebase.messaging();
 
-messaging.onMessage((payload) => {
-  const notificationTitle = payload.notification.title;
-  const notificationOptions = {
-    body: payload.notification.body,
-    icon: "/icons/favicon-32x32.png",
-    tag: ""
-  };
-  self.registration.showNotification(notificationTitle, notificationOptions);
-});
+// messaging.onMessage((payload) => {
+//   const notificationTitle = payload.notification.title;
+//   const notificationOptions = {
+//     body: payload.notification.body,
+//     icon: "/icons/favicon-32x32.png",
+//     tag: ""
+//   };
+//   self.registration.showNotification(notificationTitle, notificationOptions);
+// });
 
-messaging.onBackgroundMessage((payload) => {
-  const notificationTitle = payload.notification.title;
-  const notificationOptions = {
-    body: payload.notification.body,
-    icon: "/icons/favicon-32x32.png",
-    tag: ""
-  };
-  self.registration.showNotification(notificationTitle, notificationOptions);
-});
+// messaging.onBackgroundMessage((payload) => {
+//   const notificationTitle = payload.notification.title;
+//   const notificationOptions = {
+//     body: payload.notification.body,
+//     icon: "/icons/favicon-32x32.png",
+//     tag: ""
+//   };
+//   self.registration.showNotification(notificationTitle, notificationOptions);
+// });
