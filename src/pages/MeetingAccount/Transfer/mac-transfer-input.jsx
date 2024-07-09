@@ -130,10 +130,10 @@ function MacTransferInput() {
           )} */}
           <div className="remain-amount">
             {/* account_name자리 */}
-            <div>럭키비키 다이노스</div>
-            {/* <div onClick={() => setInputValue(formatNumber(remainBalance))}>
-              {formatNumber(remainBalance)}원 &gt;
-            </div> */}
+            <div>하나 748-911260-51507</div>
+            <div onClick={() => setInputValue(formatNumber(120000))}>
+              {formatNumber(120000)}원 &gt;
+            </div>
           </div>
         </div>
 
