@@ -32,7 +32,7 @@ function MacIdCertification() {
       {/* <img src={idtotal} alt="주민등록증" className="idVerification img" /> */}
       <div className="hanaCertifyDiv">
         <img src={hana6060} alt="hanalogo" />
-        <div className="title">이상민님의 인증서</div>
+        <div className="title">정찬수님의 인증서</div>
         <div className="sub">유효기간 2026.01.31</div>
         {/* <div>인증서 정보</div> */}
       </div>
