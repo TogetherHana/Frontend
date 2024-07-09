@@ -6,7 +6,7 @@ function MacUserInfo() {
   const navigate = useNavigate();
 
   const ocrInfo = {
-    name: "이상민",
+    name: "정찬수",
     idNumberFirst: "991229",
     idNumberSecond: "1******",
     address: "서울특별시 성동구 성수동",
