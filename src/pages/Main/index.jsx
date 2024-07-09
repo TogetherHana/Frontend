@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 function Main() {
   const [showSpinner, setShowSpinner] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [devicetoken, setDevicetoken] = useState("");
   const [deviceToken, setDeviceToken] = useAtom(deviceTokenAtom);
   const [accessToken, setAccessToken] = useAtom(accessTokenATom);
 
@@ -19,7 +20,7 @@ function Main() {
   useEffect(() => {
     const fetchData = async () => {
       const token = await requestForToken();
-      setDeviceToken(token);
+      setDevicetoken(token);
     };
 
     fetchData().then(() => setIsSubmitting(true));
@@ -31,7 +32,7 @@ function Main() {
     queryKey: ["is-member"],
     queryFn: async () => {
       const response = await fetch(
-        `${import.meta.env.VITE_BE_URI}/auth/login?deviceToken=${deviceToken}`,
+        `${import.meta.env.VITE_BE_URI}/auth/login?deviceToken=${devicetoken}`,
         {
           method: "GET",
           headers: {
