@@ -228,6 +228,10 @@ const router = createBrowserRouter([
       {
         path: "maccount/transfer/pwcheck",
         children: [{ index: true, element: <Pages.MacTransferPWCheck /> }]
+      },
+      {
+        path: "maccount/transfer/complete",
+        children: [{ index: true, element: <Pages.MacTransferComplete /> }]
       }
     ]
   },

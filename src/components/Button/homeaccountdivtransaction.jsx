@@ -6,7 +6,16 @@ function HomeAccountDivTransaction({ params }) {
   return (
     <div
       className={`mainAccountDivBtn ${params.cnm}`}
-      onClick={() => navigate("/send")}
+      onClick={() =>
+        navigate("/maccount/transfer/input", {
+          state: {
+            accountIdx: params.idx,
+            accountName: params.acnm,
+            accountNumber: params.acnum,
+            sender: params.unm
+          }
+        })
+      }
     >
       <div>{params.content}</div>
     </div>

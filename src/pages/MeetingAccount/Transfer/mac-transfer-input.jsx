@@ -1,34 +1,19 @@
 import React, { useEffect, useState } from "react";
 import "./fee_input.scss";
 import Button from "@/components/Button";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAtom } from "jotai";
-import { sendFeeAtom } from "@/stores";
-
+import { sendFeeAtom, transferInputAtom } from "@/stores";
 // @ts-ignore
 import hana from "@/assets/images/banklist/hana.svg";
-// @ts-ignore
-import sinhan from "@/assets/images/banklist/sinhan.svg";
-// @ts-ignore
-import kb from "@/assets/images/banklist/kb.svg";
-// @ts-ignore
-import woori from "@/assets/images/banklist/woori.svg";
-import { useQueryClient } from "@tanstack/react-query";
 
 function MacTransferInput() {
-  const qc = useQueryClient();
-
   const navigate = useNavigate();
+  const location = useLocation();
 
   // 숫자입력
   const [inputValue, setInputValue] = useState("");
-  const [sendData, setSendData] = useAtom(sendFeeAtom);
-  const sacInfo = qc.getQueryData(["sac-info"]);
-
-  const gotoPassword = () => {
-    setSendData({ ...sendData, amount: inputValue });
-    navigate("/mac/transfer/pwcheck");
-  };
+  const [transferInput, setTransferInput] = useAtom(transferInputAtom);
 
   const BtnClick = (number) => {
     setInputValue((prevValue) => {
@@ -54,15 +39,22 @@ function MacTransferInput() {
     try {
       // 쉼표 제거
       const sanitizedStr = str.replace(/,/g, "");
-      return BigInt(sanitizedStr);
+      return sanitizedStr;
     } catch (error) {
       console.error("Invalid string for BigInt conversion:", error);
       return null;
     }
   };
 
-  // const remainBalance = localStorage.getItem("latestRemainBalance");
-  // const account_name = localStorage.getItem("account_name");
+  const gotoPassword = () => {
+    setTransferInput({
+      ...transferInput,
+      sharingAccountIdx: location.state.accountIdx,
+      amount: stringToLong(inputValue),
+      sender: location.state.sender
+    });
+    navigate("/maccount/transfer/pwcheck");
+  };
 
   return (
     <>
@@ -78,38 +70,21 @@ function MacTransferInput() {
         <div className="input-container">
           <div className="receiver-bank-img">
             <img src={hana} alt={"하나은행"} width={50} height={50} />
-            {/* {sendData.bank === "하나" ? (
-              <img src={hana} alt={"하나은행"} width={50} height={50} />
-            ) : (
-              <div></div>
-            )}
-            {sendData.bank === "신한" ? (
-              <img src={sinhan} alt={"신한은행"} />
-            ) : (
-              <div></div>
-            )}
-            {sendData.bank === "국민" ? (
-              <img src={kb} alt={"국민은행"} />
-            ) : (
-              <div></div>
-            )}
-            {sendData.bank === "우리" ? (
-              <img src={woori} alt={"우리은행"} />
-            ) : (
-              <div></div>
-            )} */}
           </div>
-          <div className="receiver-font">{sendData.receiver} 님에게</div>
-          <div className="receiver-bank-font">
-            {sendData.bank} {sendData.receiveAccountNumber}
+          <div className="receiver-font-renewal">
+            {location.state.accountName}
+          </div>
+          <div className="receiver-bank-font-renewal">
+            하나 {location.state.accountNumber}
           </div>
           <input
             type="text"
             value={inputValue}
             className="num-input"
             placeholder="보낼금액"
+            readOnly
           />
-          {/* {stringToLong(inputValue) > stringToLong(remainBalance) ? (
+          {stringToLong(inputValue) > 100000 ? (
             <>
               <input
                 type="text"
@@ -127,10 +102,10 @@ function MacTransferInput() {
               className="num-input"
               placeholder="보낼금액"
             />
-          )} */}
+          )}
           <div className="remain-amount">
             {/* account_name자리 */}
-            <div>럭키비키 다이노스</div>
+            {/* <div>럭키비키 다이노스</div> */}
             {/* <div onClick={() => setInputValue(formatNumber(remainBalance))}>
               {formatNumber(remainBalance)}원 &gt;
             </div> */}

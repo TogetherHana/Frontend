@@ -33,7 +33,7 @@
     align-items: center;
 
     .receiver-bank-img {
-      @include responsive-position(132px, 190px);
+      @include responsive-position(132px, 195px);
     }
     .receiver-font {
       @include responsive-font-size(20px);
@@ -43,9 +43,25 @@
 
       // @include responsive-margin-bottom(20px);
     }
+    .receiver-font-renewal {
+      @apply mt-16;
+      @include responsive-font-size(20px);
+      // @include responsive-position(201px, 150px);
+      font-family: "NanumSquareRoundB";
+      font-weight: 700;
+    }
     .receiver-bank-font {
       @include responsive-font-size(15px);
       @include responsive-position(243px, 128px);
+      font-family: "NanumSquareRoundB";
+      font-weight: 700;
+      color: $color-text1;
+      // @include responsive-margin-bottom(20px);
+    }
+    .receiver-bank-font-renewal {
+      @apply mt-8;
+      @include responsive-font-size(15px);
+      // @include responsive-position(243px, 128px);
       font-family: "NanumSquareRoundB";
       font-weight: 700;
       color: $color-text1;
