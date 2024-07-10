@@ -4,6 +4,8 @@ import { useAtom } from "jotai";
 import SelectWinTeamModal from "../Modal/selectwinteammodal";
 import SystemEventSelectCheck from "./se-select-win-check";
 import jamsil from "@/assets/images/systemEvent/baseball/background_jamsil.svg";
+import gochuck from "@/assets/images/systemEvent/baseball/background_gochuck.svg";
+import changwon from "@/assets/images/systemEvent/baseball/background_changwon.svg";
 import teamImages from "../team-images";
 
 function SystemEventSelectWinMatch({ params }) {
@@ -31,6 +33,12 @@ function SystemEventSelectWinMatch({ params }) {
     switch (stadium) {
       case "잠실야구장":
         stadiumImg = jamsil;
+        break;
+      case "고척스카이돔":
+        stadiumImg = gochuck;
+        break;
+      case "NC다이노스파크":
+        stadiumImg = changwon;
         break;
       default:
         break;

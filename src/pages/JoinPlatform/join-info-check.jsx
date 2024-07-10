@@ -46,8 +46,10 @@ function JoinInfoCheck() {
   useEffect(() => {
     if (registerProcessing.data) {
       setIsSubmitting(false);
-      if (registerProcessing.data && registerProcessing.isSuccess) {
+      if (registerProcessing.isSuccess) {
         navigate("/platform/join/processing");
+      } else {
+        // navigate()
       }
     }
   }, [registerProcessing.data]);

@@ -3,10 +3,11 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 // @ts-ignore
 import copy from "@/assets/images/copy.svg";
 
-function MainAccountLink({ code }) {
+function MainAccountLink({ code, acnm }) {
+  console.log(acnm);
   return (
     <div className="mainAccountLinkContent">
-      <div className="mainAccountLinkTxt">축구모임통장 초대코드</div>
+      <div className="mainAccountLinkTxt">{acnm} 초대코드</div>
       <div className="mainAccountLinkTxt sub">
         해당 코드를 초대하고자 하는 사람에게 전달해주세요!
       </div>

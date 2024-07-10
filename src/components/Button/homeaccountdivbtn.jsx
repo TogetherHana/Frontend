@@ -33,17 +33,23 @@ function HomeAccountDivBtn({ params }) {
     setIsSubmitting(true);
     setInviteModalData((prevData) => ({
       ...prevData,
-      isOpen: !prevData.isOpen
+      isOpen: !prevData.isOpen,
+      content: (
+        <MainAccountLink code={inviteCodeInfo.data.data} acnm={params.acnm} />
+      )
     }));
   };
 
   useEffect(() => {
     if (inviteCodeInfo.data) {
       setIsSubmitting(false);
-      setInviteModalData((prevData) => ({
-        ...prevData,
-        content: <MainAccountLink code={inviteCodeInfo.data.data} />
-      }));
+      // console.log(params);
+      // setInviteModalData((prevData) => ({
+      //   ...prevData,
+      //   content: (
+
+      //   )
+      // }));
     }
   }, [inviteCodeInfo.data]);
 

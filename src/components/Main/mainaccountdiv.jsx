@@ -58,7 +58,8 @@ function MainAccountDiv({ params, nickname }) {
     {
       content: "초대하기",
       cnm: "",
-      idx: params.sharingAccountIdx
+      idx: params.sharingAccountIdx,
+      acnm: params.accountName
     },
     {
       content: "이체하기",

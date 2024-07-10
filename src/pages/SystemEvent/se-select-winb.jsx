@@ -80,18 +80,18 @@ function SystemEventSelectWinB() {
             <div className="price">700M</div>
           </div>
         </div>
-      </div>
-      {/* match select */}
-      <div className="systemEventSelectWinBB">
-        {matchInfo.data &&
-          matchInfo.data.data.map((item, index) => (
-            <SystemEventSelectWinMatch params={item} key={index} />
-          ))}
-        {matchInfo.data && matchInfo.data.data.length <= 5 ? (
-          <div className="remainMatchInfo">타구장 경기는 취소되었습니다</div>
-        ) : (
-          ""
-        )}
+        {/* match select */}
+        <div className="systemEventSelectWinBB">
+          {matchInfo.data &&
+            matchInfo.data.data.map((item, index) => (
+              <SystemEventSelectWinMatch params={item} key={index} />
+            ))}
+          {matchInfo.data && matchInfo.data.data.length <= 5 ? (
+            <div className="remainMatchInfo">타구장 경기는 취소되었습니다</div>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
     </>
   );
