@@ -43,13 +43,6 @@ function HomeAccountDivBtn({ params }) {
   useEffect(() => {
     if (inviteCodeInfo.data) {
       setIsSubmitting(false);
-      // console.log(params);
-      // setInviteModalData((prevData) => ({
-      //   ...prevData,
-      //   content: (
-
-      //   )
-      // }));
     }
   }, [inviteCodeInfo.data]);
 
